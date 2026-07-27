@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR JD Generator"
+  short_description: "Create clear multi-platform job descriptions"
+  default_prompt: "Use $hr-jd-generator to draft a clear, inclusive job description from this approved role brief."

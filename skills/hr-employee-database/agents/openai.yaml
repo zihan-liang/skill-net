@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR Employee Database"
+  short_description: "Manage auditable employee skill and KPI data"
+  default_prompt: "Use $hr-employee-database to query or update the authorized employee, skill, KPI, or training records."

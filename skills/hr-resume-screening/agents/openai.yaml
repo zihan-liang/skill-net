@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR Resume Screening"
+  short_description: "Score resumes using job-related evidence"
+  default_prompt: "Use $hr-resume-screening to evaluate these resumes against the approved role criteria and produce an evidence-based ranking."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR Offer Generator"
+  short_description: "Validate compensation and draft offer letters"
+  default_prompt: "Use $hr-offer-generator to validate the approved terms and create a draft offer letter for this finalist."

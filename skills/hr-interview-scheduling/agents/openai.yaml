@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR Interview Scheduling"
+  short_description: "Coordinate interviews and structured evaluation"
+  default_prompt: "Use $hr-interview-scheduling to create an interview schedule, candidate notice, and structured evaluation package."
