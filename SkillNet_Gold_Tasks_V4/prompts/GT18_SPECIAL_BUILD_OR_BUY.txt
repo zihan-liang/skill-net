@@ -4,6 +4,7 @@ Task ID: GT18_SPECIAL_BUILD_OR_BUY
 公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

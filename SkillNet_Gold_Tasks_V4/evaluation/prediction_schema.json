@@ -1,6 +1,69 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SkillNet Codex Prediction",
+  "$defs": {
+    "departmentName": {
+      "type": "string",
+      "enum": [
+        "Finance Agent",
+        "Procurement Agent",
+        "Technology Agent",
+        "Business Agent",
+        "HR Agent"
+      ]
+    },
+    "skillName": {
+      "type": "string",
+      "enum": [
+        "business-acceptance",
+        "business-contract-signing",
+        "business-customer-lead",
+        "business-negotiation",
+        "business-opportunity-assessment",
+        "business-project-delivery-tracking",
+        "business-renewal",
+        "business-requirement-communication",
+        "business-solution-quotation",
+        "finance-accounting",
+        "finance-budget-check",
+        "finance-budget-planning",
+        "finance-expense-request",
+        "finance-expense-review",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-reporting",
+        "hr-employee-database",
+        "hr-interview-scheduling",
+        "hr-jd-generator",
+        "hr-job-requirement",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "procurement-contract-generation",
+        "procurement-delivery-acceptance",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-quote-comparison",
+        "procurement-requirement",
+        "procurement-rfq-generation",
+        "procurement-supplier-evaluation",
+        "procurement-supplier-qualification",
+        "procurement-supplier-scoring",
+        "procurement-supplier-search",
+        "procurement-supplier-selection",
+        "technology-development-implementation",
+        "technology-feasibility-assessment",
+        "technology-operations-maintenance",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-system-release",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ]
+    }
+  },
   "type": "object",
   "required": [
     "task_id",
@@ -22,13 +85,13 @@
     "selected_departments": {
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/departmentName"
       }
     },
     "skill_sequence": {
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/skillName"
       }
     },
     "final_status": {
@@ -41,18 +104,45 @@
     "blocked_by": {
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/skillName"
       }
     },
     "route_choice": {
       "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
+      "required": [
+        "acceptance_route",
+        "build_or_buy"
+      ],
+      "properties": {
+        "acceptance_route": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "business_acceptance",
+            "technical_acceptance",
+            null
+          ]
+        },
+        "build_or_buy": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "internal_development",
+            "external_procurement",
+            null
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "reason": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

@@ -4,6 +4,7 @@ Task ID: GT20_NO_TOOL_FINANCE
 请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

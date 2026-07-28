@@ -6,7 +6,7 @@ SkillNet Codex 测试任务 V4（21条，不含父Workflow）
 统一作答要求：
 1. 根据业务情境、当前状态、最终目标和限制，自行决定需要哪些Skills及其顺序。
 2. 不实际执行业务，只输出路由方案。
-3. 不得创造清单中不存在的Skill；Skill名称必须使用清单中的正式名称。
+3. 不得创造清单中不存在的Skill；所有Skill名称必须使用对应SKILL.md YAML中的完整英文`name`（例如`finance-budget-check`），不得翻译或缩写。
 4. 不要重复调用题目已明确完成的Skill，除非题目明确要求重新检查。
 5. 若流程被冲突状态阻止，final_status写blocked，blocked_by填写造成阻断的Skill，并停止列出被禁止的后续Skill。
 6. 涉及互斥路线或主验收路线时，在route_choice中写明选择；无此类决策时使用空对象{}。

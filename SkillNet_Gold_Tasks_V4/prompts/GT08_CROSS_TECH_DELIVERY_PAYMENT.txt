@@ -4,6 +4,7 @@ Task ID: GT08_CROSS_TECH_DELIVERY_PAYMENT
 一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

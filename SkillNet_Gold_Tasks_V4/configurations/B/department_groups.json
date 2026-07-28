@@ -1,0 +1,58 @@
+{
+  "Finance Agent": [
+    "finance-budget-planning",
+    "finance-budget-check",
+    "finance-expense-request",
+    "finance-expense-review",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "Procurement Agent": [
+    "procurement-requirement",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection",
+    "procurement-contract-generation",
+    "procurement-purchase-order",
+    "procurement-delivery-tracking",
+    "procurement-delivery-acceptance",
+    "procurement-supplier-evaluation"
+  ],
+  "Technology Agent": [
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown",
+    "technology-development-implementation",
+    "technology-test-acceptance",
+    "technology-system-release",
+    "technology-operations-maintenance"
+  ],
+  "Business Agent": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "business-solution-quotation",
+    "business-negotiation",
+    "business-contract-signing",
+    "business-project-delivery-tracking",
+    "business-acceptance",
+    "business-renewal"
+  ],
+  "HR Agent": [
+    "hr-job-requirement",
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening",
+    "hr-interview-scheduling",
+    "hr-offer-generator",
+    "hr-onboarding",
+    "hr-employee-database"
+  ]
+}

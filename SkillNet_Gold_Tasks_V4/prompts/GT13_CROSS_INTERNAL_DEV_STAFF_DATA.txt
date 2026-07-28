@@ -4,6 +4,7 @@ Task ID: GT13_CROSS_INTERNAL_DEV_STAFF_DATA
 公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

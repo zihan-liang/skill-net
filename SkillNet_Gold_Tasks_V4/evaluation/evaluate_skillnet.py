@@ -58,7 +58,17 @@ def precision_recall_f1(predicted: Set[str], gold: Set[str]) -> Tuple[float, flo
 
 def load_predictions(path: Path) -> List[Dict[str, Any]]:
     records: List[Dict[str, Any]] = []
-    files = sorted(p for p in path.rglob("*") if p.suffix.lower() in {".json", ".jsonl"}) if path.is_dir() else [path]
+    files = (
+        sorted(
+            p
+            for p in path.rglob("*")
+            if p.suffix.lower() in {".json", ".jsonl"}
+            and p.name != "run_manifest.json"
+            and ".logs" not in p.parts
+        )
+        if path.is_dir()
+        else [path]
+    )
     for file_path in files:
         try:
             if file_path.suffix.lower() == ".jsonl":
@@ -303,6 +313,7 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
 
     unknown_skills = sorted({s for s in sequence if s not in canonical_skills})
     unknown_departments = sorted({d for d in predicted_departments if d not in canonical_departments})
+    unknown_blockers = sorted({s for s in blocked_by if s not in canonical_skills})
     duplicate_skills = sorted({s for s in sequence if sequence.count(s) > 1})
     repeated_initial_skills = sorted({s for s in sequence if initially_completed(task, s)})
 
@@ -334,8 +345,10 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
 
     expected_blockers = set(task.get("expected_blocked_by", []))
     blocker_precision, blocker_recall, blocker_f1 = precision_recall_f1(set(blocked_by), expected_blockers)
+    extra_blockers = sorted({s for s in blocked_by if s in canonical_skills} - expected_blockers)
     expected_route_choice = task.get("expected_route_choice", {})
-    route_choice_correct = all(route_choice.get(k) == v for k, v in expected_route_choice.items())
+    unexpected_route_choices = sorted(set(route_choice) - set(expected_route_choice))
+    route_choice_correct = route_choice == expected_route_choice
     use_skills_correct = use_skills == bool(task.get("use_skills"))
     final_status_correct = final_status == task.get("expected_final_status")
 
@@ -345,6 +358,10 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
         hard_failures.append("UNKNOWN_SKILL")
     if unknown_departments:
         hard_failures.append("UNKNOWN_DEPARTMENT")
+    if unknown_blockers:
+        hard_failures.append("UNKNOWN_BLOCKER")
+    if extra_blockers:
+        hard_failures.append("EXTRA_BLOCKER")
     if missing_required_skills:
         hard_failures.append("MISSING_REQUIRED_SKILL")
     if extra_skills:
@@ -371,12 +388,15 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
         hard_failures.append("WRONG_BLOCK_REASON")
     if not route_choice_correct:
         hard_failures.append("WRONG_ROUTE_CHOICE")
+    if unexpected_route_choices:
+        hard_failures.append("UNEXPECTED_ROUTE_CHOICE")
     if task.get("expected_final_status") == "blocked" and (forbidden_hits or conflict_v):
         hard_failures.append("CONTINUE_AFTER_BLOCK")
 
     gold_constraint_violated = bool(
         unsatisfied_order_pairs or forbidden_hits or conflict_v or mutex_v or
-        repeated_initial_skills or not route_choice_correct or
+        repeated_initial_skills or unknown_blockers or extra_blockers or
+        not route_choice_correct or unexpected_route_choices or
         (task.get("expected_final_status") == "blocked" and expected_blockers and blocker_recall < 1.0)
     )
 
@@ -387,7 +407,8 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
     )
     blocked_flow_correct = (
         expected_status == "blocked" and format_valid and use_skills_correct and
-        final_status_correct and blocker_recall == 1.0 and not forbidden_hits and
+        final_status_correct and blocker_recall == 1.0 and blocker_precision == 1.0 and
+        not unknown_blockers and not extra_blockers and not forbidden_hits and
         not conflict_v and not mutex_v and not unknown_skills and department_recall == 1.0
     )
 
@@ -411,7 +432,8 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
     priority = [
         "FORMAT_INVALID_JSON", "FORMAT_MISSING_FIELD", "FORMAT_INVALID_VALUE",
         "FALSE_TOOL_ACTIVATION", "FALSE_ABSTENTION", "WRONG_FINAL_STATUS",
-        "WRONG_BLOCK_REASON", "WRONG_ROUTE_CHOICE", "CONFLICT_VIOLATION",
+        "WRONG_BLOCK_REASON", "UNKNOWN_BLOCKER", "EXTRA_BLOCKER",
+        "WRONG_ROUTE_CHOICE", "UNEXPECTED_ROUTE_CHOICE", "CONFLICT_VIOLATION",
         "MUTEX_VIOLATION", "FORBIDDEN_SKILL_VIOLATION", "CONTINUE_AFTER_BLOCK",
         "REPEATED_COMPLETED_SKILL", "MISSING_REQUIRED_SKILL", "ORDER_VIOLATION",
         "UNKNOWN_SKILL", "UNKNOWN_DEPARTMENT", "MISSING_DEPARTMENT",
@@ -448,6 +470,9 @@ def evaluate_record(prediction: Dict[str, Any], task: Dict[str, Any], gold: Dict
         "unnecessary_skill_count": len(extra_skills),
         "unknown_skills": unknown_skills,
         "unknown_departments": unknown_departments,
+        "unknown_blockers": unknown_blockers,
+        "extra_blockers": extra_blockers,
+        "unexpected_route_choices": unexpected_route_choices,
         "missing_required_skills": missing_required_skills,
         "extra_skills": extra_skills,
         "hard_order_results": order_results,

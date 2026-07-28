@@ -4,6 +4,7 @@ Task ID: GT05_BUS_GOAL
 一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

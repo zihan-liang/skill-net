@@ -18,57 +18,57 @@
     "HR Agent"
   ],
   "skill_catalog": {
-    "预算制定": "Finance Agent",
-    "预算检查": "Finance Agent",
-    "费用申请": "Finance Agent",
-    "费用审核": "Finance Agent",
-    "发票核验": "Finance Agent",
-    "付款审批": "Finance Agent",
-    "账务处理": "Finance Agent",
-    "财务报表生成": "Finance Agent",
-    "采购需求识别": "Procurement Agent",
-    "供应商搜索": "Procurement Agent",
-    "供应商资质检查": "Procurement Agent",
-    "询价单生成": "Procurement Agent",
-    "报价比较": "Procurement Agent",
-    "供应商评分": "Procurement Agent",
-    "供应商选择": "Procurement Agent",
-    "合同生成": "Procurement Agent",
-    "采购订单生成": "Procurement Agent",
-    "交付跟踪": "Procurement Agent",
-    "交付验收": "Procurement Agent",
-    "供应商绩效评价": "Procurement Agent",
-    "技术需求识别": "Technology Agent",
-    "技术规格确认": "Technology Agent",
-    "可行性评估": "Technology Agent",
-    "技术方案设计": "Technology Agent",
-    "任务拆解": "Technology Agent",
-    "开发或实施": "Technology Agent",
-    "技术测试验收": "Technology Agent",
-    "系统上线": "Technology Agent",
-    "运行维护": "Technology Agent",
-    "客户线索管理": "Business Agent",
-    "客户需求沟通": "Business Agent",
-    "商机评估": "Business Agent",
-    "方案与报价": "Business Agent",
-    "商务谈判": "Business Agent",
-    "合同签署": "Business Agent",
-    "项目交付跟踪": "Business Agent",
-    "业务验收": "Business Agent",
-    "客户续约": "Business Agent",
-    "岗位需求": "HR Agent",
-    "JD生成": "HR Agent",
-    "招聘发布": "HR Agent",
-    "简历筛选": "HR Agent",
-    "面试安排": "HR Agent",
-    "Offer生成": "HR Agent",
-    "入职管理": "HR Agent",
-    "员工数据库": "HR Agent"
+    "finance-budget-planning": "Finance Agent",
+    "finance-budget-check": "Finance Agent",
+    "finance-expense-request": "Finance Agent",
+    "finance-expense-review": "Finance Agent",
+    "finance-invoice-verification": "Finance Agent",
+    "finance-payment-approval": "Finance Agent",
+    "finance-accounting": "Finance Agent",
+    "finance-reporting": "Finance Agent",
+    "procurement-requirement": "Procurement Agent",
+    "procurement-supplier-search": "Procurement Agent",
+    "procurement-supplier-qualification": "Procurement Agent",
+    "procurement-rfq-generation": "Procurement Agent",
+    "procurement-quote-comparison": "Procurement Agent",
+    "procurement-supplier-scoring": "Procurement Agent",
+    "procurement-supplier-selection": "Procurement Agent",
+    "procurement-contract-generation": "Procurement Agent",
+    "procurement-purchase-order": "Procurement Agent",
+    "procurement-delivery-tracking": "Procurement Agent",
+    "procurement-delivery-acceptance": "Procurement Agent",
+    "procurement-supplier-evaluation": "Procurement Agent",
+    "technology-requirement": "Technology Agent",
+    "technology-specification-confirmation": "Technology Agent",
+    "technology-feasibility-assessment": "Technology Agent",
+    "technology-solution-design": "Technology Agent",
+    "technology-task-breakdown": "Technology Agent",
+    "technology-development-implementation": "Technology Agent",
+    "technology-test-acceptance": "Technology Agent",
+    "technology-system-release": "Technology Agent",
+    "technology-operations-maintenance": "Technology Agent",
+    "business-customer-lead": "Business Agent",
+    "business-requirement-communication": "Business Agent",
+    "business-opportunity-assessment": "Business Agent",
+    "business-solution-quotation": "Business Agent",
+    "business-negotiation": "Business Agent",
+    "business-contract-signing": "Business Agent",
+    "business-project-delivery-tracking": "Business Agent",
+    "business-acceptance": "Business Agent",
+    "business-renewal": "Business Agent",
+    "hr-job-requirement": "HR Agent",
+    "hr-jd-generator": "HR Agent",
+    "hr-recruitment-publish": "HR Agent",
+    "hr-resume-screening": "HR Agent",
+    "hr-interview-scheduling": "HR Agent",
+    "hr-offer-generator": "HR Agent",
+    "hr-onboarding": "HR Agent",
+    "hr-employee-database": "HR Agent"
   },
   "aliases": {
-    "技术验收": "技术测试验收",
-    "供应商资质核验": "供应商资质检查",
-    "财务报告生成": "财务报表生成"
+    "技术验收": "technology-test-acceptance",
+    "供应商资质核验": "procurement-supplier-qualification",
+    "财务报告生成": "finance-reporting"
   },
   "evaluation_semantics": {
     "required_skills": "完成任务必须出现的Skill；初始状态中已完成的Skill不应重复输出。",
@@ -92,7 +92,7 @@
         "Procurement Agent"
       ],
       "required_skills": [
-        "供应商资质检查"
+        "procurement-supplier-qualification"
       ],
       "optional_skills": [],
       "forbidden_skills": [],
@@ -103,10 +103,10 @@
       "scoring_notes": "",
       "hard_order_constraints": [],
       "canonical_sequence": [
-        "供应商资质检查"
+        "procurement-supplier-qualification"
       ],
       "initial_skill_states": {
-        "供应商搜索": {
+        "procurement-supplier-search": {
           "status": "completed",
           "result": "success"
         }
@@ -128,8 +128,8 @@
         "Finance Agent"
       ],
       "required_skills": [
-        "账务处理",
-        "财务报表生成"
+        "finance-accounting",
+        "finance-reporting"
       ],
       "optional_skills": [],
       "forbidden_skills": [],
@@ -140,17 +140,17 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "账务处理",
-          "after": "财务报表生成",
+          "before": "finance-accounting",
+          "after": "finance-reporting",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "账务处理",
-        "财务报表生成"
+        "finance-accounting",
+        "finance-reporting"
       ],
       "initial_skill_states": {
-        "付款审批": {
+        "finance-payment-approval": {
           "status": "completed",
           "result": "approved"
         }
@@ -172,20 +172,20 @@
         "Procurement Agent"
       ],
       "required_skills": [
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择"
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
       ],
       "optional_skills": [
-        "供应商绩效评价"
+        "procurement-supplier-evaluation"
       ],
       "forbidden_skills": [
-        "商务谈判",
-        "合同生成",
-        "采购订单生成"
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "relations_tested": [
         "前置依赖",
@@ -195,45 +195,45 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "供应商搜索",
-          "after": "供应商资质检查",
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商资质检查",
-          "after": "询价单生成",
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "询价单生成",
-          "after": "报价比较",
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "报价比较",
-          "after": "供应商评分",
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商评分",
-          "after": "供应商选择",
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择"
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
       ],
       "initial_skill_states": {
-        "采购需求识别": {
+        "procurement-requirement": {
           "status": "completed",
           "result": "success"
         },
-        "预算检查": {
+        "finance-budget-check": {
           "status": "completed",
           "result": "approved"
         }
@@ -255,16 +255,16 @@
         "Technology Agent"
       ],
       "required_skills": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "任务拆解"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "开发或实施",
-        "技术测试验收",
-        "系统上线"
+        "technology-development-implementation",
+        "technology-test-acceptance",
+        "technology-system-release"
       ],
       "relations_tested": [
         "前置依赖"
@@ -273,29 +273,29 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "可行性评估",
-          "after": "技术规格确认",
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术规格确认",
-          "after": "技术方案设计",
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术方案设计",
-          "after": "任务拆解",
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "任务拆解"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
       ],
       "initial_skill_states": {
-        "技术需求识别": {
+        "technology-requirement": {
           "status": "completed",
           "result": "success"
         }
@@ -317,14 +317,14 @@
         "Business Agent"
       ],
       "required_skills": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "商务谈判",
-        "合同签署"
+        "business-negotiation",
+        "business-contract-signing"
       ],
       "relations_tested": [
         "前置依赖"
@@ -333,23 +333,23 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "客户需求沟通",
-          "after": "商机评估",
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "商机评估",
-          "after": "方案与报价",
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation"
       ],
       "initial_skill_states": {
-        "客户线索管理": {
+        "business-customer-lead": {
           "status": "completed",
           "result": "success"
         }
@@ -371,15 +371,15 @@
         "HR Agent"
       ],
       "required_skills": [
-        "JD生成",
-        "招聘发布",
-        "简历筛选"
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "面试安排",
-        "Offer生成",
-        "入职管理"
+        "hr-interview-scheduling",
+        "hr-offer-generator",
+        "hr-onboarding"
       ],
       "relations_tested": [
         "前置依赖",
@@ -389,27 +389,27 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "JD生成",
-          "after": "招聘发布",
+          "before": "hr-jd-generator",
+          "after": "hr-recruitment-publish",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "招聘发布",
-          "after": "简历筛选",
+          "before": "hr-recruitment-publish",
+          "after": "hr-resume-screening",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "JD生成",
-        "招聘发布",
-        "简历筛选"
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
       ],
       "initial_skill_states": {
-        "岗位需求": {
+        "hr-job-requirement": {
           "status": "completed",
           "result": "approved"
         },
-        "预算检查": {
+        "finance-budget-check": {
           "status": "completed",
           "result": "recruitment_approved"
         }
@@ -434,27 +434,27 @@
         "Procurement Agent"
       ],
       "required_skills": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价",
-        "技术需求识别",
-        "可行性评估",
-        "技术规格确认",
-        "采购需求识别",
-        "预算检查",
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "technology-requirement",
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "商务谈判",
-        "合同签署",
-        "合同生成",
-        "采购订单生成"
+        "business-negotiation",
+        "business-contract-signing",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "relations_tested": [
         "前置依赖",
@@ -465,89 +465,89 @@
       "scoring_notes": "客户需求沟通对技术需求识别是增强关系，不强制唯一相邻顺序；但二者都属于本任务必要信息。",
       "hard_order_constraints": [
         {
-          "before": "客户需求沟通",
-          "after": "商机评估",
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "商机评估",
-          "after": "方案与报价",
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术需求识别",
-          "after": "可行性评估",
+          "before": "technology-requirement",
+          "after": "technology-feasibility-assessment",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "可行性评估",
-          "after": "技术规格确认",
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "方案与报价",
-          "after": "采购需求识别",
+          "before": "business-solution-quotation",
+          "after": "procurement-requirement",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术规格确认",
-          "after": "采购需求识别",
+          "before": "technology-specification-confirmation",
+          "after": "procurement-requirement",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "采购需求识别",
-          "after": "预算检查",
+          "before": "procurement-requirement",
+          "after": "finance-budget-check",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "预算检查",
-          "after": "供应商搜索",
+          "before": "finance-budget-check",
+          "after": "procurement-supplier-search",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商搜索",
-          "after": "供应商资质检查",
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商资质检查",
-          "after": "询价单生成",
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "询价单生成",
-          "after": "报价比较",
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "报价比较",
-          "after": "供应商评分",
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商评分",
-          "after": "供应商选择",
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价",
-        "技术需求识别",
-        "可行性评估",
-        "技术规格确认",
-        "采购需求识别",
-        "预算检查",
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "technology-requirement",
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
       ],
       "initial_skill_states": {
-        "客户线索管理": {
+        "business-customer-lead": {
           "status": "completed",
           "result": "success"
         }
@@ -571,18 +571,18 @@
         "Finance Agent"
       ],
       "required_skills": [
-        "交付跟踪",
-        "技术测试验收",
-        "交付验收",
-        "发票核验",
-        "付款审批",
-        "账务处理"
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
       ],
       "optional_skills": [
-        "供应商绩效评价"
+        "procurement-supplier-evaluation"
       ],
       "forbidden_skills": [
-        "业务验收"
+        "business-acceptance"
       ],
       "relations_tested": [
         "前置依赖",
@@ -593,41 +593,41 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "交付跟踪",
-          "after": "技术测试验收",
+          "before": "procurement-delivery-tracking",
+          "after": "technology-test-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术测试验收",
-          "after": "交付验收",
+          "before": "technology-test-acceptance",
+          "after": "procurement-delivery-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "交付验收",
-          "after": "发票核验",
+          "before": "procurement-delivery-acceptance",
+          "after": "finance-invoice-verification",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "发票核验",
-          "after": "付款审批",
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "付款审批",
-          "after": "账务处理",
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "交付跟踪",
-        "技术测试验收",
-        "交付验收",
-        "发票核验",
-        "付款审批",
-        "账务处理"
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
       ],
       "initial_skill_states": {
-        "采购订单生成": {
+        "procurement-purchase-order": {
           "status": "completed",
           "result": "success"
         }
@@ -646,7 +646,7 @@
           "decision_id": "acceptance_route",
           "expected_choice": "technical_acceptance",
           "forbidden_route_skills": [
-            "业务验收"
+            "business-acceptance"
           ]
         }
       ]
@@ -664,16 +664,16 @@
         "Finance Agent"
       ],
       "required_skills": [
-        "交付跟踪",
-        "业务验收",
-        "交付验收",
-        "发票核验",
-        "付款审批",
-        "账务处理"
+        "procurement-delivery-tracking",
+        "business-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "技术测试验收"
+        "technology-test-acceptance"
       ],
       "relations_tested": [
         "前置依赖",
@@ -684,41 +684,41 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "交付跟踪",
-          "after": "业务验收",
+          "before": "procurement-delivery-tracking",
+          "after": "business-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "业务验收",
-          "after": "交付验收",
+          "before": "business-acceptance",
+          "after": "procurement-delivery-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "交付验收",
-          "after": "发票核验",
+          "before": "procurement-delivery-acceptance",
+          "after": "finance-invoice-verification",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "发票核验",
-          "after": "付款审批",
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "付款审批",
-          "after": "账务处理",
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "交付跟踪",
-        "业务验收",
-        "交付验收",
-        "发票核验",
-        "付款审批",
-        "账务处理"
+        "procurement-delivery-tracking",
+        "business-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
       ],
       "initial_skill_states": {
-        "采购订单生成": {
+        "procurement-purchase-order": {
           "status": "completed",
           "result": "success"
         }
@@ -737,7 +737,7 @@
           "decision_id": "acceptance_route",
           "expected_choice": "business_acceptance",
           "forbidden_route_skills": [
-            "技术测试验收"
+            "technology-test-acceptance"
           ]
         }
       ]
@@ -755,15 +755,15 @@
         "HR Agent"
       ],
       "required_skills": [
-        "交付跟踪",
-        "技术测试验收",
-        "交付验收",
-        "入职管理",
-        "员工数据库"
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "hr-onboarding",
+        "hr-employee-database"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "业务验收"
+        "business-acceptance"
       ],
       "relations_tested": [
         "前置依赖",
@@ -773,39 +773,39 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "交付跟踪",
-          "after": "技术测试验收",
+          "before": "procurement-delivery-tracking",
+          "after": "technology-test-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术测试验收",
-          "after": "交付验收",
+          "before": "technology-test-acceptance",
+          "after": "procurement-delivery-acceptance",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "交付验收",
-          "after": "入职管理",
+          "before": "procurement-delivery-acceptance",
+          "after": "hr-onboarding",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "入职管理",
-          "after": "员工数据库",
+          "before": "hr-onboarding",
+          "after": "hr-employee-database",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "交付跟踪",
-        "技术测试验收",
-        "交付验收",
-        "入职管理",
-        "员工数据库"
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "hr-onboarding",
+        "hr-employee-database"
       ],
       "initial_skill_states": {
-        "Offer生成": {
+        "hr-offer-generator": {
           "status": "completed",
           "result": "accepted"
         },
-        "采购订单生成": {
+        "procurement-purchase-order": {
           "status": "completed",
           "result": "success"
         }
@@ -824,7 +824,7 @@
           "decision_id": "acceptance_route",
           "expected_choice": "technical_acceptance",
           "forbidden_route_skills": [
-            "业务验收"
+            "business-acceptance"
           ]
         }
       ]
@@ -841,16 +841,16 @@
         "Finance Agent"
       ],
       "required_skills": [
-        "预算检查",
-        "JD生成",
-        "招聘发布",
-        "简历筛选",
-        "面试安排",
-        "Offer生成"
+        "finance-budget-check",
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "hr-interview-scheduling",
+        "hr-offer-generator"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "入职管理"
+        "hr-onboarding"
       ],
       "relations_tested": [
         "前置依赖",
@@ -861,41 +861,41 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "预算检查",
-          "after": "JD生成",
+          "before": "finance-budget-check",
+          "after": "hr-jd-generator",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "JD生成",
-          "after": "招聘发布",
+          "before": "hr-jd-generator",
+          "after": "hr-recruitment-publish",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "招聘发布",
-          "after": "简历筛选",
+          "before": "hr-recruitment-publish",
+          "after": "hr-resume-screening",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "简历筛选",
-          "after": "面试安排",
+          "before": "hr-resume-screening",
+          "after": "hr-interview-scheduling",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "面试安排",
-          "after": "Offer生成",
+          "before": "hr-interview-scheduling",
+          "after": "hr-offer-generator",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "预算检查",
-        "JD生成",
-        "招聘发布",
-        "简历筛选",
-        "面试安排",
-        "Offer生成"
+        "finance-budget-check",
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "hr-interview-scheduling",
+        "hr-offer-generator"
       ],
       "initial_skill_states": {
-        "岗位需求": {
+        "hr-job-requirement": {
           "status": "completed",
           "result": "approved"
         }
@@ -919,23 +919,23 @@
         "Procurement Agent"
       ],
       "required_skills": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价",
-        "采购需求识别",
-        "预算检查",
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择",
-        "商务谈判",
-        "合同生成",
-        "采购订单生成"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection",
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "optional_skills": [
-        "供应商绩效评价"
+        "procurement-supplier-evaluation"
       ],
       "forbidden_skills": [],
       "relations_tested": [
@@ -947,94 +947,94 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "客户需求沟通",
-          "after": "商机评估",
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "商机评估",
-          "after": "方案与报价",
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "方案与报价",
-          "after": "采购需求识别",
+          "before": "business-solution-quotation",
+          "after": "procurement-requirement",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "采购需求识别",
-          "after": "预算检查",
+          "before": "procurement-requirement",
+          "after": "finance-budget-check",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "预算检查",
-          "after": "供应商搜索",
+          "before": "finance-budget-check",
+          "after": "procurement-supplier-search",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商搜索",
-          "after": "供应商资质检查",
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商资质检查",
-          "after": "询价单生成",
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "询价单生成",
-          "after": "报价比较",
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "报价比较",
-          "after": "供应商评分",
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商评分",
-          "after": "供应商选择",
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "方案与报价",
-          "after": "商务谈判",
+          "before": "business-solution-quotation",
+          "after": "business-negotiation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "供应商选择",
-          "after": "商务谈判",
+          "before": "procurement-supplier-selection",
+          "after": "business-negotiation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "商务谈判",
-          "after": "合同生成",
+          "before": "business-negotiation",
+          "after": "procurement-contract-generation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "合同生成",
-          "after": "采购订单生成",
+          "before": "procurement-contract-generation",
+          "after": "procurement-purchase-order",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "客户需求沟通",
-        "商机评估",
-        "方案与报价",
-        "采购需求识别",
-        "预算检查",
-        "供应商搜索",
-        "供应商资质检查",
-        "询价单生成",
-        "报价比较",
-        "供应商评分",
-        "供应商选择",
-        "商务谈判",
-        "合同生成",
-        "采购订单生成"
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection",
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "initial_skill_states": {
-        "客户线索管理": {
+        "business-customer-lead": {
           "status": "completed",
           "result": "success"
         }
@@ -1057,16 +1057,16 @@
         "HR Agent"
       ],
       "required_skills": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "员工数据库",
-        "任务拆解"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "开发或实施",
-        "采购需求识别"
+        "technology-development-implementation",
+        "procurement-requirement"
       ],
       "relations_tested": [
         "前置依赖",
@@ -1077,36 +1077,36 @@
       "scoring_notes": "员工数据库→任务拆解来自增强关系；本题因用户明确要求使用员工能力数据，将其升级为任务级必要条件。",
       "hard_order_constraints": [
         {
-          "before": "可行性评估",
-          "after": "技术规格确认",
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术规格确认",
-          "after": "技术方案设计",
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术方案设计",
-          "after": "任务拆解",
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "员工数据库",
-          "after": "任务拆解",
+          "before": "hr-employee-database",
+          "after": "technology-task-breakdown",
           "constraint_type": "mandatory_order",
           "basis": "task_explicit_requirement"
         }
       ],
       "canonical_sequence": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "员工数据库",
-        "任务拆解"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
       ],
       "initial_skill_states": {
-        "技术需求识别": {
+        "technology-requirement": {
           "status": "completed",
           "result": "success"
         }
@@ -1125,7 +1125,7 @@
           "decision_id": "build_or_buy",
           "expected_choice": "internal_development",
           "forbidden_route_skills": [
-            "采购需求识别"
+            "procurement-requirement"
           ]
         }
       ]
@@ -1142,10 +1142,10 @@
         "Procurement Agent"
       ],
       "required_skills": [
-        "发票核验",
-        "付款审批",
-        "账务处理",
-        "供应商绩效评价"
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting",
+        "procurement-supplier-evaluation"
       ],
       "optional_skills": [],
       "forbidden_skills": [],
@@ -1158,29 +1158,29 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "发票核验",
-          "after": "付款审批",
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "付款审批",
-          "after": "账务处理",
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "付款审批",
-          "after": "供应商绩效评价",
+          "before": "finance-payment-approval",
+          "after": "procurement-supplier-evaluation",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "发票核验",
-        "付款审批",
-        "账务处理",
-        "供应商绩效评价"
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting",
+        "procurement-supplier-evaluation"
       ],
       "initial_skill_states": {
-        "交付验收": {
+        "procurement-delivery-acceptance": {
           "status": "completed",
           "result": "passed"
         }
@@ -1203,13 +1203,13 @@
         "Business Agent"
       ],
       "required_skills": [
-        "商务谈判",
-        "合同生成",
-        "采购订单生成"
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "交付跟踪"
+        "procurement-delivery-tracking"
       ],
       "relations_tested": [
         "前置依赖",
@@ -1219,27 +1219,27 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "商务谈判",
-          "after": "合同生成",
+          "before": "business-negotiation",
+          "after": "procurement-contract-generation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "合同生成",
-          "after": "采购订单生成",
+          "before": "procurement-contract-generation",
+          "after": "procurement-purchase-order",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "商务谈判",
-        "合同生成",
-        "采购订单生成"
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
       ],
       "initial_skill_states": {
-        "预算检查": {
+        "finance-budget-check": {
           "status": "completed",
           "result": "approved"
         },
-        "供应商选择": {
+        "procurement-supplier-selection": {
           "status": "completed",
           "result": "success"
         }
@@ -1263,8 +1263,8 @@
       "required_skills": [],
       "optional_skills": [],
       "forbidden_skills": [
-        "供应商选择",
-        "合同生成"
+        "procurement-supplier-selection",
+        "procurement-contract-generation"
       ],
       "relations_tested": [
         "冲突关系"
@@ -1274,7 +1274,7 @@
       "hard_order_constraints": [],
       "canonical_sequence": [],
       "initial_skill_states": {
-        "供应商资质检查": {
+        "procurement-supplier-qualification": {
           "status": "completed",
           "result": "unqualified"
         }
@@ -1282,19 +1282,19 @@
       "initial_route_choices": {},
       "expected_final_status": "blocked",
       "expected_blocked_by": [
-        "供应商资质检查"
+        "procurement-supplier-qualification"
       ],
       "expected_route_choice": {},
       "task_constraints": [
         {
           "type": "conflict_block",
-          "trigger_skill": "供应商资质检查",
+          "trigger_skill": "procurement-supplier-qualification",
           "trigger_results": [
             "unqualified"
           ],
           "blocked_skills": [
-            "供应商选择",
-            "合同生成"
+            "procurement-supplier-selection",
+            "procurement-contract-generation"
           ]
         }
       ]
@@ -1312,8 +1312,8 @@
       "required_skills": [],
       "optional_skills": [],
       "forbidden_skills": [
-        "付款审批",
-        "账务处理"
+        "finance-payment-approval",
+        "finance-accounting"
       ],
       "relations_tested": [
         "冲突关系"
@@ -1323,11 +1323,11 @@
       "hard_order_constraints": [],
       "canonical_sequence": [],
       "initial_skill_states": {
-        "交付验收": {
+        "procurement-delivery-acceptance": {
           "status": "completed",
           "result": "passed"
         },
-        "发票核验": {
+        "finance-invoice-verification": {
           "status": "completed",
           "result": "invalid"
         }
@@ -1335,20 +1335,20 @@
       "initial_route_choices": {},
       "expected_final_status": "blocked",
       "expected_blocked_by": [
-        "发票核验"
+        "finance-invoice-verification"
       ],
       "expected_route_choice": {},
       "task_constraints": [
         {
           "type": "conflict_block",
-          "trigger_skill": "发票核验",
+          "trigger_skill": "finance-invoice-verification",
           "trigger_results": [
             "invalid",
             "mismatch"
           ],
           "blocked_skills": [
-            "付款审批",
-            "账务处理"
+            "finance-payment-approval",
+            "finance-accounting"
           ]
         }
       ]
@@ -1364,16 +1364,16 @@
         "Technology Agent"
       ],
       "required_skills": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "任务拆解",
-        "开发或实施",
-        "技术测试验收"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown",
+        "technology-development-implementation",
+        "technology-test-acceptance"
       ],
       "optional_skills": [],
       "forbidden_skills": [
-        "采购需求识别"
+        "procurement-requirement"
       ],
       "relations_tested": [
         "前置依赖",
@@ -1383,41 +1383,41 @@
       "scoring_notes": "",
       "hard_order_constraints": [
         {
-          "before": "可行性评估",
-          "after": "技术规格确认",
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术规格确认",
-          "after": "技术方案设计",
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "技术方案设计",
-          "after": "任务拆解",
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "任务拆解",
-          "after": "开发或实施",
+          "before": "technology-task-breakdown",
+          "after": "technology-development-implementation",
           "constraint_type": "mandatory_order"
         },
         {
-          "before": "开发或实施",
-          "after": "技术测试验收",
+          "before": "technology-development-implementation",
+          "after": "technology-test-acceptance",
           "constraint_type": "mandatory_order"
         }
       ],
       "canonical_sequence": [
-        "可行性评估",
-        "技术规格确认",
-        "技术方案设计",
-        "任务拆解",
-        "开发或实施",
-        "技术测试验收"
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown",
+        "technology-development-implementation",
+        "technology-test-acceptance"
       ],
       "initial_skill_states": {
-        "技术需求识别": {
+        "technology-requirement": {
           "status": "completed",
           "result": "success"
         }
@@ -1436,7 +1436,7 @@
           "decision_id": "build_or_buy",
           "expected_choice": "internal_development",
           "forbidden_route_skills": [
-            "采购需求识别"
+            "procurement-requirement"
           ]
         }
       ]

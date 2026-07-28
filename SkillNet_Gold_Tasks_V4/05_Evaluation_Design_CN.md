@@ -5,6 +5,14 @@
 
 ## 1. 评价输入
 
+### 三组实验配置
+
+- A：相同46个原子Skills，flat形式，不提供部门分组或Graph。
+- B：相同46个原子Skills，加部门分组目录，不提供Graph。
+- C：相同46个原子Skills，加`skill_relations.json`建议图；Codex仍须自主决定适用路径。
+
+Gold、评价器和其他Configuration的数据不得进入被测Codex工作区。所有机器标识使用真实英文YAML Skill name，三组使用相同Codex模型、reasoning effort、输出Schema和独立上下文。
+
 ### Codex Prediction
 
 Codex输出是否调用Skill、部门、Skill顺序、最终状态、阻断来源、路线选择和简要理由。

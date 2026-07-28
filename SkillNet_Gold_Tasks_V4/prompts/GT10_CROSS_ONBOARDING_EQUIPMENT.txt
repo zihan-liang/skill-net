@@ -4,6 +4,7 @@ Task ID: GT10_CROSS_ONBOARDING_EQUIPMENT
 一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

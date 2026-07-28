@@ -1,0 +1,21 @@
+{
+  "A": {
+    "label": "flat-skills",
+    "description": "The same 46 atomic Skills with no department grouping file and no relation graph.",
+    "advisory_files": []
+  },
+  "B": {
+    "label": "department-grouped-skills",
+    "description": "The same 46 atomic Skills plus an advisory department grouping catalog, with no relation graph.",
+    "advisory_files": [
+      "department_groups.json"
+    ]
+  },
+  "C": {
+    "label": "graph-assisted-skills",
+    "description": "The same 46 atomic Skills plus the advisory SkillNet relation graph; Codex still selects the route.",
+    "advisory_files": [
+      "skill_relations.json"
+    ]
+  }
+}

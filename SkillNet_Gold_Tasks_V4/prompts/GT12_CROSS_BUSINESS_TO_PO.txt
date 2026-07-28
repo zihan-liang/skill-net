@@ -4,6 +4,7 @@ Task ID: GT12_CROSS_BUSINESS_TO_PO
 一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

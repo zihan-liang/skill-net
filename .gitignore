@@ -3,3 +3,4 @@ __pycache__/
 *.sqlite3
 .DS_Store
 .worktrees/
+SkillNet_Gold_Tasks_V4/predictions/**/.logs/

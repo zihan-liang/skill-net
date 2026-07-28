@@ -20,13 +20,24 @@ SkillNet Python Evaluation V4
 - route_choice
 - reason
 
-三、正式运行前验证Benchmark
+Skill名称必须使用对应SKILL.md YAML中的完整英文name。
+
+三、运行Codex A/B/C实验
+
+python run_experiments.py \
+  --configuration ALL \
+  --run-id 1 \
+  --model gpt-5.6-sol \
+  --reasoning-effort medium \
+  --max-workers 3
+
+四、正式运行前验证Benchmark
 
 python evaluate_skillnet.py validate-package \
   --gold ../02_Gold_Standard_21_V4.json \
   --output ../results/package_validation_report.json
 
-四、运行单次评估
+五、运行单次评估
 
 python evaluate_skillnet.py evaluate \
   --gold ../02_Gold_Standard_21_V4.json \
@@ -35,13 +46,13 @@ python evaluate_skillnet.py evaluate \
   --run-id 1 \
   --output-dir ../results/A_run_01
 
-五、汇总A/B/C
+六、汇总A/B/C
 
 python evaluate_skillnet.py aggregate \
   --input-root ../results \
   --output-dir ../results/summary
 
-六、主要指标
+七、主要指标
 
 - Functional Success Rate
 - Clean Success Rate
@@ -52,7 +63,7 @@ python evaluate_skillnet.py aggregate \
 - No-Tool Accuracy
 - Blocked-Flow Accuracy
 
-七、Functional Success
+八、Functional Success
 
 正常任务要求：
 - 输出格式、Tool判断和最终状态正确；
@@ -63,6 +74,6 @@ python evaluate_skillnet.py aggregate \
 
 Blocked任务要求正确停止、阻断来源正确，且不继续调用被禁止步骤。
 
-八、人工复核
+九、人工复核
 
 人工复核自动失败、使用别名、理由与路径可能矛盾，以及可能存在Gold歧义的案例。

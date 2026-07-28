@@ -4,6 +4,7 @@ Task ID: GT01_SINGLE
 采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

@@ -4,6 +4,7 @@ Task ID: GT15_CROSS_SUPPLIER_CONTRACT_PO
 预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

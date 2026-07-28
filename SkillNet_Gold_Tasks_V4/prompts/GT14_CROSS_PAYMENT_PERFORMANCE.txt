@@ -4,6 +4,7 @@ Task ID: GT14_CROSS_PAYMENT_PERFORMANCE
 一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

@@ -4,6 +4,7 @@ Task ID: GT16_SPECIAL_SUPPLIER_FAIL
 某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

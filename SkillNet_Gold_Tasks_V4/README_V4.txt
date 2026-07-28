@@ -52,6 +52,14 @@ A、B、C读取各自允许的Skill组织文件和同一批测试Prompt。
 Gold和evaluation文件不能提供给被测试Codex。
 Configuration C的图实现是路由方法的一部分，但不进入评价器。
 
+三组固定定义：
+
+A（flat-skills）：只提供相同的46个原子Skills，不提供部门分组文件或关系图。
+B（department-grouped-skills）：提供相同的46个原子Skills和department_groups.json，不提供关系图。
+C（graph-assisted-skills）：提供相同的46个原子Skills和skill_relations.json；Graph只作为建议知识，由Codex自行选路，不执行硬路由。
+
+所有机器读取和评分的Skill标识均使用SKILL.md YAML中的英文name。中文只用于业务Prompt、标题和人工说明。
+
 四、使用顺序
 
 1. 团队审核03_Gold_Tasks_Review_21_V4.md。
@@ -60,3 +68,14 @@ Configuration C的图实现是路由方法的一部分，但不进入评价器�
 4. 分别执行evaluate。
 5. 多次运行后执行aggregate。
 6. 查看主指标、失败分析和人工复核队列。
+
+五、运行Codex实验
+
+三组使用完全相同的模型和设置，每题创建独立ephemeral session：
+
+python evaluation/run_experiments.py \
+  --configuration ALL \
+  --run-id 1 \
+  --model gpt-5.6-sol \
+  --reasoning-effort medium \
+  --max-workers 3

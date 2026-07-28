@@ -4,6 +4,7 @@ Task ID: GT04_TECH_GOAL
 一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,

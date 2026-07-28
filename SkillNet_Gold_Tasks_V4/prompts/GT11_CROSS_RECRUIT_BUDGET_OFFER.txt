@@ -4,6 +4,7 @@ Task ID: GT11_CROSS_RECRUIT_BUDGET_OFFER
 技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。
 
 输出要求：只输出以下格式的合法JSON，不要使用代码块。
+所有 Skill 标识必须使用对应 SKILL.md YAML 中的完整英文 name（例如 finance-budget-check），不得翻译或缩写。
 {
   "task_id": "...",
   "use_skills": true,
