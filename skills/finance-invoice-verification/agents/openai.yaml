@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Invoice Verification"
+  short_description: "Check invoice data, totals, and duplicates"
+  default_prompt: "Use $finance-invoice-verification to check an invoice against its expense request and prior invoice keys."
