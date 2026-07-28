@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Contract Signing"
+  short_description: "Validate contract signature readiness safely"
+  default_prompt: "Use $business-contract-signing to validate a contract packet before authorized human signature."
