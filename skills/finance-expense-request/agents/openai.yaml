@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Expense Request"
+  short_description: "Prepare traceable business expense requests"
+  default_prompt: "Use $finance-expense-request to prepare a complete, approval-ready expense request packet."
