@@ -1,0 +1,16 @@
+Task ID: GT07_CROSS_CUSTOM_TECH_SUPPLIER
+任务名称：客户定制项目的供应商选择
+
+一名新客户希望公司交付一套定制技术解决方案，其中必须采购外部设备。目前只有客户线索，客户需求、技术规格、预算和供应商都尚未确认。公司的目标是在不签客户合同、不签供应合同、也不生成采购订单的前提下，确认项目方向并选出可用供应商。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

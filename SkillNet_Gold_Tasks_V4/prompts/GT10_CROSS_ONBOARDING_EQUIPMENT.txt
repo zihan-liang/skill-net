@@ -1,0 +1,16 @@
+Task ID: GT10_CROSS_ONBOARDING_EQUIPMENT
+任务名称：新员工设备到位后的入职
+
+一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

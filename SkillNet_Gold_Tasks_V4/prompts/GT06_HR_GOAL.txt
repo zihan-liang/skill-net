@@ -1,0 +1,16 @@
+Task ID: GT06_HR_GOAL
+任务名称：形成面试候选人名单
+
+一个岗位需求已经获得批准，招聘预算也已经通过，但职位尚未发布。公司希望从市场上收集申请并形成可以进入面试的候选人名单；本任务暂时不要安排面试或生成 Offer。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

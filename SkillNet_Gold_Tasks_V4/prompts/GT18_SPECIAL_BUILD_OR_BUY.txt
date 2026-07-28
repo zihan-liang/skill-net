@@ -1,0 +1,16 @@
+Task ID: GT18_SPECIAL_BUILD_OR_BUY
+任务名称：内部开发与外部采购互斥选择
+
+公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

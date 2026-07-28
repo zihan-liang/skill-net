@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillNet Codex Prediction",
+  "type": "object",
+  "required": [
+    "task_id",
+    "use_skills",
+    "selected_departments",
+    "skill_sequence",
+    "final_status",
+    "blocked_by",
+    "route_choice",
+    "reason"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "use_skills": {
+      "type": "boolean"
+    },
+    "selected_departments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skill_sequence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "final_status": {
+      "enum": [
+        "completed",
+        "blocked",
+        "no_tool"
+      ]
+    },
+    "blocked_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "route_choice": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

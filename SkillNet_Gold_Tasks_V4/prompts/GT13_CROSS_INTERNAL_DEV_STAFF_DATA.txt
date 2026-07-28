@@ -1,0 +1,16 @@
+Task ID: GT13_CROSS_INTERNAL_DEV_STAFF_DATA
+任务名称：利用员工能力数据完成技术任务拆解
+
+公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

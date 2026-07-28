@@ -1,0 +1,16 @@
+Task ID: GT16_SPECIAL_SUPPLIER_FAIL
+任务名称：不合格供应商要求继续签约
+
+某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

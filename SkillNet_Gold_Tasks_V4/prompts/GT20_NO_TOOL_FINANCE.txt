@@ -1,0 +1,16 @@
+Task ID: GT20_NO_TOOL_FINANCE
+任务名称：带财务关键词的概念解释
+
+请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

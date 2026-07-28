@@ -1,0 +1,16 @@
+Task ID: GT09_CROSS_BUS_SERVICE_PAYMENT
+任务名称：业务服务验收后的付款
+
+公司采购的一项外部咨询服务已经完成交付，供应商也提交了发票。业务团队尚未正式确认交付成果。公司的目标是在服务符合约定的情况下完成付款和入账，本任务采用业务验收路线。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

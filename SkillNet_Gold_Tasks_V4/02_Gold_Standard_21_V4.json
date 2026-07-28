@@ -1,0 +1,1526 @@
+{
+  "version": "v4.0",
+  "date": "2026-07-28",
+  "basis": "V3任务；删除relations.json及Graph Validity评价，改为完全依据任务级Gold Standard进行确定性评分。",
+  "task_count": 21,
+  "distribution": {
+    "single_skill": 1,
+    "single_department_goal": 5,
+    "cross_department_goal": 9,
+    "special_constraint": 3,
+    "no_tool": 3
+  },
+  "department_catalog": [
+    "Finance Agent",
+    "Procurement Agent",
+    "Technology Agent",
+    "Business Agent",
+    "HR Agent"
+  ],
+  "skill_catalog": {
+    "预算制定": "Finance Agent",
+    "预算检查": "Finance Agent",
+    "费用申请": "Finance Agent",
+    "费用审核": "Finance Agent",
+    "发票核验": "Finance Agent",
+    "付款审批": "Finance Agent",
+    "账务处理": "Finance Agent",
+    "财务报表生成": "Finance Agent",
+    "采购需求识别": "Procurement Agent",
+    "供应商搜索": "Procurement Agent",
+    "供应商资质检查": "Procurement Agent",
+    "询价单生成": "Procurement Agent",
+    "报价比较": "Procurement Agent",
+    "供应商评分": "Procurement Agent",
+    "供应商选择": "Procurement Agent",
+    "合同生成": "Procurement Agent",
+    "采购订单生成": "Procurement Agent",
+    "交付跟踪": "Procurement Agent",
+    "交付验收": "Procurement Agent",
+    "供应商绩效评价": "Procurement Agent",
+    "技术需求识别": "Technology Agent",
+    "技术规格确认": "Technology Agent",
+    "可行性评估": "Technology Agent",
+    "技术方案设计": "Technology Agent",
+    "任务拆解": "Technology Agent",
+    "开发或实施": "Technology Agent",
+    "技术测试验收": "Technology Agent",
+    "系统上线": "Technology Agent",
+    "运行维护": "Technology Agent",
+    "客户线索管理": "Business Agent",
+    "客户需求沟通": "Business Agent",
+    "商机评估": "Business Agent",
+    "方案与报价": "Business Agent",
+    "商务谈判": "Business Agent",
+    "合同签署": "Business Agent",
+    "项目交付跟踪": "Business Agent",
+    "业务验收": "Business Agent",
+    "客户续约": "Business Agent",
+    "岗位需求": "HR Agent",
+    "JD生成": "HR Agent",
+    "招聘发布": "HR Agent",
+    "简历筛选": "HR Agent",
+    "面试安排": "HR Agent",
+    "Offer生成": "HR Agent",
+    "入职管理": "HR Agent",
+    "员工数据库": "HR Agent"
+  },
+  "aliases": {
+    "技术验收": "技术测试验收",
+    "供应商资质核验": "供应商资质检查",
+    "财务报告生成": "财务报表生成"
+  },
+  "evaluation_semantics": {
+    "required_skills": "完成任务必须出现的Skill；初始状态中已完成的Skill不应重复输出。",
+    "hard_order_constraints": "本任务必须满足的强制偏序。只比较这些必须关系，不要求预测序列与canonical_sequence完全一致。",
+    "canonical_sequence": "仅供团队审核的一个可行示例，不用于严格相等比较。",
+    "optional_skills": "允许调用但不是完成任务的必要条件；调用后不降低Skill Precision。",
+    "forbidden_skills": "在本任务情境中不得调用的Skill。",
+    "task_constraints": "任务级冲突或互斥规则；用于失败分类和Gold Constraint Violation Rate，不依赖全局图文件。",
+    "expected_blocked_by": "任务应被阻断时，正确的阻断来源。",
+    "expected_route_choice": "互斥或验收路线任务中预期选择的路线。"
+  },
+  "tasks": [
+    {
+      "task_id": "GT01_SINGLE",
+      "category": "single_skill",
+      "title": "供应商资质核验",
+      "difficulty": "easy",
+      "prompt": "采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent"
+      ],
+      "required_skills": [
+        "供应商资质检查"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "relations_tested": [
+        "包含关系"
+      ],
+      "gold_rationale": "这是唯一保留的单 Skill 基础检查；当前目标只涉及供应商资质核验。",
+      "scoring_notes": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [
+        "供应商资质检查"
+      ],
+      "initial_skill_states": {
+        "供应商搜索": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "category": "single_department_goal",
+      "title": "月末报表准备",
+      "difficulty": "medium",
+      "prompt": "本月所有已批准款项都已经支付，但还没有进入账务系统。管理层下周一需要查看本月财务报表。请规划财务部门接下来需要完成的工作。",
+      "use_skills": true,
+      "required_departments": [
+        "Finance Agent"
+      ],
+      "required_skills": [
+        "账务处理",
+        "财务报表生成"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "relations_tested": [
+        "前置依赖"
+      ],
+      "gold_rationale": "付款完成后，应先完成账务处理，再生成财务报表。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "账务处理",
+          "after": "财务报表生成",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "账务处理",
+        "财务报表生成"
+      ],
+      "initial_skill_states": {
+        "付款审批": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT03_PROC_GOAL",
+      "category": "single_department_goal",
+      "title": "确定合格供应商",
+      "difficulty": "medium",
+      "prompt": "采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent"
+      ],
+      "required_skills": [
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择"
+      ],
+      "optional_skills": [
+        "供应商绩效评价"
+      ],
+      "forbidden_skills": [
+        "商务谈判",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "增强关系"
+      ],
+      "gold_rationale": "任务目标截止于供应商选择，后续谈判、合同和订单均不应调用。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "供应商搜索",
+          "after": "供应商资质检查",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商资质检查",
+          "after": "询价单生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "询价单生成",
+          "after": "报价比较",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "报价比较",
+          "after": "供应商评分",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商评分",
+          "after": "供应商选择",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择"
+      ],
+      "initial_skill_states": {
+        "采购需求识别": {
+          "status": "completed",
+          "result": "success"
+        },
+        "预算检查": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "category": "single_department_goal",
+      "title": "形成可进入开发的方案",
+      "difficulty": "medium",
+      "prompt": "一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "Technology Agent"
+      ],
+      "required_skills": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "任务拆解"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "开发或实施",
+        "技术测试验收",
+        "系统上线"
+      ],
+      "relations_tested": [
+        "前置依赖"
+      ],
+      "gold_rationale": "目标是形成可执行方案并完成任务拆解，但不进入开发。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "可行性评估",
+          "after": "技术规格确认",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术规格确认",
+          "after": "技术方案设计",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术方案设计",
+          "after": "任务拆解",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "任务拆解"
+      ],
+      "initial_skill_states": {
+        "技术需求识别": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "category": "single_department_goal",
+      "title": "判断商机并形成初步报价",
+      "difficulty": "medium",
+      "prompt": "一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。",
+      "use_skills": true,
+      "required_departments": [
+        "Business Agent"
+      ],
+      "required_skills": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "商务谈判",
+        "合同签署"
+      ],
+      "relations_tested": [
+        "前置依赖"
+      ],
+      "gold_rationale": "从已存在的客户线索出发，推进到方案与报价即停止。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "客户需求沟通",
+          "after": "商机评估",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "商机评估",
+          "after": "方案与报价",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价"
+      ],
+      "initial_skill_states": {
+        "客户线索管理": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "category": "single_department_goal",
+      "title": "形成面试候选人名单",
+      "difficulty": "medium",
+      "prompt": "一个岗位需求已经获得批准，招聘预算也已经通过，但职位尚未发布。公司希望从市场上收集申请并形成可以进入面试的候选人名单；本任务暂时不要安排面试或生成 Offer。",
+      "use_skills": true,
+      "required_departments": [
+        "HR Agent"
+      ],
+      "required_skills": [
+        "JD生成",
+        "招聘发布",
+        "简历筛选"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "面试安排",
+        "Offer生成",
+        "入职管理"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "冲突关系"
+      ],
+      "gold_rationale": "预算和岗位需求已完成，从JD生成推进到简历筛选。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "JD生成",
+          "after": "招聘发布",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "招聘发布",
+          "after": "简历筛选",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "JD生成",
+        "招聘发布",
+        "简历筛选"
+      ],
+      "initial_skill_states": {
+        "岗位需求": {
+          "status": "completed",
+          "result": "approved"
+        },
+        "预算检查": {
+          "status": "completed",
+          "result": "recruitment_approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "category": "cross_department_goal",
+      "title": "客户定制项目的供应商选择",
+      "difficulty": "hard",
+      "prompt": "一名新客户希望公司交付一套定制技术解决方案，其中必须采购外部设备。目前只有客户线索，客户需求、技术规格、预算和供应商都尚未确认。公司的目标是在不签客户合同、不签供应合同、也不生成采购订单的前提下，确认项目方向并选出可用供应商。",
+      "use_skills": true,
+      "required_departments": [
+        "Business Agent",
+        "Technology Agent",
+        "Finance Agent",
+        "Procurement Agent"
+      ],
+      "required_skills": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价",
+        "技术需求识别",
+        "可行性评估",
+        "技术规格确认",
+        "采购需求识别",
+        "预算检查",
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "商务谈判",
+        "合同签署",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale": "任务从客户机会出发，同时完成技术定义和外部采购准备，最终停在供应商选择。",
+      "scoring_notes": "客户需求沟通对技术需求识别是增强关系，不强制唯一相邻顺序；但二者都属于本任务必要信息。",
+      "hard_order_constraints": [
+        {
+          "before": "客户需求沟通",
+          "after": "商机评估",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "商机评估",
+          "after": "方案与报价",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术需求识别",
+          "after": "可行性评估",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "可行性评估",
+          "after": "技术规格确认",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "方案与报价",
+          "after": "采购需求识别",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术规格确认",
+          "after": "采购需求识别",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "采购需求识别",
+          "after": "预算检查",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "预算检查",
+          "after": "供应商搜索",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商搜索",
+          "after": "供应商资质检查",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商资质检查",
+          "after": "询价单生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "询价单生成",
+          "after": "报价比较",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "报价比较",
+          "after": "供应商评分",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商评分",
+          "after": "供应商选择",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价",
+        "技术需求识别",
+        "可行性评估",
+        "技术规格确认",
+        "采购需求识别",
+        "预算检查",
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择"
+      ],
+      "initial_skill_states": {
+        "客户线索管理": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "category": "cross_department_goal",
+      "title": "技术设备交付后的付款与入账",
+      "difficulty": "hard",
+      "prompt": "一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent",
+        "Technology Agent",
+        "Finance Agent"
+      ],
+      "required_skills": [
+        "交付跟踪",
+        "技术测试验收",
+        "交付验收",
+        "发票核验",
+        "付款审批",
+        "账务处理"
+      ],
+      "optional_skills": [
+        "供应商绩效评价"
+      ],
+      "forbidden_skills": [
+        "业务验收"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale": "技术产品必须经过技术测试验收和采购侧交付验收，之后才能进入财务付款。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "交付跟踪",
+          "after": "技术测试验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术测试验收",
+          "after": "交付验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "交付验收",
+          "after": "发票核验",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "发票核验",
+          "after": "付款审批",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "付款审批",
+          "after": "账务处理",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "交付跟踪",
+        "技术测试验收",
+        "交付验收",
+        "发票核验",
+        "付款审批",
+        "账务处理"
+      ],
+      "initial_skill_states": {
+        "采购订单生成": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "technical_acceptance",
+          "forbidden_route_skills": [
+            "业务验收"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "category": "cross_department_goal",
+      "title": "业务服务验收后的付款",
+      "difficulty": "hard",
+      "prompt": "公司采购的一项外部咨询服务已经完成交付，供应商也提交了发票。业务团队尚未正式确认交付成果。公司的目标是在服务符合约定的情况下完成付款和入账，本任务采用业务验收路线。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent",
+        "Business Agent",
+        "Finance Agent"
+      ],
+      "required_skills": [
+        "交付跟踪",
+        "业务验收",
+        "交付验收",
+        "发票核验",
+        "付款审批",
+        "账务处理"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "技术测试验收"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "互斥关系"
+      ],
+      "gold_rationale": "业务服务只采用业务验收主路线，不应同时选择技术测试验收。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "交付跟踪",
+          "after": "业务验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "业务验收",
+          "after": "交付验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "交付验收",
+          "after": "发票核验",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "发票核验",
+          "after": "付款审批",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "付款审批",
+          "after": "账务处理",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "交付跟踪",
+        "业务验收",
+        "交付验收",
+        "发票核验",
+        "付款审批",
+        "账务处理"
+      ],
+      "initial_skill_states": {
+        "采购订单生成": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "business_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "business_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "business_acceptance",
+          "forbidden_route_skills": [
+            "技术测试验收"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "category": "cross_department_goal",
+      "title": "新员工设备到位后的入职",
+      "difficulty": "hard",
+      "prompt": "一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent",
+        "Technology Agent",
+        "HR Agent"
+      ],
+      "required_skills": [
+        "交付跟踪",
+        "技术测试验收",
+        "交付验收",
+        "入职管理",
+        "员工数据库"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "业务验收"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖"
+      ],
+      "gold_rationale": "设备属于技术产品，先完成交付和技术验收，再办理入职并更新员工数据库。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "交付跟踪",
+          "after": "技术测试验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术测试验收",
+          "after": "交付验收",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "交付验收",
+          "after": "入职管理",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "入职管理",
+          "after": "员工数据库",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "交付跟踪",
+        "技术测试验收",
+        "交付验收",
+        "入职管理",
+        "员工数据库"
+      ],
+      "initial_skill_states": {
+        "Offer生成": {
+          "status": "completed",
+          "result": "accepted"
+        },
+        "采购订单生成": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "technical_acceptance",
+          "forbidden_route_skills": [
+            "业务验收"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "category": "cross_department_goal",
+      "title": "招聘预算确认后完成 Offer",
+      "difficulty": "hard",
+      "prompt": "技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。",
+      "use_skills": true,
+      "required_departments": [
+        "HR Agent",
+        "Finance Agent"
+      ],
+      "required_skills": [
+        "预算检查",
+        "JD生成",
+        "招聘发布",
+        "简历筛选",
+        "面试安排",
+        "Offer生成"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "入职管理"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "冲突关系"
+      ],
+      "gold_rationale": "岗位需求已完成且已审批，因此输出应从预算检查开始；预算通过后继续JD、发布、筛选、面试和Offer。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "预算检查",
+          "after": "JD生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "JD生成",
+          "after": "招聘发布",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "招聘发布",
+          "after": "简历筛选",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "简历筛选",
+          "after": "面试安排",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "面试安排",
+          "after": "Offer生成",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "预算检查",
+        "JD生成",
+        "招聘发布",
+        "简历筛选",
+        "面试安排",
+        "Offer生成"
+      ],
+      "initial_skill_states": {
+        "岗位需求": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+      "category": "cross_department_goal",
+      "title": "依赖外部服务的客户项目采购订单",
+      "difficulty": "hard",
+      "prompt": "一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。",
+      "use_skills": true,
+      "required_departments": [
+        "Business Agent",
+        "Finance Agent",
+        "Procurement Agent"
+      ],
+      "required_skills": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价",
+        "采购需求识别",
+        "预算检查",
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择",
+        "商务谈判",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "optional_skills": [
+        "供应商绩效评价"
+      ],
+      "forbidden_skills": [],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale": "客户方案触发外部采购，供应商选择和方案信息共同支持谈判、合同和采购订单。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "客户需求沟通",
+          "after": "商机评估",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "商机评估",
+          "after": "方案与报价",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "方案与报价",
+          "after": "采购需求识别",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "采购需求识别",
+          "after": "预算检查",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "预算检查",
+          "after": "供应商搜索",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商搜索",
+          "after": "供应商资质检查",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商资质检查",
+          "after": "询价单生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "询价单生成",
+          "after": "报价比较",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "报价比较",
+          "after": "供应商评分",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商评分",
+          "after": "供应商选择",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "方案与报价",
+          "after": "商务谈判",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "供应商选择",
+          "after": "商务谈判",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "商务谈判",
+          "after": "合同生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "合同生成",
+          "after": "采购订单生成",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "客户需求沟通",
+        "商机评估",
+        "方案与报价",
+        "采购需求识别",
+        "预算检查",
+        "供应商搜索",
+        "供应商资质检查",
+        "询价单生成",
+        "报价比较",
+        "供应商评分",
+        "供应商选择",
+        "商务谈判",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "initial_skill_states": {
+        "客户线索管理": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "category": "cross_department_goal",
+      "title": "利用员工能力数据完成技术任务拆解",
+      "difficulty": "hard",
+      "prompt": "公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。",
+      "use_skills": true,
+      "required_departments": [
+        "Technology Agent",
+        "HR Agent"
+      ],
+      "required_skills": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "员工数据库",
+        "任务拆解"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "开发或实施",
+        "采购需求识别"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "增强关系",
+        "互斥关系"
+      ],
+      "gold_rationale": "员工数据库通常只是增强任务拆解，但本任务明确要求利用员工能力信息，因此将其作为任务必要输入。",
+      "scoring_notes": "员工数据库→任务拆解来自增强关系；本题因用户明确要求使用员工能力数据，将其升级为任务级必要条件。",
+      "hard_order_constraints": [
+        {
+          "before": "可行性评估",
+          "after": "技术规格确认",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术规格确认",
+          "after": "技术方案设计",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术方案设计",
+          "after": "任务拆解",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "员工数据库",
+          "after": "任务拆解",
+          "constraint_type": "mandatory_order",
+          "basis": "task_explicit_requirement"
+        }
+      ],
+      "canonical_sequence": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "员工数据库",
+        "任务拆解"
+      ],
+      "initial_skill_states": {
+        "技术需求识别": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "build_or_buy": "internal_development"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "build_or_buy": "internal_development"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "build_or_buy",
+          "expected_choice": "internal_development",
+          "forbidden_route_skills": [
+            "采购需求识别"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "category": "cross_department_goal",
+      "title": "付款入账并更新供应商绩效",
+      "difficulty": "medium",
+      "prompt": "一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。",
+      "use_skills": true,
+      "required_departments": [
+        "Finance Agent",
+        "Procurement Agent"
+      ],
+      "required_skills": [
+        "发票核验",
+        "付款审批",
+        "账务处理",
+        "供应商绩效评价"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale": "付款审批后既可进入账务处理，也可更新供应商绩效，二者不必规定唯一先后。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "发票核验",
+          "after": "付款审批",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "付款审批",
+          "after": "账务处理",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "付款审批",
+          "after": "供应商绩效评价",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "发票核验",
+        "付款审批",
+        "账务处理",
+        "供应商绩效评价"
+      ],
+      "initial_skill_states": {
+        "交付验收": {
+          "status": "completed",
+          "result": "passed"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "category": "cross_department_goal",
+      "title": "完成供应商合同和采购订单",
+      "difficulty": "medium",
+      "prompt": "预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent",
+        "Business Agent"
+      ],
+      "required_skills": [
+        "商务谈判",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "交付跟踪"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "跨部门依赖"
+      ],
+      "gold_rationale": "供应商选择完成后进入商务谈判，再形成采购合同和采购订单。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "商务谈判",
+          "after": "合同生成",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "合同生成",
+          "after": "采购订单生成",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "商务谈判",
+        "合同生成",
+        "采购订单生成"
+      ],
+      "initial_skill_states": {
+        "预算检查": {
+          "status": "completed",
+          "result": "approved"
+        },
+        "供应商选择": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "category": "special_constraint",
+      "title": "不合格供应商要求继续签约",
+      "difficulty": "hard",
+      "prompt": "某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。",
+      "use_skills": true,
+      "required_departments": [
+        "Procurement Agent"
+      ],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "供应商选择",
+        "合同生成"
+      ],
+      "relations_tested": [
+        "冲突关系"
+      ],
+      "gold_rationale": "供应商资质检查不合格会同时阻止供应商选择和合同生成。",
+      "scoring_notes": "正确答案可以没有新增执行Skill，但必须返回blocked，且不得调用两个被阻止的Skill。",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {
+        "供应商资质检查": {
+          "status": "completed",
+          "result": "unqualified"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "blocked",
+      "expected_blocked_by": [
+        "供应商资质检查"
+      ],
+      "expected_route_choice": {},
+      "task_constraints": [
+        {
+          "type": "conflict_block",
+          "trigger_skill": "供应商资质检查",
+          "trigger_results": [
+            "unqualified"
+          ],
+          "blocked_skills": [
+            "供应商选择",
+            "合同生成"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "category": "special_constraint",
+      "title": "无效发票要求付款",
+      "difficulty": "hard",
+      "prompt": "采购物品已经通过交付验收，但发票核验结果显示发票无效或与合同、订单不匹配。供应商仍要求立即付款。请判断系统应如何处理，并给出最终状态。",
+      "use_skills": true,
+      "required_departments": [
+        "Finance Agent"
+      ],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "付款审批",
+        "账务处理"
+      ],
+      "relations_tested": [
+        "冲突关系"
+      ],
+      "gold_rationale": "发票核验失败会阻止付款审批，账务处理也不应继续。",
+      "scoring_notes": "正确答案可以没有新增执行Skill，但必须明确阻止付款审批。",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {
+        "交付验收": {
+          "status": "completed",
+          "result": "passed"
+        },
+        "发票核验": {
+          "status": "completed",
+          "result": "invalid"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "blocked",
+      "expected_blocked_by": [
+        "发票核验"
+      ],
+      "expected_route_choice": {},
+      "task_constraints": [
+        {
+          "type": "conflict_block",
+          "trigger_skill": "发票核验",
+          "trigger_results": [
+            "invalid",
+            "mismatch"
+          ],
+          "blocked_skills": [
+            "付款审批",
+            "账务处理"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "category": "special_constraint",
+      "title": "内部开发与外部采购互斥选择",
+      "difficulty": "hard",
+      "prompt": "公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "Technology Agent"
+      ],
+      "required_skills": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "任务拆解",
+        "开发或实施",
+        "技术测试验收"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "采购需求识别"
+      ],
+      "relations_tested": [
+        "前置依赖",
+        "互斥关系"
+      ],
+      "gold_rationale": "同一技术需求已经选择内部开发，因此不得再进入采购需求识别路线。",
+      "scoring_notes": "",
+      "hard_order_constraints": [
+        {
+          "before": "可行性评估",
+          "after": "技术规格确认",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术规格确认",
+          "after": "技术方案设计",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "技术方案设计",
+          "after": "任务拆解",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "任务拆解",
+          "after": "开发或实施",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "开发或实施",
+          "after": "技术测试验收",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "可行性评估",
+        "技术规格确认",
+        "技术方案设计",
+        "任务拆解",
+        "开发或实施",
+        "技术测试验收"
+      ],
+      "initial_skill_states": {
+        "技术需求识别": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "build_or_buy": "internal_development"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "build_or_buy": "internal_development"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "build_or_buy",
+          "expected_choice": "internal_development",
+          "forbidden_route_skills": [
+            "采购需求识别"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "category": "no_tool",
+      "title": "普通闲聊",
+      "difficulty": "easy",
+      "prompt": "给我讲一个轻松的笑话。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "ALL_BUSINESS_SKILLS"
+      ],
+      "relations_tested": [
+        "No-Tool"
+      ],
+      "gold_rationale": "普通对话，不需要调用任何企业Skill。",
+      "scoring_notes": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "category": "no_tool",
+      "title": "带财务关键词的概念解释",
+      "difficulty": "medium",
+      "prompt": "请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "ALL_BUSINESS_SKILLS"
+      ],
+      "relations_tested": [
+        "No-Tool"
+      ],
+      "gold_rationale": "用户只要求概念解释，并明确不处理公司数据。",
+      "scoring_notes": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "category": "no_tool",
+      "title": "带采购关键词的玩笑",
+      "difficulty": "medium",
+      "prompt": "给我讲一个关于采购部门的笑话，不需要执行任何采购流程。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "ALL_BUSINESS_SKILLS"
+      ],
+      "relations_tested": [
+        "No-Tool"
+      ],
+      "gold_rationale": "虽然出现采购关键词，但不应触发采购Skill。",
+      "scoring_notes": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    }
+  ]
+}

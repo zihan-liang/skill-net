@@ -1,0 +1,16 @@
+Task ID: GT11_CROSS_RECRUIT_BUDGET_OFFER
+任务名称：招聘预算确认后完成 Offer
+
+技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

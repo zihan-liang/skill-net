@@ -1,0 +1,16 @@
+Task ID: GT19_NO_TOOL_CLEAR
+任务名称：普通闲聊
+
+给我讲一个轻松的笑话。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}
