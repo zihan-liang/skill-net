@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Supplier Database"
+  short_description: "Maintain audited supplier lifecycle records"
+  default_prompt: "Use $procurement-supplier-database to prepare a minimum-necessary, audited supplier database operation."
