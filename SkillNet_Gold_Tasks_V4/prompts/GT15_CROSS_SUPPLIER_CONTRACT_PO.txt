@@ -1,0 +1,16 @@
+Task ID: GT15_CROSS_SUPPLIER_CONTRACT_PO
+任务名称：完成供应商合同和采购订单
+
+预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

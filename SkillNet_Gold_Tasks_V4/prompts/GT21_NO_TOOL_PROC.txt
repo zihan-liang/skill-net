@@ -1,0 +1,16 @@
+Task ID: GT21_NO_TOOL_PROC
+任务名称：带采购关键词的玩笑
+
+给我讲一个关于采购部门的笑话，不需要执行任何采购流程。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

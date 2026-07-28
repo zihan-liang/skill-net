@@ -1,0 +1,16 @@
+Task ID: GT14_CROSS_PAYMENT_PERFORMANCE
+任务名称：付款入账并更新供应商绩效
+
+一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

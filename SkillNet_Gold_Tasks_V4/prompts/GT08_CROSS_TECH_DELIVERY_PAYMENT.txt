@@ -1,0 +1,16 @@
+Task ID: GT08_CROSS_TECH_DELIVERY_PAYMENT
+任务名称：技术设备交付后的付款与入账
+
+一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

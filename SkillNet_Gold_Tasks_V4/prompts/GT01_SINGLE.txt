@@ -1,0 +1,16 @@
+Task ID: GT01_SINGLE
+任务名称：供应商资质核验
+
+采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

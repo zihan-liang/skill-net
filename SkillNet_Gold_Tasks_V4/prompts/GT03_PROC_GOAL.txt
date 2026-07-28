@@ -1,0 +1,16 @@
+Task ID: GT03_PROC_GOAL
+任务名称：确定合格供应商
+
+采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}

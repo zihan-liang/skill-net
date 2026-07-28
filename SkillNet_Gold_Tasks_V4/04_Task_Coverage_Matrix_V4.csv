@@ -1,0 +1,22 @@
+﻿task_id,category,difficulty,title,required_departments,required_skill_count,hard_order_count,expected_status,relations_tested
+GT01_SINGLE,single_skill,easy,供应商资质核验,Procurement Agent,1,0,completed,包含关系
+GT02_FIN_GOAL,single_department_goal,medium,月末报表准备,Finance Agent,2,1,completed,前置依赖
+GT03_PROC_GOAL,single_department_goal,medium,确定合格供应商,Procurement Agent,6,5,completed,前置依赖 | 增强关系
+GT04_TECH_GOAL,single_department_goal,medium,形成可进入开发的方案,Technology Agent,4,3,completed,前置依赖
+GT05_BUS_GOAL,single_department_goal,medium,判断商机并形成初步报价,Business Agent,3,2,completed,前置依赖
+GT06_HR_GOAL,single_department_goal,medium,形成面试候选人名单,HR Agent,3,2,completed,前置依赖 | 冲突关系
+GT07_CROSS_CUSTOM_TECH_SUPPLIER,cross_department_goal,hard,客户定制项目的供应商选择,Business Agent | Technology Agent | Finance Agent | Procurement Agent,14,13,completed,前置依赖 | 跨部门依赖 | 增强关系
+GT08_CROSS_TECH_DELIVERY_PAYMENT,cross_department_goal,hard,技术设备交付后的付款与入账,Procurement Agent | Technology Agent | Finance Agent,6,5,completed,前置依赖 | 跨部门依赖 | 增强关系
+GT09_CROSS_BUS_SERVICE_PAYMENT,cross_department_goal,hard,业务服务验收后的付款,Procurement Agent | Business Agent | Finance Agent,6,5,completed,前置依赖 | 跨部门依赖 | 互斥关系
+GT10_CROSS_ONBOARDING_EQUIPMENT,cross_department_goal,hard,新员工设备到位后的入职,Procurement Agent | Technology Agent | HR Agent,5,4,completed,前置依赖 | 跨部门依赖
+GT11_CROSS_RECRUIT_BUDGET_OFFER,cross_department_goal,hard,招聘预算确认后完成 Offer,HR Agent | Finance Agent,6,5,completed,前置依赖 | 跨部门依赖 | 冲突关系
+GT12_CROSS_BUSINESS_TO_PO,cross_department_goal,hard,依赖外部服务的客户项目采购订单,Business Agent | Finance Agent | Procurement Agent,14,14,completed,前置依赖 | 跨部门依赖 | 增强关系
+GT13_CROSS_INTERNAL_DEV_STAFF_DATA,cross_department_goal,hard,利用员工能力数据完成技术任务拆解,Technology Agent | HR Agent,5,4,completed,前置依赖 | 增强关系 | 互斥关系
+GT14_CROSS_PAYMENT_PERFORMANCE,cross_department_goal,medium,付款入账并更新供应商绩效,Finance Agent | Procurement Agent,4,3,completed,前置依赖 | 跨部门依赖 | 增强关系
+GT15_CROSS_SUPPLIER_CONTRACT_PO,cross_department_goal,medium,完成供应商合同和采购订单,Procurement Agent | Business Agent,3,2,completed,前置依赖 | 跨部门依赖
+GT16_SPECIAL_SUPPLIER_FAIL,special_constraint,hard,不合格供应商要求继续签约,Procurement Agent,0,0,blocked,冲突关系
+GT17_SPECIAL_INVALID_INVOICE,special_constraint,hard,无效发票要求付款,Finance Agent,0,0,blocked,冲突关系
+GT18_SPECIAL_BUILD_OR_BUY,special_constraint,hard,内部开发与外部采购互斥选择,Technology Agent,6,5,completed,前置依赖 | 互斥关系
+GT19_NO_TOOL_CLEAR,no_tool,easy,普通闲聊,,0,0,no_tool,No-Tool
+GT20_NO_TOOL_FINANCE,no_tool,medium,带财务关键词的概念解释,,0,0,no_tool,No-Tool
+GT21_NO_TOOL_PROC,no_tool,medium,带采购关键词的玩笑,,0,0,no_tool,No-Tool

@@ -1,0 +1,16 @@
+Task ID: GT05_BUS_GOAL
+任务名称：判断商机并形成初步报价
+
+一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。
+
+输出要求：只输出以下格式的合法JSON，不要使用代码块。
+{
+  "task_id": "...",
+  "use_skills": true,
+  "selected_departments": ["..."],
+  "skill_sequence": ["..."],
+  "final_status": "completed | blocked | no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "简要说明为什么选择这条路径"
+}
