@@ -169,6 +169,47 @@ class FinanceDatabaseTests(unittest.TestCase):
         self.assertEqual(self.connection.execute("SELECT COUNT(*) FROM invoices").fetchone()[0], 1)
         self.assertEqual(self.connection.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0], 1)
 
+    def test_duplicate_invoice_key_normalizes_case_and_whitespace(self):
+        first = {
+            "invoice_id": "INV-1",
+            "supplier_id": "SUP-1",
+            "invoice_number": "2026-001",
+            "amount": "106.00",
+            "currency": "CNY",
+            "status": "verified",
+        }
+        second = {
+            **first,
+            "invoice_id": "INV-2",
+            "supplier_id": " sup-1 ",
+            "invoice_number": "2026-001 ",
+        }
+        self.upsert("invoice", first)
+
+        with self.assertRaisesRegex(ValueError, "duplicate invoice key"):
+            self.upsert("invoice", second)
+
+        self.assertEqual(self.connection.execute("SELECT COUNT(*) FROM invoices").fetchone()[0], 1)
+
+    def test_report_snapshot_requires_approved_status(self):
+        with self.assertRaisesRegex(ValueError, "report snapshot status must be approved"):
+            self.upsert(
+                "report_snapshot",
+                {
+                    "report_id": "RPT-DRAFT",
+                    "period": "2026-07",
+                    "currency": "CNY",
+                    "status": "draft",
+                    "payload": {"income_total": "600.00"},
+                },
+            )
+
+        self.assertEqual(
+            self.connection.execute("SELECT COUNT(*) FROM report_snapshots").fetchone()[0],
+            0,
+        )
+        self.assertEqual(self.connection.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0], 0)
+
     def test_invalid_records_do_not_mutate_database(self):
         self.seed_department()
         audit_before = self.connection.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0]

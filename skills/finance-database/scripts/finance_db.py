@@ -242,7 +242,13 @@ def _normalize(entity_type: str, data: dict[str, Any]) -> dict[str, Any]:
         raise ValueError(f"unsupported transaction kind: {normalized['kind']}")
     if entity_type == "open_item" and normalized["kind"] not in {"receivable", "payable"}:
         raise ValueError(f"unsupported open item kind: {normalized['kind']}")
+    if entity_type == "invoice":
+        normalized["supplier_id"] = str(normalized["supplier_id"]).strip()
+        normalized["invoice_number"] = str(normalized["invoice_number"]).strip()
     if entity_type == "report_snapshot":
+        if str(normalized["status"]).strip().lower() != "approved":
+            raise ValueError("report snapshot status must be approved")
+        normalized["status"] = "approved"
         if not isinstance(normalized["payload"], dict):
             raise ValueError("report snapshot payload must be an object")
         normalized["payload_json"] = json.dumps(
