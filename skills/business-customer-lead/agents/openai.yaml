@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Customer Lead"
+  short_description: "Capture and review customer leads safely"
+  default_prompt: "Use $business-customer-lead to create an evidence-based customer lead record."
