@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Delivery Acceptance"
+  short_description: "Inspect and document supplier deliveries"
+  default_prompt: "Use $procurement-delivery-acceptance to compare this delivery with the approved order and prepare a human acceptance record."
