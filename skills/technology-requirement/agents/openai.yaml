@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Requirement"
+  short_description: "Define traceable technology requirements"
+  default_prompt: "Use $technology-requirement to turn this business need into a review-ready technology requirement."
