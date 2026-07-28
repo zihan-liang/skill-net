@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Negotiation"
+  short_description: "Prepare and document controlled negotiations"
+  default_prompt: "Use $business-negotiation to prepare a negotiation mandate and reviewable negotiation record."
