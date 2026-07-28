@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Budget Planning"
+  short_description: "Build controlled departmental budget drafts"
+  default_prompt: "Use $finance-budget-planning to turn operating assumptions into an approval-ready departmental budget draft."
