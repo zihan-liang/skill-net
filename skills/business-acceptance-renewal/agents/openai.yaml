@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Acceptance and Renewal"
+  short_description: "Review delivery acceptance and renewal"
+  default_prompt: "Use $business-acceptance-renewal to prepare an evidence-based acceptance and renewal review."
