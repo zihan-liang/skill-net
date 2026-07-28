@@ -1,4 +1,0 @@
-interface:
-  display_name: "Business Customer Database"
-  short_description: "Maintain audited customer lifecycle records"
-  default_prompt: "Use $business-customer-database to store or retrieve minimum-necessary customer lifecycle records."

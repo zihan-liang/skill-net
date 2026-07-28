@@ -7,19 +7,16 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / "skills"
+SKILLS = ROOT / ".agents" / "skills"
 EXPECTED_RESOURCES = {
     "finance-budget-planning": {"assets/budget_template.md"},
+    "finance-budget-check": {"assets/budget_check_template.md"},
     "finance-expense-request": {"assets/expense_request_template.md"},
     "finance-expense-review": set(),
     "finance-invoice-verification": {"scripts/verify_invoice.py"},
     "finance-payment-approval": {"assets/payment_approval_template.md"},
     "finance-accounting": {"scripts/validate_journal.py"},
     "finance-reporting": {"scripts/generate_financial_report.py"},
-    "finance-database": {
-        "scripts/finance_db.py",
-        "references/finance_schema.md",
-    },
 }
 REQUIRED_HEADINGS = {
     "## Overview",
@@ -27,7 +24,9 @@ REQUIRED_HEADINGS = {
     "## Workflow",
     "## Output Contract",
     "## SkillNet Relationships",
-    "## Guardrails",
+    "## Approval Controls",
+    "## Exception Handling",
+    "## Handoff",
     "## Example",
     "## Common Mistakes",
 }
@@ -78,6 +77,9 @@ class FinanceSkillContractTests(unittest.TestCase):
     def test_budget_planning(self):
         self.validate_skill("finance-budget-planning")
 
+    def test_budget_check(self):
+        self.validate_skill("finance-budget-check")
+
     def test_expense_request(self):
         self.validate_skill("finance-expense-request")
 
@@ -95,10 +97,6 @@ class FinanceSkillContractTests(unittest.TestCase):
 
     def test_reporting(self):
         self.validate_skill("finance-reporting")
-
-    def test_database(self):
-        self.validate_skill("finance-database")
-
 
 if __name__ == "__main__":
     unittest.main()

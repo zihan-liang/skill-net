@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Negotiation"
+  short_description: "Atomic Business Negotiation workflow"
+  default_prompt: "Use $business-negotiation for this atomic workflow stage."

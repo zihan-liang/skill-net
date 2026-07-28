@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Requirement"
+  short_description: "Atomic Technology Requirement workflow"
+  default_prompt: "Use $technology-requirement for this atomic workflow stage."

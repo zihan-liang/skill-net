@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Job Requirement"
+  short_description: "Atomic Hr Job Requirement workflow"
+  default_prompt: "Use $hr-job-requirement for this atomic workflow stage."

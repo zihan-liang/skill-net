@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Budget Check"
+  short_description: "Atomic Finance Budget Check workflow"
+  default_prompt: "Use $finance-budget-check for this atomic workflow stage."

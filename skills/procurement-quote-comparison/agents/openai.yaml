@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Quote Comparison"
-  short_description: "Compare supplier quotes transparently"
-  default_prompt: "Use $procurement-quote-comparison to validate and compare these supplier quotations without making the award decision."

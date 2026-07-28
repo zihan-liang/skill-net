@@ -7,8 +7,9 @@ import unittest
 
 SCRIPT = (
     Path(__file__).resolve().parents[1]
+    / ".agents"
     / "skills"
-    / "procurement-contract-order"
+    / "procurement-purchase-order"
     / "scripts"
     / "render_purchase_order.py"
 )

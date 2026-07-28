@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Quote Comparison"
+  short_description: "Atomic Procurement Quote Comparison workflow"
+  default_prompt: "Use $procurement-quote-comparison for this atomic workflow stage."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Renewal"
+  short_description: "Atomic Business Renewal workflow"
+  default_prompt: "Use $business-renewal for this atomic workflow stage."

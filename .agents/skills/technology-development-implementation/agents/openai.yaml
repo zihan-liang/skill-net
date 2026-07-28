@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Development Implementation"
+  short_description: "Atomic Technology Development Implementation workflow"
+  default_prompt: "Use $technology-development-implementation for this atomic workflow stage."

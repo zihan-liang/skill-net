@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Invoice Verification"
+  short_description: "Atomic Finance Invoice Verification workflow"
+  default_prompt: "Use $finance-invoice-verification for this atomic workflow stage."

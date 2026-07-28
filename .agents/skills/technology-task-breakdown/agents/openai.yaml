@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Task Breakdown"
+  short_description: "Atomic Technology Task Breakdown workflow"
+  default_prompt: "Use $technology-task-breakdown for this atomic workflow stage."

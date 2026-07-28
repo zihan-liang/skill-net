@@ -7,6 +7,7 @@ import unittest
 
 SCRIPT = (
     Path(__file__).resolve().parents[1]
+    / ".agents"
     / "skills"
     / "hr-offer-generator"
     / "scripts"

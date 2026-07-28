@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Test Acceptance"
+  short_description: "Atomic Technology Test Acceptance workflow"
+  default_prompt: "Use $technology-test-acceptance for this atomic workflow stage."

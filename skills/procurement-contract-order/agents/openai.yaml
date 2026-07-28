@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Contract and Order"
-  short_description: "Draft controlled contracts and orders"
-  default_prompt: "Use $procurement-contract-order to prepare a controlled contract and unissued purchase-order draft from this approved selection."

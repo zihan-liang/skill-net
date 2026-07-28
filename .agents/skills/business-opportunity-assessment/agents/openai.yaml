@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Opportunity Assessment"
+  short_description: "Atomic Business Opportunity Assessment workflow"
+  default_prompt: "Use $business-opportunity-assessment for this atomic workflow stage."

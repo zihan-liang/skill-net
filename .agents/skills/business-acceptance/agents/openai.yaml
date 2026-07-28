@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Acceptance"
+  short_description: "Atomic Business Acceptance workflow"
+  default_prompt: "Use $business-acceptance for this atomic workflow stage."

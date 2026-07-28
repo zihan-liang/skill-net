@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Feasibility Assessment"
-  short_description: "Assess technology options and feasibility"
-  default_prompt: "Use $technology-feasibility-assessment to compare feasible options and prepare a human go-or-no-go recommendation."

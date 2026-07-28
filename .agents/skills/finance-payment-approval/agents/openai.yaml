@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Payment Approval"
+  short_description: "Atomic Finance Payment Approval workflow"
+  default_prompt: "Use $finance-payment-approval for this atomic workflow stage."

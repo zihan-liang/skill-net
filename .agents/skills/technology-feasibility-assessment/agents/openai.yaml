@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Feasibility Assessment"
+  short_description: "Atomic Technology Feasibility Assessment workflow"
+  default_prompt: "Use $technology-feasibility-assessment for this atomic workflow stage."

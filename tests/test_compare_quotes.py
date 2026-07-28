@@ -7,6 +7,7 @@ import unittest
 
 SCRIPT = (
     Path(__file__).resolve().parents[1]
+    / ".agents"
     / "skills"
     / "procurement-quote-comparison"
     / "scripts"
@@ -36,10 +37,6 @@ class QuoteComparisonTests(unittest.TestCase):
                 {"item_id": "LAPTOP", "quantity": "2", "unit_price": "100.00"}
             ],
             "delivery_days": "10",
-            "quality_score": "4",
-            "quality_evidence": "QA-A",
-            "service_score": "5",
-            "service_evidence": "SRV-A",
             "source_reference": "QUOTE-A.pdf",
         }
         self.quote_b = {
@@ -51,25 +48,21 @@ class QuoteComparisonTests(unittest.TestCase):
                 {"item_id": "LAPTOP", "quantity": "2", "unit_price": "125.00"}
             ],
             "delivery_days": "5",
-            "quality_score": "5",
-            "quality_evidence": "QA-B",
-            "service_score": "4",
-            "service_evidence": "SRV-B",
             "source_reference": "QUOTE-B.pdf",
         }
 
-    def test_ranks_eligible_quotes_with_hand_checked_scores(self):
+    def test_normalizes_and_commercially_ranks_eligible_quotes(self):
         result = MODULE.compare_quotes(
             self.requirement, [self.quote_a, self.quote_b]
         )
 
         rows = {row["quote_id"]: row for row in result["quotes"]}
         self.assertEqual(rows["Q-A"]["total_price"], "200.00")
-        self.assertEqual(rows["Q-A"]["weighted_score"], "4.18")
-        self.assertEqual(rows["Q-A"]["rank"], 2)
+        self.assertEqual(rows["Q-A"]["commercial_rank"], 1)
         self.assertEqual(rows["Q-B"]["total_price"], "250.00")
-        self.assertEqual(rows["Q-B"]["weighted_score"], "4.45")
-        self.assertEqual(rows["Q-B"]["rank"], 1)
+        self.assertEqual(rows["Q-B"]["commercial_rank"], 2)
+        self.assertNotIn("weighted_score", rows["Q-A"])
+        self.assertNotIn("dimension_scores", rows["Q-A"])
         self.assertEqual(result["decision_status"], "human_review_required")
 
     def test_keeps_missing_mandatory_item_as_ineligible(self):
@@ -82,7 +75,7 @@ class QuoteComparisonTests(unittest.TestCase):
         row = MODULE.compare_quotes(self.requirement, [incomplete])["quotes"][0]
 
         self.assertFalse(row["eligible"])
-        self.assertIsNone(row["rank"])
+        self.assertIsNone(row["commercial_rank"])
         self.assertIn("missing mandatory item LAPTOP", row["blocking_findings"])
 
     def test_currency_mismatch_and_expiry_are_visible(self):
@@ -98,27 +91,26 @@ class QuoteComparisonTests(unittest.TestCase):
         self.assertIn("currency mismatch: USD != CNY", row["blocking_findings"])
         self.assertIn("quote expired before comparison date", row["blocking_findings"])
 
-    def test_missing_score_evidence_makes_quote_ineligible(self):
-        unsupported = {**self.quote_a, "quality_evidence": ""}
+    def test_normalizes_discount_tax_and_freight(self):
+        commercial = {
+            **self.quote_a,
+            "discount": "10.00",
+            "tax": "12.00",
+            "freight": "8.00",
+        }
+
+        row = MODULE.compare_quotes(self.requirement, [commercial])["quotes"][0]
+
+        self.assertEqual(row["line_subtotal"], "200.00")
+        self.assertEqual(row["total_price"], "210.00")
+
+    def test_requires_quote_source_but_not_quality_scoring(self):
+        unsupported = {**self.quote_a, "source_reference": ""}
 
         row = MODULE.compare_quotes(self.requirement, [unsupported])["quotes"][0]
 
         self.assertFalse(row["eligible"])
-        self.assertIn("missing quality evidence", row["blocking_findings"])
-
-    def test_rejects_invalid_weights(self):
-        requirement = {
-            **self.requirement,
-            "weights": {
-                "price": "0.50",
-                "delivery": "0.25",
-                "quality": "0.20",
-                "service": "0.15",
-            },
-        }
-
-        with self.assertRaisesRegex(ValueError, "weights must sum to 1"):
-            MODULE.compare_quotes(requirement, [self.quote_a])
+        self.assertIn("missing quote source reference", row["blocking_findings"])
 
     def test_rejects_duplicate_quote_ids(self):
         duplicate = {**self.quote_b, "quote_id": "Q-A"}

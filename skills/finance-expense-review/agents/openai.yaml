@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finance Expense Review"
-  short_description: "Review expenses against policy and budget"
-  default_prompt: "Use $finance-expense-review to assess an expense request and prepare an auditable human-review recommendation."

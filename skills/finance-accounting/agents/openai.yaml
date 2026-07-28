@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finance Accounting"
-  short_description: "Validate balanced draft journal entries"
-  default_prompt: "Use $finance-accounting to prepare and validate a source-backed draft journal entry."

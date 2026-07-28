@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Budget Confirmation"
-  short_description: "Confirm procurement budget and approvals"
-  default_prompt: "Use $procurement-budget-confirmation to verify the budget and approval route for this procurement requirement."

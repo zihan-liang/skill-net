@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Jd Generator"
+  short_description: "Atomic Hr Jd Generator workflow"
+  default_prompt: "Use $hr-jd-generator for this atomic workflow stage."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Recruitment Publish"
+  short_description: "Atomic Hr Recruitment Publish workflow"
+  default_prompt: "Use $hr-recruitment-publish for this atomic workflow stage."

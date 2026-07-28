@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Delivery Acceptance"
+  short_description: "Atomic Procurement Delivery Acceptance workflow"
+  default_prompt: "Use $procurement-delivery-acceptance for this atomic workflow stage."

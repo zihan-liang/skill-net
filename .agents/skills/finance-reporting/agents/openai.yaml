@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Reporting"
+  short_description: "Atomic Finance Reporting workflow"
+  default_prompt: "Use $finance-reporting for this atomic workflow stage."

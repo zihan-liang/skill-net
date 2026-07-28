@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Development and Implementation"
-  short_description: "Implement scoped technology changes safely"
-  default_prompt: "Use $technology-development-implementation to implement this approved task with test-first evidence and a review-ready handoff."

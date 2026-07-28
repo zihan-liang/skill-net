@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Operations Maintenance"
+  short_description: "Atomic Technology Operations Maintenance workflow"
+  default_prompt: "Use $technology-operations-maintenance for this atomic workflow stage."

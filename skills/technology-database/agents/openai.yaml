@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Database"
-  short_description: "Maintain audited technology lifecycle records"
-  default_prompt: "Use $technology-database to prepare a minimum-necessary, audited technology database operation."

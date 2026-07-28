@@ -7,25 +7,30 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / "skills"
+SKILLS = ROOT / ".agents" / "skills"
 EXPECTED_RESOURCES = {
     "procurement-requirement": {"assets/procurement_request_template.md"},
-    "procurement-budget-confirmation": {"assets/budget_confirmation_template.md"},
-    "procurement-supplier-sourcing": set(),
+    "procurement-supplier-search": {"assets/supplier_search_template.md"},
+    "procurement-supplier-qualification": {
+        "assets/supplier_qualification_checklist.md"
+    },
+    "procurement-rfq-generation": {"assets/rfq_template.md"},
     "procurement-quote-comparison": {"scripts/compare_quotes.py"},
+    "procurement-supplier-scoring": {
+        "assets/supplier_scorecard.md",
+        "scripts/score_suppliers.py",
+    },
     "procurement-supplier-selection": {"assets/supplier_selection_memo.md"},
-    "procurement-contract-order": {
+    "procurement-contract-generation": {"assets/contract_draft_template.md"},
+    "procurement-purchase-order": {
         "assets/purchase_order_template.md",
         "scripts/render_purchase_order.py",
     },
+    "procurement-delivery-tracking": {"assets/delivery_tracking_template.md"},
     "procurement-delivery-acceptance": {
         "assets/delivery_acceptance_template.md"
     },
     "procurement-supplier-evaluation": {"scripts/evaluate_supplier.py"},
-    "procurement-supplier-database": {
-        "scripts/supplier_db.py",
-        "references/supplier_schema.md",
-    },
 }
 REQUIRED_HEADINGS = {
     "## Overview",
@@ -33,7 +38,9 @@ REQUIRED_HEADINGS = {
     "## Workflow",
     "## Output Contract",
     "## SkillNet Relationships",
-    "## Guardrails",
+    "## Approval Controls",
+    "## Exception Handling",
+    "## Handoff",
     "## Example",
     "## Common Mistakes",
 }
@@ -84,30 +91,38 @@ class ProcurementSkillContractTests(unittest.TestCase):
     def test_requirement(self):
         self.validate_skill("procurement-requirement")
 
-    def test_budget_confirmation(self):
-        self.validate_skill("procurement-budget-confirmation")
+    def test_supplier_search(self):
+        self.validate_skill("procurement-supplier-search")
 
-    def test_supplier_sourcing(self):
-        self.validate_skill("procurement-supplier-sourcing")
+    def test_supplier_qualification(self):
+        self.validate_skill("procurement-supplier-qualification")
+
+    def test_rfq_generation(self):
+        self.validate_skill("procurement-rfq-generation")
 
     def test_quote_comparison(self):
         self.validate_skill("procurement-quote-comparison")
 
+    def test_supplier_scoring(self):
+        self.validate_skill("procurement-supplier-scoring")
+
     def test_supplier_selection(self):
         self.validate_skill("procurement-supplier-selection")
 
-    def test_contract_order(self):
-        self.validate_skill("procurement-contract-order")
+    def test_contract_generation(self):
+        self.validate_skill("procurement-contract-generation")
+
+    def test_purchase_order(self):
+        self.validate_skill("procurement-purchase-order")
+
+    def test_delivery_tracking(self):
+        self.validate_skill("procurement-delivery-tracking")
 
     def test_delivery_acceptance(self):
         self.validate_skill("procurement-delivery-acceptance")
 
     def test_supplier_evaluation(self):
         self.validate_skill("procurement-supplier-evaluation")
-
-    def test_supplier_database(self):
-        self.validate_skill("procurement-supplier-database")
-
 
 if __name__ == "__main__":
     unittest.main()

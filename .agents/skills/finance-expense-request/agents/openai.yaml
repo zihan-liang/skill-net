@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Expense Request"
+  short_description: "Atomic Finance Expense Request workflow"
+  default_prompt: "Use $finance-expense-request for this atomic workflow stage."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Solution Quotation"
+  short_description: "Atomic Business Solution Quotation workflow"
+  default_prompt: "Use $business-solution-quotation for this atomic workflow stage."

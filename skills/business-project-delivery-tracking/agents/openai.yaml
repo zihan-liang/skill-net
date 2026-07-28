@@ -1,4 +1,0 @@
-interface:
-  display_name: "Business Project Delivery Tracking"
-  short_description: "Track contractual delivery with evidence"
-  default_prompt: "Use $business-project-delivery-tracking to evaluate project milestones and delivery risks."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Requirement"
-  short_description: "Define traceable procurement requirements"
-  default_prompt: "Use $procurement-requirement to create a review-ready procurement requirement from this business need."

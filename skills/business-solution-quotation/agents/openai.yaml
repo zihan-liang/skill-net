@@ -1,4 +1,0 @@
-interface:
-  display_name: "Business Solution and Quotation"
-  short_description: "Prepare controlled solutions and quotations"
-  default_prompt: "Use $business-solution-quotation to draft a traceable solution and calculate its quotation."

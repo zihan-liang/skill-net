@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Expense Review"
+  short_description: "Atomic Finance Expense Review workflow"
+  default_prompt: "Use $finance-expense-review for this atomic workflow stage."

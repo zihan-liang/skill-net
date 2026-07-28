@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finance Budget Planning"
+  short_description: "Atomic Finance Budget Planning workflow"
+  default_prompt: "Use $finance-budget-planning for this atomic workflow stage."

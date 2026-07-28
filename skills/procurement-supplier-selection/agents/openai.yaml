@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Supplier Selection"
-  short_description: "Prepare evidence-based supplier selections"
-  default_prompt: "Use $procurement-supplier-selection to prepare a human-reviewable supplier selection memo from this sourcing evidence."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Interview Scheduling"
+  short_description: "Atomic Hr Interview Scheduling workflow"
+  default_prompt: "Use $hr-interview-scheduling for this atomic workflow stage."

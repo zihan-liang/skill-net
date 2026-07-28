@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finance Reporting"
-  short_description: "Generate reconciled finance report drafts"
-  default_prompt: "Use $finance-reporting to generate a source-covered financial summary and surface reconciliation gaps."

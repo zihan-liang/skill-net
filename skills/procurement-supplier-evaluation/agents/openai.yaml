@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Supplier Evaluation"
-  short_description: "Evaluate evidence-backed supplier performance"
-  default_prompt: "Use $procurement-supplier-evaluation to calculate and explain an evidence-backed supplier performance evaluation."

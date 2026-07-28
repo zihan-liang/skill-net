@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Operations and Maintenance"
-  short_description: "Operate, recover, and maintain systems safely"
-  default_prompt: "Use $technology-operations-maintenance to document and coordinate this system incident or maintenance activity safely."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Resume Screening"
+  short_description: "Atomic Hr Resume Screening workflow"
+  default_prompt: "Use $hr-resume-screening for this atomic workflow stage."

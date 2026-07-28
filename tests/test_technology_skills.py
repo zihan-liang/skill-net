@@ -7,11 +7,14 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / "skills"
+SKILLS = ROOT / ".agents" / "skills"
 EXPECTED_RESOURCES = {
     "technology-requirement": {"assets/technology_requirement_template.md"},
     "technology-feasibility-assessment": {
         "assets/feasibility_assessment_template.md"
+    },
+    "technology-specification-confirmation": {
+        "assets/technology_specification_template.md"
     },
     "technology-solution-design": {"assets/technical_design_template.md"},
     "technology-task-breakdown": {"scripts/validate_task_plan.py"},
@@ -26,10 +29,6 @@ EXPECTED_RESOURCES = {
     "technology-operations-maintenance": {
         "assets/incident_maintenance_template.md"
     },
-    "technology-database": {
-        "scripts/technology_db.py",
-        "references/technology_schema.md",
-    },
 }
 REQUIRED_HEADINGS = {
     "## Overview",
@@ -37,7 +36,9 @@ REQUIRED_HEADINGS = {
     "## Workflow",
     "## Output Contract",
     "## SkillNet Relationships",
-    "## Guardrails",
+    "## Approval Controls",
+    "## Exception Handling",
+    "## Handoff",
     "## Example",
     "## Common Mistakes",
 }
@@ -91,6 +92,9 @@ class TechnologySkillContractTests(unittest.TestCase):
     def test_feasibility_assessment(self):
         self.validate_skill("technology-feasibility-assessment")
 
+    def test_specification_confirmation(self):
+        self.validate_skill("technology-specification-confirmation")
+
     def test_solution_design(self):
         self.validate_skill("technology-solution-design")
 
@@ -108,10 +112,6 @@ class TechnologySkillContractTests(unittest.TestCase):
 
     def test_operations_maintenance(self):
         self.validate_skill("technology-operations-maintenance")
-
-    def test_database(self):
-        self.validate_skill("technology-database")
-
 
 if __name__ == "__main__":
     unittest.main()

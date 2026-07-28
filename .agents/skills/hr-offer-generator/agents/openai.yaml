@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hr Offer Generator"
+  short_description: "Atomic Hr Offer Generator workflow"
+  default_prompt: "Use $hr-offer-generator for this atomic workflow stage."

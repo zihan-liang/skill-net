@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Specification Confirmation"
+  short_description: "Atomic Technology Specification Confirmation workflow"
+  default_prompt: "Use $technology-specification-confirmation for this atomic workflow stage."

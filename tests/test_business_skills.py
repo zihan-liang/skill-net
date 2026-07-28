@@ -7,7 +7,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / "skills"
+SKILLS = ROOT / ".agents" / "skills"
 EXPECTED_RESOURCES = {
     "business-customer-lead": {"assets/customer_lead_template.md"},
     "business-requirement-communication": {
@@ -27,13 +27,8 @@ EXPECTED_RESOURCES = {
         "assets/project_delivery_tracker.md",
         "scripts/evaluate_delivery_progress.py",
     },
-    "business-acceptance-renewal": {
-        "assets/acceptance_renewal_template.md"
-    },
-    "business-customer-database": {
-        "scripts/customer_db.py",
-        "references/customer_schema.md",
-    },
+    "business-acceptance": {"assets/acceptance_template.md"},
+    "business-renewal": {"assets/renewal_template.md"},
 }
 REQUIRED_HEADINGS = {
     "## Overview",
@@ -41,7 +36,9 @@ REQUIRED_HEADINGS = {
     "## Workflow",
     "## Output Contract",
     "## SkillNet Relationships",
-    "## Guardrails",
+    "## Approval Controls",
+    "## Exception Handling",
+    "## Handoff",
     "## Example",
     "## Common Mistakes",
 }
@@ -110,11 +107,11 @@ class BusinessSkillContractTests(unittest.TestCase):
     def test_project_delivery_tracking(self):
         self.validate_skill("business-project-delivery-tracking")
 
-    def test_acceptance_renewal(self):
-        self.validate_skill("business-acceptance-renewal")
+    def test_acceptance(self):
+        self.validate_skill("business-acceptance")
 
-    def test_customer_database(self):
-        self.validate_skill("business-customer-database")
+    def test_renewal(self):
+        self.validate_skill("business-renewal")
 
 
 if __name__ == "__main__":

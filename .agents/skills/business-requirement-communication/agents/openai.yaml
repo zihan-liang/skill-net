@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Requirement Communication"
+  short_description: "Atomic Business Requirement Communication workflow"
+  default_prompt: "Use $business-requirement-communication for this atomic workflow stage."

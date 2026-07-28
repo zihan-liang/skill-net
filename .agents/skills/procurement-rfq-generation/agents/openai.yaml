@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Rfq Generation"
+  short_description: "Atomic Procurement Rfq Generation workflow"
+  default_prompt: "Use $procurement-rfq-generation for this atomic workflow stage."

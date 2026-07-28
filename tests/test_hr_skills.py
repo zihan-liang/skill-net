@@ -7,7 +7,7 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ROOT / "skills"
+SKILLS = ROOT / ".agents" / "skills"
 EXPECTED_RESOURCES = {
     "hr-job-requirement": set(),
     "hr-jd-generator": {"assets/jd_template.md"},
@@ -27,7 +27,9 @@ REQUIRED_HEADINGS = {
     "## Workflow",
     "## Output Contract",
     "## SkillNet Relationships",
-    "## Guardrails",
+    "## Approval Controls",
+    "## Exception Handling",
+    "## Handoff",
     "## Example",
     "## Common Mistakes",
 }

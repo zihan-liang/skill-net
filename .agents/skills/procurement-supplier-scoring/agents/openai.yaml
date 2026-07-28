@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Supplier Scoring"
+  short_description: "Atomic Procurement Supplier Scoring workflow"
+  default_prompt: "Use $procurement-supplier-scoring for this atomic workflow stage."

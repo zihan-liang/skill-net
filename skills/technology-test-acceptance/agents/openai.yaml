@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Test Acceptance"
-  short_description: "Evaluate test evidence and acceptance gates"
-  default_prompt: "Use $technology-test-acceptance to evaluate this test evidence and prepare a human acceptance decision."

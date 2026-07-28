@@ -1,4 +1,0 @@
-interface:
-  display_name: "Procurement Supplier Sourcing"
-  short_description: "Source and qualify supplier candidates"
-  default_prompt: "Use $procurement-supplier-sourcing to build an evidence-backed supplier candidate list for this approved requirement."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finance Payment Approval"
-  short_description: "Prepare controlled payment approval packets"
-  default_prompt: "Use $finance-payment-approval to assemble a payment packet and identify every blocking approval check."

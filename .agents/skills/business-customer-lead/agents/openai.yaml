@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Customer Lead"
+  short_description: "Atomic Business Customer Lead workflow"
+  default_prompt: "Use $business-customer-lead for this atomic workflow stage."

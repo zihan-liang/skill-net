@@ -1,4 +1,0 @@
-interface:
-  display_name: "HR Recruitment Publishing"
-  short_description: "Prepare recruitment posts and channel tracking"
-  default_prompt: "Use $hr-recruitment-publish to prepare channel-specific recruitment copy and a publication tracking plan."

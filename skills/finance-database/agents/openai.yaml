@@ -1,4 +1,0 @@
-interface:
-  display_name: "Finance Database"
-  short_description: "Maintain audited finance workflow records"
-  default_prompt: "Use $finance-database to perform an authorized, minimum-data finance record operation with audit evidence."

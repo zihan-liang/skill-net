@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Project Delivery Tracking"
+  short_description: "Atomic Business Project Delivery Tracking workflow"
+  default_prompt: "Use $business-project-delivery-tracking for this atomic workflow stage."

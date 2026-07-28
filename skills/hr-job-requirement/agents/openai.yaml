@@ -1,4 +1,0 @@
-interface:
-  display_name: "HR Job Requirement"
-  short_description: "Structure and approve hiring requirements"
-  default_prompt: "Use $hr-job-requirement to turn this hiring request into an approval-ready role brief."

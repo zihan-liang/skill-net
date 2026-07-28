@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Contract Signing"
+  short_description: "Atomic Business Contract Signing workflow"
+  default_prompt: "Use $business-contract-signing for this atomic workflow stage."

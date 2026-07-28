@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Supplier Qualification"
+  short_description: "Atomic Procurement Supplier Qualification workflow"
+  default_prompt: "Use $procurement-supplier-qualification for this atomic workflow stage."

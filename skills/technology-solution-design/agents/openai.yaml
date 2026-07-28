@@ -1,4 +1,0 @@
-interface:
-  display_name: "Technology Solution Design"
-  short_description: "Design review-ready technical solutions"
-  default_prompt: "Use $technology-solution-design to turn this approved requirement and feasibility decision into a review-ready technical design."

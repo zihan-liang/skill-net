@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procurement Delivery Tracking"
+  short_description: "Atomic Procurement Delivery Tracking workflow"
+  default_prompt: "Use $procurement-delivery-tracking for this atomic workflow stage."
