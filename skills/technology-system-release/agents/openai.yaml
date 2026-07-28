@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology System Release"
+  short_description: "Validate controlled system release readiness"
+  default_prompt: "Use $technology-system-release to validate this release manifest and prepare a human-controlled release runbook."
