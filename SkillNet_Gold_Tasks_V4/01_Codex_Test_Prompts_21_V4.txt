@@ -12,17 +12,60 @@ SkillNet Codex 测试任务 V4（21条，不含父Workflow）
 6. 涉及互斥路线或主验收路线时，在route_choice中写明选择；无此类决策时使用空对象{}。
 7. 若不需要企业Skill，use_skills写false，final_status写no_tool，skill_sequence为空。
 8. 只输出合法JSON，不要使用Markdown代码块，也不要添加JSON以外的文字。
-9. 使用固定JSON格式：
+9. 只输出一个合法JSON对象，并严格使用以下字段。所有示例值仅用于说明格式，必须根据当前任务判断和替换，不得直接照抄。
+
+字段说明：
+- task_id：字符串，填写当前任务ID。
+- use_skills：JSON布尔值。任务需要使用企业Skill或企业路由规则时填写true；完全不需要企业Skill时填写false。
+- selected_departments：字符串数组，填写实际涉及的部门；不调用企业Skill时填写空数组[]。
+- skill_sequence：字符串数组，只填写尚需执行的Skill，并按计划顺序排列；不得重复题目已经明确完成的Skill。
+- final_status：只能填写completed、blocked或no_tool。
+  - completed：可以通过所选Skill路径完成任务目标。
+  - blocked：任务需要企业Skill，但已知冲突、审批失败、检查不通过或互斥条件使流程不能继续。
+  - no_tool：任务完全不需要调用任何企业Skill。
+- blocked_by：字符串数组。final_status为blocked时，填写产生已知阻断结果的Skill；其他情况填写空数组[]。
+- route_choice：对象。涉及互斥路线或主验收路线时写明选择；没有路线选择时填写空对象{}。
+- reason：字符串，简要说明选择该路径、阻断原因或不调用Skill的原因。
+
+三种状态的合法JSON格式示例：
+
+正常完成：
 {
-  "task_id": "...",
+  "task_id": "GTXX",
   "use_skills": true,
-  "selected_departments": ["..."],
-  "skill_sequence": ["..."],
-  "final_status": "completed | blocked | no_tool",
+  "selected_departments": ["部门名称"],
+  "skill_sequence": ["Skill名称"],
+  "final_status": "completed",
   "blocked_by": [],
   "route_choice": {},
-  "reason": "简要说明为什么选择这条路径"
+  "reason": "简要说明为什么该路径可以完成任务"
 }
+
+流程被阻断：
+{
+  "task_id": "GTXX",
+  "use_skills": true,
+  "selected_departments": ["部门名称"],
+  "skill_sequence": [],
+  "final_status": "blocked",
+  "blocked_by": ["造成阻断的Skill名称"],
+  "route_choice": {},
+  "reason": "已知检查结果不满足条件，因此禁止继续执行后续Skill"
+}
+
+不需要企业Skill：
+{
+  "task_id": "GTXX",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "该任务不需要调用企业Skill"
+}
+
+必须根据当前任务替换示例值。只输出JSON对象，不得输出Markdown代码块、字段说明或其他文字。
 
 每条任务应独立运行，避免上下文污染。
 
