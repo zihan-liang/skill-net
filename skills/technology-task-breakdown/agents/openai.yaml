@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technology Task Breakdown"
+  short_description: "Create valid dependency-aware task plans"
+  default_prompt: "Use $technology-task-breakdown to convert this approved design into small, testable tasks with valid dependencies."
