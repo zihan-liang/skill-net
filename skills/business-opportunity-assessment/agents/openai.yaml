@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Opportunity Assessment"
+  short_description: "Evaluate customer opportunities with evidence"
+  default_prompt: "Use $business-opportunity-assessment to evaluate this customer opportunity for human review."
