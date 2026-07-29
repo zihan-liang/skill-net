@@ -1,0 +1,18 @@
+Task ID: GT03_PROC_GOAL
+Task title (English): Select a Qualified Supplier
+任务名称（中文）：确定合格供应商
+
+English task prompt
+The procurement requirement and budget have been confirmed. The company currently has no supplier candidates and wants to select a supplier with suitable qualifications, pricing, and overall performance. This task does not yet require negotiation, contract signing, or purchase-order generation. Plan the Skills the procurement department must invoke.
+
+中文任务
+采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

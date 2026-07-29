@@ -1,0 +1,18 @@
+Task ID: GT13_CROSS_INTERNAL_DEV_STAFF_DATA
+Task title (English): Use Employee Capability Data to Complete Technical Task Breakdown
+任务名称（中文）：利用员工能力数据完成技术任务拆解
+
+English task prompt
+The company has decided to use internal development for a technical requirement. The requirement has been identified, and existing employee skill and project-experience data is available. The company wants to confirm feasibility and use employee capability information to create an executable technical task assignment. Do not begin development in this task.
+
+中文任务
+公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

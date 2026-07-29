@@ -1,0 +1,18 @@
+Task ID: GT18_SPECIAL_BUILD_OR_BUY
+Task title (English): Choose the Internal-Build Route under Build-or-Buy Mutual Exclusion
+任务名称（中文）：内部开发与外部采购互斥选择
+
+English task prompt
+The company has decided to use internal development for the same technical requirement and must not procure an external technical service. The technical requirement has been identified. The goal is to complete the internal-development route through technology test acceptance. Plan the Skills that should be invoked.
+
+中文任务
+公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

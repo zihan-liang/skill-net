@@ -1,0 +1,549 @@
+{
+  "version": "v1.0",
+  "authoritative_main_commit": "cdb4ecdf838fdd4e0bbb01e4c766b32eb430eb47",
+  "skills": [
+    {
+      "id": "business-acceptance",
+      "name_en": "Business Acceptance",
+      "display_name": "业务验收",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-acceptance/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-acceptance/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-contract-signing",
+      "name_en": "Business Contract Signing",
+      "display_name": "合同签署",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-contract-signing/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-contract-signing/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-customer-lead",
+      "name_en": "Business Customer Lead",
+      "display_name": "客户线索管理",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-customer-lead/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-customer-lead/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-negotiation",
+      "name_en": "Business Negotiation",
+      "display_name": "商务谈判",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-negotiation/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-negotiation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-opportunity-assessment",
+      "name_en": "Business Opportunity Assessment",
+      "display_name": "商机评估",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-opportunity-assessment/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-opportunity-assessment/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-project-delivery-tracking",
+      "name_en": "Business Project Delivery Tracking",
+      "display_name": "项目交付跟踪",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-project-delivery-tracking/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-project-delivery-tracking/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-renewal",
+      "name_en": "Business Renewal",
+      "display_name": "客户续约",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-renewal/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-renewal/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-requirement-communication",
+      "name_en": "Business Requirement Communication",
+      "display_name": "客户需求沟通",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-requirement-communication/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-requirement-communication/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "business-solution-quotation",
+      "name_en": "Business Solution and Quotation",
+      "display_name": "方案与报价",
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name": "业务部门",
+      "source_file": ".agents/skills/business-solution-quotation/SKILL.md",
+      "metadata_source_file": ".agents/skills/business-solution-quotation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/3/parent"
+    },
+    {
+      "id": "finance-accounting",
+      "name_en": "Finance Accounting",
+      "display_name": "账务处理",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-accounting/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-accounting/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-budget-check",
+      "name_en": "Finance Budget Check",
+      "display_name": "预算检查",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-budget-check/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-budget-check/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-budget-planning",
+      "name_en": "Finance Budget Planning",
+      "display_name": "预算制定",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-budget-planning/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-budget-planning/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-expense-request",
+      "name_en": "Finance Expense Request",
+      "display_name": "费用申请",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-expense-request/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-expense-request/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-expense-review",
+      "name_en": "Finance Expense Review",
+      "display_name": "费用审核",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-expense-review/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-expense-review/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-invoice-verification",
+      "name_en": "Finance Invoice Verification",
+      "display_name": "发票核验",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-invoice-verification/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-invoice-verification/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-payment-approval",
+      "name_en": "Finance Payment Approval",
+      "display_name": "付款审批",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-payment-approval/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-payment-approval/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "finance-reporting",
+      "name_en": "Finance Reporting",
+      "display_name": "财务报表生成",
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name": "财务部门",
+      "source_file": ".agents/skills/finance-reporting/SKILL.md",
+      "metadata_source_file": ".agents/skills/finance-reporting/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/0/parent"
+    },
+    {
+      "id": "hr-employee-database",
+      "name_en": "HR Employee Database",
+      "display_name": "员工数据库",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-employee-database/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-employee-database/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-interview-scheduling",
+      "name_en": "HR Interview Scheduling",
+      "display_name": "面试安排",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-interview-scheduling/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-interview-scheduling/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-jd-generator",
+      "name_en": "HR JD Generator",
+      "display_name": "JD生成",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-jd-generator/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-jd-generator/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-job-requirement",
+      "name_en": "HR Job Requirement",
+      "display_name": "岗位需求",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-job-requirement/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-job-requirement/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-offer-generator",
+      "name_en": "HR Offer Generator",
+      "display_name": "Offer生成",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-offer-generator/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-offer-generator/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-onboarding",
+      "name_en": "HR Onboarding",
+      "display_name": "入职管理",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-onboarding/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-onboarding/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-recruitment-publish",
+      "name_en": "HR Recruitment Publish",
+      "display_name": "招聘发布",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-recruitment-publish/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-recruitment-publish/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "hr-resume-screening",
+      "name_en": "HR Resume Screening",
+      "display_name": "简历筛选",
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name": "人力资源部门",
+      "source_file": ".agents/skills/hr-resume-screening/SKILL.md",
+      "metadata_source_file": ".agents/skills/hr-resume-screening/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/4/parent"
+    },
+    {
+      "id": "procurement-contract-generation",
+      "name_en": "Procurement Contract Generation",
+      "display_name": "合同生成",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-contract-generation/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-contract-generation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-delivery-acceptance",
+      "name_en": "Procurement Delivery Acceptance",
+      "display_name": "交付验收",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-delivery-acceptance/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-delivery-acceptance/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-delivery-tracking",
+      "name_en": "Procurement Delivery Tracking",
+      "display_name": "交付跟踪",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-delivery-tracking/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-delivery-tracking/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-purchase-order",
+      "name_en": "Procurement Purchase Order",
+      "display_name": "采购订单生成",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-purchase-order/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-purchase-order/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-quote-comparison",
+      "name_en": "Procurement Quote Comparison",
+      "display_name": "报价比较",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-quote-comparison/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-quote-comparison/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-requirement",
+      "name_en": "Procurement Requirement",
+      "display_name": "采购需求识别",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-requirement/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-requirement/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-rfq-generation",
+      "name_en": "Procurement RFQ Generation",
+      "display_name": "询价单生成",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-rfq-generation/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-rfq-generation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-supplier-evaluation",
+      "name_en": "Procurement Supplier Evaluation",
+      "display_name": "供应商绩效评价",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-supplier-evaluation/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-supplier-evaluation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-supplier-qualification",
+      "name_en": "Procurement Supplier Qualification",
+      "display_name": "供应商资质检查",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-supplier-qualification/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-supplier-qualification/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-supplier-scoring",
+      "name_en": "Procurement Supplier Scoring",
+      "display_name": "供应商评分",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-supplier-scoring/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-supplier-scoring/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-supplier-search",
+      "name_en": "Procurement Supplier Search",
+      "display_name": "供应商搜索",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-supplier-search/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-supplier-search/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "procurement-supplier-selection",
+      "name_en": "Procurement Supplier Selection",
+      "display_name": "供应商选择",
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name": "采购部门",
+      "source_file": ".agents/skills/procurement-supplier-selection/SKILL.md",
+      "metadata_source_file": ".agents/skills/procurement-supplier-selection/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/1/parent"
+    },
+    {
+      "id": "technology-development-implementation",
+      "name_en": "Technology Development and Implementation",
+      "display_name": "开发或实施",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-development-implementation/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-development-implementation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-feasibility-assessment",
+      "name_en": "Technology Feasibility Assessment",
+      "display_name": "可行性评估",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-feasibility-assessment/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-feasibility-assessment/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-operations-maintenance",
+      "name_en": "Technology Operations and Maintenance",
+      "display_name": "运行维护",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-operations-maintenance/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-operations-maintenance/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-requirement",
+      "name_en": "Technology Requirement",
+      "display_name": "技术需求识别",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-requirement/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-requirement/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-solution-design",
+      "name_en": "Technology Solution Design",
+      "display_name": "技术方案设计",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-solution-design/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-solution-design/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-specification-confirmation",
+      "name_en": "Technology Specification Confirmation",
+      "display_name": "技术规格确认",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-specification-confirmation/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-specification-confirmation/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-system-release",
+      "name_en": "Technology System Release",
+      "display_name": "系统上线",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-system-release/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-system-release/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-task-breakdown",
+      "name_en": "Technology Task Breakdown",
+      "display_name": "任务拆解",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-task-breakdown/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-task-breakdown/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    },
+    {
+      "id": "technology-test-acceptance",
+      "name_en": "Technology Test Acceptance",
+      "display_name": "技术测试验收",
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name": "技术部门",
+      "source_file": ".agents/skills/technology-test-acceptance/SKILL.md",
+      "metadata_source_file": ".agents/skills/technology-test-acceptance/agents/openai.yaml",
+      "department_source_file": "skill_relations.json#/contains/2/parent"
+    }
+  ],
+  "departments": [
+    {
+      "id": "finance-agent",
+      "name_en": "Finance Agent",
+      "display_name": "财务部门",
+      "source_file": "skill_relations.json#/contains/0/parent",
+      "name_en_source": "Existing V4 display label normalized to the canonical main department ID; main defines no separate department title."
+    },
+    {
+      "id": "procurement-agent",
+      "name_en": "Procurement Agent",
+      "display_name": "采购部门",
+      "source_file": "skill_relations.json#/contains/1/parent",
+      "name_en_source": "Existing V4 display label normalized to the canonical main department ID; main defines no separate department title."
+    },
+    {
+      "id": "technology-agent",
+      "name_en": "Technology Agent",
+      "display_name": "技术部门",
+      "source_file": "skill_relations.json#/contains/2/parent",
+      "name_en_source": "Existing V4 display label normalized to the canonical main department ID; main defines no separate department title."
+    },
+    {
+      "id": "business-agent",
+      "name_en": "Business Agent",
+      "display_name": "业务部门",
+      "source_file": "skill_relations.json#/contains/3/parent",
+      "name_en_source": "Existing V4 display label normalized to the canonical main department ID; main defines no separate department title."
+    },
+    {
+      "id": "hr-agent",
+      "name_en": "HR Agent",
+      "display_name": "人力资源部门",
+      "source_file": "skill_relations.json#/contains/4/parent",
+      "name_en_source": "Existing V4 display label normalized to the canonical main department ID; main defines no separate department title."
+    }
+  ]
+}

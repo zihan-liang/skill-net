@@ -1,0 +1,18 @@
+Task ID: GT20_NO_TOOL_FINANCE
+Task title (English): Concept Explanation with a Finance Keyword
+任务名称（中文）：带财务关键词的概念解释
+
+English task prompt
+Explain in simple language what “budget check” means. Do not read, analyze, or modify any company budget data.
+
+中文任务
+请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

@@ -1,0 +1,223 @@
+SkillNet Codex Test Tasks V4 — English/Bilingual Edition
+Version: v4.1-bilingual
+
+Experiment isolation
+During a formal run, Codex may read only this prompt file and the Skill organization files
+allowed by the active configuration. It must not read the Gold Standard or evaluation files.
+
+Response requirements
+1. Decide which Skills are needed and in what order from the business context, current state,
+   target, and restrictions.
+2. Do not execute the business process; output only a routing plan.
+3. Do not invent Skills. Every value in skill_sequence and blocked_by must be an exact canonical
+   English Skill ID from main/.agents/skills, such as procurement-supplier-qualification.
+4. Every value in selected_departments must be an exact canonical department ID from
+   main/skill_relations.json: finance-agent, procurement-agent, technology-agent,
+   business-agent, or hr-agent.
+5. Do not repeat a Skill that the task explicitly says is already complete unless rechecking is requested.
+6. If a known conflict state blocks the process, set final_status to blocked, list the canonical
+   blocking Skill ID in blocked_by, and do not list prohibited downstream Skills.
+7. For a mutex route or primary acceptance route, record the choice in route_choice; otherwise use {}.
+8. If no enterprise Skill is needed, set use_skills to false, final_status to no_tool, and use empty
+   arrays for selected_departments, skill_sequence, and blocked_by.
+9. Output exactly one valid JSON object. Do not use a Markdown code block or add non-JSON text.
+
+Required JSON fields
+- task_id: current task ID.
+- use_skills: JSON boolean.
+- selected_departments: canonical department-ID array.
+- skill_sequence: canonical Skill-ID array containing only Skills still to execute, in planned order.
+- final_status: completed, blocked, or no_tool.
+- blocked_by: canonical blocking Skill-ID array; empty unless blocked.
+- route_choice: route-choice object, or {} when no route decision applies.
+- reason: short explanation.
+
+Valid completed example
+{
+  "task_id": "GTXX",
+  "use_skills": true,
+  "selected_departments": ["procurement-agent"],
+  "skill_sequence": ["procurement-supplier-qualification"],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "The selected canonical Skill completes the stated target."
+}
+
+Valid blocked example
+{
+  "task_id": "GTXX",
+  "use_skills": true,
+  "selected_departments": ["finance-agent"],
+  "skill_sequence": [],
+  "final_status": "blocked",
+  "blocked_by": ["finance-invoice-verification"],
+  "route_choice": {},
+  "reason": "The known verification result blocks downstream payment."
+}
+
+Valid no-tool example
+{
+  "task_id": "GTXX",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "The request does not require an enterprise Skill."
+}
+
+Replace every example value for the current task. Run each task independently to avoid context contamination.
+
+
+============================================================
+ENGLISH TASK SET — independently runnable with the instructions above
+============================================================
+
+[GT01_SINGLE] Supplier Qualification Verification
+The procurement team has compiled a list of supplier candidates. Determine only whether these suppliers have the basic qualifications to participate in this procurement. Do not request quotations, score suppliers, or select a supplier. Return the Skill that should be invoked.
+
+[GT02_FIN_GOAL] Month-End Financial Statement Preparation
+All approved payments for this month have been paid, but they have not yet been posted to the accounting system. Management needs to review this month's financial statements next Monday. Plan the work the finance department must complete next.
+
+[GT03_PROC_GOAL] Select a Qualified Supplier
+The procurement requirement and budget have been confirmed. The company currently has no supplier candidates and wants to select a supplier with suitable qualifications, pricing, and overall performance. This task does not yet require negotiation, contract signing, or purchase-order generation. Plan the Skills the procurement department must invoke.
+
+[GT04_TECH_GOAL] Prepare a Solution Ready for Development
+The technical requirement for a new feature has been documented. The company wants to determine whether it is feasible and produce a detailed implementation plan sufficient to enter development. Do not actually begin development in this task. Plan the Skills the technology department must invoke.
+
+[GT05_BUS_GOAL] Assess an Opportunity and Prepare a Preliminary Quotation
+A prospective customer is already on the follow-up list, but the customer's requirements, budget, and delivery expectations are still unclear. The company wants to determine whether the opportunity is worth pursuing and, if so, prepare a preliminary solution and quotation. Do not enter formal negotiation or contract signing yet.
+
+[GT06_HR_GOAL] Produce an Interview Candidate Shortlist
+A job requirement has been approved and the recruitment budget has passed, but the vacancy has not been published. The company wants to collect applications from the market and produce a shortlist ready for interviews. Do not schedule interviews or generate an offer in this task.
+
+[GT07_CROSS_CUSTOM_TECH_SUPPLIER] Select a Supplier for a Custom Technical Project
+A new customer wants the company to deliver a custom technical solution that requires external equipment. Only a customer lead currently exists; the customer requirements, technical specifications, budget, and suppliers are all unconfirmed. The goal is to confirm the project direction and select a usable supplier without signing a customer contract, signing a supplier contract, or generating a purchase order.
+
+[GT08_CROSS_TECH_DELIVERY_PAYMENT] Pay and Account for Delivered Technical Equipment
+A purchase order for technical equipment has been generated. The supplier reports that the equipment has been delivered and has submitted an invoice. Procurement has begun tracking delivery, but the technology department has not accepted the equipment. The final goal is to complete payment and accounting after all necessary conditions are satisfied.
+
+[GT09_CROSS_BUS_SERVICE_PAYMENT] Pay after Business-Service Acceptance
+An externally procured consulting service has been delivered and the supplier has submitted an invoice. The business team has not formally accepted the deliverables. The goal is to complete payment and accounting if the service conforms to the agreement. This task uses the business-acceptance route.
+
+[GT10_CROSS_ONBOARDING_EQUIPMENT] Onboard an Employee after Equipment Is Ready
+A new employee has accepted an offer, and a purchase order for an office computer has been generated. The equipment has not completed delivery or acceptance, and the employee has not been formally onboarded. The goal is to make the employee ready to work by the start date and complete the employee information record.
+
+[GT11_CROSS_RECRUIT_BUDGET_OFFER] Complete an Offer after Recruitment Budget Confirmation
+The technology team's job requirement has been approved and the role criteria are defined, but the recruitment budget has not been confirmed. The company wants to complete recruitment and issue an offer to the final candidate if the budget permits. Do not perform onboarding yet.
+
+[GT12_CROSS_BUSINESS_TO_PO] Generate a Purchase Order for a Customer Project Requiring an External Service
+A prospective customer lead is on the follow-up list, and project delivery requires purchasing an external business service. The customer requirements are not yet sufficiently confirmed, and there is no supplier or budget conclusion. After confirming that the opportunity is viable, the goal is to select a supplier for the external service, complete negotiation and the supplier contract, and generate a purchase order.
+
+[GT13_CROSS_INTERNAL_DEV_STAFF_DATA] Use Employee Capability Data to Complete Technical Task Breakdown
+The company has decided to use internal development for a technical requirement. The requirement has been identified, and existing employee skill and project-experience data is available. The company wants to confirm feasibility and use employee capability information to create an executable technical task assignment. Do not begin development in this task.
+
+[GT14_CROSS_PAYMENT_PERFORMANCE] Complete Payment and Accounting and Update Supplier Performance
+A batch of procured goods has completed delivery acceptance and the supplier has submitted an invoice, but finance has not verified it. The company wants to complete payment and accounting and include this delivery performance in the supplier evaluation.
+
+[GT15_CROSS_SUPPLIER_CONTRACT_PO] Complete a Supplier Contract and Purchase Order
+The budget has been approved, and a supplier has been scored and formally selected. The goal is to negotiate with the supplier, create the supplier contract, and generate a purchase order. Delivery tracking is not required in this task.
+
+[GT16_SPECIAL_SUPPLIER_FAIL] Block Contracting with an Unqualified Supplier
+A procurement has only one supplier candidate. The qualification result shows that the supplier is unqualified, but the business owner still demands that the supplier be selected immediately and a contract generated. Determine how the system should respond and provide the final status.
+
+[GT17_SPECIAL_INVALID_INVOICE] Block Payment for an Invalid Invoice
+The procured goods passed delivery acceptance, but invoice verification found that the invoice is invalid or does not match the contract and purchase order. The supplier still demands immediate payment. Determine how the system should respond and provide the final status.
+
+[GT18_SPECIAL_BUILD_OR_BUY] Choose the Internal-Build Route under Build-or-Buy Mutual Exclusion
+The company has decided to use internal development for the same technical requirement and must not procure an external technical service. The technical requirement has been identified. The goal is to complete the internal-development route through technology test acceptance. Plan the Skills that should be invoked.
+
+[GT19_NO_TOOL_CLEAR] Casual Conversation
+Tell me a lighthearted joke.
+
+[GT20_NO_TOOL_FINANCE] Concept Explanation with a Finance Keyword
+Explain in simple language what “budget check” means. Do not read, analyze, or modify any company budget data.
+
+[GT21_NO_TOOL_PROC] Joke with a Procurement Keyword
+Tell me a joke about the procurement department. Do not execute any procurement process.
+
+============================================================
+中文说明
+正式测试时，Codex 只能读取本提示文件和当前 Configuration 允许的 Skill 组织文件，
+不得读取 Gold Standard 或 evaluation 文件。
+
+作答要求
+1. 根据业务情境、当前状态、目标和限制决定 Skill 及顺序；不实际执行业务。
+2. skill_sequence 和 blocked_by 只能使用 main/.agents/skills 中的规范英文 Skill ID。
+3. selected_departments 只能使用 main/skill_relations.json 中的规范部门 ID：
+   finance-agent、procurement-agent、technology-agent、business-agent、hr-agent。
+4. 不得重复题目明确已完成的 Skill；已知冲突阻断时返回 blocked，并停止列出被禁止的后续 Skill。
+5. 互斥路线或主验收路线写入 route_choice；无路线决策时使用 {}。
+6. 不需要企业 Skill 时，use_skills 为 false、final_status 为 no_tool，三个数组均为空。
+7. 只输出一个合法 JSON 对象，不得使用 Markdown 代码块或添加 JSON 以外的文字。
+
+字段固定为 task_id、use_skills、selected_departments、skill_sequence、final_status、
+blocked_by、route_choice、reason。机器字段必须使用上述规范英文 ID；中文名称仅供展示。
+
+
+中文任务集
+
+[GT01_SINGLE] 供应商资质核验
+采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。
+
+[GT02_FIN_GOAL] 月末报表准备
+本月所有已批准款项都已经支付，但还没有进入账务系统。管理层下周一需要查看本月财务报表。请规划财务部门接下来需要完成的工作。
+
+[GT03_PROC_GOAL] 确定合格供应商
+采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。
+
+[GT04_TECH_GOAL] 形成可进入开发的方案
+一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。
+
+[GT05_BUS_GOAL] 判断商机并形成初步报价
+一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。
+
+[GT06_HR_GOAL] 形成面试候选人名单
+一个岗位需求已经获得批准，招聘预算也已经通过，但职位尚未发布。公司希望从市场上收集申请并形成可以进入面试的候选人名单；本任务暂时不要安排面试或生成 Offer。
+
+[GT07_CROSS_CUSTOM_TECH_SUPPLIER] 客户定制项目的供应商选择
+一名新客户希望公司交付一套定制技术解决方案，其中必须采购外部设备。目前只有客户线索，客户需求、技术规格、预算和供应商都尚未确认。公司的目标是在不签客户合同、不签供应合同、也不生成采购订单的前提下，确认项目方向并选出可用供应商。
+
+[GT08_CROSS_TECH_DELIVERY_PAYMENT] 技术设备交付后的付款与入账
+一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。
+
+[GT09_CROSS_BUS_SERVICE_PAYMENT] 业务服务验收后的付款
+公司采购的一项外部咨询服务已经完成交付，供应商也提交了发票。业务团队尚未正式确认交付成果。公司的目标是在服务符合约定的情况下完成付款和入账，本任务采用业务验收路线。
+
+[GT10_CROSS_ONBOARDING_EQUIPMENT] 新员工设备到位后的入职
+一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。
+
+[GT11_CROSS_RECRUIT_BUDGET_OFFER] 招聘预算确认后完成 Offer
+技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。
+
+[GT12_CROSS_BUSINESS_TO_PO] 依赖外部服务的客户项目采购订单
+一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。
+
+[GT13_CROSS_INTERNAL_DEV_STAFF_DATA] 利用员工能力数据完成技术任务拆解
+公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。
+
+[GT14_CROSS_PAYMENT_PERFORMANCE] 付款入账并更新供应商绩效
+一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。
+
+[GT15_CROSS_SUPPLIER_CONTRACT_PO] 完成供应商合同和采购订单
+预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。
+
+[GT16_SPECIAL_SUPPLIER_FAIL] 不合格供应商要求继续签约
+某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。
+
+[GT17_SPECIAL_INVALID_INVOICE] 无效发票要求付款
+采购物品已经通过交付验收，但发票核验结果显示发票无效或与合同、订单不匹配。供应商仍要求立即付款。请判断系统应如何处理，并给出最终状态。
+
+[GT18_SPECIAL_BUILD_OR_BUY] 内部开发与外部采购互斥选择
+公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。
+
+[GT19_NO_TOOL_CLEAR] 普通闲聊
+给我讲一个轻松的笑话。
+
+[GT20_NO_TOOL_FINANCE] 带财务关键词的概念解释
+请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。
+
+[GT21_NO_TOOL_PROC] 带采购关键词的玩笑
+给我讲一个关于采购部门的笑话，不需要执行任何采购流程。

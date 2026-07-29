@@ -1,0 +1,18 @@
+Task ID: GT10_CROSS_ONBOARDING_EQUIPMENT
+Task title (English): Onboard an Employee after Equipment Is Ready
+任务名称（中文）：新员工设备到位后的入职
+
+English task prompt
+A new employee has accepted an offer, and a purchase order for an office computer has been generated. The equipment has not completed delivery or acceptance, and the employee has not been formally onboarded. The goal is to make the employee ready to work by the start date and complete the employee information record.
+
+中文任务
+一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

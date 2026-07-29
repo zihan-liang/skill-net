@@ -1,0 +1,18 @@
+Task ID: GT16_SPECIAL_SUPPLIER_FAIL
+Task title (English): Block Contracting with an Unqualified Supplier
+任务名称（中文）：不合格供应商要求继续签约
+
+English task prompt
+A procurement has only one supplier candidate. The qualification result shows that the supplier is unqualified, but the business owner still demands that the supplier be selected immediately and a contract generated. Determine how the system should respond and provide the final status.
+
+中文任务
+某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

@@ -1,0 +1,18 @@
+Task ID: GT12_CROSS_BUSINESS_TO_PO
+Task title (English): Generate a Purchase Order for a Customer Project Requiring an External Service
+任务名称（中文）：依赖外部服务的客户项目采购订单
+
+English task prompt
+A prospective customer lead is on the follow-up list, and project delivery requires purchasing an external business service. The customer requirements are not yet sufficiently confirmed, and there is no supplier or budget conclusion. After confirming that the opportunity is viable, the goal is to select a supplier for the external service, complete negotiation and the supplier contract, and generate a purchase order.
+
+中文任务
+一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

@@ -1,0 +1,18 @@
+Task ID: GT21_NO_TOOL_PROC
+Task title (English): Joke with a Procurement Keyword
+任务名称（中文）：带采购关键词的玩笑
+
+English task prompt
+Tell me a joke about the procurement department. Do not execute any procurement process.
+
+中文任务
+给我讲一个关于采购部门的笑话，不需要执行任何采购流程。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

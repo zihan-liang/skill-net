@@ -1,0 +1,18 @@
+Task ID: GT07_CROSS_CUSTOM_TECH_SUPPLIER
+Task title (English): Select a Supplier for a Custom Technical Project
+任务名称（中文）：客户定制项目的供应商选择
+
+English task prompt
+A new customer wants the company to deliver a custom technical solution that requires external equipment. Only a customer lead currently exists; the customer requirements, technical specifications, budget, and suppliers are all unconfirmed. The goal is to confirm the project direction and select a usable supplier without signing a customer contract, signing a supplier contract, or generating a purchase order.
+
+中文任务
+一名新客户希望公司交付一套定制技术解决方案，其中必须采购外部设备。目前只有客户线索，客户需求、技术规格、预算和供应商都尚未确认。公司的目标是在不签客户合同、不签供应合同、也不生成采购订单的前提下，确认项目方向并选出可用供应商。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

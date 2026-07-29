@@ -1,0 +1,18 @@
+Task ID: GT04_TECH_GOAL
+Task title (English): Prepare a Solution Ready for Development
+任务名称（中文）：形成可进入开发的方案
+
+English task prompt
+The technical requirement for a new feature has been documented. The company wants to determine whether it is feasible and produce a detailed implementation plan sufficient to enter development. Do not actually begin development in this task. Plan the Skills the technology department must invoke.
+
+中文任务
+一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

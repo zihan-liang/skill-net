@@ -1,0 +1,18 @@
+Task ID: GT05_BUS_GOAL
+Task title (English): Assess an Opportunity and Prepare a Preliminary Quotation
+任务名称（中文）：判断商机并形成初步报价
+
+English task prompt
+A prospective customer is already on the follow-up list, but the customer's requirements, budget, and delivery expectations are still unclear. The company wants to determine whether the opportunity is worth pursuing and, if so, prepare a preliminary solution and quotation. Do not enter formal negotiation or contract signing yet.
+
+中文任务
+一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

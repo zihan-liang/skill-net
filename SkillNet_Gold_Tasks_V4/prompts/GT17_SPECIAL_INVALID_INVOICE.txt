@@ -1,0 +1,18 @@
+Task ID: GT17_SPECIAL_INVALID_INVOICE
+Task title (English): Block Payment for an Invalid Invoice
+任务名称（中文）：无效发票要求付款
+
+English task prompt
+The procured goods passed delivery acceptance, but invoice verification found that the invoice is invalid or does not match the contract and purchase order. The supplier still demands immediate payment. Determine how the system should respond and provide the final status.
+
+中文任务
+采购物品已经通过交付验收，但发票核验结果显示发票无效或与合同、订单不匹配。供应商仍要求立即付款。请判断系统应如何处理，并给出最终状态。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.

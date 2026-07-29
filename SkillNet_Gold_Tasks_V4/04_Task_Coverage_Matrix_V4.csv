@@ -1,0 +1,22 @@
+﻿task_id,category,difficulty,title_en,title_zh,required_department_ids,required_skill_count,hard_order_count,expected_status,relations_tested,relations_tested_zh
+GT01_SINGLE,single_skill,easy,Supplier Qualification Verification,供应商资质核验,procurement-agent,1,0,completed,contains,包含关系
+GT02_FIN_GOAL,single_department_goal,medium,Month-End Financial Statement Preparation,月末报表准备,finance-agent,2,1,completed,prerequisite,前置依赖
+GT03_PROC_GOAL,single_department_goal,medium,Select a Qualified Supplier,确定合格供应商,procurement-agent,6,5,completed,prerequisite | enhances,前置依赖 | 增强关系
+GT04_TECH_GOAL,single_department_goal,medium,Prepare a Solution Ready for Development,形成可进入开发的方案,technology-agent,4,3,completed,prerequisite,前置依赖
+GT05_BUS_GOAL,single_department_goal,medium,Assess an Opportunity and Prepare a Preliminary Quotation,判断商机并形成初步报价,business-agent,3,2,completed,prerequisite,前置依赖
+GT06_HR_GOAL,single_department_goal,medium,Produce an Interview Candidate Shortlist,形成面试候选人名单,hr-agent,3,2,completed,prerequisite | conflict,前置依赖 | 冲突关系
+GT07_CROSS_CUSTOM_TECH_SUPPLIER,cross_department_goal,hard,Select a Supplier for a Custom Technical Project,客户定制项目的供应商选择,business-agent | technology-agent | finance-agent | procurement-agent,14,13,completed,prerequisite | enhances,前置依赖 | 跨部门依赖 | 增强关系
+GT08_CROSS_TECH_DELIVERY_PAYMENT,cross_department_goal,hard,Pay and Account for Delivered Technical Equipment,技术设备交付后的付款与入账,procurement-agent | technology-agent | finance-agent,6,5,completed,prerequisite | enhances,前置依赖 | 跨部门依赖 | 增强关系
+GT09_CROSS_BUS_SERVICE_PAYMENT,cross_department_goal,hard,Pay after Business-Service Acceptance,业务服务验收后的付款,procurement-agent | business-agent | finance-agent,6,5,completed,prerequisite | mutex,前置依赖 | 跨部门依赖 | 互斥关系
+GT10_CROSS_ONBOARDING_EQUIPMENT,cross_department_goal,hard,Onboard an Employee after Equipment Is Ready,新员工设备到位后的入职,procurement-agent | technology-agent | hr-agent,5,4,completed,prerequisite,前置依赖 | 跨部门依赖
+GT11_CROSS_RECRUIT_BUDGET_OFFER,cross_department_goal,hard,Complete an Offer after Recruitment Budget Confirmation,招聘预算确认后完成 Offer,hr-agent | finance-agent,6,5,completed,prerequisite | conflict,前置依赖 | 跨部门依赖 | 冲突关系
+GT12_CROSS_BUSINESS_TO_PO,cross_department_goal,hard,Generate a Purchase Order for a Customer Project Requiring an External Service,依赖外部服务的客户项目采购订单,business-agent | finance-agent | procurement-agent,14,14,completed,prerequisite | enhances,前置依赖 | 跨部门依赖 | 增强关系
+GT13_CROSS_INTERNAL_DEV_STAFF_DATA,cross_department_goal,hard,Use Employee Capability Data to Complete Technical Task Breakdown,利用员工能力数据完成技术任务拆解,technology-agent | hr-agent,5,4,completed,prerequisite | enhances | mutex,前置依赖 | 增强关系 | 互斥关系
+GT14_CROSS_PAYMENT_PERFORMANCE,cross_department_goal,medium,Complete Payment and Accounting and Update Supplier Performance,付款入账并更新供应商绩效,finance-agent | procurement-agent,4,3,completed,prerequisite | enhances,前置依赖 | 跨部门依赖 | 增强关系
+GT15_CROSS_SUPPLIER_CONTRACT_PO,cross_department_goal,medium,Complete a Supplier Contract and Purchase Order,完成供应商合同和采购订单,procurement-agent | business-agent,3,2,completed,prerequisite,前置依赖 | 跨部门依赖
+GT16_SPECIAL_SUPPLIER_FAIL,special_constraint,hard,Block Contracting with an Unqualified Supplier,不合格供应商要求继续签约,procurement-agent,0,0,blocked,conflict,冲突关系
+GT17_SPECIAL_INVALID_INVOICE,special_constraint,hard,Block Payment for an Invalid Invoice,无效发票要求付款,finance-agent,0,0,blocked,conflict,冲突关系
+GT18_SPECIAL_BUILD_OR_BUY,special_constraint,hard,Choose the Internal-Build Route under Build-or-Buy Mutual Exclusion,内部开发与外部采购互斥选择,technology-agent,6,5,completed,prerequisite | mutex,前置依赖 | 互斥关系
+GT19_NO_TOOL_CLEAR,no_tool,easy,Casual Conversation,普通闲聊,,0,0,no_tool,no_tool,No-Tool
+GT20_NO_TOOL_FINANCE,no_tool,medium,Concept Explanation with a Finance Keyword,带财务关键词的概念解释,,0,0,no_tool,no_tool,No-Tool
+GT21_NO_TOOL_PROC,no_tool,medium,Joke with a Procurement Keyword,带采购关键词的玩笑,,0,0,no_tool,no_tool,No-Tool

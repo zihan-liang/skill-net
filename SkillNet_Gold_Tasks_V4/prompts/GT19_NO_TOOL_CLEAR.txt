@@ -1,0 +1,18 @@
+Task ID: GT19_NO_TOOL_CLEAR
+Task title (English): Casual Conversation
+任务名称（中文）：普通闲聊
+
+English task prompt
+Tell me a lighthearted joke.
+
+中文任务
+给我讲一个轻松的笑话。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from main/.agents/skills in skill_sequence
+and blocked_by. Use exact canonical department IDs from main/skill_relations.json
+in selected_departments. Do not output a Markdown code block or non-JSON text.
