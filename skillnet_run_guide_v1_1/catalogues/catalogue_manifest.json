@@ -1,0 +1,852 @@
+{
+  "schema_version": "1.0",
+  "manifest_type": "SkillNet_E0_E1_formal_catalogues",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "hash_algorithm": "SHA-256",
+  "self_hash_policy": "This manifest cannot embed its own stable hash. Its SHA-256 is reported with the local ZIP delivery.",
+  "canonical_counts": {
+    "skills": 46,
+    "departments": 5,
+    "gold_prompts_read_for_boundary_check": 21,
+    "repo_test_files_read": 23
+  },
+  "sizes": {
+    "10": {
+      "skill_ids": [
+        "business-negotiation",
+        "hr-employee-database",
+        "procurement-contract-generation",
+        "procurement-purchase-order",
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection",
+        "technology-feasibility-assessment",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-task-breakdown"
+      ],
+      "skill_ids_sha256": "4880e902249c0b7139455f43c771332367bb05dff2d2965499072f1dc27ebb1f",
+      "strict_source": "skillnet_run_guide_v1_1/E1_scale_manifest.json"
+    },
+    "30": {
+      "skill_ids": [
+        "business-contract-signing",
+        "business-customer-lead",
+        "business-negotiation",
+        "business-opportunity-assessment",
+        "business-requirement-communication",
+        "business-solution-quotation",
+        "finance-accounting",
+        "finance-budget-check",
+        "finance-budget-planning",
+        "finance-expense-request",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "hr-employee-database",
+        "hr-jd-generator",
+        "hr-job-requirement",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-resume-screening",
+        "procurement-contract-generation",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-supplier-qualification",
+        "procurement-supplier-search",
+        "procurement-supplier-selection",
+        "technology-feasibility-assessment",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ],
+      "skill_ids_sha256": "be1535064eabd075d1d13c22ac4f367169c1b63f28d0a3cec6367b89cb3d3a92",
+      "strict_source": "skillnet_run_guide_v1_1/E1_scale_manifest.json"
+    },
+    "46": {
+      "skill_ids": [
+        "business-acceptance",
+        "business-contract-signing",
+        "business-customer-lead",
+        "business-negotiation",
+        "business-opportunity-assessment",
+        "business-project-delivery-tracking",
+        "business-renewal",
+        "business-requirement-communication",
+        "business-solution-quotation",
+        "finance-accounting",
+        "finance-budget-check",
+        "finance-budget-planning",
+        "finance-expense-request",
+        "finance-expense-review",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-reporting",
+        "hr-employee-database",
+        "hr-interview-scheduling",
+        "hr-jd-generator",
+        "hr-job-requirement",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "procurement-contract-generation",
+        "procurement-delivery-acceptance",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-quote-comparison",
+        "procurement-requirement",
+        "procurement-rfq-generation",
+        "procurement-supplier-evaluation",
+        "procurement-supplier-qualification",
+        "procurement-supplier-scoring",
+        "procurement-supplier-search",
+        "procurement-supplier-selection",
+        "technology-development-implementation",
+        "technology-feasibility-assessment",
+        "technology-operations-maintenance",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-system-release",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ],
+      "skill_ids_sha256": "4596e22d952d4004382ce8b55253a13af5f10f271b4dd8119aec73a092bdfd14",
+      "strict_source": ".agents/skills/"
+    }
+  },
+  "configurations": {
+    "A": {
+      "organization": "flat",
+      "exposes_departments": false,
+      "exposes_relations": false
+    },
+    "B": {
+      "organization": "department_grouped",
+      "exposes_departments": true,
+      "exposes_relations": false
+    },
+    "C": {
+      "organization": "department_grouped_graph",
+      "exposes_departments": true,
+      "exposes_relations": true
+    }
+  },
+  "catalogues": [
+    {
+      "configuration": "A",
+      "catalogue_size": 10,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/A_flat_catalogue.json",
+      "file_sha256": "cb09574e06e2a3662219ffae846428f5ae443b7cc3849f7da19f600b4a10c859",
+      "skill_cards_sha256": "83b2db94261ea06869f8821d2a89e7d6232dd0ac3ac1d3629e8285240660c50a"
+    },
+    {
+      "configuration": "B",
+      "catalogue_size": 10,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "76045a9fec005916ee02edb38ecffbb616ae9dfd47584571e41e791e272e5621",
+      "skill_cards_sha256": "83b2db94261ea06869f8821d2a89e7d6232dd0ac3ac1d3629e8285240660c50a"
+    },
+    {
+      "configuration": "C",
+      "catalogue_size": 10,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "d08275a0972f41b76482b248a5535857751675f2a4e067711f703798c6b51369",
+      "skill_cards_sha256": "83b2db94261ea06869f8821d2a89e7d6232dd0ac3ac1d3629e8285240660c50a",
+      "relation_source_path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_10.json",
+      "relation_source_sha256": "3af80d5c2cdd6a09464d57f699c809129f83d1a72d06cb74aebf95899f9e3f6d",
+      "relations_sha256": "cd5184e91fe4b18ad6ee8646811e71335596428d63451211f31d5722453035e8"
+    },
+    {
+      "configuration": "A",
+      "catalogue_size": 30,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/A_flat_catalogue.json",
+      "file_sha256": "cba5bcac38660eb0fb64c944bdf2168bbc36255d6e57f3e629de6b96ec35e0f4",
+      "skill_cards_sha256": "f4286c406da5716ffc21bf82ce15f2f9cd1bb4094d65a2d6ae0c696dc338655a"
+    },
+    {
+      "configuration": "B",
+      "catalogue_size": 30,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "304c182680ce23b7bd74f590b08704fdc32e753e727eb5f81c3b93aa6b5fceec",
+      "skill_cards_sha256": "f4286c406da5716ffc21bf82ce15f2f9cd1bb4094d65a2d6ae0c696dc338655a"
+    },
+    {
+      "configuration": "C",
+      "catalogue_size": 30,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "99c84cb46202c2f094350842d46eddb0d964f9a415c7c43b8a3fd8cb5ed9319b",
+      "skill_cards_sha256": "f4286c406da5716ffc21bf82ce15f2f9cd1bb4094d65a2d6ae0c696dc338655a",
+      "relation_source_path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_30.json",
+      "relation_source_sha256": "ebb3af1379e1e135940a08fc3552cc0edbe4d60a94a2818d3dc768173dcb3388",
+      "relations_sha256": "663da87582e3785be984bd8e0f69f02092b4c45821f65af025d642b8392f57e7"
+    },
+    {
+      "configuration": "A",
+      "catalogue_size": 46,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "file_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8"
+    },
+    {
+      "configuration": "B",
+      "catalogue_size": 46,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8"
+    },
+    {
+      "configuration": "C",
+      "catalogue_size": 46,
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "relation_source_path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_46.json",
+      "relation_source_sha256": "7870d51ae4855787f9f32991d77bdd57509c35b9093c21de08f48402df86a590",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    }
+  ],
+  "source_files": [
+    {
+      "path": ".agents/skills/business-acceptance/SKILL.md",
+      "sha256": "0fa97383176062623baf8497b0363d9bf0fd54c61d3a0cc9b685928cfe46d31c"
+    },
+    {
+      "path": ".agents/skills/business-acceptance/agents/openai.yaml",
+      "sha256": "0464aa8f222712e320e99809a934aab5d810e3d2b3f43961c1c8591fd5bbd59f"
+    },
+    {
+      "path": ".agents/skills/business-contract-signing/SKILL.md",
+      "sha256": "49cc8eec800b8e7446f869ea068c07feea1daa5611a6a0e2530cd7672b771c65"
+    },
+    {
+      "path": ".agents/skills/business-contract-signing/agents/openai.yaml",
+      "sha256": "a5396240f958b6fdbf86b5e61e96c3ede990ef61681c0f3b28784cca500f1174"
+    },
+    {
+      "path": ".agents/skills/business-customer-lead/SKILL.md",
+      "sha256": "498c8e056ea1606d6c8ffc103384652ecd61e7b76076b6c8aaa7da8404e0e5b6"
+    },
+    {
+      "path": ".agents/skills/business-customer-lead/agents/openai.yaml",
+      "sha256": "548156e031825ce08ae70c22e8ef84478f50bb9a3143ac0edc58597a08300c26"
+    },
+    {
+      "path": ".agents/skills/business-negotiation/SKILL.md",
+      "sha256": "a451e8d53b5468524d2fec567d6ba87fab0424a25c5b26be21f748c75aee81c4"
+    },
+    {
+      "path": ".agents/skills/business-negotiation/agents/openai.yaml",
+      "sha256": "bf771bc05ddda3da758c44ee65eab0dbda6a141e13bcdc4199ba892eb5327f74"
+    },
+    {
+      "path": ".agents/skills/business-opportunity-assessment/SKILL.md",
+      "sha256": "f06e7074dab93b48a80f3e6e69ea4b24dac122cf03f3d77922ac6cc1fb8d47c5"
+    },
+    {
+      "path": ".agents/skills/business-opportunity-assessment/agents/openai.yaml",
+      "sha256": "8cee4aefae5376bed1f1a7c661554ee862efdbd04430801d4278384de5a9264e"
+    },
+    {
+      "path": ".agents/skills/business-project-delivery-tracking/SKILL.md",
+      "sha256": "722342c28d8106b17a5d8181a9992ebaba3091e2a03e209db5ef311bf806ee88"
+    },
+    {
+      "path": ".agents/skills/business-project-delivery-tracking/agents/openai.yaml",
+      "sha256": "88ac78b91ae21b013f25bb895d114dbc6d0bc97f1f0b38058f5cf2a20a73373c"
+    },
+    {
+      "path": ".agents/skills/business-renewal/SKILL.md",
+      "sha256": "f74d0b9f9d7e431a5d10f8cfacaf073147ff5d94b9c39f48e92bc4c36169e3fe"
+    },
+    {
+      "path": ".agents/skills/business-renewal/agents/openai.yaml",
+      "sha256": "b83d1f8c6fafed0511c7029162faea1a09f35b04446feaa3fc8cccb3ab47377b"
+    },
+    {
+      "path": ".agents/skills/business-requirement-communication/SKILL.md",
+      "sha256": "1a1571b3c5822ab9380b1df043501f6eebe8b7a16bcb8df593d34d375bb9cf7a"
+    },
+    {
+      "path": ".agents/skills/business-requirement-communication/agents/openai.yaml",
+      "sha256": "741d0a7bfa7f03307d3d87a3b89f30710150766041b05f31ba18cb1e9880c4ad"
+    },
+    {
+      "path": ".agents/skills/business-solution-quotation/SKILL.md",
+      "sha256": "d157aa7d513b04ba49a579128e89a62ee77b18614991a78e67d6adbedebc73dd"
+    },
+    {
+      "path": ".agents/skills/business-solution-quotation/agents/openai.yaml",
+      "sha256": "f4d6a351ebf873464646470c22585af946d37ac4baf40782d488864c3a4a6fd3"
+    },
+    {
+      "path": ".agents/skills/finance-accounting/SKILL.md",
+      "sha256": "64c7f0868f42e6feee6b1a1d6aea224aff8d4e1fc598261383017ead202bb699"
+    },
+    {
+      "path": ".agents/skills/finance-accounting/agents/openai.yaml",
+      "sha256": "fcd6065ebd71dfc92c5893ed02404f1433ae44796fcd23730878d0c5d6927e7e"
+    },
+    {
+      "path": ".agents/skills/finance-budget-check/SKILL.md",
+      "sha256": "5f02fdde7cf7757d05f44998059c1031f3ff50f830b5992d58285f334e1be0cc"
+    },
+    {
+      "path": ".agents/skills/finance-budget-check/agents/openai.yaml",
+      "sha256": "4d6b561f25de56051689c867c5bd6ee40f564340bcb221956349bb731f1fe965"
+    },
+    {
+      "path": ".agents/skills/finance-budget-planning/SKILL.md",
+      "sha256": "b85d186ef3cad26bcb29e18e8a4c65b1a4bb4ae7305b502fc885d9031f81961a"
+    },
+    {
+      "path": ".agents/skills/finance-budget-planning/agents/openai.yaml",
+      "sha256": "375367f45b92396c4ba5c2695673f3ba1818cadb6a5ac7c0f24c71e55ed88bc0"
+    },
+    {
+      "path": ".agents/skills/finance-expense-request/SKILL.md",
+      "sha256": "e6a0247e803834def893d1fe036f7297c412893048712bfd9188f1ed879768f0"
+    },
+    {
+      "path": ".agents/skills/finance-expense-request/agents/openai.yaml",
+      "sha256": "7c512c59f5615d26f3d46d5fec19e637a435abcff69c8280db359ba62c5aa4ed"
+    },
+    {
+      "path": ".agents/skills/finance-expense-review/SKILL.md",
+      "sha256": "f1ef7750f346f5279597e8aa99616bebf45a77370097e84a58d000330e27f3ce"
+    },
+    {
+      "path": ".agents/skills/finance-expense-review/agents/openai.yaml",
+      "sha256": "ce6ae37c6eb1e0231db42e0b9e7dfc7cc974592dc7a328c652c067b5ec399f00"
+    },
+    {
+      "path": ".agents/skills/finance-invoice-verification/SKILL.md",
+      "sha256": "59d613b5727e46be5c0b733f595265ec9a487d1b732c8ca753ff67f40fd587af"
+    },
+    {
+      "path": ".agents/skills/finance-invoice-verification/agents/openai.yaml",
+      "sha256": "39dde2a02319e255c3ff6b4f2de44da3d8ea96cd0433340afaca63a49057ace1"
+    },
+    {
+      "path": ".agents/skills/finance-payment-approval/SKILL.md",
+      "sha256": "c3937a8b83da1cb2bbfc60604d213e37d0a35e4bef10958a8c8bba664f9bf89a"
+    },
+    {
+      "path": ".agents/skills/finance-payment-approval/agents/openai.yaml",
+      "sha256": "b5f905f38747017594eef3376eefd768133743dadf98109572cd4d262d2253a2"
+    },
+    {
+      "path": ".agents/skills/finance-reporting/SKILL.md",
+      "sha256": "f97c800a18a552a64e11479561c4bec677201ebaa030902d3d9a394ec2cc4075"
+    },
+    {
+      "path": ".agents/skills/finance-reporting/agents/openai.yaml",
+      "sha256": "8dcd54ae5537420f2cb1e0c095c12cd5587f25cfe404deb6b811a284f4e0fec4"
+    },
+    {
+      "path": ".agents/skills/hr-employee-database/SKILL.md",
+      "sha256": "95ee6e1c35c0b68bfb76dd58f1dad743201c06a002468441c4f65e3c4d0e4318"
+    },
+    {
+      "path": ".agents/skills/hr-employee-database/agents/openai.yaml",
+      "sha256": "b7a1017e8830975a8e56acdc589a41bb35c65bfd293b0682c4bfbd39dbb9c85c"
+    },
+    {
+      "path": ".agents/skills/hr-interview-scheduling/SKILL.md",
+      "sha256": "adb6e75764b2fd1beb032cc8c73253533ff11c0f67921b81a2b5e9cea02e9d53"
+    },
+    {
+      "path": ".agents/skills/hr-interview-scheduling/agents/openai.yaml",
+      "sha256": "ab9cf4e43bfd667a873aba8b6a84c1573fadcdc58c8dbb90fb0f4b91717be0d9"
+    },
+    {
+      "path": ".agents/skills/hr-jd-generator/SKILL.md",
+      "sha256": "f2d08fd9a1c0e49c197eaa425b9a283eee90f2cd8fb3d7731b931bec63d78db4"
+    },
+    {
+      "path": ".agents/skills/hr-jd-generator/agents/openai.yaml",
+      "sha256": "94fb1e4dae247bace29033abcbec3c45f0f330d352a9d69cd5bc43071de1d64b"
+    },
+    {
+      "path": ".agents/skills/hr-job-requirement/SKILL.md",
+      "sha256": "783a15dcdb8a018a1178cae1a58ec34638794bff5f92035ac7b08ef44d1dd949"
+    },
+    {
+      "path": ".agents/skills/hr-job-requirement/agents/openai.yaml",
+      "sha256": "37eb425b8302213c1cc485df81720564e31be5832aea1f2cfff61a9a8f99ec5e"
+    },
+    {
+      "path": ".agents/skills/hr-offer-generator/SKILL.md",
+      "sha256": "db8dad74b1ce9ed14178bac8b74fa631178ec06f7ca5cce4172f5b15ea990ce9"
+    },
+    {
+      "path": ".agents/skills/hr-offer-generator/agents/openai.yaml",
+      "sha256": "979d7dc066eb6f6efb7b7b2090cef0f62aa91171c10a000d32ed55a8f35f6bf9"
+    },
+    {
+      "path": ".agents/skills/hr-onboarding/SKILL.md",
+      "sha256": "a7716080d4e93f1eeba79e178c93758647d14b4514e8e319532cf5395ca11bf2"
+    },
+    {
+      "path": ".agents/skills/hr-onboarding/agents/openai.yaml",
+      "sha256": "35d656de6b232be2e48133e2f37379bb5273e9514ee9801303e5e6f74b1009e0"
+    },
+    {
+      "path": ".agents/skills/hr-recruitment-publish/SKILL.md",
+      "sha256": "f7766f9847854777fbde19b5df20a2f0f5298fa98fb6bb3c771d8358caff6127"
+    },
+    {
+      "path": ".agents/skills/hr-recruitment-publish/agents/openai.yaml",
+      "sha256": "7fdfbba0f1fb47e96a8cd6e7868601a03aabe97fa9c04c13a52d0f93330f6a61"
+    },
+    {
+      "path": ".agents/skills/hr-resume-screening/SKILL.md",
+      "sha256": "4ec5ccc64740a933c1dda17cc04c52f243bb0bb6436d7aa08c41ae8f01575629"
+    },
+    {
+      "path": ".agents/skills/hr-resume-screening/agents/openai.yaml",
+      "sha256": "41a873c2cb001440b0a479cc2856fe0377537336fa467f94aa364c79df2e5ca5"
+    },
+    {
+      "path": ".agents/skills/procurement-contract-generation/SKILL.md",
+      "sha256": "50dc340d1d797af772390f72686e64b0f87c81547264e927f3828b5f4fd98cbe"
+    },
+    {
+      "path": ".agents/skills/procurement-contract-generation/agents/openai.yaml",
+      "sha256": "a25d82a6b52f403b509bde4693f86158f598cfd93d6cd88ff9a1e3b0eb731fca"
+    },
+    {
+      "path": ".agents/skills/procurement-delivery-acceptance/SKILL.md",
+      "sha256": "0a053c04d4c7633263c4a68e3ff7ee89a172f6c2ffa8c225db35f1a218bbfa98"
+    },
+    {
+      "path": ".agents/skills/procurement-delivery-acceptance/agents/openai.yaml",
+      "sha256": "bdf9f88323a98f9826fcd5e38e3ef7ed9b28188e5efa1227a5ac87631b651fd6"
+    },
+    {
+      "path": ".agents/skills/procurement-delivery-tracking/SKILL.md",
+      "sha256": "18a57fe3b6dcad136edfb95041391da425833c90edd40987e5523901df9dc5a4"
+    },
+    {
+      "path": ".agents/skills/procurement-delivery-tracking/agents/openai.yaml",
+      "sha256": "a47a820a86b53756e7148975f3bed9da00fbf09a35847c24f01536c3156d6b31"
+    },
+    {
+      "path": ".agents/skills/procurement-purchase-order/SKILL.md",
+      "sha256": "34abcdb04da9ebfb4dc53b45f9e3c3ec123413080e22ed994c5615f779d44424"
+    },
+    {
+      "path": ".agents/skills/procurement-purchase-order/agents/openai.yaml",
+      "sha256": "570e9b6b7fb5fbed6d8037ee739708cf89d635d369bfc76ef0fca95cfac98e3d"
+    },
+    {
+      "path": ".agents/skills/procurement-quote-comparison/SKILL.md",
+      "sha256": "141f65a8ee474f7b79f7a527e5f876f0f400bbff3d0b507b086813e83614d23f"
+    },
+    {
+      "path": ".agents/skills/procurement-quote-comparison/agents/openai.yaml",
+      "sha256": "b442f5aa8eef431413dd61e3302a54429a8c1e1062557e1dbff35a63e2107d35"
+    },
+    {
+      "path": ".agents/skills/procurement-requirement/SKILL.md",
+      "sha256": "0ad4b89866c5592aabc2f3296a2ee7cee999a94cb464b515e08cf6aded5ee01e"
+    },
+    {
+      "path": ".agents/skills/procurement-requirement/agents/openai.yaml",
+      "sha256": "c4e8194d8e8d082bababc6bb3c71f0c14d458469df110b15e8615eb1f15493d7"
+    },
+    {
+      "path": ".agents/skills/procurement-rfq-generation/SKILL.md",
+      "sha256": "b48c0897625318552674acdad4c79a8144327f4db2c9bba8e6b508cb0030d974"
+    },
+    {
+      "path": ".agents/skills/procurement-rfq-generation/agents/openai.yaml",
+      "sha256": "a9616d1a97324174bc06445431e46e9e75c671029d3f0d6646ce5d78ee2166ff"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-evaluation/SKILL.md",
+      "sha256": "3ba4f332547eecaa211d7ff16470c3b2f4ea7c346062e0127859c30eefc59dd0"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-evaluation/agents/openai.yaml",
+      "sha256": "465e2a2710757f09fbd2c3bc84bd71a1f965a2133bb9020e337f4b757221448d"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-qualification/SKILL.md",
+      "sha256": "098d2ac5bdde86d38d21a895545a4f0eee4912ffff2ef0e2633f00a4e0e1a34d"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-qualification/agents/openai.yaml",
+      "sha256": "e0050e5fe5de8b2ee0517c2322d909c67b6052baee29fecc0fcc193577015088"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-scoring/SKILL.md",
+      "sha256": "ea70dd66895b883b11732bce242a2a290b13f1dd21ac51ed6ef93521894b9af4"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-scoring/agents/openai.yaml",
+      "sha256": "b0758041d418d694909ae904a8499e34fb7eeb56bb49b736da210135a9268908"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-search/SKILL.md",
+      "sha256": "171ead3ee93a016be75987d2d676100cd4b72a0a555bab0cfcf510097646a350"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-search/agents/openai.yaml",
+      "sha256": "757ed79e499213d42cb71e6cfd44624adcb1d86a62b7db9fdef65f809f52482d"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-selection/SKILL.md",
+      "sha256": "6ba7ec6a89cf9849d8ec39d9394750dcac228ad8d76d8ec13b0437557926a69a"
+    },
+    {
+      "path": ".agents/skills/procurement-supplier-selection/agents/openai.yaml",
+      "sha256": "0cdb397e8ceb69ab3d8e6248bc44eb0134db62fab47a052319f6448eeb260870"
+    },
+    {
+      "path": ".agents/skills/technology-development-implementation/SKILL.md",
+      "sha256": "1458e4ea0429c70e54b56de71c965498bd081e23e2efe83cf439fe25979bac56"
+    },
+    {
+      "path": ".agents/skills/technology-development-implementation/agents/openai.yaml",
+      "sha256": "32c89fc074c27b57731b4551065346129faa6bbf7af14b97d386977b347b9bad"
+    },
+    {
+      "path": ".agents/skills/technology-feasibility-assessment/SKILL.md",
+      "sha256": "534da04c1c1608caf911e9c0c3bf02399bb847cd5c0ca7c8e6235407d286deba"
+    },
+    {
+      "path": ".agents/skills/technology-feasibility-assessment/agents/openai.yaml",
+      "sha256": "9672c52f3b66e82492977ec4bba13f19dfae636535d38cd1e7cbc1cc000e3c43"
+    },
+    {
+      "path": ".agents/skills/technology-operations-maintenance/SKILL.md",
+      "sha256": "55b12faea4047ce7e09def311bba11480c35bdb6bddea0a1fbf5138b81a35b66"
+    },
+    {
+      "path": ".agents/skills/technology-operations-maintenance/agents/openai.yaml",
+      "sha256": "274dd09f75dbe47f3eca1c888d4c25bf4f77181c2c6ba327bf99e486eb4fb8af"
+    },
+    {
+      "path": ".agents/skills/technology-requirement/SKILL.md",
+      "sha256": "d57f4f32adb8f600d9810b19f6e7587dc3735b4408a1329a5a1024c732794790"
+    },
+    {
+      "path": ".agents/skills/technology-requirement/agents/openai.yaml",
+      "sha256": "4c8e8750cdf6d08be89c1fe0a3e41323e02927832e139bcea9dc372e51548222"
+    },
+    {
+      "path": ".agents/skills/technology-solution-design/SKILL.md",
+      "sha256": "3b9eda2aad8c8e87bc122d4c122ce8a546cc019d49b5142bd92f20ffe9900162"
+    },
+    {
+      "path": ".agents/skills/technology-solution-design/agents/openai.yaml",
+      "sha256": "b91561352c9e5388a4769a4404f7759ae9f91b3abeae19aaae6133b8bde181ae"
+    },
+    {
+      "path": ".agents/skills/technology-specification-confirmation/SKILL.md",
+      "sha256": "71b477c08d602614bc6cc747b3b4452aaf2aec098181ea3a686b8cb9227bac0b"
+    },
+    {
+      "path": ".agents/skills/technology-specification-confirmation/agents/openai.yaml",
+      "sha256": "9e5a4868517cf2a30617da084bd9e6320a7928f3a1b710831ca57e6c34d14889"
+    },
+    {
+      "path": ".agents/skills/technology-system-release/SKILL.md",
+      "sha256": "d678878233e40abcca92a4ab56e873ea71d2aa424a43aeee5f16e87113d86805"
+    },
+    {
+      "path": ".agents/skills/technology-system-release/agents/openai.yaml",
+      "sha256": "0ea095b424fdcd805fb1efd1baa8dfca7ab3122729a2b904b9cb43b04444143d"
+    },
+    {
+      "path": ".agents/skills/technology-task-breakdown/SKILL.md",
+      "sha256": "dff8ee8c2439ecd8202c6d0963a49be4298ac1ece37386b170d7804371ef8686"
+    },
+    {
+      "path": ".agents/skills/technology-task-breakdown/agents/openai.yaml",
+      "sha256": "a946fc4cbd9affd9763109eb17c2538d504b828e2add216a792a7b7c946e68c3"
+    },
+    {
+      "path": ".agents/skills/technology-test-acceptance/SKILL.md",
+      "sha256": "982923b19e41db88fc955a9dc32833b95c28d75b3b768c569026a49831e14846"
+    },
+    {
+      "path": ".agents/skills/technology-test-acceptance/agents/openai.yaml",
+      "sha256": "02b03dc6d3d7beefb5b3f4ce646b98f70a8232fa87cef4a96e787a37436e6154"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT01_SINGLE.txt",
+      "sha256": "1e8cd8b61633213fc17b2d6f6d7ef2477dcea77746a8cc9e69ee6138a9a69007"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT02_FIN_GOAL.txt",
+      "sha256": "28d67d412ae4869dd5ccdd10b16ece3be7b66ba50372ebccbf613928b0d79eac"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT03_PROC_GOAL.txt",
+      "sha256": "b8be2a9f24cc504a3b7e56f5bc4e3933e64a2578f3565ab6e00b1fd3893bf4f0"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT04_TECH_GOAL.txt",
+      "sha256": "a4a7502a9e58b2c2fec987229c8112aa49bf028ea681d64f76ec4f9b0de9337c"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT05_BUS_GOAL.txt",
+      "sha256": "a16e326d9486a078894e65564099b0df26858015f5764afcd83707fa313a429a"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT06_HR_GOAL.txt",
+      "sha256": "e8504019a909a8852d6047f8be4c988506fca8260194a849be6e65e637bf29e8"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT07_CROSS_CUSTOM_TECH_SUPPLIER.txt",
+      "sha256": "98e5414fd26b07feeb12c69169187f2aa2a5be0ee4b9cb2b0445f9d4a453706a"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT08_CROSS_TECH_DELIVERY_PAYMENT.txt",
+      "sha256": "e87a44e653d755302eb2ca9b3358594bf53e1bd87fbbf2f414f8c7e8e03537cc"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT09_CROSS_BUS_SERVICE_PAYMENT.txt",
+      "sha256": "34918a751c8ea4cdb778eba5ad009b991c6ec24071997651d900a0da26a15f31"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT10_CROSS_ONBOARDING_EQUIPMENT.txt",
+      "sha256": "9559ecf7de93266d66c95b2a4ac3a87b6595b89d46d75c5175befad63ae815f0"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT11_CROSS_RECRUIT_BUDGET_OFFER.txt",
+      "sha256": "2c411a7d0cd3bfccf54490b2386ec208325be9cd08a2402601d26b10dfe42f88"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT12_CROSS_BUSINESS_TO_PO.txt",
+      "sha256": "26f1d15105dff4e104bcec929d28fe63210e6769c35287e1779d0955466d1085"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT13_CROSS_INTERNAL_DEV_STAFF_DATA.txt",
+      "sha256": "0a6a3d9f9b02f97cca723d9c3946c861f988f1e38f1cc121f07c8968d2488fe2"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT14_CROSS_PAYMENT_PERFORMANCE.txt",
+      "sha256": "99502d9df49122df2bc8529ca2497aec3b4d6d77ffc62d1884361e6fede69b5d"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT15_CROSS_SUPPLIER_CONTRACT_PO.txt",
+      "sha256": "5d863165dd15372a5a295e20dbe89dd0ae55e189d6934d1ad7bee44f3d74ad64"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT16_SPECIAL_SUPPLIER_FAIL.txt",
+      "sha256": "fa04cdd303a01203a395d3b57d5b0380e39fbb29630dbf84f6a594e7a1ab62e1"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT17_SPECIAL_INVALID_INVOICE.txt",
+      "sha256": "bcfe20076234531b05079728c93000524a1c9b47395def4e2743a1513fa6f5ea"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT18_SPECIAL_BUILD_OR_BUY.txt",
+      "sha256": "7367532c77ffbf7779aaa4487e20d67db578bb8da159f8f62fa61e731031009b"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT19_NO_TOOL_CLEAR.txt",
+      "sha256": "7a2e005255122672264c8cde6fadeed5850810b76834188c256039ae04eeee34"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT20_NO_TOOL_FINANCE.txt",
+      "sha256": "9be06727840ccc7d51bbce44b7ad10622c47c5fa89da2f0b6fc90d76e7d6df67"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/prompts/GT21_NO_TOOL_PROC.txt",
+      "sha256": "5b617d0f418a30bb6150810697e1d96f64b6ec7672f9e6c509c2be301e33649f"
+    },
+    {
+      "path": "SkillNet_Gold_Tasks_V4/skill_name_map.json",
+      "sha256": "264a20b9fb525e6d860a2149653cec93a56c3613a57371828dc453c350ba993f"
+    },
+    {
+      "path": "skill_relations.json",
+      "sha256": "7870d51ae4855787f9f32991d77bdd57509c35b9093c21de08f48402df86a590"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/E1_scale_manifest.json",
+      "sha256": "cd06d097abd37e30b93092fb1c44d721c0c0fbe6da1a511ab1aa4ff55880ee89"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/SkillNet_ABC_Experiment_Run_Guide_CN_v1.1.pdf",
+      "sha256": "5cea0149d24b33355e9592ba014985f479eb7a28b7c38d78d6bfc21128c8ba51"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/scale_relations/scale_relations_validation_report.json",
+      "sha256": "4a533190df1329466a2680346d40108a6e90ef8bb8a315f52a9e971e3b9a15ba"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_10.json",
+      "sha256": "3af80d5c2cdd6a09464d57f699c809129f83d1a72d06cb74aebf95899f9e3f6d"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_30.json",
+      "sha256": "ebb3af1379e1e135940a08fc3552cc0edbe4d60a94a2818d3dc768173dcb3388"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/scale_relations/skill_relations_46.json",
+      "sha256": "7870d51ae4855787f9f32991d77bdd57509c35b9093c21de08f48402df86a590"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/src/build_scaled_relations.py",
+      "sha256": "f45decde2e33cd65b65861b291282ce2944d8cfc13fb72d67e183011cbceaae6"
+    },
+    {
+      "path": "tests/test_atomic_skill_catalog.py",
+      "sha256": "61bbb2790c88ad50f7134bbe996949142b18aacd71388448218fb2b38915e93a"
+    },
+    {
+      "path": "tests/test_business_skills.py",
+      "sha256": "788d2068826e02a13da38aced9f365742aed360986d8339a472b014a89dec003"
+    },
+    {
+      "path": "tests/test_calculate_quotation.py",
+      "sha256": "b279d9bb046a8f7505cb6be649122606fd85cb94b7e05e159f084bb6d6997879"
+    },
+    {
+      "path": "tests/test_compare_quotes.py",
+      "sha256": "06059b576a231d1a587ee5d341b8d1beaf2704ca16068e43e340d68c617635b8"
+    },
+    {
+      "path": "tests/test_employee_db.py",
+      "sha256": "83bf933a6952a979f5b322bec852183ed004c4e1dfd856ce3f7ef4bc5d1421c7"
+    },
+    {
+      "path": "tests/test_evaluate_delivery_progress.py",
+      "sha256": "5ebd9fa3b9010c6367b89fc2c199db8d6575f48da8ea4286f3f47177808a75b5"
+    },
+    {
+      "path": "tests/test_evaluate_opportunity.py",
+      "sha256": "f6a0281e7246a407f86f091a935db5a053ea90b2a14aa7dae00cf5dd95339653"
+    },
+    {
+      "path": "tests/test_evaluate_supplier.py",
+      "sha256": "757266bbd0b54e57be653ae1bd7815b27989d65283a8f00b4b5ad52b700fa7f0"
+    },
+    {
+      "path": "tests/test_evaluate_test_acceptance.py",
+      "sha256": "f8fa32376dad509e188c66e163232c4a6291f45ce0f635b181762ab750be3356"
+    },
+    {
+      "path": "tests/test_finance_skills.py",
+      "sha256": "be5d15c3d6b8c5763f434ec47bbc15f21ea8fb82889ae17f1b30e054dcae3246"
+    },
+    {
+      "path": "tests/test_financial_reporting.py",
+      "sha256": "3d6847d6d102792770ca44ee4727f711d11fe6e7c7babf29b53dccb069ce903f"
+    },
+    {
+      "path": "tests/test_generate_offer.py",
+      "sha256": "888dbeb6fb4bb094764b72f96ac37bdd16fb7120f06658a9ee40991a6dd57dbd"
+    },
+    {
+      "path": "tests/test_hr_skills.py",
+      "sha256": "2f77940a8934d0ce2754a36827efabaf548ea89acd5bb93a0c83291e6f5a5abe"
+    },
+    {
+      "path": "tests/test_procurement_skills.py",
+      "sha256": "d99e5b198deba6960d074bb21788a16f650a630aaf329351e66aebbf13301500"
+    },
+    {
+      "path": "tests/test_render_purchase_order.py",
+      "sha256": "a42fe984c68fa4147b83a1a89ba7295ba9497e427dc481603de811f2708b754f"
+    },
+    {
+      "path": "tests/test_score_suppliers.py",
+      "sha256": "0900ed803bc9a2b37f77d6a32eaca9396acc1907f907561a91ee7bb27e94e206"
+    },
+    {
+      "path": "tests/test_screen_resume.py",
+      "sha256": "ca931d35c71e67a92e406a1d4be38d3955ee255a9324bbaee788dbfe1b1b0211"
+    },
+    {
+      "path": "tests/test_technology_skills.py",
+      "sha256": "26b3f1718f73b06c1f98d693d93f26e2ae9fcd9f4a068940b42c5d80d6f9328c"
+    },
+    {
+      "path": "tests/test_validate_contract_signing.py",
+      "sha256": "503d1a7899aee6a847d1e6dd1b5cce5171db6f1bbb336123821c0d2ba3d90d3c"
+    },
+    {
+      "path": "tests/test_validate_journal.py",
+      "sha256": "6627b9329d95416fe11173be59f92484879163237e1838306ee991e6b42274d7"
+    },
+    {
+      "path": "tests/test_validate_release_manifest.py",
+      "sha256": "54de163810d546c351bb4a553a9cba3566b9b82c7be863b1b6483d4f5effd3a1"
+    },
+    {
+      "path": "tests/test_validate_task_plan.py",
+      "sha256": "5b7f93b710bff3611d8ae9c5923eaceb8200a1a85f4d69214ebe64295cf7e888"
+    },
+    {
+      "path": "tests/test_verify_invoice.py",
+      "sha256": "8343b81c2cd497e76fd9bdb512d25e3e1379b5599be34c483eda6c18a2c3fff1"
+    }
+  ],
+  "deliverable_files": [
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/C_RELATION_NORMALIZATION_REPORT.md",
+      "sha256": "b35d9fc365918de36f5927b644540c697c69e37c482327d7f79f5b7220d58ea6"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/README_CATALOGUES_CN.md",
+      "sha256": "a1029bcefc20f52b7b4a616b550e3aef1573900323797f1bb3e4fbd26a63f04c"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/catalogue_validation_report.json",
+      "sha256": "d7f1431379e0e69668859300e4276da108b348b7309a112486f338c2f6696c57"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/A_flat_catalogue.json",
+      "sha256": "cb09574e06e2a3662219ffae846428f5ae443b7cc3849f7da19f600b4a10c859"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/B_department_grouped_catalogue.json",
+      "sha256": "76045a9fec005916ee02edb38ecffbb616ae9dfd47584571e41e791e272e5621"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_10/C_graph_structured_catalogue.json",
+      "sha256": "d08275a0972f41b76482b248a5535857751675f2a4e067711f703798c6b51369"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/A_flat_catalogue.json",
+      "sha256": "cba5bcac38660eb0fb64c944bdf2168bbc36255d6e57f3e629de6b96ec35e0f4"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/B_department_grouped_catalogue.json",
+      "sha256": "304c182680ce23b7bd74f590b08704fdc32e753e727eb5f81c3b93aa6b5fceec"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_30/C_graph_structured_catalogue.json",
+      "sha256": "99c84cb46202c2f094350842d46eddb0d964f9a415c7c43b8a3fd8cb5ed9319b"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+      "sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef"
+    }
+  ],
+  "source_cross_check_summary": {
+    "conflict_count": 0,
+    "skill_name_map_recorded_commit": "cdb4ecdf838fdd4e0bbb01e4c766b32eb430eb47",
+    "current_source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+    "scale_relation_files_match_latest_filtered_root": {
+      "10": true,
+      "30": true,
+      "46": true
+    }
+  }
+}

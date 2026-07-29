@@ -1,0 +1,469 @@
+{
+  "schema_version": "1.0",
+  "report_type": "catalogue_fairness_validation",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "valid": true,
+  "checks": [
+    {
+      "id": "counts",
+      "description": "size 10/30/46 Skill counts are correct",
+      "status": "passed",
+      "details": {
+        "10": 10,
+        "30": 30,
+        "46": 46
+      }
+    },
+    {
+      "id": "strict_subsets",
+      "description": "10 is a strict subset of 30 and 30 is a strict subset of 46",
+      "status": "passed",
+      "details": {
+        "10": 10,
+        "30": 30,
+        "46": 46
+      }
+    },
+    {
+      "id": "canonical_ids",
+      "description": "Every Catalogue Skill ID exists under .agents/skills",
+      "status": "passed",
+      "details": {
+        "canonical_skill_count": 46
+      }
+    },
+    {
+      "id": "abc_skill_ids",
+      "description": "A/B/C Skill ID sets are identical within each size",
+      "status": "passed",
+      "details": {
+        "10": 10,
+        "30": 30,
+        "46": 46
+      }
+    },
+    {
+      "id": "abc_skill_cards",
+      "description": "A/B/C Skill Card fields and values are identical within each size",
+      "status": "passed",
+      "details": {
+        "card_fields": [
+          "skill_id",
+          "name_en",
+          "display_name_zh",
+          "description_en",
+          "description_zh",
+          "department_id",
+          "source_skill_md"
+        ]
+      }
+    },
+    {
+      "id": "a_structure",
+      "description": "A has no department grouping or relations",
+      "status": "passed",
+      "details": {
+        "organization": "flat"
+      }
+    },
+    {
+      "id": "b_structure",
+      "description": "B has five department groups and no relations",
+      "status": "passed",
+      "details": {
+        "department_ids": [
+          "business-agent",
+          "finance-agent",
+          "hr-agent",
+          "procurement-agent",
+          "technology-agent"
+        ]
+      }
+    },
+    {
+      "id": "c_departments",
+      "description": "C department grouping is exactly identical to B",
+      "status": "passed",
+      "details": {
+        "sizes": [
+          10,
+          30,
+          46
+        ]
+      }
+    },
+    {
+      "id": "c_only_adds_relations",
+      "description": "C only adds relation data, relation semantics, and their content hash to B",
+      "status": "passed",
+      "details": {
+        "added_keys": [
+          "relations",
+          "relation_semantics",
+          "relations_sha256"
+        ]
+      }
+    },
+    {
+      "id": "deterministic_sort",
+      "description": "A is globally alphabetical; B/C departments and their Skills are alphabetical",
+      "status": "passed",
+      "details": {
+        "sort_key": "skill_id / department_id"
+      }
+    },
+    {
+      "id": "forbidden_c_keys",
+      "description": "C contains no ambiguous structural keys",
+      "status": "passed",
+      "details": {
+        "forbidden_keys": [
+          "children",
+          "expands_to",
+          "parent",
+          "parent_skill",
+          "workflow"
+        ]
+      }
+    },
+    {
+      "id": "relation_endpoints",
+      "description": "Every normalized C relation endpoint is in the current size",
+      "status": "passed",
+      "details": {
+        "10": {
+          "source_department_records": 4,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 4,
+          "prerequisite": 6,
+          "conflict": 2,
+          "mutex": 0,
+          "enhances": 1
+        },
+        "30": {
+          "source_department_records": 5,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 5,
+          "prerequisite": 25,
+          "conflict": 7,
+          "mutex": 0,
+          "enhances": 4
+        },
+        "46": {
+          "source_department_records": 5,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 5,
+          "prerequisite": 53,
+          "conflict": 13,
+          "mutex": 4,
+          "enhances": 13
+        }
+      }
+    },
+    {
+      "id": "relation_counts",
+      "description": "C relation counts and types equal the supplied source relation files",
+      "status": "passed",
+      "details": {
+        "10": {
+          "source_department_records": 4,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 4,
+          "prerequisite": 6,
+          "conflict": 2,
+          "mutex": 0,
+          "enhances": 1
+        },
+        "30": {
+          "source_department_records": 5,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 5,
+          "prerequisite": 25,
+          "conflict": 7,
+          "mutex": 0,
+          "enhances": 4
+        },
+        "46": {
+          "source_department_records": 5,
+          "catalogue_department_records": 5,
+          "catalogue_populated_departments": 5,
+          "prerequisite": 53,
+          "conflict": 13,
+          "mutex": 4,
+          "enhances": 13
+        }
+      }
+    },
+    {
+      "id": "no_gold_or_answers",
+      "description": "Catalogues contain no Gold/task-answer routing fields",
+      "status": "passed",
+      "details": {
+        "forbidden_keys": [
+          "blocked_by",
+          "canonical_sequence",
+          "expected_blocked_by",
+          "forbidden_skills",
+          "gold_answer",
+          "hard_order_constraints",
+          "initial_skill_states",
+          "optional_skills",
+          "prediction",
+          "required_skills",
+          "task_constraints"
+        ]
+      }
+    },
+    {
+      "id": "json_and_duplicates",
+      "description": "All Catalogue JSON is parseable and has no duplicate Skills",
+      "status": "passed",
+      "details": {
+        "catalogue_count": 9
+      }
+    },
+    {
+      "id": "source_commit_hash_fields",
+      "description": "Each Catalogue records source commit and stable SHA-256 component hashes",
+      "status": "passed",
+      "details": {
+        "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b"
+      }
+    },
+    {
+      "id": "source_relations_equivalence",
+      "description": "Existing 10/30/46 relation files equal the latest root graph filtered to frozen nodes",
+      "status": "passed",
+      "details": {
+        "10": true,
+        "30": true,
+        "46": true
+      }
+    },
+    {
+      "id": "source_conflicts",
+      "description": "Canonical source cross-checks have no unresolved conflicts",
+      "status": "passed",
+      "details": {
+        "conflict_count": 0
+      }
+    },
+    {
+      "id": "source_inventory",
+      "description": "All required source inventories were read",
+      "status": "passed",
+      "details": {
+        "skill_md": 46,
+        "openai_yaml": 46,
+        "gold_prompts": 21,
+        "repo_test_files": 23,
+        "pdf_pages_reviewed": 16
+      }
+    }
+  ],
+  "catalogue_skill_counts": {
+    "10": {
+      "A": 10,
+      "B": 10,
+      "C": 10
+    },
+    "30": {
+      "A": 30,
+      "B": 30,
+      "C": 30
+    },
+    "46": {
+      "A": 46,
+      "B": 46,
+      "C": 46
+    }
+  },
+  "relation_counts": {
+    "10": {
+      "source_department_records": 4,
+      "catalogue_department_records": 5,
+      "catalogue_populated_departments": 4,
+      "prerequisite": 6,
+      "conflict": 2,
+      "mutex": 0,
+      "enhances": 1
+    },
+    "30": {
+      "source_department_records": 5,
+      "catalogue_department_records": 5,
+      "catalogue_populated_departments": 5,
+      "prerequisite": 25,
+      "conflict": 7,
+      "mutex": 0,
+      "enhances": 4
+    },
+    "46": {
+      "source_department_records": 5,
+      "catalogue_department_records": 5,
+      "catalogue_populated_departments": 5,
+      "prerequisite": 53,
+      "conflict": 13,
+      "mutex": 4,
+      "enhances": 13
+    }
+  },
+  "source_conflicts": [],
+  "source_differences": {
+    "openai_display_name_differs_from_skill_h1": [
+      {
+        "skill_id": "business-solution-quotation",
+        "skill_md_h1": "Business Solution and Quotation",
+        "openai_yaml": "Business Solution Quotation"
+      },
+      {
+        "skill_id": "hr-employee-database",
+        "skill_md_h1": "HR Employee Database",
+        "openai_yaml": "Hr Employee Database"
+      },
+      {
+        "skill_id": "hr-interview-scheduling",
+        "skill_md_h1": "HR Interview Scheduling",
+        "openai_yaml": "Hr Interview Scheduling"
+      },
+      {
+        "skill_id": "hr-jd-generator",
+        "skill_md_h1": "HR JD Generator",
+        "openai_yaml": "Hr Jd Generator"
+      },
+      {
+        "skill_id": "hr-job-requirement",
+        "skill_md_h1": "HR Job Requirement",
+        "openai_yaml": "Hr Job Requirement"
+      },
+      {
+        "skill_id": "hr-offer-generator",
+        "skill_md_h1": "HR Offer Generator",
+        "openai_yaml": "Hr Offer Generator"
+      },
+      {
+        "skill_id": "hr-onboarding",
+        "skill_md_h1": "HR Onboarding",
+        "openai_yaml": "Hr Onboarding"
+      },
+      {
+        "skill_id": "hr-recruitment-publish",
+        "skill_md_h1": "HR Recruitment Publish",
+        "openai_yaml": "Hr Recruitment Publish"
+      },
+      {
+        "skill_id": "hr-resume-screening",
+        "skill_md_h1": "HR Resume Screening",
+        "openai_yaml": "Hr Resume Screening"
+      },
+      {
+        "skill_id": "procurement-rfq-generation",
+        "skill_md_h1": "Procurement RFQ Generation",
+        "openai_yaml": "Procurement Rfq Generation"
+      },
+      {
+        "skill_id": "technology-development-implementation",
+        "skill_md_h1": "Technology Development and Implementation",
+        "openai_yaml": "Technology Development Implementation"
+      },
+      {
+        "skill_id": "technology-operations-maintenance",
+        "skill_md_h1": "Technology Operations and Maintenance",
+        "openai_yaml": "Technology Operations Maintenance"
+      }
+    ],
+    "openai_short_description_differs_from_skill_frontmatter": [
+      "business-acceptance",
+      "business-contract-signing",
+      "business-customer-lead",
+      "business-negotiation",
+      "business-opportunity-assessment",
+      "business-project-delivery-tracking",
+      "business-renewal",
+      "business-requirement-communication",
+      "business-solution-quotation",
+      "finance-accounting",
+      "finance-budget-check",
+      "finance-budget-planning",
+      "finance-expense-request",
+      "finance-expense-review",
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-reporting",
+      "hr-employee-database",
+      "hr-interview-scheduling",
+      "hr-jd-generator",
+      "hr-job-requirement",
+      "hr-offer-generator",
+      "hr-onboarding",
+      "hr-recruitment-publish",
+      "hr-resume-screening",
+      "procurement-contract-generation",
+      "procurement-delivery-acceptance",
+      "procurement-delivery-tracking",
+      "procurement-purchase-order",
+      "procurement-quote-comparison",
+      "procurement-requirement",
+      "procurement-rfq-generation",
+      "procurement-supplier-evaluation",
+      "procurement-supplier-qualification",
+      "procurement-supplier-scoring",
+      "procurement-supplier-search",
+      "procurement-supplier-selection",
+      "technology-development-implementation",
+      "technology-feasibility-assessment",
+      "technology-operations-maintenance",
+      "technology-requirement",
+      "technology-solution-design",
+      "technology-specification-confirmation",
+      "technology-system-release",
+      "technology-task-breakdown",
+      "technology-test-acceptance"
+    ],
+    "skill_name_map_recorded_commit_differs_from_current_main": true,
+    "skill_name_map_recorded_commit": "cdb4ecdf838fdd4e0bbb01e4c766b32eb430eb47",
+    "current_main_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+    "scale_validation_paths_are_environment_specific": true
+  },
+  "openai_yaml_cross_check": {
+    "title_match_count": 34,
+    "title_difference_count": 12,
+    "short_description_exact_match_count": 0,
+    "short_description_difference_count": 46,
+    "interpretation": "openai.yaml short_description is an interface summary and is not used as description_en; differences are reported but are not canonical conflicts."
+  },
+  "instruction_resolution_notes": [
+    {
+      "topic": "department display labels",
+      "decision": "Use exact skill_name_map.json department name_en/display_name values.",
+      "reason": "The structural example uses shorter labels, but the repository mapping is the available canonical bilingual source."
+    },
+    {
+      "topic": "size-10 empty department",
+      "decision": "List all five canonical departments in B/C; finance has an empty skills array.",
+      "reason": "The formal B requirement names five canonical departments, while source relation membership still has exactly four populated groups."
+    },
+    {
+      "topic": "forbidden C terms",
+      "decision": "Validate forbidden structural keys recursively.",
+      "reason": "Canonical source descriptions are preserved verbatim and are never rewritten merely because ordinary prose may contain a generic process word."
+    }
+  ],
+  "source_hash_summary": {
+    "hash_algorithm": "SHA-256",
+    "required_source_file_count": 145,
+    "skill_md_bundle_sha256": "d0f561d3f0304ba35d81b8dfd47f141c3eb90921beac26aca99a90d71bdf2c03",
+    "openai_yaml_bundle_sha256": "3644b2513805a468d7239a72f96a7c3960adcfe93e8979bb692d735dfe809446",
+    "prompt_bundle_sha256": "3b0047ce2359771d6179c08d074dfe07a2a121556f0fe53533e542e254c7fd8a",
+    "repo_tests_bundle_sha256": "9846d4749fde3c734fa722ca13a5a5eabc99dba2134f586fe87fee82de983de7"
+  },
+  "commands_to_revalidate": [
+    "python3 -m unittest discover -s tests -v",
+    "python3 skillnet_run_guide_v1_1/src/build_scaled_relations.py --relations skill_relations.json --manifest skillnet_run_guide_v1_1/E1_scale_manifest.json --out-dir <temporary-output>",
+    "python3 /private/tmp/build_skillnet_formal_catalogues.py"
+  ],
+  "limitations": [
+    "No E0/E1 task was run.",
+    "No Codex call was made for GT01-GT21.",
+    "The central manifest records hashes for all other deliverable files; its own hash is reported externally to avoid self-reference."
+  ]
+}
