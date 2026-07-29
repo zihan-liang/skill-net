@@ -1,0 +1,17 @@
+{
+  "task_id": "GT04_TECH_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Technology Agent"
+  ],
+  "skill_sequence": [
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "技术需求已整理完成，因此从可行性评估开始，依次确认可度量的技术规格、形成详细解决方案，并拆解为可估算且可验收的开发任务；到进入开发前为止，不调用实际开发实施 Skill。"
+}

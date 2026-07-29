@@ -276,6 +276,14 @@ class ExperimentRunnerContractTests(unittest.TestCase):
 
         self.assertEqual(normalized["route_choice"], {})
 
+    def test_subprocess_output_is_always_normalized_to_text(self):
+        self.assertEqual(self.runner.normalize_subprocess_output(None), "")
+        self.assertEqual(self.runner.normalize_subprocess_output("already text"), "already text")
+        self.assertEqual(
+            self.runner.normalize_subprocess_output("中文错误".encode("utf-8")),
+            "中文错误",
+        )
+
     def test_validate_prediction_requires_the_requested_task_id(self):
         prediction = {
             "task_id": "WRONG",

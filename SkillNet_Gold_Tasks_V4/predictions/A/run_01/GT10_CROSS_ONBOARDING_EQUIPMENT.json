@@ -1,0 +1,18 @@
+{
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent",
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "procurement-delivery-tracking",
+    "procurement-delivery-acceptance",
+    "hr-onboarding",
+    "hr-employee-database"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "采购订单已生成，因此先跟踪设备交付并完成到货验收；随后办理新员工入职、设备与访问准备，最后将员工信息归档至员工数据库。"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "GT19_NO_TOOL_CLEAR",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "该任务只是普通闲聊和轻松笑话请求，不需要任何企业流程 Skill。"
+}

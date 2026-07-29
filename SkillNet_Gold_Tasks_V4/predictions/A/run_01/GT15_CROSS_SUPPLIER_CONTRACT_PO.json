@@ -1,0 +1,19 @@
+{
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent",
+    "Procurement Agent"
+  ],
+  "skill_sequence": [
+    "business-negotiation",
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "预算和供应商选择均已完成，因此先进行供应商商务条款谈判，再基于选商结果形成并履行审批、签署准备的采购合同流程，最后在合同获批并有执行证据后生成采购订单；本任务不包含交付跟踪。"
+}

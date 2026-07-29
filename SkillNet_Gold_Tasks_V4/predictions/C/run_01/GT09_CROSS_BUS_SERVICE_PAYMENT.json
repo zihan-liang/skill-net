@@ -1,0 +1,25 @@
+{
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent",
+    "Procurement Agent",
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "business-acceptance",
+    "procurement-delivery-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "business-acceptance"
+  ],
+  "route_choice": {
+    "acceptance_route": "business_acceptance",
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "外部咨询服务采用业务验收路线；须先取得业务团队的正式验收证据，再完成采购交付验收、发票核验、付款审批，并在取得付款释放或结算证据后入账。当前尚缺正式业务验收，因此后续付款与入账被阻塞。"
+}

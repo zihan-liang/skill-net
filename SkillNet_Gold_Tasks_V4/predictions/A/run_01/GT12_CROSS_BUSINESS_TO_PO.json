@@ -1,0 +1,30 @@
+{
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent",
+    "Procurement Agent",
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection",
+    "business-negotiation",
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "客户线索已建档，因此从需求确认和商机评估开始；商机可行后走外部采购路径，依次形成采购需求、核查预算、寻源及准入供应商、询价比较与评分选定供应商，再完成谈判、供应合同和采购订单。"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "GT05_BUS_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent"
+  ],
+  "skill_sequence": [
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "business-solution-quotation"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "潜在客户已进入跟进名单，无需重复创建线索；应先澄清需求、预算和交付预期，再评估商机是否值得推进，仅对经确认值得推进的商机形成初步方案和报价。按要求不进入正式谈判或合同签署。"
+}

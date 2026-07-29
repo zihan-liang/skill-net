@@ -1,0 +1,15 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "已支付但尚未入账的批准款项需先完成会计分类、凭证校验和入账准备；待形成已过账财务数据后，再汇总并编制本月管理层财务报表。"
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent",
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "finance-budget-check",
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening",
+    "hr-interview-scheduling",
+    "hr-offer-generator"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "岗位需求已获批且标准明确，因此先核查招聘预算；预算允许后依次生成并发布职位描述、筛选简历、安排面试并汇总反馈，最后为获批的最终候选人生成 Offer，不包含入职流程。"
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent",
+    "Technology Agent",
+    "Procurement Agent",
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "procurement-requirement",
+    "technology-specification-confirmation",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "先将客户线索转为已确认需求并评估商机，再完成技术需求、可行性和供应商中立的采购技术规格；随后核查预算，依次开展供应商搜索、准入、询价、报价比较、评分和选商。流程止于供应商选择，不进入客户合同、供应合同或采购订单阶段。"
+}

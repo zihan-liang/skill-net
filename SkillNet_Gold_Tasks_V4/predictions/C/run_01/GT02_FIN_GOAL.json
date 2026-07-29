@@ -1,0 +1,15 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "已批准款项均已支付，无需重复预算、费用、发票或付款审批；应先通过 finance-accounting 根据付款凭证完成记账准备并由授权人员过账，再由 finance-reporting 基于已过账数据完成月末对账和管理报表草案。"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "GT06_HR_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "岗位需求和招聘预算已获批准，但职位尚未发布；应先生成获批岗位的JD，再完成招聘发布并收集申请，最后依据获批标准筛选简历形成面试候选人名单，不包含面试安排或Offer生成。"
+}

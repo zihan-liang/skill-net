@@ -1,0 +1,23 @@
+{
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "use_skills": true,
+  "selected_departments": [
+    "Technology Agent"
+  ],
+  "skill_sequence": [
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown",
+    "technology-development-implementation",
+    "technology-test-acceptance"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "acceptance_route": "technical_acceptance",
+    "build_or_buy": "internal_development"
+  },
+  "reason": "已明确选择内部开发，因此仅规划技术路线：将已识别需求正式化，依次完成可行性评估、规格确认、方案设计、任务拆解、开发实施和技术测试验收；排除全部外部采购 Skills。"
+}

@@ -1,0 +1,6 @@
+﻿configuration,run_id,category,n,functional_success,clean_success,skill_precision,skill_recall,skill_f1,department_f1,required_order_accuracy,final_status_correct,route_choice_correct,gold_constraint_violation_rate
+A,1,cross_department_goal,9,0.333333,0.333333,0.992063,0.906349,0.943279,0.933333,0.79243,0.888889,0.333333,0.666667
+A,1,no_tool,3,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0
+A,1,single_department_goal,5,0.6,0.6,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.4
+A,1,single_skill,1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0
+A,1,special_constraint,3,0.333333,0.0,0.285714,1.0,0.307692,1.0,1.0,1.0,0.333333,1.0

@@ -1,0 +1,21 @@
+{
+  "task_id": "GT03_PROC_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent"
+  ],
+  "skill_sequence": [
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "采购需求与预算已确认但尚无候选供应商，因此依次进行供应商搜索、资质准入、RFQ生成、报价比较、综合评分和最终选商；按任务范围止于供应商选择，不进入谈判、合同或采购订单环节。"
+}

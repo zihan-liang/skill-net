@@ -1,0 +1,10 @@
+{
+  "task_id": "GT21_NO_TOOL_PROC",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "该请求仅要求讲一个关于采购部门的笑话，并明确不执行任何采购流程；采购关键词不构成企业流程需求，因此无需调用任何企业 Skill。"
+}

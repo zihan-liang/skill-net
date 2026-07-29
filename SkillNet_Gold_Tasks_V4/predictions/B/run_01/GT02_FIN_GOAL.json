@@ -1,0 +1,15 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "已批准且已支付的款项需先完成会计分类、记账草案校验及授权入账，再基于已入账数据进行现金勾稽并编制月度管理报表。"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-invoice-verification"
+  ],
+  "route_choice": {},
+  "reason": "发票无效或与合同、订单不匹配属于付款前置核验失败；即使采购交付已验收，也必须阻断付款审批及放款，要求供应商更正发票并经授权复核通过后再继续。"
+}

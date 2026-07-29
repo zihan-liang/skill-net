@@ -1,0 +1,21 @@
+{
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "use_skills": true,
+  "selected_departments": [
+    "Technology Agent",
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "hr-employee-database",
+    "technology-task-breakdown"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "internal_development"
+  },
+  "reason": "技术需求已识别且已决定内部开发，因此先完成可行性评估，再确认技术规格并形成方案设计；随后以最小必要范围查询员工技能和项目经验，用于生成有负责人、依赖、估算和验收标准的技术任务分工。任务明确暂不开发，故不进入实施、测试或发布环节。"
+}

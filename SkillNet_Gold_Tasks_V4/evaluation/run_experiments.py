@@ -174,6 +174,15 @@ def error_prediction(task_id: str, message: str) -> Dict[str, Any]:
     }
 
 
+def normalize_subprocess_output(value: Any) -> str:
+    """Return serializable text for normal and timeout subprocess streams."""
+    if value is None:
+        return ""
+    if isinstance(value, bytes):
+        return value.decode("utf-8", errors="replace")
+    return str(value)
+
+
 def run_single_task(
     *,
     repo_root: Path,
@@ -232,8 +241,8 @@ def run_single_task(
                 attempt_record = {
                     "attempt": attempt,
                     "returncode": completed.returncode,
-                    "stdout": completed.stdout,
-                    "stderr": completed.stderr,
+                    "stdout": normalize_subprocess_output(completed.stdout),
+                    "stderr": normalize_subprocess_output(completed.stderr),
                 }
                 attempts.append(attempt_record)
                 if completed.returncode != 0:
@@ -252,8 +261,8 @@ def run_single_task(
                     {
                         "attempt": attempt,
                         "returncode": "timeout",
-                        "stdout": exc.stdout or "",
-                        "stderr": exc.stderr or "",
+                        "stdout": normalize_subprocess_output(exc.stdout),
+                        "stderr": normalize_subprocess_output(exc.stderr),
                     }
                 )
 

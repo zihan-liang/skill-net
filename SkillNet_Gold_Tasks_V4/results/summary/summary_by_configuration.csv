@@ -1,0 +1,4 @@
+﻿configuration,n,functional_success,clean_success,skill_precision,skill_recall,skill_f1,department_f1,required_order_accuracy,final_status_correct,route_choice_correct,gold_constraint_violation_rate
+A,21,0.52381,0.47619,0.894558,0.959864,0.87679,0.971429,0.911041,0.952381,0.52381,0.52381
+B,21,0.52381,0.52381,0.894558,0.9678,0.881119,0.980952,0.926426,0.904762,0.666667,0.47619
+C,21,0.571429,0.571429,0.892007,0.992063,0.893595,1.0,0.990476,0.809524,0.714286,0.428571

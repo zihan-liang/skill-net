@@ -1,0 +1,22 @@
+{
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent",
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "finance-budget-check",
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening",
+    "hr-interview-scheduling",
+    "hr-offer-generator"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-budget-check"
+  ],
+  "route_choice": {},
+  "reason": "岗位需求已审批，无需重复执行岗位需求审批；应先核查招聘预算，预算确认可用后再依次生成JD、发布招聘、筛选简历、安排面试并为获批最终候选人生成Offer。当前因预算尚未确认而阻塞，且按要求不进入入职流程。"
+}

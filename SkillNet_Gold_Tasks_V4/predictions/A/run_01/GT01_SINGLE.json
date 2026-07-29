@@ -1,0 +1,14 @@
+{
+  "task_id": "GT01_SINGLE",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent"
+  ],
+  "skill_sequence": [
+    "procurement-supplier-qualification"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "候选供应商名单已具备，任务仅需核验基本资质、合规性、风险与准入条件，不涉及询价、评分或供应商选择。"
+}

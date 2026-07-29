@@ -1,0 +1,18 @@
+{
+  "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent"
+  ],
+  "skill_sequence": [
+    "procurement-supplier-qualification",
+    "procurement-supplier-selection",
+    "procurement-contract-generation"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "procurement-supplier-qualification"
+  ],
+  "route_choice": {},
+  "reason": "唯一候选供应商未通过强制资质检查，且没有已批准的例外，因此必须停止选商；没有人工批准的选商结果，合同生成也不得启动。"
+}

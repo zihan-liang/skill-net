@@ -1,0 +1,16 @@
+{
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "use_skills": true,
+  "selected_departments": [
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "finance-invoice-verification"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-invoice-verification"
+  ],
+  "route_choice": {},
+  "reason": "交付验收虽已通过，但发票无效或与合同、订单不匹配，发票核验关口必须阻止付款交接；在供应商提交合规且匹配的新发票并经授权复核前，不进入付款审批。"
+}

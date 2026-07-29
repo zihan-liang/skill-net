@@ -1,0 +1,25 @@
+{
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent",
+    "Technology Agent",
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "procurement-delivery-tracking",
+    "technology-test-acceptance",
+    "procurement-delivery-acceptance",
+    "hr-onboarding",
+    "hr-employee-database"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "procurement-delivery-tracking"
+  ],
+  "route_choice": {
+    "acceptance_route": "technical_acceptance",
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "Offer 已接受且采购订单已生成，因此从设备交付跟踪开始；办公电脑属于外购技术设备，到货后需先完成技术测试验收，再完成采购交付验收，随后办理入职并归档员工信息。当前设备尚未交付，后续步骤暂时受阻。"
+}

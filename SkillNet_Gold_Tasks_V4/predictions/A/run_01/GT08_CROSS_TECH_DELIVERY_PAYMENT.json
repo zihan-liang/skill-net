@@ -1,0 +1,24 @@
+{
+  "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "Procurement Agent",
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "procurement-delivery-tracking",
+    "procurement-delivery-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "procurement-delivery-acceptance"
+  ],
+  "route_choice": {
+    "acceptance_route": "technical_acceptance",
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "采购订单已生成且供应商报告到货，应先完成交付跟踪并取得技术部门参与的到货验收证据，再核验发票、办理付款审批，并在取得实际付款释放或结算证据后入账；当前缺少交付验收，因此后续付款与入账被阻塞。"
+}

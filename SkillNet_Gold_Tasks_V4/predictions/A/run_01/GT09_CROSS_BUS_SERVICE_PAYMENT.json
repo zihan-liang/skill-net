@@ -1,0 +1,21 @@
+{
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "Business Agent",
+    "Finance Agent"
+  ],
+  "skill_sequence": [
+    "business-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "acceptance_route": "business_acceptance",
+    "build_or_buy": "external_procurement"
+  },
+  "reason": "外部咨询服务需先按业务验收路线核对合同标准并取得正式验收证据，再核验供应商发票、形成付款审批与放款控制，最后依据已授权的付款证据完成入账准备。"
+}

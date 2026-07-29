@@ -1,0 +1,16 @@
+{
+  "task_id": "GT06_HR_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "HR Agent"
+  ],
+  "skill_sequence": [
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "岗位需求与招聘预算已批准，应先生成获批岗位的JD，再发布职位收集申请，最后依据岗位标准筛选简历并形成待人工确认的面试候选人名单；本任务不包含面试安排或Offer生成。"
+}
