@@ -1,0 +1,150 @@
+SkillNet E0/E1 标准运行指令 v3
+
+前提：
+1. 正式 A/B/C Catalogue 已经进入 repo：
+   `skillnet_run_guide_v1_1/catalogues/`
+2. Codex 已完成 v3 Setup Prompt；
+3. runner、Catalogue validation 和 fixture dry run 均通过；
+4. 每次 child Codex 只看到一条中文任务和一份正式 Catalogue。
+
+============================================================
+可选 Smoke Test
+============================================================
+
+Smoke Test 不计入正式 run_01，只检查环境和隔离。
+
+RUN SMOKE
+task_id: GT01_SINGLE
+configuration: A
+size: 46
+run_id: smoke_01
+
+然后分别将 configuration 改为 B、C。
+
+Smoke Test 输出不得混入正式 E0 结果。
+
+============================================================
+E0
+============================================================
+
+RUN E0
+configuration: A
+run_id: run_01
+
+RUN E0
+configuration: B
+run_id: run_01
+
+RUN E0
+configuration: C
+run_id: run_01
+
+固定输入：
+
+- E0-A：
+  `catalogues/size_46/A_flat_catalogue.json`
+- E0-B：
+  `catalogues/size_46/B_department_grouped_catalogue.json`
+- E0-C：
+  `catalogues/size_46/C_graph_structured_catalogue.json`
+
+C Catalogue 已经包含 relations。不得再读取或提供独立 relation JSON。
+
+建议顺序：
+1. Smoke A/B/C；
+2. E0-A；
+3. 独立核验；
+4. E0-B；
+5. 独立核验；
+6. E0-C；
+7. 独立核验和完整 E0 汇总。
+
+============================================================
+E1 size 10
+============================================================
+
+RUN E1
+configuration: A
+size: 10
+run_id: run_01
+
+RUN E1
+configuration: B
+size: 10
+run_id: run_01
+
+RUN E1
+configuration: C
+size: 10
+run_id: run_01
+
+E1-C-size10 只能读取：
+
+`skillnet_run_guide_v1_1/catalogues/size_10/C_graph_structured_catalogue.json`
+
+不得额外读取 `skill_relations_10.json`。
+
+============================================================
+E1 size 30
+============================================================
+
+RUN E1
+configuration: A
+size: 30
+run_id: run_01
+
+RUN E1
+configuration: B
+size: 30
+run_id: run_01
+
+RUN E1
+configuration: C
+size: 30
+run_id: run_01
+
+E1-C-size30 只能读取：
+
+`skillnet_run_guide_v1_1/catalogues/size_30/C_graph_structured_catalogue.json`
+
+不得额外读取 `skill_relations_30.json`。
+
+============================================================
+E1 size 46
+============================================================
+
+不重新运行。
+
+必须从 E0 的 A/B/C 结果中分别提取：
+
+- GT01_SINGLE
+- GT04_TECH_GOAL
+- GT13_CROSS_INTERNAL_DEV_STAFF_DATA
+- GT15_CROSS_SUPPLIER_CONTRACT_PO
+- GT16_SPECIAL_SUPPLIER_FAIL
+
+============================================================
+独立核验
+============================================================
+
+每个 condition 完成后，Codex 必须输出：
+
+VERIFY COMMAND:
+<真实可执行命令>
+
+并列出：
+
+- raw responses 路径；
+- predictions.jsonl；
+- schema validation；
+- evaluator stdout/stderr；
+- per-task results；
+- summary；
+- failure analysis；
+- evaluation traces；
+- graph overlays；
+- Catalogue hash；
+- runtime repo commit。
+
+用户应在本地终端复制执行 VERIFY COMMAND。
+Codex不能只说“评价完成”。

@@ -11,10 +11,12 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.metadata
 import json
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,84 +35,7 @@ CONFIGURATION_FILENAMES = {
     "B": "B_department_grouped_catalogue.json",
     "C": "C_graph_structured_catalogue.json",
 }
-REQUIRED_PREDICTION_FIELDS = (
-    "task_id",
-    "use_skills",
-    "selected_departments",
-    "skill_sequence",
-    "final_status",
-    "blocked_by",
-    "route_choice",
-    "reason",
-)
 RUN_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
-
-# This fixed shape is passed to every child via --output-schema. It deliberately
-# contains no Skill or department enum, so a small Catalogue does not leak IDs
-# from a larger condition. The canonical repository schema is applied after the
-# response is produced.
-CHILD_OUTPUT_SCHEMA: dict[str, Any] = {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "type": "object",
-    "required": list(REQUIRED_PREDICTION_FIELDS),
-    "properties": {
-        "task_id": {"type": "string", "pattern": "^GT[0-9]{2}_[A-Z0-9_]+$"},
-        "use_skills": {"type": "boolean"},
-        "selected_departments": {
-            "type": "array",
-            "items": {"type": "string"},
-            "uniqueItems": True,
-        },
-        "skill_sequence": {
-            "type": "array",
-            "items": {"type": "string"},
-            "uniqueItems": True,
-        },
-        "final_status": {"enum": ["completed", "blocked", "no_tool"]},
-        "blocked_by": {
-            "type": "array",
-            "items": {"type": "string"},
-            "uniqueItems": True,
-        },
-        "route_choice": {
-            "type": "object",
-            "additionalProperties": {"type": "string"},
-        },
-        "reason": {"type": "string", "minLength": 1},
-    },
-    "allOf": [
-        {
-            "if": {"properties": {"final_status": {"const": "no_tool"}}},
-            "then": {
-                "properties": {
-                    "use_skills": {"const": False},
-                    "selected_departments": {"maxItems": 0},
-                    "skill_sequence": {"maxItems": 0},
-                    "blocked_by": {"maxItems": 0},
-                }
-            },
-        },
-        {
-            "if": {"properties": {"final_status": {"const": "blocked"}}},
-            "then": {
-                "properties": {
-                    "use_skills": {"const": True},
-                    "blocked_by": {"minItems": 1},
-                }
-            },
-        },
-        {
-            "if": {"properties": {"final_status": {"const": "completed"}}},
-            "then": {
-                "properties": {
-                    "use_skills": {"const": True},
-                    "blocked_by": {"maxItems": 0},
-                }
-            },
-        },
-    ],
-    "additionalProperties": False,
-}
 
 
 def utc_now() -> str:
@@ -353,11 +278,26 @@ def build_child_prompt(
 - 只能使用下方“当前中文任务”和“当前唯一 Catalogue”。
 - 不得假设或使用 Catalogue 之外的 Skill。
 - 只进行路由预测，不执行任何业务动作。
-- 只返回一个满足固定输出 schema 的 JSON 对象。
+- 只返回一个满足下方固定输出契约的 JSON 对象。
 - 不要输出 Markdown、代码围栏、解释性前后缀或第二次答案。
 - task_id 必须是 `{task_id}`。
 - skill_sequence 和 blocked_by 只能使用当前 Catalogue 中的 canonical skill_id。
 - selected_departments 只能使用当前 Catalogue 中的 canonical department_id。
+
+固定输出契约（八个字段必须全部出现，不得增加其他字段）：
+- task_id：字符串，值必须是 `{task_id}`。
+- use_skills：布尔值。
+- selected_departments：无重复字符串数组。
+- skill_sequence：无重复字符串数组，按执行顺序排列。
+- final_status：字符串，只能是 completed、blocked 或 no_tool。
+- blocked_by：无重复字符串数组。
+- route_choice：JSON 对象；每个键和值都必须是字符串。
+- reason：非空字符串，简洁说明路由判断。
+
+状态一致性规则：
+- completed：use_skills 为 true，blocked_by 为空数组。
+- blocked：use_skills 为 true，blocked_by 至少包含一个当前 Catalogue 的 canonical skill_id。
+- no_tool：use_skills 为 false，selected_departments、skill_sequence、blocked_by 都为空数组。
 
 当前中文任务：
 {prompt_zh}
@@ -402,8 +342,6 @@ def execute_codex(
     raw_path: Path,
     packet_dir: Path,
 ) -> tuple[int, str, str, bool, list[str]]:
-    output_schema_path = packet_dir / "output_schema.json"
-    write_json(output_schema_path, CHILD_OUTPUT_SCHEMA, exclusive=True)
     command = [
         str(codex_bin),
         "exec",
@@ -420,8 +358,6 @@ def execute_codex(
         f'model_reasoning_effort="{PINNED_REASONING_EFFORT}"',
         "--color",
         "never",
-        "--output-schema",
-        str(output_schema_path),
         "--cd",
         str(packet_dir),
         "--output-last-message",
@@ -535,7 +471,7 @@ def main() -> int:
             )
         run_root.mkdir(parents=True)
         condition_metadata = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "experiment": args.experiment,
             "configuration": args.configuration,
             "size": args.size,
@@ -545,6 +481,8 @@ def main() -> int:
             "default_execution": "serial",
             "attempts_per_task": 1,
             "automatic_retries": 0,
+            "transport_reconnects_allowed": True,
+            "task_attempt_definition": "one fresh codex exec process",
             "created_at_utc": utc_now(),
             "repository_commit": git_head(repo),
             "catalogue_path": str(catalogue_path.relative_to(repo)),
@@ -566,6 +504,11 @@ def main() -> int:
                 "user_config_ignored": True,
                 "ephemeral": True,
                 "sandbox": "read-only",
+            },
+            "python": {
+                "executable": sys.executable,
+                "version": sys.version.split()[0],
+                "jsonschema_version": importlib.metadata.version("jsonschema"),
             },
         }
         write_json(condition_metadata_path, condition_metadata, exclusive=True)
@@ -631,7 +574,7 @@ def main() -> int:
             write_json(prediction_path, prediction, exclusive=True)
 
         run_metadata = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "experiment": args.experiment,
             "configuration": args.configuration,
             "size": args.size,
@@ -640,6 +583,8 @@ def main() -> int:
             "execution_mode": "codex" if args.execute else "fixture",
             "attempt_number": 1,
             "automatic_retry": False,
+            "transport_reconnects_allowed": True,
+            "task_attempt_definition": "one fresh codex exec process",
             "started_at_utc": started_at,
             "finished_at_utc": finished_at,
             "prompt_source": prompts[task_id]["source"],

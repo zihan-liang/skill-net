@@ -1,0 +1,369 @@
+你现在负责为 SkillNet 项目建立并运行一套可复用、可核验的 E0/E1 实验方式。
+
+本 Prompt 的第一次用途是完成 setup：检查 repo、验证已经冻结的正式 A/B/C Catalogue、建立最小 runner 和核验工具。第一次收到本 Prompt 时不要立即运行真实 E0/E1。完成 setup 后，等待我发送标准 `RUN ...` 指令；收到后再自动运行指定的一个实验 condition。
+
+仓库：
+https://github.com/zihan-liang/skill-net
+
+权威分支：
+main
+
+正式 Catalogue 预期路径：
+
+skillnet_run_guide_v1_1/catalogues/
+  catalogue_manifest.json
+  catalogue_validation_report.json
+  size_10/
+    A_flat_catalogue.json
+    B_department_grouped_catalogue.json
+    C_graph_structured_catalogue.json
+  size_30/
+    A_flat_catalogue.json
+    B_department_grouped_catalogue.json
+    C_graph_structured_catalogue.json
+  size_46/
+    A_flat_catalogue.json
+    B_department_grouped_catalogue.json
+    C_graph_structured_catalogue.json
+
+Gold/evaluator 路径：
+SkillNet_Gold_Tasks_V4/
+
+────────────────────────────────────────
+一、先检查环境
+────────────────────────────────────────
+
+先 fetch 最新 main，并报告：
+
+1. 本地 repo 路径；
+2. 当前 branch；
+3. 最新 main commit；
+4. `git status --short`；
+5. Codex CLI 版本；
+6. `codex exec --help` 中实际可用参数；
+7. `.agents/skills/` 是否有 46 个 canonical Skills；
+8. `SkillNet_Gold_Tasks_V4/prompts/` 是否有 GT01–GT21；
+9. Gold、deterministic evaluator、prediction schema、tests 是否齐全；
+10. 正式 Catalogue 目录是否有 9 份 A/B/C JSON；
+11. `catalogue_validation_report.json` 是否 `valid=true`。
+
+若工作区不干净，停止并报告。不要清理、stash 或覆盖无关修改。
+
+禁止 push、merge、开 PR、删除 branch、修改 Gold、修改 evaluator、修改原子 Skills、伪造结果。
+
+────────────────────────────────────────
+二、正式 Catalogue 是唯一实验输入
+────────────────────────────────────────
+
+不要从 `.agents/skills/` 临时重新生成 Catalogue。
+不要让实验 Codex 扫描 repo。
+不要重新裁剪 relation 文件。
+不要把根目录 `skill_relations.json` 或独立 `skill_relations_10/30/46.json` 再提供给实验 Codex。
+
+每次实验只读取当前 size/configuration 的一份正式 Catalogue：
+
+E0：
+- A：`size_46/A_flat_catalogue.json`
+- B：`size_46/B_department_grouped_catalogue.json`
+- C：`size_46/C_graph_structured_catalogue.json`
+
+E1 size 10：
+- A：`size_10/A_flat_catalogue.json`
+- B：`size_10/B_department_grouped_catalogue.json`
+- C：`size_10/C_graph_structured_catalogue.json`
+
+E1 size 30：
+- A：`size_30/A_flat_catalogue.json`
+- B：`size_30/B_department_grouped_catalogue.json`
+- C：`size_30/C_graph_structured_catalogue.json`
+
+E1 size 46 复用 E0，不重新运行。
+
+特别重要：
+`C_graph_structured_catalogue.json` 已经内嵌当前规模的 Skill Cards、department grouping、relations 和 relation semantics。正式运行 C 时只能提供这一份 C Catalogue，不得再额外提供裁剪 relation 文件。
+
+────────────────────────────────────────
+三、A/B/C 冻结含义
+────────────────────────────────────────
+
+A：
+- 平铺 Skills；
+- 无部门嵌套；
+- 无显式关系。
+
+B：
+- 与 A 完全相同的 Skill Cards；
+- 按部门分组；
+- 无显式关系；
+- 部门分组只表示归属，不表示流程或顺序。
+
+C：
+- 与 B 完全相同的部门结构与 Skill Cards；
+- 只额外增加显式 relations 和 relation semantics；
+- department 不是父 Skill；
+- C 中不存在 parent/children workflow 展开；
+- Python 不参与 Skill 路由或修正模型答案。
+
+同一 size 下必须验证：
+- A/B/C Skill ID 集合一致；
+- Skill Card 内容一致；
+- B/C department grouping 一致；
+- C 只比 B 增加关系；
+- Catalogue hash 与 manifest 一致。
+
+Catalogue 中的 `source_commit` 是冻结 source snapshot，不要求等于加入 Catalogue 后的新 repo commit。应核对 source hash/内容，不能只比较 commit 字符串。
+
+────────────────────────────────────────
+四、实验范围
+────────────────────────────────────────
+
+只处理 E0 和 E1。
+
+E0：
+- GT01–GT21；
+- size 46；
+- A/B/C 分别运行；
+- 每个 configuration 21 个独立 Codex 子进程。
+
+E1：
+- GT01_SINGLE
+- GT04_TECH_GOAL
+- GT13_CROSS_INTERNAL_DEV_STAFF_DATA
+- GT15_CROSS_SUPPLIER_CONTRACT_PO
+- GT16_SPECIAL_SUPPLIER_FAIL
+- size 10 和 30 实际新增运行；
+- size 46 复用 E0。
+
+暂不处理 E4、S1、S3。父 Skill 仍是未来独立扩展实验。
+
+────────────────────────────────────────
+五、中文任务和输出
+────────────────────────────────────────
+
+每题必须从：
+`SkillNet_Gold_Tasks_V4/prompts/GTXX_....txt`
+
+自动抽取：
+- 中文任务正文；
+- 固定 JSON 输出要求。
+
+不得重写任务含义。
+
+模型输出：
+- Skill 使用 canonical English Skill IDs；
+- department 使用 canonical English agent IDs；
+- 中文只用于 display；
+- 不增加 candidate_skills、内部筛选或 chain-of-thought 字段。
+
+────────────────────────────────────────
+六、最小运行框架
+────────────────────────────────────────
+
+若 repo 没有更合理的现有结构，建立：
+
+experiments/skillnet/
+  RUNBOOK.md
+  experiment_config.json
+  run_condition.py
+  verify_condition.py
+  packets/
+  runs/
+  results/
+  visualization_data/
+
+只需要两个核心脚本：
+
+1. `run_condition.py`
+   - 接收 experiment、configuration、size、run_id；
+   - 找到唯一正确的正式 Catalogue；
+   - 为每题建立隔离 packet；
+   - 每题启动一个全新的 `codex exec` 或当前 CLI 支持的等价独立进程；
+   - 默认串行；
+   - 支持 resume；
+   - 不覆盖已有输出；
+   - 不修复错误 JSON。
+
+2. `verify_condition.py`
+   - schema validate；
+   - 组装 predictions.jsonl；
+   - 调用现有 deterministic evaluator；
+   - 生成核验结果、evaluation trace、graph overlay 和 tidy data；
+   - 输出用户可独立复制执行的 evaluator 命令。
+
+可以增加一个很小的共享 helper，但不要过度拆分脚本。
+
+────────────────────────────────────────
+七、实验隔离
+────────────────────────────────────────
+
+每个 child Codex 必须从独立 packet 目录启动，而不是 repo root。
+
+packet 只能包含：
+
+1. 一条中文任务；
+2. 当前唯一 Catalogue JSON；
+3. 固定输出说明；
+4. 不泄露答案的 metadata。
+
+不得包含：
+
+- Gold；
+- evaluator；
+- review；
+- Run Guide；
+- `.agents/skills/`；
+- 根目录 relation 文件；
+- 独立裁剪 relation 文件；
+- 其他 Catalogue；
+- 其他 task；
+- 之前结果；
+- symlink 或返回 repo 的路径。
+
+若本机存在全局 Codex Skills、插件或用户级指令，检查它们是否会污染实验。优先使用隔离的临时 `CODEX_HOME` 或 CLI 实际支持的等价方式；若无法隔离，明确报告，不要假装不存在。
+
+────────────────────────────────────────
+八、每题保存的 artifacts
+────────────────────────────────────────
+
+至少保存：
+
+- run_metadata.json
+- packet_manifest.json
+- catalogue_snapshot.json
+- codex_events.jsonl（CLI 支持时）
+- raw_response.txt
+- prediction.json（仅成功解析时）
+- schema_validation.json
+- evaluation_trace.json
+- graph_overlay.json
+- result_row.json
+
+run_metadata 至少包括：
+
+- experiment_id
+- task_id
+- configuration
+- catalogue_size
+- run_id
+- runtime repo commit
+- Catalogue source_commit
+- Catalogue SHA-256
+- Codex/model version
+- start/end time
+- duration
+- exit code
+- packet/input hashes
+
+不要保存隐藏 chain-of-thought。
+
+────────────────────────────────────────
+九、评价与可视化数据
+────────────────────────────────────────
+
+每个 condition 完成后：
+
+1. 保留 raw responses；
+2. schema validate；
+3. 组装 predictions.jsonl；
+4. 调用现有 Gold-only deterministic evaluator；
+5. 保存 evaluator command、stdout、stderr、exit code；
+6. 生成 summary、per-task、failure analysis；
+7. 生成 evaluation_trace；
+8. 生成 graph_overlay；
+9. 给出用户可在终端独立重新执行的完整核验命令。
+
+E1：
+- 汇总 10/30/46；
+- 46 引用 E0；
+- 计算 Scale Drop；
+- 不重新调用 size46。
+
+现在不画图，但保存 tidy JSON/CSV，支持后续：
+
+- E0 A/B/C 指标图；
+- E1 10/30/46 折线；
+- task × configuration heatmap；
+- A/B/C 路径对比；
+- 失败回放；
+- 交互式 Skill 图；
+- status 混淆矩阵；
+- 后续 3-run 稳定性分析。
+
+graph_overlay 对 A/B 可根据同规模 C Catalogue 中的图关系做“评价后可视化覆盖”，但不能让 A/B 实验 Codex提前看到 C 的关系。必须在实验回答生成之后由后处理完成，并明确标记 `post_evaluation_overlay=true`。
+
+────────────────────────────────────────
+十、第一次收到本 Prompt 时
+────────────────────────────────────────
+
+第一次只做 setup：
+
+1. 检查 repo、Gold、evaluator 和9份 Catalogue；
+2. 独立验证 Catalogue，不只相信现有 report；
+3. 建立最小 runner；
+4. 用 fixture 做 dry run；
+5. 不调用真实 GT01–GT21；
+6. 输出：
+   - 创建的文件；
+   - 测试结果；
+   - Catalogue hashes；
+   - E0-A/B/C 标准命令；
+   - E1 size10/30 A/B/C 标准命令；
+   - 独立 evaluator 核验命令格式；
+7. 等待我发送 `RUN ...`。
+
+────────────────────────────────────────
+十一、收到 RUN 指令后
+────────────────────────────────────────
+
+例如：
+
+RUN E0
+configuration: A
+run_id: run_01
+
+则：
+
+1. 再次检查 working tree、runtime commit 和 Catalogue hash；
+2. 显示将运行的 task IDs；
+3. 调用 `run_condition.py`；
+4. 每题启动独立 child Codex；
+5. 保存 artifacts；
+6. 调用 `verify_condition.py`；
+7. 报告：
+   - 启动题数；
+   - raw response 数；
+   - valid/invalid JSON 数；
+   - 缺失输出；
+   - evaluator 命令；
+   - results 路径；
+8. 不修正或伪造结果。
+
+例如：
+
+RUN E1
+configuration: C
+size: 10
+run_id: run_01
+
+则：
+- 只读取 `size_10/C_graph_structured_catalogue.json`；
+- 不读取任何第二份 relation 文件；
+- 只运行固定5题；
+- 每题独立进程；
+- 完成后评价。
+
+────────────────────────────────────────
+十二、禁止事项
+────────────────────────────────────────
+
+- 不重新生成正式 Catalogue；
+- 不让实验 Codex扫描 repo；
+- 不把 C relation 单独重复提供；
+- 不使用 Python 路由；
+- 不在同一上下文回答多题；
+- 不自动修复 JSON；
+- 不修改 Gold；
+- 不伪造结果；
+- 第一次 setup 不偷跑真实实验；
+- 只有收到明确 `RUN ...` 后运行对应 condition；
+- 不 push、merge 或开 PR。

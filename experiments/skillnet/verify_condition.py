@@ -262,7 +262,7 @@ def result_root(
 
 def expected_verify_command(args: argparse.Namespace) -> str:
     command = [
-        "python3",
+        sys.executable,
         "experiments/skillnet/verify_condition.py",
         "--experiment",
         args.experiment,
@@ -322,7 +322,7 @@ def verify_condition(args: argparse.Namespace) -> int:
     ]
     if missing_raw:
         raise RuntimeError(
-            "Condition is incomplete; resume before verification. "
+            "Condition is incomplete; finish recording it before verification. "
             f"Missing raw responses: {missing_raw}"
         )
 
