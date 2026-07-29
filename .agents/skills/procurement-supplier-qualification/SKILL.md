@@ -33,9 +33,12 @@ Return qualification/supplier/request IDs, identity match, criterion matrix, evi
 
 ## SkillNet Relationships
 
-- Follows `procurement-supplier-search` and precedes `procurement-rfq-generation`.
-- Supplies qualification evidence to `procurement-supplier-scoring` and `procurement-supplier-selection`.
-- Does not compare prices or publish post-delivery performance ratings.
+- Blocks `procurement-contract-generation` when `supplier_not_qualified`.
+- Blocks `procurement-supplier-selection` when `supplier_not_qualified`.
+- Part of `procurement-agent`.
+- Enhances `procurement-supplier-scoring` when `qualification_and_risk_evidence_available`.
+- Follows `procurement-supplier-search`.
+- Precedes `procurement-rfq-generation`.
 
 ## Approval Controls
 

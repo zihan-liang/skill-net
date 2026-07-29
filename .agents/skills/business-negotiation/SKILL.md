@@ -35,9 +35,12 @@ Return negotiation/source IDs, mandate, issue/position matrix, session record, c
 
 ## SkillNet Relationships
 
-- Follows `business-solution-quotation` and precedes `business-contract-signing`.
-- Feeds approved changes back to the solution/quotation before contracting.
-- Stores only authorized minimum communication metadata and restricted evidence references.
+- Part of `business-agent`.
+- Enhanced by `procurement-quote-comparison` when `quotation_differences_available`.
+- Follows `business-solution-quotation`.
+- Follows `procurement-supplier-selection`.
+- Precedes `business-contract-signing`.
+- Precedes `procurement-contract-generation`.
 
 ## Approval Controls
 

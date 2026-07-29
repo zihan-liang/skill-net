@@ -44,12 +44,14 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an approved `hr-jd-generator` output.
-- Precedes `hr-resume-screening` once applications arrive.
-- Conflicts with external publication when headcount, JD, channel, or budget approval is missing.
+- Blocked by `finance-budget-check` when `recruitment_budget_not_approved`.
+- Part of `hr-agent`.
+- Follows `hr-jd-generator`.
+- Precedes `hr-resume-screening`.
 
 ## Approval Controls
 
+- Conflicts with external publication when headcount, JD, channel, or budget approval is missing.
 - Do not publish, message candidates, or spend channel budget without explicit authority.
 - Do not change approved qualifications across channels.
 - Human confirmation is required before every external publication action.

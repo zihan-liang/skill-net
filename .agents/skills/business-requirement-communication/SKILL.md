@@ -34,9 +34,10 @@ Return customer/contact/communication/requirement IDs, context, attributed notes
 
 ## SkillNet Relationships
 
-- Follows `business-customer-lead` and precedes `business-opportunity-assessment`.
-- Supplies confirmed requirements to `business-solution-quotation`.
-- Records approved minimum customer data and restricted evidence references only.
+- Part of `business-agent`.
+- Enhances `technology-requirement` when `customer_requirements_available`.
+- Follows `business-customer-lead`.
+- Precedes `business-opportunity-assessment`.
 
 ## Approval Controls
 

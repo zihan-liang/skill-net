@@ -35,9 +35,11 @@ Return `feasibility_id`, requirement version, options, dimension findings, evide
 
 ## SkillNet Relationships
 
-- Follows `technology-requirement` and precedes `technology-specification-confirmation`.
-- May consume supplier/budget evidence from procurement and finance Skills.
-- Preserves approved decisions through controlled, minimum-necessary references and audit evidence.
+- Blocks `technology-development-implementation` when `technology_not_feasible`.
+- Part of `technology-agent`.
+- Enhances `procurement-requirement` when `build_or_buy_decision`.
+- Follows `technology-requirement`.
+- Precedes `technology-specification-confirmation`.
 
 ## Approval Controls
 

@@ -35,9 +35,10 @@ Return release/system/version/environment IDs, digest, change/test evidence, rea
 
 ## SkillNet Relationships
 
-- Follows `technology-test-acceptance` and precedes `technology-operations-maintenance`.
-- Supplies released-version and runbook evidence to operations.
-- Records only stable version/digest references, minimum metadata, and append-only release evidence.
+- Blocked by `technology-test-acceptance` when `test_not_passed`.
+- Part of `technology-agent`.
+- Follows `technology-test-acceptance`.
+- Precedes `technology-operations-maintenance`.
 
 ## Approval Controls
 

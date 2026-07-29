@@ -41,12 +41,14 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an approved role from `hr-job-requirement` and applications from `hr-recruitment-publish`.
+- Blocked by `hr-job-requirement` when `job_criteria_missing`.
+- Part of `hr-agent`.
+- Follows `hr-recruitment-publish`.
 - Precedes `hr-interview-scheduling`.
-- Conflicts with demographic, photo, family-status, or other protected-characteristic scoring.
 
 ## Approval Controls
 
+- Conflicts with demographic, photo, family-status, or other protected-characteristic scoring.
 - Do not infer protected characteristics or treat missing evidence as a negative fact.
 - Do not send rejection messages automatically.
 - Human approval is required for shortlist, rejection, and ranking use.

@@ -40,9 +40,9 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires `finance-expense-request` and `finance-budget-check` outputs.
-- Precedes `finance-invoice-verification` and `finance-payment-approval`.
-- Uses allowlisted minimum records and restricted references for duplicate checks.
+- Part of `finance-agent`.
+- Follows `finance-expense-request`.
+- Precedes `finance-invoice-verification`.
 
 ## Approval Controls
 

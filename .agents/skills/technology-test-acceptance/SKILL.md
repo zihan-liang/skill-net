@@ -35,9 +35,13 @@ Return test/system/version IDs, environment, suites/criteria/evidence, recompute
 
 ## SkillNet Relationships
 
-- Follows `technology-development-implementation` and precedes `technology-system-release`.
-- Supplies test evidence to operations and future maintenance/regression work.
-- Records only approved minimum test metadata and restricted evidence references.
+- Blocks `technology-system-release` when `test_not_passed`.
+- Part of `technology-agent`.
+- Must not run with `business-acceptance` in the same session when `single_primary_acceptance_route`.
+- Follows `procurement-delivery-tracking` when `technology_purchase`.
+- Follows `technology-development-implementation`.
+- Precedes `procurement-delivery-acceptance` when `technology_acceptance_route`.
+- Precedes `technology-system-release`.
 
 ## Approval Controls
 

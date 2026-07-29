@@ -33,9 +33,10 @@ Return request/RFQ IDs, comparison date/currency, all quote rows, normalized lin
 
 ## SkillNet Relationships
 
-- Follows `procurement-rfq-generation` and precedes `procurement-supplier-scoring`.
-- Supplies normalized price and commercial evidence; it does not decide dimension weights.
-- Keeps qualification evidence in `procurement-supplier-qualification`.
+- Part of `procurement-agent`.
+- Enhances `business-negotiation` when `quotation_differences_available`.
+- Follows `procurement-rfq-generation`.
+- Precedes `procurement-supplier-scoring`.
 
 ## Approval Controls
 

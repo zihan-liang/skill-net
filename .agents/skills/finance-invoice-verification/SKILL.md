@@ -40,10 +40,12 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires outputs from `finance-expense-request` and `finance-expense-review`.
-- For procurement invoices, requires accepted delivery evidence from `procurement-delivery-acceptance` and the released PO.
-- Precedes `finance-payment-approval` and supports `finance-accounting`.
-- Queries only normalized prior invoice keys and minimum authorized fields.
+- Blocked by `procurement-delivery-acceptance` when `delivery_not_accepted`.
+- Blocks `finance-payment-approval` when `invoice_invalid_or_mismatched`.
+- Part of `finance-agent`.
+- Follows `finance-expense-review`.
+- Follows `procurement-delivery-acceptance`.
+- Precedes `finance-payment-approval`.
 
 ## Approval Controls
 

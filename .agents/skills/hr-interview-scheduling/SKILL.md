@@ -42,9 +42,11 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires shortlisted candidates from `hr-resume-screening`.
-- Precedes `hr-offer-generator` for approved finalists.
-- Enhances `hr-employee-database` with consented interview records after hiring.
+- Blocks `hr-offer-generator` when `candidate_not_approved`.
+- Part of `hr-agent`.
+- Enhances `hr-employee-database` when `authorized_interview_evidence_available`.
+- Follows `hr-resume-screening`.
+- Precedes `hr-offer-generator`.
 
 ## Approval Controls
 

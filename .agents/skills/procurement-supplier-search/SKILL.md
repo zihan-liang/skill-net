@@ -33,9 +33,10 @@ Return request/budget-check IDs, search scope, sources/dates/queries, candidate 
 
 ## SkillNet Relationships
 
-- Follows an authorized result from `finance-budget-check`.
-- Passes candidates to `procurement-supplier-qualification`.
-- Does not generate an RFQ or evaluate supplier eligibility.
+- Part of `procurement-agent`.
+- Enhanced by `procurement-supplier-evaluation` when `historical_supplier_performance_available`.
+- Follows `finance-budget-check`.
+- Precedes `procurement-supplier-qualification`.
 
 ## Approval Controls
 

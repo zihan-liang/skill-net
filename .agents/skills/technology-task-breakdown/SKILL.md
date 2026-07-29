@@ -35,9 +35,10 @@ Return task-plan/design IDs, tasks with owner/deliverable/criteria/estimate/depe
 
 ## SkillNet Relationships
 
-- Follows `technology-solution-design` and precedes `technology-development-implementation`.
-- Supplies acceptance criteria to `technology-test-acceptance` and release/operations work items.
-- Preserves approved plan metadata through controlled minimum-necessary references.
+- Part of `technology-agent`.
+- Enhanced by `hr-employee-database` when `employee_skill_and_project_history_available`.
+- Follows `technology-solution-design`.
+- Precedes `technology-development-implementation`.
 
 ## Approval Controls
 

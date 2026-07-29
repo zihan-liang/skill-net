@@ -33,9 +33,13 @@ Return linked IDs/versions, criterion/evidence matrix, delivered items, exceptio
 
 ## SkillNet Relationships
 
-- Follows `business-project-delivery-tracking` and precedes `business-renewal` after verified acceptance evidence.
-- May supply acceptance evidence to `finance-invoice-verification` without issuing an invoice.
-- Does not evaluate renewal value or prepare renewal pricing.
+- Blocks `business-renewal` when `business_acceptance_failed`.
+- Part of `business-agent`.
+- Must not run with `technology-test-acceptance` in the same session when `single_primary_acceptance_route`.
+- Follows `business-project-delivery-tracking`.
+- Follows `procurement-delivery-tracking` when `business_service_purchase`.
+- Precedes `business-renewal`.
+- Precedes `procurement-delivery-acceptance` when `business_acceptance_route`.
 
 ## Approval Controls
 

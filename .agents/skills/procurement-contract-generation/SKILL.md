@@ -33,9 +33,10 @@ Return contract/selection IDs and versions, immutable digest, terms, deviation/r
 
 ## SkillNet Relationships
 
-- Follows `procurement-supplier-selection` and precedes `procurement-purchase-order` after verified execution.
-- Uses the selected commercial basis but does not redo scoring or award approval.
-- Contract deviations feed back to the authorized selection/negotiation owner when material.
+- Blocked by `procurement-supplier-qualification` when `supplier_not_qualified`.
+- Part of `procurement-agent`.
+- Follows `business-negotiation`.
+- Precedes `procurement-purchase-order`.
 
 ## Approval Controls
 

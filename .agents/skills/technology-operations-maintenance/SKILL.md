@@ -35,9 +35,8 @@ Return incident/maintenance/system/version IDs, environment, impact, timeline, e
 
 ## SkillNet Relationships
 
-- Follows `technology-system-release` and feeds new `technology-requirement` work when change is needed.
-- Supplies regression needs to task, implementation, and test Skills.
-- Records only minimum incident/version metadata and restricted evidence references; never raw logs, dumps, secrets, or customer data.
+- Part of `technology-agent`.
+- Follows `technology-system-release`.
 
 ## Approval Controls
 

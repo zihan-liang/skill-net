@@ -39,9 +39,10 @@ Return:
 
 ## SkillNet Relationships
 
+- Blocked by `procurement-supplier-qualification` when `supplier_not_qualified`.
+- Part of `procurement-agent`.
 - Follows `procurement-supplier-scoring`.
-- Supplies a human-approved selection to `procurement-contract-generation`.
-- Keeps the recommendation distinct from an award notice or contract.
+- Precedes `business-negotiation`.
 
 ## Approval Controls
 

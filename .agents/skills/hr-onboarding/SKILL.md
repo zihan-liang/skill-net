@@ -43,9 +43,12 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an accepted and approved `hr-offer-generator` output.
-- Contains preboarding, access, training, check-in, and probation-review tasks.
-- Updates `hr-employee-database` after confirmed milestones.
+- Blocked by `hr-offer-generator` when `offer_not_accepted`.
+- Part of `hr-agent`.
+- Enhanced by `hr-employee-database` when `employee_and_training_data_available`.
+- Follows `hr-offer-generator`.
+- Follows `procurement-delivery-acceptance` when `onboarding_equipment_delivered`.
+- Precedes `hr-employee-database`.
 
 ## Approval Controls
 

@@ -41,9 +41,9 @@ Return:
 
 ## SkillNet Relationships
 
-- Consumes authorized events from `finance-payment-approval` and other approved receipts.
-- Records posted results only through authorized accounting controls with stable IDs and append-only evidence.
-- Supplies recognized transactions to `finance-reporting`.
+- Part of `finance-agent`.
+- Follows `finance-payment-approval`.
+- Precedes `finance-reporting`.
 
 ## Approval Controls
 

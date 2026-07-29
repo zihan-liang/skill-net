@@ -43,12 +43,15 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an approved `hr-job-requirement` output.
+- Blocked by `hr-job-requirement` when `job_requirement_not_approved`.
+- Part of `hr-agent`.
+- Follows `finance-budget-check` when `recruitment_budget_approved`.
+- Follows `hr-job-requirement`.
 - Precedes `hr-recruitment-publish`.
-- Conflicts with publication when mandatory facts or headcount approval are missing.
 
 ## Approval Controls
 
+- Conflicts with publication when mandatory facts or headcount approval are missing.
 - Do not add requirements, compensation, benefits, or promises absent from the approved brief.
 - Do not use protected characteristics or proxies as selection criteria.
 - Human confirmation is required before any JD is published externally.

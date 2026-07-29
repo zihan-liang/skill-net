@@ -40,12 +40,16 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an approved finalist from `hr-interview-scheduling`.
-- Precedes `hr-onboarding` after signed acceptance.
-- Conflicts with generation when compensation or offer approval is absent.
+- Blocked by `hr-interview-scheduling` when `candidate_not_approved`.
+- Blocks `hr-onboarding` when `offer_not_accepted`.
+- Part of `hr-agent`.
+- Follows `hr-interview-scheduling`.
+- Precedes `hr-onboarding`.
+- Precedes `procurement-requirement` when `onboarding_equipment_required`.
 
 ## Approval Controls
 
+- Conflicts with generation when compensation or offer approval is absent.
 - Do not invent compensation, benefits, legal terms, or signatory authority.
 - Do not sign, send, withdraw, or revise an offer without authority.
 - Human approval is required for compensation, offer issuance, and external delivery.

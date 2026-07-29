@@ -35,9 +35,9 @@ Return design/specification IDs and versions, architecture/components, data flow
 
 ## SkillNet Relationships
 
-- Follows `technology-specification-confirmation` and precedes `technology-task-breakdown`.
-- Supplies architecture and operational design to implementation, test, release, and maintenance.
-- Returns specification changes to the specification owner rather than changing them silently.
+- Part of `technology-agent`.
+- Follows `technology-specification-confirmation`.
+- Precedes `technology-task-breakdown`.
 
 ## Approval Controls
 

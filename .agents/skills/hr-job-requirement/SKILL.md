@@ -43,13 +43,17 @@ Return:
 
 ## SkillNet Relationships
 
-- Entry node for the recruiting path.
+- Blocks `hr-jd-generator` when `job_requirement_not_approved`.
+- Blocks `hr-resume-screening` when `job_criteria_missing`.
+- Part of `hr-agent`.
+- Enhanced by `hr-employee-database` when `internal_skill_coverage_available`.
+- Must not run with `procurement-requirement` in the same session when `same_capability_gap`.
+- Precedes `finance-budget-check` when `recruitment_budget_required`.
 - Precedes `hr-jd-generator`.
-- Conflicts with publishing or screening when headcount approval is absent.
-- May query `hr-employee-database` for internal skills coverage using minimum necessary data.
 
 ## Approval Controls
 
+- Conflicts with publishing or screening when headcount approval is absent.
 - Do not encode protected characteristics or discriminatory preferences.
 - Do not invent budget, level, or approval status.
 - Human approval is required before opening headcount.
