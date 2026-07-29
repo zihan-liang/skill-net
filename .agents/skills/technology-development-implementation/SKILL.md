@@ -35,9 +35,11 @@ Return `implementation_id`, upstream IDs, repository/environment, changed artifa
 
 ## SkillNet Relationships
 
-- Follows `technology-task-breakdown` and precedes `technology-test-acceptance`.
-- Supplies version, change, test, and rollback evidence to release and operations Skills.
-- Records only controlled artifact, commit, and evidence references—never source bodies or secrets.
+- Blocked by `technology-feasibility-assessment` when `technology_not_feasible`.
+- Part of `technology-agent`.
+- Must not run with `procurement-requirement` in the same session when `same_technology_requirement`.
+- Follows `technology-task-breakdown`.
+- Precedes `technology-test-acceptance`.
 
 ## Approval Controls
 

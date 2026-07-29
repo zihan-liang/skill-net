@@ -33,9 +33,9 @@ Return renewal/customer/contract IDs, window/dates, evidence cutoff, value/risk 
 
 ## SkillNet Relationships
 
-- Follows verified `business-acceptance` and closes or restarts the business cycle.
-- Sends an approved renewal offer to `business-negotiation` and later `business-contract-signing` when terms change.
-- Reads finance payment status only as an authorized reference; it does not collect funds.
+- Blocked by `business-acceptance` when `business_acceptance_failed`.
+- Part of `business-agent`.
+- Follows `business-acceptance`.
 
 ## Approval Controls
 

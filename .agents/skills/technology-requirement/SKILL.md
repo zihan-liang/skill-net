@@ -39,9 +39,9 @@ Return:
 
 ## SkillNet Relationships
 
-- Entry point for `technology-feasibility-assessment`.
-- Supplies the approved baseline to design, task, test, release, and maintenance Skills.
-- Passes confirmed versions through controlled, minimum-necessary records only after authorization.
+- Part of `technology-agent`.
+- Enhanced by `business-requirement-communication` when `customer_requirements_available`.
+- Precedes `technology-feasibility-assessment`.
 
 ## Approval Controls
 

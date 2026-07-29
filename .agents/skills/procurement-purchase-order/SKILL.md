@@ -33,9 +33,10 @@ Return order/contract/selection IDs and versions, normalized lines/totals, deliv
 
 ## SkillNet Relationships
 
-- Follows `procurement-contract-generation` and precedes `procurement-delivery-tracking` after authorized release.
-- Supplies PO evidence to delivery acceptance and finance invoice verification.
-- Does not change contract terms; discrepancies return to contract generation.
+- Blocked by `finance-budget-check` when `budget_not_approved`.
+- Part of `procurement-agent`.
+- Follows `procurement-contract-generation`.
+- Precedes `procurement-delivery-tracking`.
 
 ## Approval Controls
 

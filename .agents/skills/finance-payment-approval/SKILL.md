@@ -40,10 +40,11 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires `finance-expense-review` and `finance-invoice-verification` outputs.
-- Precedes `finance-accounting` after authorized release evidence exists.
-- Supplies authorized minimum payment-timeliness evidence to `procurement-supplier-evaluation` after release or settlement is independently verified.
-- Records only controlled minimum payment metadata and restricted payee-verification references.
+- Blocked by `finance-invoice-verification` when `invoice_invalid_or_mismatched`.
+- Part of `finance-agent`.
+- Follows `finance-invoice-verification`.
+- Precedes `finance-accounting`.
+- Precedes `procurement-supplier-evaluation`.
 
 ## Approval Controls
 

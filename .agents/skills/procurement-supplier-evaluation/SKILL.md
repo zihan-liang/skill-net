@@ -35,9 +35,11 @@ Return evaluation/supplier IDs, period, weights, dimension scores/evidence, weig
 
 ## SkillNet Relationships
 
-- Follows `procurement-delivery-acceptance` and the relevant `finance-payment-approval` evidence in the end-to-end procurement cycle.
-- Feeds future `procurement-supplier-search`, `procurement-supplier-qualification`, and selection decisions.
-- Remains distinct from pre-award `procurement-supplier-scoring`.
+- Part of `procurement-agent`.
+- Enhanced by `procurement-delivery-tracking` when `delivery_history_available`.
+- Enhances `procurement-supplier-scoring` when `historical_supplier_performance_available`.
+- Enhances `procurement-supplier-search` when `historical_supplier_performance_available`.
+- Follows `finance-payment-approval`.
 
 ## Approval Controls
 

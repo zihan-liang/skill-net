@@ -33,9 +33,15 @@ Return budget-check/request IDs, budget version/account, funding source, period/
 
 ## SkillNet Relationships
 
-- Follows `procurement-requirement` for procurement and may support finance expense workflows.
-- Precedes `procurement-supplier-search` only after the required human budget decision is evidenced.
-- Uses approved budgets from `finance-budget-planning`; it does not revise them.
+- Blocks `hr-recruitment-publish` when `recruitment_budget_not_approved`.
+- Blocks `procurement-purchase-order` when `budget_not_approved`.
+- Part of `finance-agent`.
+- Follows `finance-budget-planning`.
+- Follows `hr-job-requirement` when `recruitment_budget_required`.
+- Follows `procurement-requirement`.
+- Precedes `finance-expense-request`.
+- Precedes `hr-jd-generator` when `recruitment_budget_approved`.
+- Precedes `procurement-supplier-search`.
 
 ## Approval Controls
 

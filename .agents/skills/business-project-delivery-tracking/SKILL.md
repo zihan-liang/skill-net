@@ -35,9 +35,9 @@ Return contract/project IDs, reporting date, milestone table, weighted completio
 
 ## SkillNet Relationships
 
-- Follows `business-contract-signing` and precedes `business-acceptance`.
-- Requests technical/operational evidence without replacing delivery ownership.
-- Records only minimum progress metadata and restricted delivery evidence references.
+- Part of `business-agent`.
+- Follows `business-contract-signing`.
+- Precedes `business-acceptance`.
 
 ## Approval Controls
 

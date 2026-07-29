@@ -40,9 +40,10 @@ Return:
 
 ## SkillNet Relationships
 
-- Requires an approved budget from `finance-budget-planning` and passes the request to `finance-budget-check`.
-- Precedes `finance-expense-review` and later invoice verification.
-- Records only confirmed minimum request fields and restricted evidence references after authorization.
+- Part of `finance-agent`.
+- Must not run with `procurement-requirement` in the same session when `same_expense`.
+- Follows `finance-budget-check`.
+- Precedes `finance-expense-review`.
 
 ## Approval Controls
 

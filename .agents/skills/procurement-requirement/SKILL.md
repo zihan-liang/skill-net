@@ -39,9 +39,15 @@ Return:
 
 ## SkillNet Relationships
 
-- Entry point for `finance-budget-check`.
-- Supplies business needs to `technology-specification-confirmation` when technical parameters are required.
-- Passes approved versions to procurement stages only through the defined handoff.
+- Part of `procurement-agent`.
+- Enhanced by `technology-feasibility-assessment` when `build_or_buy_decision`.
+- Must not run with `finance-expense-request` in the same session when `same_expense`.
+- Must not run with `hr-job-requirement` in the same session when `same_capability_gap`.
+- Must not run with `technology-development-implementation` in the same session when `same_technology_requirement`.
+- Follows `business-solution-quotation` when `external_procurement_required`.
+- Follows `hr-offer-generator` when `onboarding_equipment_required`.
+- Follows `technology-specification-confirmation` when `external_technology_procurement`.
+- Precedes `finance-budget-check`.
 
 ## Approval Controls
 

@@ -41,9 +41,12 @@ Return:
 
 ## SkillNet Relationships
 
-- Receives confirmed hiring data from `hr-onboarding`.
-- May provide internal skills coverage to `hr-job-requirement` using aggregated, minimized data.
-- Enhances onboarding, training, KPI, and workforce-planning workflows.
+- Part of `hr-agent`.
+- Enhanced by `hr-interview-scheduling` when `authorized_interview_evidence_available`.
+- Enhances `hr-job-requirement` when `internal_skill_coverage_available`.
+- Enhances `hr-onboarding` when `employee_and_training_data_available`.
+- Enhances `technology-task-breakdown` when `employee_skill_and_project_history_available`.
+- Follows `hr-onboarding`.
 
 ## Approval Controls
 

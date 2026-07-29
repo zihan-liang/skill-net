@@ -34,9 +34,9 @@ Return customer/opportunity IDs, weights, dimension scores/evidence, weighted sc
 
 ## SkillNet Relationships
 
-- Follows `business-requirement-communication` and precedes `business-solution-quotation`.
-- Records approved opportunity status with minimum fields and restricted evidence references.
-- May request delivery-fit evidence from product, technology, finance, or operations skills.
+- Part of `business-agent`.
+- Follows `business-requirement-communication`.
+- Precedes `business-solution-quotation`.
 
 ## Approval Controls
 

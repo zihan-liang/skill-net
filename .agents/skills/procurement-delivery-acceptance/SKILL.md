@@ -39,9 +39,12 @@ Return:
 
 ## SkillNet Relationships
 
-- Follows `procurement-delivery-tracking` and uses the released `procurement-purchase-order` version.
-- Supplies evidence to `finance-invoice-verification` and `procurement-supplier-evaluation`.
-- Does not verify invoices or authorize payment.
+- Blocks `finance-invoice-verification` when `delivery_not_accepted`.
+- Part of `procurement-agent`.
+- Follows `business-acceptance` when `business_acceptance_route`.
+- Follows `technology-test-acceptance` when `technology_acceptance_route`.
+- Precedes `finance-invoice-verification`.
+- Precedes `hr-onboarding` when `onboarding_equipment_delivered`.
 
 ## Approval Controls
 

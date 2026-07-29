@@ -34,9 +34,10 @@ Return linked IDs/versions, requirement mapping, solution scope, deliverables, a
 
 ## SkillNet Relationships
 
-- Follows `business-opportunity-assessment` and precedes `business-negotiation`.
-- Supplies approved commercial terms to `business-contract-signing`.
-- Records only confirmed quotation metadata and restricted proposal references.
+- Part of `business-agent`.
+- Follows `business-opportunity-assessment`.
+- Precedes `business-negotiation`.
+- Precedes `procurement-requirement` when `external_procurement_required`.
 
 ## Approval Controls
 

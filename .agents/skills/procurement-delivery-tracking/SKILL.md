@@ -33,9 +33,11 @@ Return PO/tracking/supplier IDs, reporting date, line/milestone statuses, acknow
 
 ## SkillNet Relationships
 
-- Follows verified release from `procurement-purchase-order`.
-- Precedes `procurement-delivery-acceptance` when goods/services arrive.
-- Does not mark received, accepted, rejected, or payable.
+- Part of `procurement-agent`.
+- Enhances `procurement-supplier-evaluation` when `delivery_history_available`.
+- Follows `procurement-purchase-order`.
+- Precedes `business-acceptance` when `business_service_purchase`.
+- Precedes `technology-test-acceptance` when `technology_purchase`.
 
 ## Approval Controls
 

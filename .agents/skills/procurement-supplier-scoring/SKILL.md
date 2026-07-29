@@ -33,9 +33,11 @@ Return scoring/request/RFQ IDs, weights/definitions, supplier dimension evidence
 
 ## SkillNet Relationships
 
-- Follows `procurement-quote-comparison` and consumes `procurement-supplier-qualification` evidence.
+- Part of `procurement-agent`.
+- Enhanced by `procurement-supplier-evaluation` when `historical_supplier_performance_available`.
+- Enhanced by `procurement-supplier-qualification` when `qualification_and_risk_evidence_available`.
+- Follows `procurement-quote-comparison`.
 - Precedes `procurement-supplier-selection`.
-- Is pre-award analysis; post-delivery performance belongs to `procurement-supplier-evaluation`.
 
 ## Approval Controls
 

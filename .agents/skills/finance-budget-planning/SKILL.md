@@ -39,9 +39,9 @@ Return:
 
 ## SkillNet Relationships
 
-- Entry node for planned spending and revenue targets.
-- Precedes `finance-budget-check`, `finance-expense-request`, and `finance-reporting`.
-- Records approved versions using stable IDs, minimum fields, and authorized evidence only after confirmation.
+- Part of `finance-agent`.
+- Enhanced by `finance-reporting` when `historical_finance_data`.
+- Precedes `finance-budget-check`.
 
 ## Approval Controls
 

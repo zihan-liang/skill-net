@@ -35,9 +35,9 @@ Return linked IDs, contract version/digest, parties, signatories, approvals, dev
 
 ## SkillNet Relationships
 
-- Follows `business-negotiation` and precedes `business-project-delivery-tracking`.
-- Uses approved solution/quotation versions and supplies execution evidence to delivery.
-- Stores only confirmed contract metadata, immutable digest, and restricted evidence references.
+- Part of `business-agent`.
+- Follows `business-negotiation`.
+- Precedes `business-project-delivery-tracking`.
 
 ## Approval Controls
 

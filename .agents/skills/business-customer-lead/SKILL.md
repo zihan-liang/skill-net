@@ -34,9 +34,8 @@ Return `lead_id`, source/evidence, minimum customer/contact data, verified facts
 
 ## SkillNet Relationships
 
+- Part of `business-agent`.
 - Precedes `business-requirement-communication`.
-- Supplies confirmed identifiers and provenance through controlled minimum-necessary customer records.
-- May receive target-market criteria from strategy, product, or marketing skills.
 
 ## Approval Controls
 

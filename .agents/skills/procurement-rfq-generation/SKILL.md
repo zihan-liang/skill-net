@@ -33,9 +33,10 @@ Return RFQ/request/spec IDs and versions, inquiry scope, quotation template, com
 
 ## SkillNet Relationships
 
+- Part of `procurement-agent`.
+- Enhanced by `technology-specification-confirmation` when `technical_specification_available`.
 - Follows `procurement-supplier-qualification`.
-- Precedes `procurement-quote-comparison` after authorized release and responses.
-- Uses technical parameters confirmed by `technology-specification-confirmation` when applicable.
+- Precedes `procurement-quote-comparison`.
 
 ## Approval Controls
 

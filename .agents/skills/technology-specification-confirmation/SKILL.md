@@ -34,9 +34,11 @@ Return specification/requirement/feasibility IDs and versions, performance/inter
 
 ## SkillNet Relationships
 
-- Follows `technology-feasibility-assessment` and precedes `technology-solution-design`.
-- Supplies procurement parameters to `procurement-rfq-generation` when applicable.
-- Defines measurable obligations; architecture and deployment choices belong to solution design.
+- Part of `technology-agent`.
+- Enhances `procurement-rfq-generation` when `technical_specification_available`.
+- Follows `technology-feasibility-assessment`.
+- Precedes `procurement-requirement` when `external_technology_procurement`.
+- Precedes `technology-solution-design`.
 
 ## Approval Controls
 

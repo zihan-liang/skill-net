@@ -41,9 +41,9 @@ Return:
 
 ## SkillNet Relationships
 
-- Consumes approved budgets from `finance-budget-planning` and posted data from `finance-accounting`.
-- Queries only allowlisted minimum source fields and restricted evidence references.
-- Records an approved report snapshot only after confirmation, with stable ID/version and append-only audit evidence.
+- Part of `finance-agent`.
+- Enhances `finance-budget-planning` when `historical_finance_data`.
+- Follows `finance-accounting`.
 
 ## Approval Controls
 
