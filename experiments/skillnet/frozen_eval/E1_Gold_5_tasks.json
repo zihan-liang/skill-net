@@ -1,0 +1,465 @@
+{
+  "version": "v4.1-bilingual",
+  "date": "2026-07-29",
+  "source_version": "v4.0",
+  "authoritative_main_commit": "cdb4ecdf838fdd4e0bbb01e4c766b32eb430eb47",
+  "basis_en": "V4 task semantics with canonical English Skill and department IDs from main. Evaluation remains deterministic and task-level; no global relation graph is required.",
+  "basis_zh": "保留 V4 任务语义，并使用 main 中的规范英文 Skill 与部门 ID。评价仍为确定性的任务级评价，不依赖全局关系图。",
+  "language_support": [
+    "en",
+    "zh-CN"
+  ],
+  "mapping_file": "skill_name_map.json",
+  "task_count": 5,
+  "distribution": {
+    "single_skill": 1,
+    "single_department_goal": 5,
+    "cross_department_goal": 9,
+    "special_constraint": 3,
+    "no_tool": 3
+  },
+  "department_catalog": [
+    "finance-agent",
+    "procurement-agent",
+    "technology-agent",
+    "business-agent",
+    "hr-agent"
+  ],
+  "skill_catalog": {
+    "business-acceptance": "business-agent",
+    "business-contract-signing": "business-agent",
+    "business-customer-lead": "business-agent",
+    "business-negotiation": "business-agent",
+    "business-opportunity-assessment": "business-agent",
+    "business-project-delivery-tracking": "business-agent",
+    "business-renewal": "business-agent",
+    "business-requirement-communication": "business-agent",
+    "business-solution-quotation": "business-agent",
+    "finance-accounting": "finance-agent",
+    "finance-budget-check": "finance-agent",
+    "finance-budget-planning": "finance-agent",
+    "finance-expense-request": "finance-agent",
+    "finance-expense-review": "finance-agent",
+    "finance-invoice-verification": "finance-agent",
+    "finance-payment-approval": "finance-agent",
+    "finance-reporting": "finance-agent",
+    "hr-employee-database": "hr-agent",
+    "hr-interview-scheduling": "hr-agent",
+    "hr-jd-generator": "hr-agent",
+    "hr-job-requirement": "hr-agent",
+    "hr-offer-generator": "hr-agent",
+    "hr-onboarding": "hr-agent",
+    "hr-recruitment-publish": "hr-agent",
+    "hr-resume-screening": "hr-agent",
+    "procurement-contract-generation": "procurement-agent",
+    "procurement-delivery-acceptance": "procurement-agent",
+    "procurement-delivery-tracking": "procurement-agent",
+    "procurement-purchase-order": "procurement-agent",
+    "procurement-quote-comparison": "procurement-agent",
+    "procurement-requirement": "procurement-agent",
+    "procurement-rfq-generation": "procurement-agent",
+    "procurement-supplier-evaluation": "procurement-agent",
+    "procurement-supplier-qualification": "procurement-agent",
+    "procurement-supplier-scoring": "procurement-agent",
+    "procurement-supplier-search": "procurement-agent",
+    "procurement-supplier-selection": "procurement-agent",
+    "technology-development-implementation": "technology-agent",
+    "technology-feasibility-assessment": "technology-agent",
+    "technology-operations-maintenance": "technology-agent",
+    "technology-requirement": "technology-agent",
+    "technology-solution-design": "technology-agent",
+    "technology-specification-confirmation": "technology-agent",
+    "technology-system-release": "technology-agent",
+    "technology-task-breakdown": "technology-agent",
+    "technology-test-acceptance": "technology-agent"
+  },
+  "aliases": {},
+  "evaluation_semantics": {
+    "required_skills": {
+      "description_en": "Skills that must appear to complete the task. A Skill already completed in the initial state must not be repeated.",
+      "description_zh": "完成任务必须出现的Skill；初始状态中已完成的Skill不应重复输出。"
+    },
+    "hard_order_constraints": {
+      "description_en": "Mandatory task-level partial orders. Only these required relations are checked; the predicted sequence is not compared for exact equality with canonical_sequence.",
+      "description_zh": "本任务必须满足的强制偏序。只比较这些必须关系，不要求预测序列与canonical_sequence完全一致。"
+    },
+    "canonical_sequence": {
+      "description_en": "One feasible sequence for team review; it is not used for strict sequence equality.",
+      "description_zh": "仅供团队审核的一个可行示例，不用于严格相等比较。"
+    },
+    "optional_skills": {
+      "description_en": "Allowed but unnecessary Skills. Using one does not reduce Skill Precision.",
+      "description_zh": "允许调用但不是完成任务的必要条件；调用后不降低Skill Precision。"
+    },
+    "forbidden_skills": {
+      "description_en": "Skills that must not be invoked in this task context.",
+      "description_zh": "在本任务情境中不得调用的Skill。"
+    },
+    "forbid_all_skills": {
+      "description_en": "When true, invoking any enterprise Skill is forbidden; this is used by no-tool tasks.",
+      "description_zh": "为 true 时禁止调用任何企业 Skill；用于 no-tool 任务。"
+    },
+    "task_constraints": {
+      "description_en": "Task-level conflict or mutex rules used for failure classification and Gold Constraint Violation Rate without a global graph dependency.",
+      "description_zh": "任务级冲突或互斥规则；用于失败分类和Gold Constraint Violation Rate，不依赖全局图文件。"
+    },
+    "expected_blocked_by": {
+      "description_en": "Canonical Skill IDs that correctly explain an expected blocked outcome.",
+      "description_zh": "任务应被阻断时，正确的阻断来源。"
+    },
+    "expected_route_choice": {
+      "description_en": "Expected route selections for mutex or acceptance-route tasks.",
+      "description_zh": "互斥或验收路线任务中预期选择的路线。"
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "GT01_SINGLE",
+      "category": "single_skill",
+      "difficulty": "easy",
+      "title_en": "Supplier Qualification Verification",
+      "title_zh": "供应商资质核验",
+      "prompt_en": "The procurement team has compiled a list of supplier candidates. Determine only whether these suppliers have the basic qualifications to participate in this procurement. Do not request quotations, score suppliers, or select a supplier. Return the Skill that should be invoked.",
+      "prompt_zh": "采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "procurement-supplier-qualification"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "contains"
+      ],
+      "relations_tested_display_zh": [
+        "包含关系"
+      ],
+      "gold_rationale_en": "This is the only retained single-Skill basic check; the current objective is limited to supplier qualification.",
+      "gold_rationale_zh": "这是唯一保留的单 Skill 基础检查；当前目标只涉及供应商资质核验。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [
+        "procurement-supplier-qualification"
+      ],
+      "initial_skill_states": {
+        "procurement-supplier-search": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Prepare a Solution Ready for Development",
+      "title_zh": "形成可进入开发的方案",
+      "prompt_en": "The technical requirement for a new feature has been documented. The company wants to determine whether it is feasible and produce a detailed implementation plan sufficient to enter development. Do not actually begin development in this task. Plan the Skills the technology department must invoke.",
+      "prompt_zh": "一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "technology-agent"
+      ],
+      "required_skills": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "technology-development-implementation",
+        "technology-test-acceptance",
+        "technology-system-release"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖"
+      ],
+      "gold_rationale_en": "The objective is an executable solution and task breakdown, stopping before development begins.",
+      "gold_rationale_zh": "目标是形成可执行方案并完成任务拆解，但不进入开发。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
+      ],
+      "initial_skill_states": {
+        "technology-requirement": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Use Employee Capability Data to Complete Technical Task Breakdown",
+      "title_zh": "利用员工能力数据完成技术任务拆解",
+      "prompt_en": "The company has decided to use internal development for a technical requirement. The requirement has been identified, and existing employee skill and project-experience data is available. The company wants to confirm feasibility and use employee capability information to create an executable technical task assignment. Do not begin development in this task.",
+      "prompt_zh": "公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。",
+      "use_skills": true,
+      "required_departments": [
+        "technology-agent",
+        "hr-agent"
+      ],
+      "required_skills": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "technology-development-implementation",
+        "procurement-requirement"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances",
+        "mutex"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "增强关系",
+        "互斥关系"
+      ],
+      "gold_rationale_en": "The employee database normally only enhances task breakdown, but this task explicitly requires employee capability information, so it is a required task input.",
+      "gold_rationale_zh": "员工数据库通常只是增强任务拆解，但本任务明确要求利用员工能力信息，因此将其作为任务必要输入。",
+      "scoring_notes_en": "The employee-database-to-task-breakdown edge is an enhancement relation. Because the user explicitly requires employee capability data, this task promotes it to a task-level requirement.",
+      "scoring_notes_zh": "员工数据库→任务拆解来自增强关系；本题因用户明确要求使用员工能力数据，将其升级为任务级必要条件。",
+      "hard_order_constraints": [
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-employee-database",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order",
+          "basis": "task_explicit_requirement"
+        }
+      ],
+      "canonical_sequence": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
+      ],
+      "initial_skill_states": {
+        "technology-requirement": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "build_or_buy": "internal_development"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "build_or_buy": "internal_development"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "build_or_buy",
+          "expected_choice": "internal_development",
+          "forbidden_route_skills": [
+            "procurement-requirement"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "category": "cross_department_goal",
+      "difficulty": "medium",
+      "title_en": "Complete a Supplier Contract and Purchase Order",
+      "title_zh": "完成供应商合同和采购订单",
+      "prompt_en": "The budget has been approved, and a supplier has been scored and formally selected. The goal is to negotiate with the supplier, create the supplier contract, and generate a purchase order. Delivery tracking is not required in this task.",
+      "prompt_zh": "预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent",
+        "business-agent"
+      ],
+      "required_skills": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "procurement-delivery-tracking"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖"
+      ],
+      "gold_rationale_en": "After supplier selection, proceed through business negotiation, procurement contract generation, and purchase-order generation.",
+      "gold_rationale_zh": "供应商选择完成后进入商务谈判，再形成采购合同和采购订单。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "business-negotiation",
+          "after": "procurement-contract-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-contract-generation",
+          "after": "procurement-purchase-order",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "initial_skill_states": {
+        "finance-budget-check": {
+          "status": "completed",
+          "result": "approved"
+        },
+        "procurement-supplier-selection": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "category": "special_constraint",
+      "difficulty": "hard",
+      "title_en": "Block Contracting with an Unqualified Supplier",
+      "title_zh": "不合格供应商要求继续签约",
+      "prompt_en": "A procurement has only one supplier candidate. The qualification result shows that the supplier is unqualified, but the business owner still demands that the supplier be selected immediately and a contract generated. Determine how the system should respond and provide the final status.",
+      "prompt_zh": "某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent"
+      ],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "procurement-supplier-selection",
+        "procurement-contract-generation"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "conflict"
+      ],
+      "relations_tested_display_zh": [
+        "冲突关系"
+      ],
+      "gold_rationale_en": "A failed supplier qualification blocks both supplier selection and contract generation.",
+      "gold_rationale_zh": "供应商资质检查不合格会同时阻止供应商选择和合同生成。",
+      "scoring_notes_en": "The correct answer may contain no newly executed Skill, but it must return blocked and must not invoke either blocked Skill.",
+      "scoring_notes_zh": "正确答案可以没有新增执行Skill，但必须返回blocked，且不得调用两个被阻止的Skill。",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {
+        "procurement-supplier-qualification": {
+          "status": "completed",
+          "result": "unqualified"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "blocked",
+      "expected_blocked_by": [
+        "procurement-supplier-qualification"
+      ],
+      "expected_route_choice": {},
+      "task_constraints": [
+        {
+          "type": "conflict_block",
+          "trigger_skill": "procurement-supplier-qualification",
+          "trigger_results": [
+            "unqualified"
+          ],
+          "blocked_skills": [
+            "procurement-supplier-selection",
+            "procurement-contract-generation"
+          ]
+        }
+      ]
+    }
+  ],
+  "subset_provenance": {
+    "source_gold_path": "SkillNet_Gold_Tasks_V4/02_Gold_Standard_21_V4.json",
+    "source_gold_sha256": "62f711e21ecbc7703c6c6fddf71f871525337c972e00688a29c46a611e93748b",
+    "source_gold_task_count": 21,
+    "manifest_path": "skillnet_run_guide_v1_1/E1_scale_manifest.json",
+    "manifest_sha256": "cd06d097abd37e30b93092fb1c44d721c0c0fbe6da1a511ab1aa4ff55880ee89",
+    "task_ids": [
+      "GT01_SINGLE",
+      "GT04_TECH_GOAL",
+      "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "GT16_SPECIAL_SUPPLIER_FAIL"
+    ],
+    "task_records_copied_without_modification": true
+  }
+}
