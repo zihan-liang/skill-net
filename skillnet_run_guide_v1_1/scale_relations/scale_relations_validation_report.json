@@ -1,0 +1,44 @@
+{
+  "source_relations": "/mnt/data/skill_relations.json",
+  "manifest": "/mnt/data/skillnet_run_guide_v1_1/E1_scale_manifest.json",
+  "valid": true,
+  "sets": {
+    "10": {
+      "output": "/mnt/data/skillnet_run_guide_v1_1/scale_relations/skill_relations_10.json",
+      "summary": {
+        "skills": 10,
+        "departments_with_skills": 4,
+        "prerequisite": 6,
+        "conflict": 2,
+        "mutex": 0,
+        "enhances": 1
+      },
+      "outside_reference_count": 0
+    },
+    "30": {
+      "output": "/mnt/data/skillnet_run_guide_v1_1/scale_relations/skill_relations_30.json",
+      "summary": {
+        "skills": 30,
+        "departments_with_skills": 5,
+        "prerequisite": 25,
+        "conflict": 7,
+        "mutex": 0,
+        "enhances": 4
+      },
+      "outside_reference_count": 0
+    },
+    "46": {
+      "output": "/mnt/data/skillnet_run_guide_v1_1/scale_relations/skill_relations_46.json",
+      "summary": {
+        "skills": 46,
+        "departments_with_skills": 5,
+        "prerequisite": 53,
+        "conflict": 13,
+        "mutex": 4,
+        "enhances": 13
+      },
+      "outside_reference_count": 0
+    }
+  },
+  "errors": []
+}

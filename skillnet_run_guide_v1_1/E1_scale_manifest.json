@@ -1,0 +1,60 @@
+{
+  "experiment": "E1_scale_expansion",
+  "task_ids": [
+    "GT01_SINGLE",
+    "GT04_TECH_GOAL",
+    "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+    "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+    "GT16_SPECIAL_SUPPLIER_FAIL"
+  ],
+  "skill_sets": {
+    "10": [
+      "procurement-supplier-qualification",
+      "procurement-supplier-selection",
+      "technology-feasibility-assessment",
+      "technology-specification-confirmation",
+      "technology-solution-design",
+      "technology-task-breakdown",
+      "hr-employee-database",
+      "business-negotiation",
+      "procurement-contract-generation",
+      "procurement-purchase-order"
+    ],
+    "30": [
+      "finance-budget-planning",
+      "finance-budget-check",
+      "finance-expense-request",
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-accounting",
+      "procurement-supplier-search",
+      "procurement-supplier-qualification",
+      "procurement-supplier-selection",
+      "procurement-contract-generation",
+      "procurement-purchase-order",
+      "procurement-delivery-tracking",
+      "technology-requirement",
+      "technology-feasibility-assessment",
+      "technology-specification-confirmation",
+      "technology-solution-design",
+      "technology-task-breakdown",
+      "technology-test-acceptance",
+      "business-customer-lead",
+      "business-requirement-communication",
+      "business-opportunity-assessment",
+      "business-solution-quotation",
+      "business-negotiation",
+      "business-contract-signing",
+      "hr-job-requirement",
+      "hr-jd-generator",
+      "hr-resume-screening",
+      "hr-offer-generator",
+      "hr-onboarding",
+      "hr-employee-database"
+    ]
+  },
+  "notes": {
+    "nested_requirement": "10 must be a strict subset of 30, and 30 must be a strict subset of the full 46-skill catalogue.",
+    "coverage": "The 10-skill set includes every required skill and every explicitly blocked downstream skill needed by the five E1 tasks."
+  }
+}

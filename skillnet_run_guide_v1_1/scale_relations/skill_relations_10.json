@@ -1,0 +1,90 @@
+{
+  "contains": [
+    {
+      "parent": "procurement-agent",
+      "children": [
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ]
+    },
+    {
+      "parent": "technology-agent",
+      "children": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
+      ]
+    },
+    {
+      "parent": "business-agent",
+      "children": [
+        "business-negotiation"
+      ]
+    },
+    {
+      "parent": "hr-agent",
+      "children": [
+        "hr-employee-database"
+      ]
+    }
+  ],
+  "prerequisite": [
+    {
+      "before": "procurement-supplier-selection",
+      "after": "business-negotiation",
+      "scope": "procurement"
+    },
+    {
+      "before": "business-negotiation",
+      "after": "procurement-contract-generation",
+      "scope": "procurement"
+    },
+    {
+      "before": "procurement-contract-generation",
+      "after": "procurement-purchase-order",
+      "scope": "procurement"
+    },
+    {
+      "before": "technology-feasibility-assessment",
+      "after": "technology-specification-confirmation",
+      "scope": "technology"
+    },
+    {
+      "before": "technology-specification-confirmation",
+      "after": "technology-solution-design",
+      "scope": "technology"
+    },
+    {
+      "before": "technology-solution-design",
+      "after": "technology-task-breakdown",
+      "scope": "technology"
+    }
+  ],
+  "conflict": [
+    {
+      "skills": [
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection"
+      ],
+      "condition": "supplier_not_qualified"
+    },
+    {
+      "skills": [
+        "procurement-supplier-qualification",
+        "procurement-contract-generation"
+      ],
+      "condition": "supplier_not_qualified"
+    }
+  ],
+  "mutex": [],
+  "enhances": [
+    {
+      "source": "hr-employee-database",
+      "target": "technology-task-breakdown",
+      "context": "employee_skill_and_project_history_available"
+    }
+  ]
+}

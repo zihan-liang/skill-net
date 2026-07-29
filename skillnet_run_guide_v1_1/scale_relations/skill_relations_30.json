@@ -1,0 +1,263 @@
+{
+  "contains": [
+    {
+      "parent": "finance-agent",
+      "children": [
+        "finance-budget-planning",
+        "finance-budget-check",
+        "finance-expense-request",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
+      ]
+    },
+    {
+      "parent": "procurement-agent",
+      "children": [
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection",
+        "procurement-contract-generation",
+        "procurement-purchase-order",
+        "procurement-delivery-tracking"
+      ]
+    },
+    {
+      "parent": "technology-agent",
+      "children": [
+        "technology-requirement",
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ]
+    },
+    {
+      "parent": "business-agent",
+      "children": [
+        "business-customer-lead",
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "business-negotiation",
+        "business-contract-signing"
+      ]
+    },
+    {
+      "parent": "hr-agent",
+      "children": [
+        "hr-job-requirement",
+        "hr-jd-generator",
+        "hr-resume-screening",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-employee-database"
+      ]
+    }
+  ],
+  "prerequisite": [
+    {
+      "before": "finance-budget-planning",
+      "after": "finance-budget-check",
+      "scope": "finance"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "finance-expense-request",
+      "scope": "finance"
+    },
+    {
+      "before": "finance-invoice-verification",
+      "after": "finance-payment-approval",
+      "scope": "finance"
+    },
+    {
+      "before": "finance-payment-approval",
+      "after": "finance-accounting",
+      "scope": "finance"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "procurement-supplier-search",
+      "scope": "procurement"
+    },
+    {
+      "before": "procurement-supplier-search",
+      "after": "procurement-supplier-qualification",
+      "scope": "procurement"
+    },
+    {
+      "before": "procurement-supplier-selection",
+      "after": "business-negotiation",
+      "scope": "procurement"
+    },
+    {
+      "before": "business-negotiation",
+      "after": "procurement-contract-generation",
+      "scope": "procurement"
+    },
+    {
+      "before": "procurement-contract-generation",
+      "after": "procurement-purchase-order",
+      "scope": "procurement"
+    },
+    {
+      "before": "procurement-purchase-order",
+      "after": "procurement-delivery-tracking",
+      "scope": "procurement"
+    },
+    {
+      "before": "technology-requirement",
+      "after": "technology-feasibility-assessment",
+      "scope": "technology"
+    },
+    {
+      "before": "technology-feasibility-assessment",
+      "after": "technology-specification-confirmation",
+      "scope": "technology"
+    },
+    {
+      "before": "technology-specification-confirmation",
+      "after": "technology-solution-design",
+      "scope": "technology"
+    },
+    {
+      "before": "technology-solution-design",
+      "after": "technology-task-breakdown",
+      "scope": "technology"
+    },
+    {
+      "before": "business-customer-lead",
+      "after": "business-requirement-communication",
+      "scope": "business"
+    },
+    {
+      "before": "business-requirement-communication",
+      "after": "business-opportunity-assessment",
+      "scope": "business"
+    },
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "scope": "business"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "business-negotiation",
+      "scope": "business"
+    },
+    {
+      "before": "business-negotiation",
+      "after": "business-contract-signing",
+      "scope": "business"
+    },
+    {
+      "before": "hr-job-requirement",
+      "after": "hr-jd-generator",
+      "scope": "hr"
+    },
+    {
+      "before": "hr-offer-generator",
+      "after": "hr-onboarding",
+      "scope": "hr"
+    },
+    {
+      "before": "hr-onboarding",
+      "after": "hr-employee-database",
+      "scope": "hr"
+    },
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "technology-test-acceptance",
+      "scope": "cross-domain",
+      "condition": "technology_purchase"
+    },
+    {
+      "before": "hr-job-requirement",
+      "after": "finance-budget-check",
+      "scope": "cross-domain",
+      "condition": "recruitment_budget_required"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "hr-jd-generator",
+      "scope": "cross-domain",
+      "condition": "recruitment_budget_approved"
+    }
+  ],
+  "conflict": [
+    {
+      "skills": [
+        "finance-budget-check",
+        "procurement-purchase-order"
+      ],
+      "condition": "budget_not_approved"
+    },
+    {
+      "skills": [
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection"
+      ],
+      "condition": "supplier_not_qualified"
+    },
+    {
+      "skills": [
+        "procurement-supplier-qualification",
+        "procurement-contract-generation"
+      ],
+      "condition": "supplier_not_qualified"
+    },
+    {
+      "skills": [
+        "finance-invoice-verification",
+        "finance-payment-approval"
+      ],
+      "condition": "invoice_invalid_or_mismatched"
+    },
+    {
+      "skills": [
+        "hr-job-requirement",
+        "hr-jd-generator"
+      ],
+      "condition": "job_requirement_not_approved"
+    },
+    {
+      "skills": [
+        "hr-job-requirement",
+        "hr-resume-screening"
+      ],
+      "condition": "job_criteria_missing"
+    },
+    {
+      "skills": [
+        "hr-offer-generator",
+        "hr-onboarding"
+      ],
+      "condition": "offer_not_accepted"
+    }
+  ],
+  "mutex": [],
+  "enhances": [
+    {
+      "source": "business-requirement-communication",
+      "target": "technology-requirement",
+      "context": "customer_requirements_available"
+    },
+    {
+      "source": "hr-employee-database",
+      "target": "hr-job-requirement",
+      "context": "internal_skill_coverage_available"
+    },
+    {
+      "source": "hr-employee-database",
+      "target": "hr-onboarding",
+      "context": "employee_and_training_data_available"
+    },
+    {
+      "source": "hr-employee-database",
+      "target": "technology-task-breakdown",
+      "context": "employee_skill_and_project_history_available"
+    }
+  ]
+}
