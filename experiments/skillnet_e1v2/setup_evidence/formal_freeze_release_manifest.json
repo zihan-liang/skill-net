@@ -1,7 +1,7 @@
 {
   "release_id": "E1V2-SETUP-FREEZE-20260730-01",
   "system_id": "skillnet-e1v2-setup",
-  "version_id": "pending-official-setup-commit",
+  "version_id": "b2e2b7eddaf179d7e70e397816badc14dbdf43e1",
   "environment": "development",
   "artifact_digest": "sha256:90a2a797ce04859a86258d171234647780fad9760e48f36db2b2d26682161598",
   "change_reference": "User-authorized E1-v2 formal freeze after accepted Setup review",

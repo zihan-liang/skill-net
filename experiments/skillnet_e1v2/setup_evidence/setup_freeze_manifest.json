@@ -2,8 +2,8 @@
   "schema_version": "E1V2-1.0",
   "experiment_id": "E1V2",
   "setup_status": "READY",
-  "freeze_record_status": "provisional",
-  "official_setup_commit_sha": null,
+  "freeze_record_status": "official",
+  "official_setup_commit_sha": "b2e2b7eddaf179d7e70e397816badc14dbdf43e1",
   "artifact_hashes": {
     "gold": {
       "path": "SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_21.json",
