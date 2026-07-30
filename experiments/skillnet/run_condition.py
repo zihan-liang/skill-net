@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -36,6 +37,14 @@ CONFIGURATION_FILENAMES = {
     "C": "C_graph_structured_catalogue.json",
 }
 RUN_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+RUN_REQUIRED_ARTIFACTS = (
+    "run_metadata.json",
+    "packet_manifest.json",
+    "catalogue_snapshot.json",
+    "codex_events.jsonl",
+    "raw_response.txt",
+    "schema_validation.json",
+)
 
 
 def utc_now() -> str:
@@ -54,6 +63,10 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def sha256_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -64,6 +77,13 @@ def write_json(path: Path, value: Any, *, exclusive: bool = False) -> None:
     with path.open(mode, encoding="utf-8") as handle:
         json.dump(value, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
+
+
+def write_bytes(path: Path, value: bytes, *, exclusive: bool = False) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    mode = "xb" if exclusive else "wb"
+    with path.open(mode) as handle:
+        handle.write(value)
 
 
 def git_head(repo: Path) -> str:
@@ -324,11 +344,89 @@ def condition_run_root(
     )
 
 
+def expected_run_artifacts(schema_validation: dict[str, Any]) -> list[str]:
+    artifacts = list(RUN_REQUIRED_ARTIFACTS)
+    if schema_validation.get("schema_valid") is True:
+        artifacts.append("prediction.json")
+    return artifacts
+
+
+def build_packet_manifest(
+    *,
+    repo: Path,
+    experiment: str,
+    configuration: str,
+    size: int,
+    run_id: str,
+    task_id: str,
+    prompt_record: dict[str, str],
+    child_prompt_sha256: str,
+    catalogue_path: Path,
+    catalogue_source_sha256: str,
+    catalogue_embedded_sha256: str,
+    catalogue_snapshot_sha256: str,
+) -> dict[str, Any]:
+    return {
+        "schema_version": "1.0",
+        "experiment_id": experiment,
+        "task_id": task_id,
+        "configuration": configuration,
+        "catalogue_size": size,
+        "run_id": run_id,
+        "delivery": {
+            "child_prompt": "stdin",
+            "raw_response": "codex --output-last-message",
+            "cli_events": "codex --json stdout",
+        },
+        "child_working_directory": {
+            "temporary": True,
+            "contents_at_launch": [],
+            "symlinks": [],
+        },
+        "child_visible_inputs": [
+            "current_chinese_task",
+            "selected_catalogue",
+            "fixed_prediction_json_contract",
+            "non_answer_metadata",
+        ],
+        "child_hidden_inputs": [
+            "Gold",
+            "deterministic_evaluator",
+            "canonical_Skills",
+            "other_tasks",
+            "other_catalogues",
+            "standalone_relations",
+            "prior_results",
+        ],
+        "inputs": {
+            "task_prompt": {
+                "source": prompt_record["source"],
+                "source_sha256": prompt_record["sha256"],
+                "text_zh": prompt_record["prompt_zh"],
+            },
+            "catalogue": {
+                "source": str(catalogue_path.relative_to(repo)),
+                "source_sha256": catalogue_source_sha256,
+                "embedded_json_sha256": catalogue_embedded_sha256,
+                "snapshot_sha256": catalogue_snapshot_sha256,
+            },
+            "child_prompt": {
+                "sha256": child_prompt_sha256,
+                "assembled_by": str(Path(__file__).resolve().relative_to(repo)),
+                "assembler_sha256": sha256_file(Path(__file__).resolve()),
+            },
+        },
+    }
+
+
 def execute_fixture(
     fixture_dir: Path,
     task_id: str,
     raw_path: Path,
+    events_path: Path | None = None,
 ) -> tuple[int, str, str, bool]:
+    if events_path is not None:
+        write_bytes(events_path, b"", exclusive=True)
     fixture_path = fixture_dir / f"{task_id}.txt"
     if not fixture_path.is_file():
         return 4, "", f"Missing fixture response: {fixture_path}", False
@@ -341,7 +439,11 @@ def execute_codex(
     prompt: str,
     raw_path: Path,
     packet_dir: Path,
-) -> tuple[int, str, str, bool, list[str]]:
+    *,
+    events_path: Path | None = None,
+) -> tuple[int, bytes, str, bool, list[str]]:
+    if events_path is None:
+        events_path = packet_dir / "codex_events.jsonl"
     command = [
         str(codex_bin),
         "exec",
@@ -358,6 +460,7 @@ def execute_codex(
         f'model_reasoning_effort="{PINNED_REASONING_EFFORT}"',
         "--color",
         "never",
+        "--json",
         "--cd",
         str(packet_dir),
         "--output-last-message",
@@ -366,15 +469,25 @@ def execute_codex(
     ]
     process = subprocess.run(
         command,
-        input=prompt,
-        text=True,
+        input=prompt.encode("utf-8"),
         capture_output=True,
         check=False,
     )
+    stdout_bytes = (
+        process.stdout.encode("utf-8")
+        if isinstance(process.stdout, str)
+        else process.stdout
+    )
+    stderr_text = (
+        process.stderr
+        if isinstance(process.stderr, str)
+        else process.stderr.decode("utf-8", errors="replace")
+    )
+    write_bytes(events_path, stdout_bytes, exclusive=True)
     return (
         process.returncode,
-        process.stdout,
-        process.stderr,
+        stdout_bytes,
+        stderr_text,
         raw_path.is_file(),
         command,
     )
@@ -438,7 +551,7 @@ def main() -> int:
     if args.resume:
         if not run_root.is_dir() or not condition_metadata_path.is_file():
             raise SystemExit(f"Cannot resume missing run: {run_root}")
-        existing = load_json(condition_metadata_path)
+        condition_metadata = load_json(condition_metadata_path)
         identity = {
             "experiment": args.experiment,
             "configuration": args.configuration,
@@ -449,10 +562,10 @@ def main() -> int:
             "execution_mode": "codex" if args.execute else "fixture",
         }
         for key, expected in identity.items():
-            if existing.get(key) != expected:
+            if condition_metadata.get(key) != expected:
                 raise SystemExit(
                     f"Resume identity mismatch for {key}: "
-                    f"{existing.get(key)!r} != {expected!r}"
+                    f"{condition_metadata.get(key)!r} != {expected!r}"
                 )
     else:
         if run_root.exists():
@@ -471,7 +584,7 @@ def main() -> int:
             )
         run_root.mkdir(parents=True)
         condition_metadata = {
-            "schema_version": "1.1",
+            "schema_version": "2.0",
             "experiment": args.experiment,
             "configuration": args.configuration,
             "size": args.size,
@@ -486,6 +599,7 @@ def main() -> int:
             "created_at_utc": utc_now(),
             "repository_commit": git_head(repo),
             "catalogue_path": str(catalogue_path.relative_to(repo)),
+            "catalogue_source_commit": catalogue.get("source_commit"),
             "catalogue_sha256": sha256_file(catalogue_path),
             "prediction_schema_path": str(schema_path.relative_to(repo)),
             "prediction_schema_sha256": sha256_file(schema_path),
@@ -504,6 +618,8 @@ def main() -> int:
                 "user_config_ignored": True,
                 "ephemeral": True,
                 "sandbox": "read-only",
+                "json_events": True,
+                "output_last_message": True,
             },
             "python": {
                 "executable": sys.executable,
@@ -515,13 +631,23 @@ def main() -> int:
 
     completed = 0
     skipped = 0
-    no_raw_response = 0
+    child_failures = 0
+    runner_missing_artifacts: dict[str, list[str]] = {}
+    catalogue_source_sha256 = sha256_file(catalogue_path)
+    catalogue_embedded_bytes = json.dumps(
+        catalogue, ensure_ascii=False, indent=2
+    ).encode("utf-8")
+    schema_sha256 = sha256_file(schema_path)
+
     for task_id in task_ids:
         task_dir = run_root / task_id
         raw_path = task_dir / "raw_response.txt"
+        events_path = task_dir / "codex_events.jsonl"
         prediction_path = task_dir / "prediction.json"
         validation_path = task_dir / "schema_validation.json"
         metadata_path = task_dir / "run_metadata.json"
+        packet_manifest_path = task_dir / "packet_manifest.json"
+        catalogue_snapshot_path = task_dir / "catalogue_snapshot.json"
 
         if raw_path.exists():
             if args.resume:
@@ -537,15 +663,39 @@ def main() -> int:
             )
         task_dir.mkdir(parents=True, exist_ok=True)
 
-        started_at = utc_now()
         prompt = build_child_prompt(
             task_id, prompts[task_id]["prompt_zh"], catalogue
         )
-        prompt_sha256 = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
-        command: list[str] | None = None
+        prompt_sha256 = sha256_bytes(prompt.encode("utf-8"))
+        write_json(catalogue_snapshot_path, catalogue, exclusive=True)
+        catalogue_snapshot_sha256 = sha256_file(catalogue_snapshot_path)
+        packet_manifest = build_packet_manifest(
+            repo=repo,
+            experiment=args.experiment,
+            configuration=args.configuration,
+            size=args.size,
+            run_id=args.run_id,
+            task_id=task_id,
+            prompt_record=prompts[task_id],
+            child_prompt_sha256=prompt_sha256,
+            catalogue_path=catalogue_path,
+            catalogue_source_sha256=catalogue_source_sha256,
+            catalogue_embedded_sha256=sha256_bytes(catalogue_embedded_bytes),
+            catalogue_snapshot_sha256=catalogue_snapshot_sha256,
+        )
+        write_json(packet_manifest_path, packet_manifest, exclusive=True)
+
+        started_datetime = datetime.now(timezone.utc)
+        started_monotonic = time.monotonic()
+        command: list[str] | None
         if args.fixture_response_dir:
-            returncode, stdout, stderr, raw_produced = execute_fixture(
-                args.fixture_response_dir.resolve(), task_id, raw_path
+            fixture_path = args.fixture_response_dir.resolve() / f"{task_id}.txt"
+            command = ["fixture-copy", str(fixture_path), str(raw_path)]
+            returncode, _stdout, stderr, raw_produced = execute_fixture(
+                args.fixture_response_dir.resolve(),
+                task_id,
+                raw_path,
+                events_path,
             )
         else:
             with tempfile.TemporaryDirectory(
@@ -554,7 +704,7 @@ def main() -> int:
                 packet_dir = Path(packet)
                 (
                     returncode,
-                    stdout,
+                    _stdout,
                     stderr,
                     raw_produced,
                     command,
@@ -563,61 +713,105 @@ def main() -> int:
                     prompt,
                     raw_path.resolve(),
                     packet_dir,
+                    events_path=events_path,
                 )
-        finished_at = utc_now()
+        finished_monotonic = time.monotonic()
+        finished_datetime = datetime.now(timezone.utc)
+
+        if not events_path.exists():
+            write_bytes(events_path, b"", exclusive=True)
+        raw_response_placeholder = not raw_path.exists()
+        if raw_response_placeholder:
+            write_bytes(raw_path, b"", exclusive=True)
 
         validation, prediction = validate_direct_response(
             raw_path, canonical_schema, task_id
         )
-        write_json(validation_path, validation)
+        validation.update(
+            {
+                "raw_response_sha256": sha256_file(raw_path),
+                "prediction_saved": prediction is not None,
+            }
+        )
+        write_json(validation_path, validation, exclusive=True)
         if prediction is not None:
             write_json(prediction_path, prediction, exclusive=True)
 
         run_metadata = {
-            "schema_version": "1.1",
+            "schema_version": "2.0",
+            "experiment_id": args.experiment,
             "experiment": args.experiment,
+            "task_id": task_id,
             "configuration": args.configuration,
+            "catalogue_size": args.size,
             "size": args.size,
             "run_id": args.run_id,
-            "task_id": task_id,
+            "runtime_repo_commit": condition_metadata["repository_commit"],
+            "catalogue_source_commit": catalogue.get("source_commit"),
+            "codex_cli_version": condition_metadata["codex"]["version"],
+            "model": PINNED_MODEL,
+            "model_reasoning_effort": PINNED_REASONING_EFFORT,
+            "start_time": started_datetime.isoformat(),
+            "end_time": finished_datetime.isoformat(),
+            "duration_seconds": round(
+                finished_monotonic - started_monotonic, 6
+            ),
+            "exit_code": returncode,
+            "input_hashes": {
+                "prompt_source_sha256": prompts[task_id]["sha256"],
+                "child_prompt_sha256": prompt_sha256,
+                "catalogue_source_sha256": catalogue_source_sha256,
+                "catalogue_embedded_json_sha256": sha256_bytes(
+                    catalogue_embedded_bytes
+                ),
+                "catalogue_snapshot_sha256": catalogue_snapshot_sha256,
+                "prediction_schema_sha256": schema_sha256,
+                "runner_source_sha256": sha256_file(Path(__file__).resolve()),
+            },
             "execution_mode": "codex" if args.execute else "fixture",
             "attempt_number": 1,
             "automatic_retry": False,
             "transport_reconnects_allowed": True,
             "task_attempt_definition": "one fresh codex exec process",
-            "started_at_utc": started_at,
-            "finished_at_utc": finished_at,
             "prompt_source": prompts[task_id]["source"],
-            "prompt_source_sha256": prompts[task_id]["sha256"],
-            "child_prompt_sha256": prompt_sha256,
             "catalogue_path": str(catalogue_path.relative_to(repo)),
-            "catalogue_sha256": sha256_file(catalogue_path),
-            "codex_cli_version": PINNED_CODEX_VERSION,
-            "model": PINNED_MODEL,
-            "model_reasoning_effort": PINNED_REASONING_EFFORT,
+            "catalogue_sha256": catalogue_source_sha256,
             "command": command,
-            "exit_code": returncode,
-            "raw_response_produced": raw_produced,
-            "stdout": stdout,
             "stderr": stderr,
+            "raw_response_produced": raw_produced,
+            "raw_response_placeholder": raw_response_placeholder,
+            "raw_response_sha256": sha256_file(raw_path),
+            "codex_events_sha256": sha256_file(events_path),
             "prediction_saved": prediction is not None,
         }
-        write_json(metadata_path, run_metadata)
-        if raw_produced:
-            completed += 1
-        else:
-            no_raw_response += 1
+        write_json(metadata_path, run_metadata, exclusive=True)
+
+        missing = [
+            filename
+            for filename in expected_run_artifacts(validation)
+            if not (task_dir / filename).is_file()
+        ]
+        if missing:
+            runner_missing_artifacts[task_id] = missing
+        if returncode != 0:
+            child_failures += 1
+        completed += 1
 
     summary = {
         "run_root": str(run_root),
         "task_count": len(task_ids),
+        "task_artifact_sets_created": completed,
         "raw_responses_created": completed,
         "existing_raw_responses_skipped": skipped,
-        "tasks_without_raw_response": no_raw_response,
+        "tasks_without_raw_response": 0,
+        "child_process_failures": child_failures,
+        "missing_run_artifacts": runner_missing_artifacts,
         "execution_mode": "codex" if args.execute else "fixture",
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
-    return 0 if no_raw_response == 0 else 4
+    if runner_missing_artifacts:
+        return 5
+    return 0 if child_failures == 0 else 4
 
 
 if __name__ == "__main__":

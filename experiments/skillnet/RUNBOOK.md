@@ -6,8 +6,8 @@ run GT01–GT21.
 
 ## Frozen runtime
 
-This Setup repair was developed from repository commit
-`8870a12e81a3aa3ef7112a14c976449666a73698` with:
+This artifact-contract Setup repair was developed from repository commit
+`4434bfb1135f006b81dca4b6bb1285ff0a8216cb` with:
 
 - Codex CLI: `codex-cli 0.146.0-alpha.3.1`
 - Codex executable:
@@ -31,7 +31,9 @@ The CLI options above were confirmed from the installed `codex exec --help`.
 The real child command uses only supported flags:
 `--ignore-user-config`, `--ignore-rules`, `--strict-config`, `--ephemeral`,
 `--skip-git-repo-check`, `--sandbox read-only`, `--model`, `--config`,
-`--cd`, and `--output-last-message`.
+`--cd`, `--json`, and `--output-last-message`. The complete stdout byte stream
+from `--json` is written directly to `codex_events.jsonl`; it is not embedded in
+metadata or reconstructed from the final answer.
 
 The CLI may reconnect its transport within the same process. Such a reconnect
 does not start a second model attempt. A model attempt is defined here as one
@@ -92,13 +94,34 @@ Run output is stored at:
 experiments/skillnet/runs/<experiment>/<configuration>/size_<size>/<run_id>/
 ```
 
-Each task directory records:
+Artifact ownership is deterministic. The child only returns the fixed prediction
+JSON. It never chooses paths or saves experiment files. `run_condition.py`
+records the immutable inputs and transport outputs; `verify_condition.py` adds
+the evaluator-derived artifacts after all responses exist.
 
-- `raw_response.txt`;
-- `prediction.json` only when the raw response itself is directly parseable and
-  valid under the canonical schema;
-- `schema_validation.json`;
-- `run_metadata.json`.
+After successful condition verification, every task directory contains:
+
+1. `run_metadata.json`;
+2. `packet_manifest.json` with the Chinese task input, isolation inventory, and
+   input hashes;
+3. `catalogue_snapshot.json` containing exactly the selected condition
+   Catalogue at the JSON-value level;
+4. `codex_events.jsonl`, the unmodified `codex exec --json` stdout bytes (empty
+   only in fixture mode);
+5. `raw_response.txt`, written through `--output-last-message` for live runs;
+6. `prediction.json` only when direct parsing and canonical schema validation
+   both succeed;
+7. `schema_validation.json`;
+8. `evaluation_trace.json`;
+9. `graph_overlay.json`;
+10. `result_row.json`, copied JSON-value-for-value from the deterministic
+    evaluator's tidy per-task row.
+
+`run_metadata.json` includes the experiment/task/condition identity, runtime
+repository commit, Catalogue `source_commit`, CLI and model versions, start/end
+timestamps, duration, exit code, exact command, stderr, and input hashes. A
+missing last message is represented by an empty `raw_response.txt` plus
+`raw_response_placeholder: true`; no model text is invented or repaired.
 
 An existing run is never overwritten. The runner still exposes `--resume` for
 non-formal recovery diagnostics, but it is prohibited for formal E0/E1 runs.
@@ -167,6 +190,25 @@ That predictions directory contains prediction JSON files only. Metadata,
 validation records, commands, stdout, stderr, and evaluator results live
 outside it.
 
+The verifier writes `evaluation_trace.json`, `graph_overlay.json`, and
+`result_row.json` back to the corresponding task directory with exclusive file
+creation. The trace includes predicted/required/optional/missing/extra Skills,
+department checks, hard-order, forbidden, conflict, mutex, final-status,
+route-choice, blocked checks, and failure tags.
+
+Graph overlays always use the same-size C Catalogue as their graph source. For
+A/B, C is first opened only after every raw response is present and the
+deterministic evaluator has returned; the overlay records
+`post_evaluation_overlay: true` and `overlay_read_phase:
+after_response_and_evaluator`. Thus A/B children never receive graph relations.
+C overlays record `post_evaluation_overlay: false` because C was already the
+run input.
+
+At the end, `condition_validation.json` contains a per-task artifact matrix. Any
+missing required artifact, or a `prediction.json` attached to an invalid schema
+record, marks the condition `incomplete` and makes verification return nonzero.
+This audit record and all existing task artifacts are never overwritten.
+
 Example:
 
 ```bash
@@ -204,7 +246,9 @@ existing evaluator validates the resulting package.
 `--fixture-response-dir <directory>` replaces `--execute` for setup tests. It
 copies static `<task_id>.txt` responses and never starts Codex. Runs created in
 this mode record `execution_mode: fixture` and must not be used as experimental
-results.
+results. Fixture task directories contain a zero-byte `codex_events.jsonl` so
+the same artifact inventory can be checked without pretending fixture events
+were live CLI events.
 
 Run it under a temporary `--state-root`, then run `verify_condition.py` against
 the same temporary state. Do not place Setup output under the formal `runs/` or
@@ -215,20 +259,39 @@ the same temporary state. Do not place Setup output under the formal `runs/` or
 Before formal execution, start exactly one fresh `codex exec` process with the
 frozen CLI/model/reasoning flags, an empty temporary `--cd`, and a synthetic
 prompt that contains neither a Gold task nor any Catalogue. Do not pass
-`--output-schema`. Require exit code zero and a directly parseable JSON object
-with exactly these keys:
+`--output-schema`. Pass `--json`, save stdout byte-for-byte as
+`codex_events.jsonl`, and use `--output-last-message` for `raw_response.txt`.
+Require exit code zero, require every non-empty event line to parse as JSON, and
+require a directly parseable final JSON object with exactly these keys:
 
 ```text
 task_id, use_skills, selected_departments, skill_sequence,
 final_status, blocked_by, route_choice, reason
 ```
 
-The synthetic prompt must repeat the same three status-consistency rules used
-by the runner. Validate those rules as well as the exact key set. A smoke output
-with inconsistent `use_skills`, `final_status`, or `blocked_by` values is a
-failed Setup attempt even when transport and JSON parsing succeeded; preserve
-it and use a new synthetic smoke ID after correcting the Setup instruction.
+The synthetic prompt must state the field types, including that `route_choice`
+is a JSON object with string keys and values, and repeat the same three
+status-consistency rules used by the runner. Validate all field types, those
+rules, and the exact key set. A smoke output with an invalid field type or
+inconsistent `use_skills`, `final_status`, or `blocked_by` value is a failed
+Setup attempt even when transport and JSON parsing succeeded; preserve it and
+use a new synthetic smoke ID after correcting the Setup instruction.
 
 Transport reconnect messages are allowed provided they occur inside that same
-process. Preserve the smoke command, stdout, stderr, raw response, and validation
-result as Setup evidence; never treat the response as experimental data.
+process. Preserve the smoke command, `codex_events.jsonl`, stderr, raw response,
+and validation result as Setup evidence; never treat the response as
+experimental data.
+
+## Setup test commands
+
+Run the artifact contract independently, then the repository suite:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet/tests -v
+PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s tests -v
+```
+
+The first command performs temporary E1 fixture runs only; it does not start
+Codex and does not modify the formal `runs/` or `results/` trees. The synthetic
+live smoke is a separate one-process Setup check and must not contain a Gold
+task or Catalogue.

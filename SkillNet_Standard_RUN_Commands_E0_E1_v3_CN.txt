@@ -1,5 +1,20 @@
 SkillNet E0/E1 标准运行指令 v3
 
+============================================================
+新对话固定入口（从 repository 根目录读取）
+============================================================
+
+不要使用以前建议的嵌套 prompts 路径。新对话中先完整读取：
+
+1. `SkillNet_Codex_Setup_Prompt_E0_E1_v3_CN(1).txt`
+2. `SkillNet_Standard_RUN_Commands_E0_E1_v3_CN.txt`
+3. `experiments/skillnet/RUNBOOK.md`
+
+如果用户消息同时给出 `RUN ...`，且 Setup 已经提交、`HEAD == origin/main`
+并且工作树为空，则把 Setup Prompt 当作运行约束，不要重新执行首次 Setup，也不要
+等待第二次确认；直接按本文件和 RUNBOOK 执行对应 condition。任何正式 child 启动前
+仍必须执行 RUNBOOK 的 formal preflight，并在首项失败时停止。
+
 前提：
 1. 正式 A/B/C Catalogue 已经进入 repo：
    `skillnet_run_guide_v1_1/catalogues/`
