@@ -1,0 +1,1 @@
+{"task_id":"GT20_NO_TOOL_FINANCE","use_skills":false,"selected_departments":[],"skill_sequence":[],"final_status":"no_tool","blocked_by":[],"route_choice":{},"reason":"任务仅要求用简单语言解释术语，且明确禁止读取、分析或修改预算数据，无需调用任何业务 Skill。"}

@@ -1,0 +1,113 @@
+{
+  "formal_eligible": false,
+  "base_run_id": "run_02",
+  "supplement_run_id": "run_02_patch_gt17_gt20_NONFORMAL",
+  "composed_run_id": "run_02_PATCHED_NONFORMAL",
+  "tasks": {
+    "GT01_SINGLE": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT01_SINGLE",
+      "supplemental": false
+    },
+    "GT02_FIN_GOAL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT02_FIN_GOAL",
+      "supplemental": false
+    },
+    "GT03_PROC_GOAL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT03_PROC_GOAL",
+      "supplemental": false
+    },
+    "GT04_TECH_GOAL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT04_TECH_GOAL",
+      "supplemental": false
+    },
+    "GT05_BUS_GOAL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT05_BUS_GOAL",
+      "supplemental": false
+    },
+    "GT06_HR_GOAL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT06_HR_GOAL",
+      "supplemental": false
+    },
+    "GT07_CROSS_CUSTOM_TECH_SUPPLIER": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "supplemental": false
+    },
+    "GT08_CROSS_TECH_DELIVERY_PAYMENT": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "supplemental": false
+    },
+    "GT09_CROSS_BUS_SERVICE_PAYMENT": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "supplemental": false
+    },
+    "GT10_CROSS_ONBOARDING_EQUIPMENT": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "supplemental": false
+    },
+    "GT11_CROSS_RECRUIT_BUDGET_OFFER": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "supplemental": false
+    },
+    "GT12_CROSS_BUSINESS_TO_PO": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT12_CROSS_BUSINESS_TO_PO",
+      "supplemental": false
+    },
+    "GT13_CROSS_INTERNAL_DEV_STAFF_DATA": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "supplemental": false
+    },
+    "GT14_CROSS_PAYMENT_PERFORMANCE": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT14_CROSS_PAYMENT_PERFORMANCE",
+      "supplemental": false
+    },
+    "GT15_CROSS_SUPPLIER_CONTRACT_PO": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "supplemental": false
+    },
+    "GT16_SPECIAL_SUPPLIER_FAIL": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT16_SPECIAL_SUPPLIER_FAIL",
+      "supplemental": false
+    },
+    "GT17_SPECIAL_INVALID_INVOICE": {
+      "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02_patch_gt17_gt20_NONFORMAL/GT17_SPECIAL_INVALID_INVOICE",
+      "supplemental": true
+    },
+    "GT18_SPECIAL_BUILD_OR_BUY": {
+      "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02_patch_gt17_gt20_NONFORMAL/GT18_SPECIAL_BUILD_OR_BUY",
+      "supplemental": true
+    },
+    "GT19_NO_TOOL_CLEAR": {
+      "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02_patch_gt17_gt20_NONFORMAL/GT19_NO_TOOL_CLEAR",
+      "supplemental": true
+    },
+    "GT20_NO_TOOL_FINANCE": {
+      "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02_patch_gt17_gt20_NONFORMAL/GT20_NO_TOOL_FINANCE",
+      "supplemental": true
+    },
+    "GT21_NO_TOOL_PROC": {
+      "source_run_id": "run_02",
+      "source_task_dir": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/B/size_46/run_02/GT21_NO_TOOL_PROC",
+      "supplemental": false
+    }
+  }
+}

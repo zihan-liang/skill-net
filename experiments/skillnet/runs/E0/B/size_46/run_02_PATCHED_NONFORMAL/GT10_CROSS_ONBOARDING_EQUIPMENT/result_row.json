@@ -1,0 +1,100 @@
+{
+  "configuration": "B",
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": false,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 0.8,
+  "skill_f1": 0.888889,
+  "department_precision": 1.0,
+  "department_recall": 0.666667,
+  "department_f1": 0.8,
+  "required_order_accuracy": 0.5,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 0.0,
+  "route_choice_correct": false,
+  "predicted_skill_count": 4,
+  "required_skill_count": 5,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "technology-test-acceptance"
+  ],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "technology-test-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "technology-test-acceptance",
+      "after": "procurement-delivery-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "procurement-delivery-acceptance",
+      "after": "hr-onboarding",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "hr-onboarding",
+      "after": "hr-employee-database",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "technology-test-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "technology-test-acceptance",
+      "after": "procurement-delivery-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [
+    "technology-agent"
+  ],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "WRONG_FINAL_STATUS",
+  "secondary_failures": [
+    "MISSING_REQUIRED_SKILL",
+    "ORDER_VIOLATION",
+    "MISSING_DEPARTMENT",
+    "WRONG_ROUTE_CHOICE"
+  ],
+  "model_reason": "采购订单已生成，应先跟踪设备交付并完成验收，再完成入职准备和员工信息归档；当前设备尚未交付，验收环节受阻。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/B/size_46/run_02_PATCHED_NONFORMAL/predictions/GT10_CROSS_ONBOARDING_EQUIPMENT.json",
+  "source_line": ""
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "GT19_NO_TOOL_CLEAR",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "f56c84e757091f1070b1f7f2ce83c2a9ea8a9d8dc3eed78e9b4be91848eeddcd",
+  "prediction_saved": true,
+  "formal_eligible": false,
+  "patch_source_run_id": "run_02",
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "patched_nonformal": true,
+  "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL"
+}

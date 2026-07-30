@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting",
+    "procurement-supplier-evaluation"
+  ],
+  "skill_checks": {
+    "required": [
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-accounting",
+      "procurement-supplier-evaluation"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "finance-agent",
+      "procurement-agent"
+    ],
+    "required": [
+      "finance-agent",
+      "procurement-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "finance-invoice-verification",
+        "after": "finance-payment-approval",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "finance-accounting",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "procurement-supplier-evaluation",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "finance-invoice-verification",
+        "after": "finance-payment-approval",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "finance-accounting",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "procurement-supplier-evaluation",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "completed",
+    "passed": false
+  },
+  "route_choice_check": {
+    "predicted": {
+      "payment_and_accounting": "finance-agent",
+      "supplier_performance": "procurement-agent"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [
+      "finance-payment-approval"
+    ],
+    "expected": [],
+    "missing": [],
+    "extra": [
+      "finance-payment-approval"
+    ],
+    "passed": false
+  },
+  "failure_tags": {
+    "primary": "WRONG_FINAL_STATUS",
+    "secondary": [],
+    "all": [
+      "WRONG_FINAL_STATUS"
+    ]
+  }
+}

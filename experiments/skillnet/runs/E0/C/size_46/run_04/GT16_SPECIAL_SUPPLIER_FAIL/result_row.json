@@ -1,0 +1,53 @@
+{
+  "configuration": "C",
+  "run_id": "run_04",
+  "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+  "category": "special_constraint",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": false,
+  "skill_precision": 0.0,
+  "skill_recall": 1.0,
+  "skill_f1": 0.0,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 1.0,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 1,
+  "required_skill_count": 0,
+  "unnecessary_skill_count": 1,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [],
+  "extra_skills": [
+    "procurement-supplier-qualification"
+  ],
+  "hard_order_results": [],
+  "unsatisfied_order_pairs": [],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [
+    "procurement-supplier-qualification"
+  ],
+  "aliases_used": [],
+  "primary_failure": "REPEATED_COMPLETED_SKILL",
+  "secondary_failures": [
+    "UNNECESSARY_SKILL"
+  ],
+  "model_reason": "供应商资质检查不合格，必须阻止选商和合同生成；业务负责人要求不能绕过该强制门禁。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/C/size_46/run_04/predictions/GT16_SPECIAL_SUPPLIER_FAIL.json",
+  "source_line": ""
+}

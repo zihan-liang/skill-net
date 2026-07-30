@@ -1,0 +1,644 @@
+{
+  "schema_version": "1.0",
+  "status": "complete",
+  "experiment_id": "E0",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_04",
+  "checked_at": "2026-07-30T07:56:55.889346+00:00",
+  "missing_artifacts": {},
+  "unexpected_artifacts": {},
+  "task_artifact_matrix": {
+    "GT01_SINGLE": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT02_FIN_GOAL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT03_PROC_GOAL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT04_TECH_GOAL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT05_BUS_GOAL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT06_HR_GOAL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT07_CROSS_CUSTOM_TECH_SUPPLIER": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT08_CROSS_TECH_DELIVERY_PAYMENT": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT09_CROSS_BUS_SERVICE_PAYMENT": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT10_CROSS_ONBOARDING_EQUIPMENT": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT11_CROSS_RECRUIT_BUDGET_OFFER": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT12_CROSS_BUSINESS_TO_PO": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT13_CROSS_INTERNAL_DEV_STAFF_DATA": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT14_CROSS_PAYMENT_PERFORMANCE": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT15_CROSS_SUPPLIER_CONTRACT_PO": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT16_SPECIAL_SUPPLIER_FAIL": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT17_SPECIAL_INVALID_INVOICE": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT18_SPECIAL_BUILD_OR_BUY": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT19_NO_TOOL_CLEAR": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT20_NO_TOOL_FINANCE": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    },
+    "GT21_NO_TOOL_PROC": {
+      "schema_valid": true,
+      "prediction_required": true,
+      "required_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "present_artifacts": [
+        "run_metadata.json",
+        "packet_manifest.json",
+        "catalogue_snapshot.json",
+        "codex_events.jsonl",
+        "raw_response.txt",
+        "schema_validation.json",
+        "prediction.json",
+        "evaluation_trace.json",
+        "graph_overlay.json",
+        "result_row.json"
+      ],
+      "missing_artifacts": [],
+      "unexpected_artifacts": []
+    }
+  },
+  "evaluator_exit_code": 0
+}

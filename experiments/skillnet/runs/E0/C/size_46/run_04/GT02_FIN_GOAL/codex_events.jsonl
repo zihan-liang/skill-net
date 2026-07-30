@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb1fc-a0d9-7ea0-b3df-ef766f883792"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT02_FIN_GOAL\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\"],\"skill_sequence\":[\"finance-accounting\",\"finance-reporting\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"入账处理\":\"finance-accounting\",\"报表编制\":\"finance-reporting\"},\"reason\":\"款项已批准并支付，无需重复走费用或付款流程；财务应先依据凭证补录本月账务并完成借贷、期间及来源核对，再基于已入账数据生成和勾稽本月管理财务报表。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23462,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":259,"reasoning_output_tokens":125}}

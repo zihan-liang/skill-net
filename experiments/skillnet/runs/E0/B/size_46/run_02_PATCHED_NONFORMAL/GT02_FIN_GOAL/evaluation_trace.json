@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT02_FIN_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "skill_checks": {
+    "required": [
+      "finance-accounting",
+      "finance-reporting"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "finance-agent"
+    ],
+    "required": [
+      "finance-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "finance-accounting",
+        "after": "finance-reporting",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "finance-accounting",
+        "after": "finance-reporting",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "finance-accounting": "将本月已批准且已支付但尚未入账的款项分类、生成记账草案并准备过账",
+      "finance-reporting": "基于完成入账的数据生成并勾稽本月管理财务报表"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": null,
+    "secondary": [],
+    "all": []
+  }
+}

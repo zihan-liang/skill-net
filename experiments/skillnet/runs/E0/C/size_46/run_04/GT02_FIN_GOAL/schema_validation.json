@@ -1,0 +1,10 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "976b8517c7078bd47b190ee947ee7b245c46c72a5ee687de6c5e5caaeb4c2ff6",
+  "prediction_saved": true
+}

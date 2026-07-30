@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb200-1d80-7dc1-8a86-c7b71a00bfbe"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT09_CROSS_BUS_SERVICE_PAYMENT\",\"use_skills\":true,\"selected_departments\":[\"business-agent\",\"procurement-agent\",\"finance-agent\"],\"skill_sequence\":[\"business-acceptance\",\"procurement-delivery-acceptance\",\"finance-invoice-verification\",\"finance-payment-approval\",\"finance-accounting\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"acceptance_route\":\"business-acceptance\",\"payment_route\":\"finance-payment-approval\",\"accounting_route\":\"finance-accounting\"},\"reason\":\"采用业务验收路线，先确认咨询成果，再完成采购验收、发票核验、付款审批和入账。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23477,"cached_input_tokens":12032,"cache_write_input_tokens":0,"output_tokens":1161,"reasoning_output_tokens":1022}}

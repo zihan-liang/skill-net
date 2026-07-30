@@ -1,0 +1,23 @@
+{
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "use_skills": true,
+  "selected_departments": [
+    "technology-agent",
+    "hr-agent"
+  ],
+  "skill_sequence": [
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "hr-employee-database",
+    "technology-task-breakdown"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "development_route": "internal_development",
+    "execution_scope": "planning_only",
+    "staffing_basis": "employee_skill_and_project_history"
+  },
+  "reason": "技术需求已识别，先评估可行性，再确认规格和设计方案；随后查询员工技能与项目经验以增强任务拆解并明确负责人，本次不进入开发实施。"
+}

@@ -1,0 +1,104 @@
+{
+  "configuration": "C",
+  "run_id": "run_04",
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 0.833333,
+  "skill_f1": 0.909091,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 0.8,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": false,
+  "predicted_skill_count": 5,
+  "required_skill_count": 6,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "procurement-delivery-tracking"
+  ],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "business-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "business-acceptance",
+      "after": "procurement-delivery-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-delivery-acceptance",
+      "after": "finance-invoice-verification",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "finance-invoice-verification",
+      "after": "finance-payment-approval",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "finance-payment-approval",
+      "after": "finance-accounting",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "business-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [
+    {
+      "decision_id": "acceptance_route",
+      "expected_choice": "business_acceptance",
+      "actual_choice": "business-acceptance",
+      "type": "wrong_route_choice"
+    }
+  ],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "WRONG_ROUTE_CHOICE",
+  "secondary_failures": [
+    "MISSING_REQUIRED_SKILL",
+    "ORDER_VIOLATION",
+    "MUTEX_VIOLATION"
+  ],
+  "model_reason": "采用业务验收路线，先确认咨询成果，再完成采购验收、发票核验、付款审批和入账。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/C/size_46/run_04/predictions/GT09_CROSS_BUS_SERVICE_PAYMENT.json",
+  "source_line": ""
+}

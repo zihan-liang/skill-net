@@ -1,0 +1,10 @@
+{
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "7e4470b80eeeedc38cf22f9d96293f40f1568cff966ddbbf944aba3874393122",
+  "prediction_saved": true
+}

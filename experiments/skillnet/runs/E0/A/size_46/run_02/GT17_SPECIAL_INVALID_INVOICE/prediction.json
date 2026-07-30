@@ -1,0 +1,20 @@
+{
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-invoice-verification"
+  ],
+  "route_choice": {
+    "invoice_disposition": "invalid_or_mismatched",
+    "payment_disposition": "hold"
+  },
+  "reason": "发票无效或与合同、订单不匹配，未满足付款审批的已核验发票前置条件，系统应阻止付款并等待更正。"
+}

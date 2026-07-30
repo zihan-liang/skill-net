@@ -1,0 +1,6 @@
+﻿configuration,run_id,category,n,functional_success,clean_success,skill_precision,skill_recall,skill_f1,department_precision,department_recall,department_f1,required_order_accuracy,final_status_correct,route_choice_correct,no_tool_accuracy,blocked_flow_accuracy,gold_constraint_violation_rate
+C,run_04,cross_department_goal,9,0.333333,0.333333,0.980392,0.981481,0.979146,1.0,1.0,1.0,0.977778,0.666667,0.555556,,,0.555556
+C,run_04,no_tool,3,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,0.0
+C,run_04,single_department_goal,5,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,,0.0
+C,run_04,single_skill,1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,,0.0
+C,run_04,special_constraint,3,0.0,0.0,0.333333,1.0,0.333333,1.0,1.0,1.0,1.0,1.0,0.666667,,0.0,1.0

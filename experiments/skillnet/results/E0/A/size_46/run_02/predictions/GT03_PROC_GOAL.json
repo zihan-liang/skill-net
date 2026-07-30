@@ -1,0 +1,23 @@
+{
+  "task_id": "GT03_PROC_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "start": "procurement-supplier-search",
+    "end": "procurement-supplier-selection",
+    "scope": "pre-award supplier selection"
+  },
+  "reason": "需求和预算已确认，应依次完成供应商发现、资质准入、询价、比价、综合评分和最终选商；无需谈判、合同或采购订单相关 Skill。"
+}

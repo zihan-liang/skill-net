@@ -1,0 +1,21 @@
+{
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "business-negotiation",
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "negotiation": "business-negotiation",
+    "contract": "procurement-contract-generation",
+    "purchase_order": "procurement-purchase-order"
+  },
+  "reason": "预算与选商均已完成，依次进行商务谈判、采购合同生成及采购订单生成；当前不需要交付跟踪。"
+}

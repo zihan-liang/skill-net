@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb225-e0c2-7152-950a-a23f4a841969"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT17_SPECIAL_INVALID_INVOICE\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\"],\"skill_sequence\":[\"finance-invoice-verification\",\"finance-payment-approval\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-invoice-verification\"],\"route_choice\":{\"verification\":\"finance-invoice-verification\",\"payment_gate\":\"finance-payment-approval\"},\"reason\":\"发票无效或与合同、订单不匹配，未满足付款审批所需的已核验发票前提；即使交付已验收，也应阻止付款并要求更正发票及匹配差异。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20125,"cached_input_tokens":6912,"cache_write_input_tokens":0,"output_tokens":612,"reasoning_output_tokens":476}}

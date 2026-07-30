@@ -1,0 +1,92 @@
+{
+  "configuration": "C",
+  "run_id": "run_04",
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "category": "special_constraint",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 1.0,
+  "skill_f1": 1.0,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 1.0,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": false,
+  "predicted_skill_count": 6,
+  "required_skill_count": 6,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "technology-feasibility-assessment",
+      "after": "technology-specification-confirmation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-specification-confirmation",
+      "after": "technology-solution-design",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-solution-design",
+      "after": "technology-task-breakdown",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-task-breakdown",
+      "after": "technology-development-implementation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-development-implementation",
+      "after": "technology-test-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [
+    {
+      "decision_id": "build_or_buy",
+      "expected_choice": "internal_development",
+      "actual_choice": "internal_build",
+      "type": "wrong_route_choice"
+    }
+  ],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "WRONG_ROUTE_CHOICE",
+  "secondary_failures": [
+    "MUTEX_VIOLATION"
+  ],
+  "model_reason": "技术需求已识别且已决定内部开发，因此选择技术部门的可行性评估至技术测试验收路线，排除互斥的外部采购路线及后续系统上线。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/C/size_46/run_04/predictions/GT18_SPECIAL_BUILD_OR_BUY.json",
+  "source_line": ""
+}

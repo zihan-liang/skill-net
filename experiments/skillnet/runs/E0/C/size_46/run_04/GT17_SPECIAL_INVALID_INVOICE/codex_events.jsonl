@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb204-4dce-7133-bf98-d87b358dcc74"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT17_SPECIAL_INVALID_INVOICE\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\"],\"skill_sequence\":[\"finance-invoice-verification\",\"finance-payment-approval\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-invoice-verification\"],\"route_choice\":{\"gate_skill\":\"finance-invoice-verification\",\"blocked_skill\":\"finance-payment-approval\",\"condition\":\"invoice_invalid_or_mismatched\",\"decision\":\"block_payment\"},\"reason\":\"交付虽已验收，但发票无效或与合同、订单不匹配，触发财务核验门禁，必须阻止付款审批；供应商要求立即付款不能绕过该控制。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23470,"cached_input_tokens":12032,"cache_write_input_tokens":0,"output_tokens":459,"reasoning_output_tokens":315}}

@@ -1,0 +1,22 @@
+{
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "business-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "business-acceptance"
+  ],
+  "route_choice": {
+    "acceptance_route": "business-acceptance"
+  },
+  "reason": "任务明确采用业务验收路线；需先由业务团队按约定确认服务成果，再进行发票核验、付款审批和账务处理。当前尚未正式验收，因此阻塞在业务验收。"
+}

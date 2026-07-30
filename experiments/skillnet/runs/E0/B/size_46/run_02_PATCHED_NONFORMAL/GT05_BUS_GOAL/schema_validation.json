@@ -1,0 +1,14 @@
+{
+  "task_id": "GT05_BUS_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "afbe357ec183da50b32f4614cb861ad295ac6fca1c6d47a4fecde90b94bb535d",
+  "prediction_saved": true,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

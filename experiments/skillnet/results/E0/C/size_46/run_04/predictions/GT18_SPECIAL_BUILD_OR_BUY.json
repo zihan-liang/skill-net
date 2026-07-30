@@ -1,0 +1,22 @@
+{
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "use_skills": true,
+  "selected_departments": [
+    "technology-agent"
+  ],
+  "skill_sequence": [
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown",
+    "technology-development-implementation",
+    "technology-test-acceptance"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "internal_build",
+    "route_end": "technology_test_acceptance"
+  },
+  "reason": "技术需求已识别且已决定内部开发，因此选择技术部门的可行性评估至技术测试验收路线，排除互斥的外部采购路线及后续系统上线。"
+}

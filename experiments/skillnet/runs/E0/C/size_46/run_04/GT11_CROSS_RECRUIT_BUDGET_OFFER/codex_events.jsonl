@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb201-53fe-7652-b14c-b214764c21e1"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT11_CROSS_RECRUIT_BUDGET_OFFER\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\",\"hr-agent\"],\"skill_sequence\":[\"finance-budget-check\",\"hr-jd-generator\",\"hr-recruitment-publish\",\"hr-resume-screening\",\"hr-interview-scheduling\",\"hr-offer-generator\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-budget-check\"],\"route_choice\":{\"entry\":\"finance-budget-check\",\"target\":\"hr-offer-generator\",\"excluded\":\"hr-onboarding\"},\"reason\":\"岗位需求已审批，但招聘预算尚未确认；须先通过预算检查，方可继续招聘并生成 Offer，且本次不办理入职。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23492,"cached_input_tokens":12032,"cache_write_input_tokens":0,"output_tokens":492,"reasoning_output_tokens":343}}

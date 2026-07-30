@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb08c-fa4b-72e0-a978-f6380e7dc26c"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection refused (os error 61)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT19_NO_TOOL_CLEAR\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{},\"reason\":\"讲轻松笑话无需且不匹配当前 Catalogue 中的任何业务 Skill。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19863,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":65,"reasoning_output_tokens":0}}

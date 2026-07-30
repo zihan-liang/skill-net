@@ -1,0 +1,2 @@
+﻿configuration,run_id,n,functional_success,clean_success,skill_precision,skill_recall,skill_f1,department_precision,department_recall,department_f1,required_order_accuracy,final_status_correct,route_choice_correct,no_tool_accuracy,blocked_flow_accuracy,gold_constraint_violation_rate
+A,run_02,21,0.47619,0.47619,0.901361,0.9678,0.884782,1.0,0.968254,0.980952,0.930089,0.761905,0.761905,1.0,0.0,0.428571
