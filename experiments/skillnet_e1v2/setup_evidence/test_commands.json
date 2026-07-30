@@ -81,5 +81,67 @@
       "exit_code": 0
     }
   ],
+  "pre_run_amendment": {
+    "amendment_id": "E1V2-PRE-RUN-AMENDMENT-20260730-01",
+    "setup_content_commit": "dbef338be1612e000b89d1c21f5deb8e5e6b214b",
+    "commands": [
+      {
+        "name": "e1v2_tests",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet_e1v2/tests -v",
+        "exit_code": 0,
+        "tests_run": 29
+      },
+      {
+        "name": "deterministic_setup_and_catalogue_check",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/build_setup.py --check",
+        "exit_code": 0,
+        "task_count": 21,
+        "catalogue_count": 189
+      },
+      {
+        "name": "gold_validation_against_temporary_output",
+        "command": "SkillNet_Gold_Tasks_V4/evaluation/evaluate_skillnet.py validate-package --gold SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_21.json --output <temporary path>; cmp frozen validation",
+        "exit_code": 0,
+        "task_count": 21,
+        "skill_count": 46
+      },
+      {
+        "name": "old_evaluator_compatibility",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s SkillNet_Gold_Tasks_V4/evaluation/tests -v",
+        "exit_code": 0,
+        "tests_run": 16,
+        "tests_skipped": 2
+      },
+      {
+        "name": "old_artifact_contract_compatibility",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet/tests -v",
+        "exit_code": 0,
+        "tests_run": 6
+      },
+      {
+        "name": "repository_suite",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s tests -v",
+        "exit_code": 0,
+        "tests_run": 146
+      },
+      {
+        "name": "fixture_dry_run",
+        "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/fixture_dry_run.py --evidence-id pre_run_amendment_01",
+        "exit_code": 0,
+        "task_count": 21,
+        "formal_model_tasks_started": 0,
+        "evidence": "experiments/skillnet_e1v2/setup_evidence/fixture_dry_run_pre_run_amendment_01.json"
+      },
+      {
+        "name": "synthetic_smoke_evidence_revalidation",
+        "command": "Recompute raw response and event SHA-256; verify valid=true, formal_model_task=false, contains_gold_task=false, contains_catalogue=false",
+        "exit_code": 0,
+        "new_model_processes_started": 0,
+        "evidence": "experiments/skillnet_e1v2/setup_evidence/synthetic_smoke/setup_01/validation.json"
+      }
+    ],
+    "formal_model_tasks_started": 0,
+    "e1v2_run_01_path_count": 0
+  },
   "formal_e1v2_model_tasks_started": 0
 }

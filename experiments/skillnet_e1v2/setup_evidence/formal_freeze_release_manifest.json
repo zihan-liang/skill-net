@@ -1,23 +1,23 @@
 {
-  "release_id": "E1V2-SETUP-FREEZE-20260730-01",
+  "release_id": "E1V2-PRE-RUN-AMENDMENT-FREEZE-20260730-01",
   "system_id": "skillnet-e1v2-setup",
-  "version_id": "b2e2b7eddaf179d7e70e397816badc14dbdf43e1",
+  "version_id": "dbef338be1612e000b89d1c21f5deb8e5e6b214b",
   "environment": "development",
-  "artifact_digest": "sha256:90a2a797ce04859a86258d171234647780fad9760e48f36db2b2d26682161598",
-  "change_reference": "User-authorized E1-v2 formal freeze after accepted Setup review",
+  "artifact_digest": "sha256:a7c15a3ab537218c2d51419e74f86a7b4010266ad8aa77d4c90762ab306cb46c",
+  "change_reference": "User-authorized E1-v2 PRE-RUN AMENDMENT",
   "test_acceptance_reference": "experiments/skillnet_e1v2/setup_evidence/test_commands.json",
   "release_owner": "repository owner (human)",
   "rollback_owner": "repository owner (human)",
-  "maintenance_window": "2026-07-30 authorized freeze window",
-  "backup_reference": "Git parent commit 9f5a85bd4ab2ef4aa96fa58ba87b68f4c76da068",
+  "maintenance_window": "2026-07-30 authorized amendment freeze window",
+  "backup_reference": "Pre-amendment Git commit 4870ac4c06357d9f96795568589312a9bc50e610",
   "deployment_steps": [
-    "Commit the reviewed E1-v2 Setup namespaces and WorkBuddy run guide without starting a formal model task",
-    "Record the immutable Setup commit SHA and final artifact hashes in the freeze evidence",
-    "Push the final freeze record to origin/main"
+    "Commit final amended runner, verifier, metric summary, RUNBOOK, setup verifier, and tests as setup_content_commit",
+    "Record setup_content_commit and final artifact hashes in one evidence-only direct child freeze_record_commit",
+    "Push both commits to origin/main without starting a formal model task"
   ],
   "rollback_steps": [
     "Stop before any formal model execution if a validation or protected-hash check fails",
-    "Use a human-authorized Git revert of only the freeze commits if repository rollback is required"
+    "Use a human-authorized Git revert of the freeze record commit followed by the setup content commit if repository rollback is required"
   ],
   "health_checks": [
     "Confirm local HEAD equals origin/main",
@@ -31,8 +31,8 @@
     "Recheck protected E0/E1 and run_02 hashes"
   ],
   "communication_plan": [
-    "Report only commit SHA, push and working-tree status, validation results, and formal model task count",
-    "Wait for separate authorization before Prompt 2 or any formal E1-v2 model task"
+    "Report only the two commit SHAs, parent/diff checks, hashes, files, validation, push, and zero formal-task status",
+    "Wait for separate authorization before any formal E1-v2 model task"
   ],
   "production_approval_reference": ""
 }

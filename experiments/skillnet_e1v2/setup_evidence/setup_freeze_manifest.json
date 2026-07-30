@@ -3,7 +3,18 @@
   "experiment_id": "E1V2",
   "setup_status": "READY",
   "freeze_record_status": "official",
-  "official_setup_commit_sha": "b2e2b7eddaf179d7e70e397816badc14dbdf43e1",
+  "freeze_protocol": {
+    "name": "two_layer_non_self_referential_freeze",
+    "setup_content_commit": "contains final runner, verifier, metrics, tests, and experiment content",
+    "freeze_record_commit": "direct child containing only setup_evidence and implementation_records changes",
+    "head_must_equal_setup_content_commit": false,
+    "head_direct_parent_must_equal_setup_content_commit": true,
+    "allowed_freeze_record_prefixes": [
+      "experiments/skillnet_e1v2/setup_evidence/",
+      "experiments/skillnet_e1v2/implementation_records/"
+    ]
+  },
+  "official_setup_content_commit_sha": "dbef338be1612e000b89d1c21f5deb8e5e6b214b",
   "artifact_hashes": {
     "gold": {
       "path": "SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_21.json",
@@ -39,11 +50,11 @@
     },
     "metric_definitions": {
       "path": "experiments/skillnet_e1v2/metric_definitions.json",
-      "sha256": "16c94322b6540afb4233b75043429eef3df4876b2609cbe773d9ff1c469db158"
+      "sha256": "a5139abb712371213a12706fb5c38e26f6123239065b9480d4763318b3ac64f8"
     },
     "evaluator": {
       "path": "experiments/skillnet_e1v2/evaluate_e1v2.py",
-      "sha256": "6f4cb9bb649a31b5c160d7aa57dd0314d5b60b3011f02c4f052f7923e48dd9cd"
+      "sha256": "903aa19f86a68a2ab5cb4084993476fff16049d09c18e6d695d3102217f10fc4"
     },
     "prediction_schema_wrapper": {
       "path": "experiments/skillnet_e1v2/prediction_schema_e1v2.json",
@@ -51,11 +62,11 @@
     },
     "runner": {
       "path": "experiments/skillnet_e1v2/run_condition.py",
-      "sha256": "d63675d62bc098cc537bdbeacf6a6866fbebed557c90df7949ab98830d1ba686"
+      "sha256": "33f1e29245ee5f94b1655a829c0d90f8ccd9c09f41a9f3f1ef13a45e9a8f8965"
     },
     "verifier": {
       "path": "experiments/skillnet_e1v2/verify_condition.py",
-      "sha256": "d44d0894cbc60e621e4a139796e513172dd5bbb5f67f01bf76ae643340ed8e8c"
+      "sha256": "bbf8ad354d35f544fd14842b575a93f02e38a41bdd69ab709be0093e4d3082f0"
     },
     "builder": {
       "path": "experiments/skillnet_e1v2/build_setup.py",
@@ -63,7 +74,7 @@
     },
     "setup_verifier": {
       "path": "experiments/skillnet_e1v2/verify_setup.py",
-      "sha256": "d7bb5aa20d77a6615f82b8f7e94c2b3d365d76653f84edffe94998052dc8b96c"
+      "sha256": "e01e427b5353837a216a52d5b37a64213d092aacee5e9eeebd8f217806caf140"
     },
     "synthetic_smoke": {
       "path": "experiments/skillnet_e1v2/synthetic_smoke.py",
@@ -75,11 +86,15 @@
     },
     "runbook": {
       "path": "experiments/skillnet_e1v2/RUNBOOK.md",
-      "sha256": "4538d0ef2fcc8633907ee90ed925b25970c913829be67dc21b8e1a63c9f1b60f"
+      "sha256": "49f1a6767d3d26d228f0d3c2f29b698348a230788e0c75460413d9c443218055"
     },
     "fixture_dry_run_evidence": {
       "path": "experiments/skillnet_e1v2/setup_evidence/fixture_dry_run_setup_01.json",
       "sha256": "01da7e9521774dd7a284f049820677bae03ed2841f6980a1c9e9ea64bc531a29"
+    },
+    "fixture_dry_run_amendment_evidence": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/fixture_dry_run_pre_run_amendment_01.json",
+      "sha256": "1bd93428a715a901b45541b1e34cf0a227bdb1d68d74fd184480ff97614ec88e"
     },
     "synthetic_smoke_validation": {
       "path": "experiments/skillnet_e1v2/setup_evidence/synthetic_smoke/setup_01/validation.json",
@@ -91,16 +106,16 @@
     },
     "test_commands": {
       "path": "experiments/skillnet_e1v2/setup_evidence/test_commands.json",
-      "sha256": "6d4129f99543826de3030549a6fe8c28f76576c342d6223c61c178dc996d1993"
+      "sha256": "704b7c59e7d57e54492f9d18dd442312f4e0989213f5ca7a23f3c3702f0f6e73"
     },
     "protected_hash_comparison": {
       "path": "experiments/skillnet_e1v2/setup_evidence/protected_hash_comparison.json",
       "sha256": "7fb42f599f009d8dfb1aaf758a069e0222a7227376f55f340e1ccaf28d9d1425"
     }
   },
-  "artifact_hash_bundle_sha256": "90a2a797ce04859a86258d171234647780fad9760e48f36db2b2d26682161598",
+  "artifact_hash_bundle_sha256": "a7c15a3ab537218c2d51419e74f86a7b4010266ad8aa77d4c90762ab306cb46c",
   "semantic_normalization_sha256": "1b78b64b4a36cda5ec3a7146d4ce2a1aa910881fefe182bf1790103f3d49fc3c",
-  "metric_definitions_sha256": "16c94322b6540afb4233b75043429eef3df4876b2609cbe773d9ff1c469db158",
+  "metric_definitions_sha256": "a5139abb712371213a12706fb5c38e26f6123239065b9480d4763318b3ac64f8",
   "protected_files_identical": true,
   "run_02_identical": true,
   "candidate_pool_validation": {
@@ -135,7 +150,9 @@
   },
   "gold_validation_passed": true,
   "fixture_dry_run_passed": true,
+  "fixture_dry_run_amendment_passed": true,
   "synthetic_smoke_passed": true,
   "formal_model_tasks_started": 0,
+  "e1v2_run_01_path_count": 0,
   "missing_artifacts": []
 }
