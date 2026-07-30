@@ -9,7 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -104,6 +104,19 @@ class E1V2ArtifactContractTests(unittest.TestCase):
             self.assertEqual(
                 0, summary["strict_false_semantic_true_audit_count"]
             )
+            self.assertEqual(
+                0,
+                summary["consistency_counts"][
+                    "skill_routing_true_control_false"
+                ],
+            )
+            self.assertTrue(condition["process_evidence"]["valid"])
+            self.assertEqual(
+                0, condition["process_evidence"]["child_pid_count"]
+            )
+            self.assertEqual(
+                0, condition["process_evidence"]["codex_thread_id_count"]
+            )
             task_dirs = [
                 path
                 for path in run_root.iterdir()
@@ -121,6 +134,160 @@ class E1V2ArtifactContractTests(unittest.TestCase):
                 self.assertEqual(
                     b"", (task_dir / "codex_events.jsonl").read_bytes()
                 )
+                metadata = json.loads(
+                    (task_dir / "run_metadata.json").read_text(
+                        encoding="utf-8"
+                    )
+                )
+                self.assertEqual("fixture", metadata["execution_mode"])
+                self.assertIsNone(metadata["child_pid"])
+                self.assertIsNone(metadata["codex_thread_id"])
+                self.assertIsNone(metadata["temporary_cwd"])
+                self.assertEqual(
+                    "fixture_mode_no_codex_process",
+                    metadata["thread_id_missing_reason"],
+                )
+
+    def test_execute_codex_uses_one_popen_and_extracts_own_thread_id(
+        self,
+    ) -> None:
+        events = (
+            b'{"type":"thread.started","thread_id":"thread-one"}\n'
+            b'{"type":"turn.completed"}\n'
+        )
+        process = MagicMock()
+        process.pid = 4242
+        process.returncode = 0
+        process.communicate.return_value = (events, b"")
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            events_path = root / "codex_events.jsonl"
+            with patch.object(
+                runner.subprocess,
+                "Popen",
+                return_value=process,
+            ) as popen:
+                result = runner.execute_codex(
+                    "synthetic prompt",
+                    root / "raw_response.txt",
+                    events_path,
+                    root,
+                )
+        self.assertEqual(1, popen.call_count)
+        process.communicate.assert_called_once_with(
+            input=b"synthetic prompt"
+        )
+        self.assertEqual(0, result[0])
+        self.assertEqual(4242, result[3])
+        self.assertEqual("thread-one", result[4])
+        self.assertIsNone(result[5])
+
+    def test_verifier_rejects_duplicate_formal_thread_and_cwd(
+        self,
+    ) -> None:
+        condition_metadata = {
+            "execution_mode": "codex",
+            "execution_order": "serial",
+            "max_workers": 1,
+            "attempts_per_task": 1,
+            "automatic_retries": 0,
+            "resume_used": False,
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            condition_root = Path(temporary)
+            for task_id, child_pid in (("T1", 101), ("T2", 102)):
+                task_dir = condition_root / task_id
+                task_dir.mkdir()
+                (task_dir / "codex_events.jsonl").write_text(
+                    '{"type":"thread.started","thread_id":"duplicate"}\n',
+                    encoding="utf-8",
+                )
+                (task_dir / "run_metadata.json").write_text(
+                    json.dumps(
+                        {
+                            "execution_mode": "codex",
+                            "attempt_number": 1,
+                            "automatic_retry": False,
+                            "child_pid": child_pid,
+                            "codex_thread_id": "duplicate",
+                            "thread_id_missing_reason": None,
+                            "temporary_cwd": "/tmp/duplicate",
+                            "start_time": "2026-07-30T00:00:00+00:00",
+                            "end_time": "2026-07-30T00:00:01+00:00",
+                            "duration_seconds": 1.0,
+                            "exit_code": 0,
+                            "command": ["codex", "exec", "--ephemeral"],
+                            "command_redacted": [
+                                "codex",
+                                "exec",
+                                "--ephemeral",
+                            ],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+            report = verifier.validate_process_evidence(
+                condition_root,
+                condition_metadata,
+                ["T1", "T2"],
+            )
+        self.assertFalse(report["valid"])
+        self.assertEqual(["duplicate"], report["duplicate_codex_thread_ids"])
+        self.assertEqual(
+            ["/tmp/duplicate"],
+            report["duplicate_temporary_cwds"],
+        )
+
+    def test_verifier_accepts_real_failure_before_thread_started(
+        self,
+    ) -> None:
+        condition_metadata = {
+            "execution_mode": "codex",
+            "execution_order": "serial",
+            "max_workers": 1,
+            "attempts_per_task": 1,
+            "automatic_retries": 0,
+            "resume_used": False,
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            condition_root = Path(temporary)
+            task_dir = condition_root / "T1"
+            task_dir.mkdir()
+            (task_dir / "codex_events.jsonl").write_bytes(b"")
+            (task_dir / "run_metadata.json").write_text(
+                json.dumps(
+                    {
+                        "execution_mode": "codex",
+                        "attempt_number": 1,
+                        "automatic_retry": False,
+                        "child_pid": 103,
+                        "codex_thread_id": None,
+                        "thread_id_missing_reason": (
+                            "codex_process_failed_before_thread_started"
+                        ),
+                        "temporary_cwd": "/tmp/unique-task-cwd",
+                        "start_time": "2026-07-30T00:00:00+00:00",
+                        "end_time": "2026-07-30T00:00:01+00:00",
+                        "duration_seconds": 1.0,
+                        "exit_code": 7,
+                        "command": ["codex", "exec", "--ephemeral"],
+                        "command_redacted": [
+                            "codex",
+                            "exec",
+                            "--ephemeral",
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            report = verifier.validate_process_evidence(
+                condition_root,
+                condition_metadata,
+                ["T1"],
+            )
+        self.assertTrue(report["valid"])
+        self.assertEqual(1, report["child_pid_count"])
+        self.assertEqual(0, report["codex_thread_id_count"])
 
 
 if __name__ == "__main__":

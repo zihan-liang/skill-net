@@ -89,6 +89,62 @@ class E1V2EvaluatorMetricTests(unittest.TestCase):
         self.assertFalse(row["semantic_functional_success"])
         self.assertTrue(row["skill_routing_success"])
         self.assertFalse(row["control_success"])
+        original_values = {
+            key: row[key]
+            for key in (
+                "strict_functional_success",
+                "semantic_functional_success",
+                "skill_routing_success",
+                "control_success",
+            )
+        }
+        summary = EVALUATOR.summarize_condition([row])
+        self.assertEqual(
+            1,
+            summary["consistency_counts"][
+                "skill_routing_true_control_false"
+            ],
+        )
+        self.assertEqual(
+            original_values,
+            {
+                key: row[key]
+                for key in original_values
+            },
+        )
+
+    def test_wrong_route_choice_with_correct_no_tool_routing_is_counted(
+        self,
+    ) -> None:
+        prediction = perfect("GT19_NO_TOOL_CLEAR")
+        prediction["route_choice"] = {
+            "build_or_buy": "external_procurement"
+        }
+        row = score(prediction["task_id"], prediction)
+        self.assertTrue(row["skill_routing_success"])
+        self.assertFalse(row["control_success"])
+        summary = EVALUATOR.summarize_condition([row])
+        self.assertEqual(
+            1,
+            summary["consistency_counts"][
+                "skill_routing_true_control_false"
+            ],
+        )
+
+    def test_wrong_skills_do_not_enter_routing_true_control_false(
+        self,
+    ) -> None:
+        prediction = perfect("GT09_CROSS_BUS_SERVICE_PAYMENT")
+        prediction["skill_sequence"].remove("finance-accounting")
+        row = score(prediction["task_id"], prediction)
+        self.assertFalse(row["skill_routing_success"])
+        summary = EVALUATOR.summarize_condition([row])
+        self.assertEqual(
+            0,
+            summary["consistency_counts"][
+                "skill_routing_true_control_false"
+            ],
+        )
 
     def test_continue_after_block_fails_all_success_metrics(self) -> None:
         prediction = perfect("GT16_SPECIAL_SUPPLIER_FAIL")
@@ -185,6 +241,12 @@ class E1V2EvaluatorMetricTests(unittest.TestCase):
             0,
             summary["consistency_counts"][
                 "semantic_true_skill_routing_false"
+            ],
+        )
+        self.assertEqual(
+            0,
+            summary["consistency_counts"][
+                "skill_routing_true_control_false"
             ],
         )
         self.assertEqual(1, summary["strict_false_semantic_true_audit_count"])

@@ -70,6 +70,62 @@ Semantic aliases are global and frozen in
 frozen in `experiments/skillnet_e1v2/metric_definitions.json`. Neither permits
 task-specific post-run exceptions.
 
+## Two-layer formal freeze
+
+The formal freeze is deliberately non-self-referential:
+
+1. `setup_content_commit` contains the final runner, verifier, metric
+   definitions, tests, and all experiment content.
+2. `freeze_record_commit` is its direct child and may change only files below
+   `experiments/skillnet_e1v2/setup_evidence/` and
+   `experiments/skillnet_e1v2/implementation_records/`. It records the full
+   `official_setup_content_commit_sha` and final artifact hashes.
+
+Formal preflight never requires the recorded content SHA to equal `HEAD`.
+Instead it requires:
+
+- local `HEAD` equals `origin/main`;
+- the working tree is clean;
+- `HEAD^` equals `official_setup_content_commit_sha`;
+- the diff from `official_setup_content_commit_sha` through `HEAD` contains
+  only the two allowed freeze-record prefixes above.
+
+The read-only mechanical check is:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python \
+  experiments/skillnet_e1v2/verify_setup.py --check-freeze-identity
+```
+
+Every formal condition records the current freeze-record `HEAD` directly as
+`condition_metadata.repository_commit`.
+
+## Per-task process evidence
+
+Formal execution is serial (`max_workers=1`). Each task uses exactly one
+`subprocess.Popen` call, waits for that process to finish, and never retries or
+resumes it. `run_metadata.json` records:
+
+- `child_pid`;
+- `codex_thread_id`, extracted only from that task's immutable
+  `codex_events.jsonl` `thread.started` event;
+- `temporary_cwd`;
+- start/end timestamps and duration;
+- full redacted command, exit code, attempt number, and retry flag.
+
+If a process fails before `thread.started`, the thread ID is `null` and
+`thread_id_missing_reason` records that fact. Fixture mode never invents a PID,
+thread ID, or temporary CWD; all three are `null`.
+
+The condition verifier rejects duplicate non-null thread IDs, duplicate formal
+temporary CWDs, missing process evidence, resume/continue flags, missing
+`--ephemeral`, more than one attempt, automatic retries, or a successful
+process without `thread.started`.
+
+`skill_routing_true_control_false` is a condition-level analysis count defined
+as `skill_routing_success == true and control_success == false`. It does not
+change any per-task success value and is not a new failure gate.
+
 ## Setup-only fixture dry run
 
 This uses static Gold-perfect JSON and a temporary state root. It starts no

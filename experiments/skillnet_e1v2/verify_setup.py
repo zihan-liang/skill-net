@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 from typing import Any
 
 
@@ -34,6 +35,10 @@ PROTECTED_FILES = [
     "experiments/skillnet/verify_condition.py",
 ]
 COMMIT_SHA = re.compile(r"^[0-9a-f]{40}$")
+FREEZE_RECORD_ALLOWED_PREFIXES = (
+    "experiments/skillnet_e1v2/setup_evidence/",
+    "experiments/skillnet_e1v2/implementation_records/",
+)
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -112,6 +117,100 @@ def load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def assess_freeze_identity(
+    *,
+    local_head: str,
+    origin_head: str,
+    direct_parent: str,
+    official_setup_content_commit: str,
+    changed_paths: list[str],
+    working_tree_clean: bool,
+) -> dict[str, Any]:
+    """Evaluate the non-self-referential two-layer freeze contract."""
+    disallowed_paths = sorted(
+        path
+        for path in changed_paths
+        if not any(
+            path.startswith(prefix)
+            for prefix in FREEZE_RECORD_ALLOWED_PREFIXES
+        )
+    )
+    checks = {
+        "local_head_equals_origin_main": local_head == origin_head,
+        "working_tree_clean": working_tree_clean,
+        "head_direct_parent_equals_official_setup_content_commit": (
+            direct_parent == official_setup_content_commit
+        ),
+        "freeze_record_diff_only_contains_allowed_evidence": (
+            not disallowed_paths
+        ),
+        "head_is_not_setup_content_commit": (
+            local_head != official_setup_content_commit
+        ),
+    }
+    return {
+        "schema_version": "E1V2-1.0",
+        "protocol": "two_layer_non_self_referential_freeze",
+        "local_head": local_head,
+        "origin_main": origin_head,
+        "head_direct_parent": direct_parent,
+        "official_setup_content_commit_sha": (
+            official_setup_content_commit
+        ),
+        "changed_paths_from_setup_content_to_head": sorted(changed_paths),
+        "allowed_freeze_record_prefixes": list(
+            FREEZE_RECORD_ALLOWED_PREFIXES
+        ),
+        "disallowed_paths": disallowed_paths,
+        "checks": checks,
+        "valid": all(checks.values()),
+    }
+
+
+def git_output(repo: Path, *arguments: str) -> str:
+    process = subprocess.run(
+        ["git", *arguments],
+        cwd=repo,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return process.stdout.strip()
+
+
+def check_freeze_identity(
+    repo: Path,
+    official_setup_content_commit: str,
+) -> dict[str, Any]:
+    local_head = git_output(repo, "rev-parse", "HEAD")
+    origin_head = git_output(repo, "rev-parse", "origin/main")
+    direct_parent = git_output(repo, "rev-parse", "HEAD^")
+    changed_paths = [
+        line
+        for line in git_output(
+            repo,
+            "diff",
+            "--name-only",
+            f"{official_setup_content_commit}..HEAD",
+        ).splitlines()
+        if line
+    ]
+    working_tree_clean = not git_output(
+        repo,
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+    )
+    return assess_freeze_identity(
+        local_head=local_head,
+        origin_head=origin_head,
+        direct_parent=direct_parent,
+        official_setup_content_commit=official_setup_content_commit,
+        changed_paths=changed_paths,
+        working_tree_clean=working_tree_clean,
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -120,31 +219,53 @@ def main() -> int:
         default=Path("/tmp/skillnet_e1v2_protected_before.json"),
     )
     parser.add_argument(
-        "--official-setup-commit",
+        "--official-setup-content-commit",
         help=(
-            "Full SHA-1 of the immutable commit containing the frozen Setup "
-            "artifacts. When omitted, preserve the value already recorded."
+            "Full SHA-1 of the setup_content_commit. When omitted, preserve "
+            "the value already recorded in the freeze manifest."
+        ),
+    )
+    parser.add_argument(
+        "--check-freeze-identity",
+        action="store_true",
+        help=(
+            "Read-only formal preflight check of HEAD, origin/main, direct "
+            "parent, clean tree, and the allowed freeze-record diff."
         ),
     )
     args = parser.parse_args()
-    if not args.protected_before.is_file():
-        raise SystemExit(f"Missing before snapshot: {args.protected_before}")
     freeze_manifest_path = EVIDENCE_DIR / "setup_freeze_manifest.json"
     previous_freeze_manifest = (
         load(freeze_manifest_path)
         if freeze_manifest_path.is_file()
         else {}
     )
-    official_setup_commit = (
-        args.official_setup_commit
-        or previous_freeze_manifest.get("official_setup_commit_sha")
+    official_setup_content_commit = (
+        args.official_setup_content_commit
+        or previous_freeze_manifest.get(
+            "official_setup_content_commit_sha"
+        )
     )
-    if official_setup_commit and not COMMIT_SHA.fullmatch(
-        official_setup_commit
+    if official_setup_content_commit and not COMMIT_SHA.fullmatch(
+        official_setup_content_commit
     ):
         raise SystemExit(
-            "--official-setup-commit must be a full lowercase 40-character SHA-1"
+            "--official-setup-content-commit must be a full lowercase "
+            "40-character SHA-1"
         )
+    if args.check_freeze_identity:
+        if not official_setup_content_commit:
+            raise SystemExit(
+                "Freeze manifest has no official_setup_content_commit_sha"
+            )
+        identity = check_freeze_identity(
+            ROOT,
+            official_setup_content_commit,
+        )
+        print(json.dumps(identity, ensure_ascii=False, indent=2))
+        return 0 if identity["valid"] else 3
+    if not args.protected_before.is_file():
+        raise SystemExit(f"Missing before snapshot: {args.protected_before}")
     before = load(args.protected_before)
     after = protected_snapshot("after")
     before_by_path = {item["path"]: item for item in before["files"]}
@@ -230,6 +351,10 @@ def main() -> int:
         "fixture_dry_run_evidence": (
             EVIDENCE_DIR / "fixture_dry_run_setup_01.json"
         ),
+        "fixture_dry_run_amendment_evidence": (
+            EVIDENCE_DIR
+            / "fixture_dry_run_pre_run_amendment_01.json"
+        ),
         "synthetic_smoke_validation": (
             EVIDENCE_DIR
             / "synthetic_smoke"
@@ -278,6 +403,11 @@ def main() -> int:
         if artifact_paths["fixture_dry_run_evidence"].is_file()
         else {"valid": False}
     )
+    fixture_amendment_validation = (
+        load(artifact_paths["fixture_dry_run_amendment_evidence"])
+        if artifact_paths["fixture_dry_run_amendment_evidence"].is_file()
+        else {"valid": False}
+    )
     synthetic_validation = (
         load(artifact_paths["synthetic_smoke_validation"])
         if artifact_paths["synthetic_smoke_validation"].is_file()
@@ -289,12 +419,24 @@ def main() -> int:
             for name, record in sorted(hashes.items())
         ).encode("utf-8")
     )
-    default_run_root = E1V2_DIR / "runs" / "E1V2"
-    formal_artifacts = (
-        [path for path in default_run_root.rglob("*") if path.is_file()]
-        if default_run_root.exists()
-        else []
-    )
+    formal_roots = [
+        E1V2_DIR / "runs" / "E1V2",
+        E1V2_DIR / "results" / "E1V2",
+    ]
+    formal_artifacts = [
+        path
+        for formal_root in formal_roots
+        if formal_root.exists()
+        for path in formal_root.rglob("*")
+        if path.is_file()
+    ]
+    e1v2_run_01_paths = [
+        path
+        for formal_root in formal_roots
+        if formal_root.exists()
+        for path in formal_root.rglob("*")
+        if "e1v2_run_01" in path.parts
+    ]
     ready = all(
         [
             identical,
@@ -304,10 +446,16 @@ def main() -> int:
             candidate_validation.get("valid") is True,
             catalogue_validation.get("valid") is True,
             fixture_validation.get("valid") is True,
+            fixture_amendment_validation.get("valid") is True,
             synthetic_validation.get("valid") is True,
             fixture_validation.get("formal_model_tasks_started") == 0,
+            fixture_amendment_validation.get(
+                "formal_model_tasks_started"
+            )
+            == 0,
             synthetic_validation.get("formal_model_task") is False,
             not formal_artifacts,
+            not e1v2_run_01_paths,
         ]
     )
     freeze_manifest = {
@@ -315,9 +463,29 @@ def main() -> int:
         "experiment_id": "E1V2",
         "setup_status": "READY" if ready else "STOPPED",
         "freeze_record_status": (
-            "official" if official_setup_commit else "provisional"
+            "official"
+            if official_setup_content_commit
+            else "provisional"
         ),
-        "official_setup_commit_sha": official_setup_commit,
+        "freeze_protocol": {
+            "name": "two_layer_non_self_referential_freeze",
+            "setup_content_commit": (
+                "contains final runner, verifier, metrics, tests, and "
+                "experiment content"
+            ),
+            "freeze_record_commit": (
+                "direct child containing only setup_evidence and "
+                "implementation_records changes"
+            ),
+            "head_must_equal_setup_content_commit": False,
+            "head_direct_parent_must_equal_setup_content_commit": True,
+            "allowed_freeze_record_prefixes": list(
+                FREEZE_RECORD_ALLOWED_PREFIXES
+            ),
+        },
+        "official_setup_content_commit_sha": (
+            official_setup_content_commit
+        ),
         "artifact_hashes": hashes,
         "artifact_hash_bundle_sha256": artifact_hash_bundle,
         "semantic_normalization_sha256": hashes.get(
@@ -332,8 +500,12 @@ def main() -> int:
         "catalogue_validation": catalogue_validation,
         "gold_validation_passed": gold_validation.get("valid") is True,
         "fixture_dry_run_passed": fixture_validation.get("valid") is True,
+        "fixture_dry_run_amendment_passed": (
+            fixture_amendment_validation.get("valid") is True
+        ),
         "synthetic_smoke_passed": synthetic_validation.get("valid") is True,
         "formal_model_tasks_started": len(formal_artifacts),
+        "e1v2_run_01_path_count": len(e1v2_run_01_paths),
         "missing_artifacts": missing,
     }
     write_json(freeze_manifest_path, freeze_manifest)

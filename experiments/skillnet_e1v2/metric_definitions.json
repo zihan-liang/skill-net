@@ -122,8 +122,17 @@
     "strict_true_semantic_true",
     "strict_false_semantic_true",
     "semantic_true_skill_routing_false",
+    "skill_routing_true_control_false",
     "strict_semantic_skill_routing_all_false",
     "transport_or_schema_failure"
   ],
+  "analysis_counts": {
+    "skill_routing_true_control_false": {
+      "definition": "skill_routing_success == true and control_success == false",
+      "interpretation": "Skill selection and order are correct while final_status, blocked_by, route_choice, or other control behavior is incorrect.",
+      "failure_gate": false,
+      "changes_per_task_success_semantics": false
+    }
+  },
   "hard_stop_invariant": "semantic_functional_success=true implies skill_routing_success=true"
 }

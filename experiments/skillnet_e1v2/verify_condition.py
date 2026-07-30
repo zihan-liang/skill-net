@@ -260,6 +260,172 @@ def build_overlay(
     }
 
 
+def validate_process_evidence(
+    condition_root: Path,
+    condition_metadata: dict[str, Any],
+    task_ids: list[str],
+) -> dict[str, Any]:
+    """Validate per-task process isolation without inventing missing evidence."""
+    execution_mode = condition_metadata.get("execution_mode")
+    errors: dict[str, list[str]] = {}
+    thread_ids: list[str] = []
+    temporary_cwds: list[str] = []
+    child_pids: list[int] = []
+
+    condition_errors = []
+    if condition_metadata.get("attempts_per_task") != 1:
+        condition_errors.append("attempts_per_task_must_equal_1")
+    if condition_metadata.get("automatic_retries") != 0:
+        condition_errors.append("automatic_retries_must_equal_0")
+    if condition_metadata.get("resume_used") is not False:
+        condition_errors.append("resume_used_must_be_false")
+    if execution_mode == "codex":
+        if condition_metadata.get("execution_order") != "serial":
+            condition_errors.append("execution_order_must_be_serial")
+        if condition_metadata.get("max_workers") != 1:
+            condition_errors.append("max_workers_must_equal_1")
+    elif execution_mode != "fixture":
+        condition_errors.append("unknown_execution_mode")
+    if condition_errors:
+        errors["_condition"] = condition_errors
+
+    required_fields = {
+        "child_pid",
+        "codex_thread_id",
+        "thread_id_missing_reason",
+        "temporary_cwd",
+        "start_time",
+        "end_time",
+        "duration_seconds",
+        "command_redacted",
+        "exit_code",
+        "attempt_number",
+        "automatic_retry",
+    }
+    resume_tokens = {"--resume", "resume", "--continue", "continue", "-r"}
+    for task_id in task_ids:
+        task_errors = []
+        task_dir = condition_root / task_id
+        metadata_path = task_dir / "run_metadata.json"
+        if not metadata_path.is_file():
+            errors[task_id] = ["run_metadata_missing"]
+            continue
+        metadata = runner.load_json(metadata_path)
+        missing_fields = sorted(required_fields - set(metadata))
+        task_errors.extend(
+            f"missing_process_evidence_field:{field}"
+            for field in missing_fields
+        )
+        if metadata.get("attempt_number") != 1:
+            task_errors.append("attempt_number_must_equal_1")
+        if metadata.get("automatic_retry") is not False:
+            task_errors.append("automatic_retry_must_be_false")
+        if not isinstance(metadata.get("start_time"), str):
+            task_errors.append("start_time_missing")
+        if not isinstance(metadata.get("end_time"), str):
+            task_errors.append("end_time_missing")
+        duration = metadata.get("duration_seconds")
+        if not isinstance(duration, (int, float)) or duration < 0:
+            task_errors.append("duration_seconds_invalid")
+
+        if execution_mode == "fixture":
+            if metadata.get("execution_mode") != "fixture":
+                task_errors.append("fixture_execution_mode_mismatch")
+            if metadata.get("child_pid") is not None:
+                task_errors.append("fixture_child_pid_must_be_null")
+            if metadata.get("codex_thread_id") is not None:
+                task_errors.append("fixture_thread_id_must_be_null")
+            if metadata.get("temporary_cwd") is not None:
+                task_errors.append("fixture_temporary_cwd_must_be_null")
+            if (
+                metadata.get("thread_id_missing_reason")
+                != "fixture_mode_no_codex_process"
+            ):
+                task_errors.append("fixture_thread_missing_reason_invalid")
+        elif execution_mode == "codex":
+            child_pid = metadata.get("child_pid")
+            if not isinstance(child_pid, int) or child_pid <= 0:
+                task_errors.append("child_pid_invalid")
+            else:
+                child_pids.append(child_pid)
+            temporary_cwd = metadata.get("temporary_cwd")
+            if not isinstance(temporary_cwd, str) or not temporary_cwd:
+                task_errors.append("temporary_cwd_invalid")
+            else:
+                temporary_cwds.append(temporary_cwd)
+
+            command = metadata.get("command_redacted")
+            if not isinstance(command, list) or not all(
+                isinstance(item, str) for item in command
+            ):
+                task_errors.append("command_redacted_invalid")
+            else:
+                if "--ephemeral" not in command:
+                    task_errors.append("ephemeral_flag_missing")
+                if any(token in resume_tokens for token in command):
+                    task_errors.append("resume_or_continue_forbidden")
+                if command != metadata.get("command"):
+                    task_errors.append("redacted_command_mismatch")
+
+            events_path = task_dir / "codex_events.jsonl"
+            event_thread_id = (
+                runner.codex_thread_id_from_events(events_path.read_bytes())
+                if events_path.is_file()
+                else None
+            )
+            recorded_thread_id = metadata.get("codex_thread_id")
+            if recorded_thread_id != event_thread_id:
+                task_errors.append("thread_id_does_not_match_raw_events")
+            if isinstance(recorded_thread_id, str) and recorded_thread_id:
+                thread_ids.append(recorded_thread_id)
+                if metadata.get("thread_id_missing_reason") is not None:
+                    task_errors.append(
+                        "thread_missing_reason_present_with_thread_id"
+                    )
+            else:
+                if metadata.get("exit_code") == 0:
+                    task_errors.append(
+                        "successful_process_missing_thread_started"
+                    )
+                if (
+                    metadata.get("thread_id_missing_reason")
+                    != "codex_process_failed_before_thread_started"
+                ):
+                    task_errors.append("thread_missing_reason_invalid")
+        if task_errors:
+            errors[task_id] = task_errors
+
+    duplicate_thread_ids = sorted(
+        thread_id for thread_id in set(thread_ids)
+        if thread_ids.count(thread_id) > 1
+    )
+    duplicate_temporary_cwds = sorted(
+        temporary_cwd for temporary_cwd in set(temporary_cwds)
+        if temporary_cwds.count(temporary_cwd) > 1
+    )
+    if duplicate_thread_ids:
+        errors.setdefault("_condition", []).append(
+            "duplicate_codex_thread_ids"
+        )
+    if duplicate_temporary_cwds:
+        errors.setdefault("_condition", []).append(
+            "duplicate_temporary_cwds"
+        )
+    return {
+        "execution_mode": execution_mode,
+        "task_count": len(task_ids),
+        "child_pid_count": len(child_pids),
+        "codex_thread_id_count": len(thread_ids),
+        "temporary_cwd_count": len(temporary_cwds),
+        "unique_codex_thread_id_count": len(set(thread_ids)),
+        "unique_temporary_cwd_count": len(set(temporary_cwds)),
+        "duplicate_codex_thread_ids": duplicate_thread_ids,
+        "duplicate_temporary_cwds": duplicate_temporary_cwds,
+        "errors": errors,
+        "valid": not errors,
+    }
+
+
 def verify(args: argparse.Namespace) -> int:
     repo = runner.repository_root()
     state_root = args.state_root.resolve()
@@ -440,9 +606,15 @@ def verify(args: argparse.Namespace) -> int:
             task_missing = sorted(TASK_REQUIRED_ARTIFACTS - present)
             if task_missing:
                 missing[task_id] = task_missing
+        process_evidence = validate_process_evidence(
+            condition_root,
+            metadata,
+            task_ids,
+        )
         status = (
             "complete"
             if not missing
+            and process_evidence["valid"]
             and summary["consistency_counts"][
                 "semantic_true_skill_routing_false"
             ]
@@ -460,6 +632,7 @@ def verify(args: argparse.Namespace) -> int:
                 "run_id": args.run_id,
                 "task_count": len(task_ids),
                 "missing_artifacts": missing,
+                "process_evidence": process_evidence,
                 "semantic_true_skill_routing_false": summary[
                     "consistency_counts"
                 ]["semantic_true_skill_routing_false"],
@@ -477,6 +650,7 @@ def verify(args: argparse.Namespace) -> int:
                 "result_root": str(final_root),
                 "task_count": len(task_ids),
                 "consistency_counts": summary["consistency_counts"],
+                "process_evidence": process_evidence,
             },
             ensure_ascii=False,
             indent=2,

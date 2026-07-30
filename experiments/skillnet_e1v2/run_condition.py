@@ -333,7 +333,7 @@ def execute_codex(
     raw_path: Path,
     events_path: Path,
     packet_dir: Path,
-) -> tuple[int, str, list[str]]:
+) -> tuple[int, str, list[str], int, str | None, str | None]:
     command = [
         str(PINNED_CODEX_PATH),
         "exec",
@@ -357,18 +357,49 @@ def execute_codex(
         str(raw_path),
         "-",
     ]
-    process = subprocess.run(
+    process = subprocess.Popen(
         command,
-        input=prompt.encode("utf-8"),
-        capture_output=True,
-        check=False,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
-    write_bytes(events_path, process.stdout)
+    stdout, stderr = process.communicate(
+        input=prompt.encode("utf-8"),
+    )
+    write_bytes(events_path, stdout)
+    thread_id = codex_thread_id_from_events(stdout)
+    missing_reason = None
+    if thread_id is None:
+        missing_reason = (
+            "codex_process_failed_before_thread_started"
+            if process.returncode != 0
+            else "codex_process_completed_without_thread_started"
+        )
     return (
         process.returncode,
-        process.stderr.decode("utf-8", errors="replace"),
+        stderr.decode("utf-8", errors="replace"),
         command,
+        process.pid,
+        thread_id,
+        missing_reason,
     )
+
+
+def codex_thread_id_from_events(events: bytes) -> str | None:
+    """Extract the first valid thread.started ID from one task's raw events."""
+    for raw_line in events.splitlines():
+        if not raw_line.strip():
+            continue
+        try:
+            event = json.loads(raw_line)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            continue
+        if event.get("type") != "thread.started":
+            continue
+        thread_id = event.get("thread_id")
+        if isinstance(thread_id, str) and thread_id.strip():
+            return thread_id
+    return None
 
 
 def parse_args() -> argparse.Namespace:
@@ -422,8 +453,11 @@ def main() -> int:
         "task_count": len(task_ids),
         "execution_mode": "codex" if args.execute else "fixture",
         "formal_model_task": bool(args.execute),
+        "execution_order": "serial",
+        "max_workers": 1,
         "attempts_per_task": 1,
         "automatic_retries": 0,
+        "resume_used": False,
         "created_at_utc": utc_now(),
         "repository_commit": git_head(repo),
         "gold_path": str(gold_path(repo).relative_to(repo)),
@@ -511,6 +545,10 @@ def main() -> int:
         if args.fixture_response_dir:
             fixture = args.fixture_response_dir.resolve() / f"{task_id}.txt"
             command = ["fixture-copy", str(fixture), str(raw_path)]
+            child_pid = None
+            codex_thread_id = None
+            temporary_cwd = None
+            thread_id_missing_reason = "fixture_mode_no_codex_process"
             if fixture.is_file():
                 shutil.copyfile(fixture, raw_path)
                 returncode, stderr = 0, ""
@@ -522,11 +560,19 @@ def main() -> int:
             with tempfile.TemporaryDirectory(
                 prefix=f"skillnet_e1v2_{task_id}_"
             ) as temporary:
-                returncode, stderr, command = execute_codex(
+                temporary_cwd = str(Path(temporary).resolve())
+                (
+                    returncode,
+                    stderr,
+                    command,
+                    child_pid,
+                    codex_thread_id,
+                    thread_id_missing_reason,
+                ) = execute_codex(
                     prompt,
                     raw_path.resolve(),
                     events_path,
-                    Path(temporary),
+                    Path(temporary_cwd),
                 )
             if not raw_path.exists():
                 write_bytes(raw_path, b"")
@@ -544,11 +590,16 @@ def main() -> int:
             "execution_mode": condition_metadata["execution_mode"],
             "attempt_number": 1,
             "automatic_retry": False,
+            "child_pid": child_pid,
+            "codex_thread_id": codex_thread_id,
+            "thread_id_missing_reason": thread_id_missing_reason,
+            "temporary_cwd": temporary_cwd,
             "start_time": started.isoformat(),
             "end_time": datetime.now(timezone.utc).isoformat(),
             "duration_seconds": round(time.monotonic() - timer, 6),
             "exit_code": returncode,
             "command": command,
+            "command_redacted": command,
             "stderr": stderr,
             "raw_response_sha256": sha256_file(raw_path),
             "codex_events_sha256": sha256_file(events_path),

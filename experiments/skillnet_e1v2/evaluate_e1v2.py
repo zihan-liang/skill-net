@@ -879,6 +879,11 @@ def summarize_condition(rows: list[dict[str, Any]]) -> dict[str, Any]:
             for row in rows
         ),
         "semantic_true_skill_routing_false": semantic_without_routing,
+        "skill_routing_true_control_false": sum(
+            row["skill_routing_success"]
+            and not row["control_success"]
+            for row in rows
+        ),
         "strict_semantic_skill_routing_all_false": sum(
             not row["strict_functional_success"]
             and not row["semantic_functional_success"]
