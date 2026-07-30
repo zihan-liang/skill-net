@@ -81,8 +81,12 @@ schema validation.
 ## Condition mapping
 
 - E0 is fixed to size 46 and GT01–GT21.
-- E1 uses exactly the five task IDs in
+- E1 uses the complete ordered GT01–GT21 inventory in
   `skillnet_run_guide_v1_1/E1_scale_manifest.json`.
+- Every E1 size-10 and size-30 A/B/C condition runs all 21 tasks. The six
+  live conditions therefore create 126 new model calls.
+- All tasks remain in scope when a smaller Catalogue omits a required Skill;
+  the unchanged evaluator records the resulting route as a failure.
 - A selects `A_flat_catalogue.json`.
 - B selects `B_department_grouped_catalogue.json`.
 - C selects `C_graph_structured_catalogue.json`; no separate relation file is
@@ -174,9 +178,19 @@ experiments/skillnet/.venv/bin/python experiments/skillnet/run_condition.py --ex
 experiments/skillnet/.venv/bin/python experiments/skillnet/run_condition.py --experiment E1 --configuration C --size 30 --run-id run_02 --execute
 ```
 
-E1 size 46 is extracted from the corresponding E0 `run_02` outputs and does not
+E1 size 46 is extracted from the corresponding formal E0 outputs and does not
 start new model processes. Do not run E1 with `--size 46` during the formal
 sequence and do not use `--resume`.
+
+The formal all-21-task E0 sources are:
+
+- A: `E0/A/size_46/run_02`;
+- B: `E0/B/size_46/run_02`;
+- C: `E0/C/size_46/run_04`.
+
+The patched/non-formal B bundle, the failed C run, and infrastructure-failed
+sources are excluded. Reuse metadata must retain the original configuration,
+run ID, runtime commit, and artifact hashes.
 
 ## Deterministic verification
 
@@ -225,21 +239,30 @@ experiments/skillnet/results/<experiment>/<configuration>/size_<size>/<run_id>/
 ```
 
 E0 verification uses the canonical 21-task Gold. E1 verification always uses
-`experiments/skillnet/frozen_eval/E1_Gold_5_tasks.json`, never the full
-21-task Gold.
+`experiments/skillnet/frozen_eval/E1_Gold_21_tasks.json`; it never silently
+falls back to another Gold path.
 
 ## Frozen E1 Gold
 
-The five-task file is mechanically extracted with:
+The frozen 21-task files are:
+
+```text
+experiments/skillnet/frozen_eval/E1_Gold_21_tasks.json
+experiments/skillnet/frozen_eval/E1_Gold_21_tasks_validation.json
+```
+
+They are mechanically generated with:
 
 ```bash
 experiments/skillnet/.venv/bin/python experiments/skillnet/verify_condition.py --prepare-e1-gold
 ```
 
-The file preserves all five task records byte-for-byte at the JSON-value level,
-retains the full evaluator metadata/catalogue fields, sets `task_count` to five,
-and records the full Gold hash, manifest hash, and manifest task IDs. The
-existing evaluator validates the resulting package.
+The Gold file preserves all 21 canonical task records without modification at
+the JSON-value level, retains the full evaluator metadata/catalogue fields,
+sets `task_count` to 21, and records the full Gold hash, manifest hash, and
+ordered manifest task IDs. The existing evaluator validates the resulting
+package, and the validation report must contain `valid: true` and
+`task_count: 21`.
 
 ## Fixture-only SETUP mode
 

@@ -126,13 +126,11 @@ E0：
 - 每个 configuration 21 个独立 Codex 子进程。
 
 E1：
-- GT01_SINGLE
-- GT04_TECH_GOAL
-- GT13_CROSS_INTERNAL_DEV_STAFF_DATA
-- GT15_CROSS_SUPPLIER_CONTRACT_PO
-- GT16_SPECIAL_SUPPLIER_FAIL
+- GT01–GT21；
 - size 10 和 30 实际新增运行；
-- size 46 复用 E0。
+- 每个 size/configuration 启动21个独立 Codex 子进程；
+- size 46 复用 E0 的全部21题，不重新调用模型；
+- size 10/30 的 A/B/C 合计126次新模型调用。
 
 暂不处理 E4、S1、S3。父 Skill 仍是未来独立扩展实验。
 
@@ -348,7 +346,7 @@ run_id: run_01
 则：
 - 只读取 `size_10/C_graph_structured_catalogue.json`；
 - 不读取任何第二份 relation 文件；
-- 只运行固定5题；
+- 按 GT01–GT21 数字顺序运行全部21题；
 - 每题独立进程；
 - 完成后评价。
 

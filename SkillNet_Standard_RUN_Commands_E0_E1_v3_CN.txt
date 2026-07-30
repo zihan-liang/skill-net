@@ -99,6 +99,8 @@ E1-C-size10 只能读取：
 
 不得额外读取 `skill_relations_10.json`。
 
+上述 A/B/C 每个 condition 均按数字顺序运行 GT01–GT21 全部21题。
+
 ============================================================
 E1 size 30
 ============================================================
@@ -124,19 +126,25 @@ E1-C-size30 只能读取：
 
 不得额外读取 `skill_relations_30.json`。
 
+上述 A/B/C 每个 condition 均按数字顺序运行 GT01–GT21 全部21题。
+size 10/30 的六个 live conditions 合计产生126次新模型调用。
+
 ============================================================
 E1 size 46
 ============================================================
 
 不重新运行。
 
-必须从 E0 的 A/B/C 结果中分别提取：
+E1 size 46 不启动新模型。A/B/C 分别从对应正式 E0 结果提取
+GT01–GT21 全部21题，并记录原始 configuration、run_id、runtime commit
+和 artifact hashes：
 
-- GT01_SINGLE
-- GT04_TECH_GOAL
-- GT13_CROSS_INTERNAL_DEV_STAFF_DATA
-- GT15_CROSS_SUPPLIER_CONTRACT_PO
-- GT16_SPECIAL_SUPPLIER_FAIL
+- A：`E0/A/size_46/run_02`
+- B：`E0/B/size_46/run_02`
+- C：`E0/C/size_46/run_04`
+
+不得使用 patched/non-formal B bundle、失败的 C run 或任何基础设施失败来源。
+复用结果保留真实来源 provenance，不重命名 source run_id。
 
 ============================================================
 独立核验
