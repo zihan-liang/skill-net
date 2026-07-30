@@ -199,10 +199,12 @@ def resolve_condition(
         manifest_path = repo / "skillnet_run_guide_v1_1" / "E1_scale_manifest.json"
         manifest = load_json(manifest_path)
         task_ids = manifest.get("task_ids", [])
-        if not isinstance(task_ids, list) or len(task_ids) != 5:
-            raise ValueError("E1 manifest must contain exactly five task_ids")
-        if any(task_id not in prompts for task_id in task_ids):
-            raise ValueError("E1 manifest references a missing prompt")
+        canonical_task_ids = sorted(prompts, key=lambda item: int(item[2:4]))
+        if task_ids != canonical_task_ids:
+            raise ValueError(
+                "E1 manifest task_ids must exactly equal the ordered canonical "
+                "GT01-GT21 prompt inventory"
+            )
     return catalogue_path, catalogue, task_ids
 
 
@@ -529,6 +531,10 @@ def main() -> int:
     if not RUN_ID_PATTERN.fullmatch(args.run_id):
         raise SystemExit(
             "run_id must match [A-Za-z0-9][A-Za-z0-9._-]*"
+        )
+    if args.experiment == "E1" and args.size == 46:
+        raise SystemExit(
+            "E1 size 46 reuses E0 and must not start run_condition child processes"
         )
 
     repo = repository_root()

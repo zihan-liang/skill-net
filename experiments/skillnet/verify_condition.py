@@ -18,8 +18,8 @@ from typing import Any
 import run_condition as runner
 
 
-E1_GOLD_FILENAME = "E1_Gold_5_tasks.json"
-E1_VALIDATION_FILENAME = "E1_Gold_5_tasks_validation.json"
+E1_GOLD_FILENAME = "E1_Gold_21_tasks.json"
+E1_VALIDATION_FILENAME = "E1_Gold_21_tasks_validation.json"
 VERIFIER_REQUIRED_ARTIFACTS = (
     "evaluation_trace.json",
     "graph_overlay.json",
@@ -52,27 +52,28 @@ def frozen_e1_gold_path() -> Path:
     return frozen_eval_dir() / E1_GOLD_FILENAME
 
 
-def expected_e1_subset(repo: Path) -> dict[str, Any]:
+def expected_e1_gold(repo: Path) -> dict[str, Any]:
     source_path = full_gold_path(repo)
     e1_manifest_path = manifest_path(repo)
     source = runner.load_json(source_path)
     manifest = runner.load_json(e1_manifest_path)
     task_ids = manifest.get("task_ids", [])
-    if not isinstance(task_ids, list) or len(task_ids) != 5:
-        raise ValueError("E1 manifest must contain exactly five task IDs")
 
     source_tasks = source.get("tasks", [])
     by_id = {task.get("task_id"): task for task in source_tasks}
     if len(by_id) != len(source_tasks):
         raise ValueError("Full Gold contains duplicate task IDs")
-    missing = [task_id for task_id in task_ids if task_id not in by_id]
-    if missing:
-        raise ValueError(f"E1 manifest tasks missing from full Gold: {missing}")
+    canonical_task_ids = sorted(by_id, key=lambda item: int(item[2:4]))
+    if task_ids != canonical_task_ids:
+        raise ValueError(
+            "E1 manifest task IDs must exactly equal the ordered canonical "
+            "GT01-GT21 Gold inventory"
+        )
 
-    subset = copy.deepcopy(source)
-    subset["task_count"] = len(task_ids)
-    subset["tasks"] = [copy.deepcopy(by_id[task_id]) for task_id in task_ids]
-    subset["subset_provenance"] = {
+    gold = copy.deepcopy(source)
+    gold["task_count"] = len(task_ids)
+    gold["tasks"] = [copy.deepcopy(by_id[task_id]) for task_id in task_ids]
+    gold["subset_provenance"] = {
         "source_gold_path": str(source_path.relative_to(repo)),
         "source_gold_sha256": runner.sha256_file(source_path),
         "source_gold_task_count": len(source_tasks),
@@ -81,7 +82,7 @@ def expected_e1_subset(repo: Path) -> dict[str, Any]:
         "task_ids": task_ids,
         "task_records_copied_without_modification": True,
     }
-    return subset
+    return gold
 
 
 def stable_json_bytes(value: Any) -> bytes:
@@ -133,7 +134,7 @@ def run_gold_validation(
         report = runner.load_json(temporary_output)
         if process.returncode != 0 or report.get("valid") is not True:
             raise RuntimeError(
-                "E1 Gold subset failed evaluator validation: "
+                "21-task E1 Gold failed evaluator validation: "
                 f"exit={process.returncode}, report={report}"
             )
         install_if_absent_or_identical(
@@ -149,13 +150,13 @@ def run_gold_validation(
 
 
 def prepare_frozen_e1_gold(repo: Path) -> dict[str, Any]:
-    subset = expected_e1_subset(repo)
+    gold = expected_e1_gold(repo)
     output = frozen_e1_gold_path()
-    install_if_absent_or_identical(output, stable_json_bytes(subset))
+    install_if_absent_or_identical(output, stable_json_bytes(gold))
 
     source = runner.load_json(full_gold_path(repo))
     source_by_id = {task["task_id"]: task for task in source["tasks"]}
-    for task in subset["tasks"]:
+    for task in gold["tasks"]:
         if task != source_by_id[task["task_id"]]:
             raise RuntimeError(
                 f"E1 task record changed during extraction: {task['task_id']}"
@@ -166,11 +167,11 @@ def prepare_frozen_e1_gold(repo: Path) -> dict[str, Any]:
     return {
         "gold_path": str(output),
         "gold_sha256": runner.sha256_file(output),
-        "source_gold_sha256": subset["subset_provenance"][
+        "source_gold_sha256": gold["subset_provenance"][
             "source_gold_sha256"
         ],
-        "manifest_sha256": subset["subset_provenance"]["manifest_sha256"],
-        "task_ids": subset["subset_provenance"]["task_ids"],
+        "manifest_sha256": gold["subset_provenance"]["manifest_sha256"],
+        "task_ids": gold["subset_provenance"]["task_ids"],
         "validation_path": str(validation_path),
         "validation": validation["report"],
     }
@@ -180,13 +181,13 @@ def validate_frozen_e1_gold(repo: Path) -> dict[str, Any]:
     path = frozen_e1_gold_path()
     if not path.is_file():
         raise RuntimeError(
-            f"Missing frozen E1 Gold subset; run --prepare-e1-gold: {path}"
+            f"Missing frozen 21-task E1 Gold; run --prepare-e1-gold: {path}"
         )
     actual = runner.load_json(path)
-    expected = expected_e1_subset(repo)
+    expected = expected_e1_gold(repo)
     if actual != expected:
         raise RuntimeError(
-            "Frozen E1 Gold subset no longer matches the current full Gold "
+            "Frozen 21-task E1 Gold no longer matches the current full Gold "
             "and E1 manifest"
         )
     return actual
@@ -1091,7 +1092,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--prepare-e1-gold",
         action="store_true",
-        help="Mechanically create and validate the frozen five-task E1 Gold.",
+        help="Mechanically create and validate the frozen 21-task E1 Gold.",
     )
     parser.add_argument("--experiment", choices=("E0", "E1"))
     parser.add_argument("--configuration", choices=("A", "B", "C"))

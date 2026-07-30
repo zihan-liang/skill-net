@@ -16,6 +16,29 @@ from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_E1_TASK_IDS = (
+    "GT01_SINGLE",
+    "GT02_FIN_GOAL",
+    "GT03_PROC_GOAL",
+    "GT04_TECH_GOAL",
+    "GT05_BUS_GOAL",
+    "GT06_HR_GOAL",
+    "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+    "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+    "GT09_CROSS_BUS_SERVICE_PAYMENT",
+    "GT10_CROSS_ONBOARDING_EQUIPMENT",
+    "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+    "GT12_CROSS_BUSINESS_TO_PO",
+    "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+    "GT14_CROSS_PAYMENT_PERFORMANCE",
+    "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+    "GT16_SPECIAL_SUPPLIER_FAIL",
+    "GT17_SPECIAL_INVALID_INVOICE",
+    "GT18_SPECIAL_BUILD_OR_BUY",
+    "GT19_NO_TOOL_CLEAR",
+    "GT20_NO_TOOL_FINANCE",
+    "GT21_NO_TOOL_PROC",
+)
 RUNNER_PATH = ROOT / "experiments" / "skillnet" / "run_condition.py"
 SPEC = importlib.util.spec_from_file_location("skillnet_run_condition", RUNNER_PATH)
 assert SPEC and SPEC.loader
@@ -33,6 +56,61 @@ VERIFY_SPEC.loader.exec_module(verifier)
 
 
 class SkillNetExperimentRunnerTests(unittest.TestCase):
+    def test_e1_inventory_is_all_21_tasks_for_every_condition(self) -> None:
+        manifest = json.loads(
+            (ROOT / "skillnet_run_guide_v1_1" / "E1_scale_manifest.json")
+            .read_text(encoding="utf-8")
+        )
+        self.assertEqual(manifest["task_ids"], list(EXPECTED_E1_TASK_IDS))
+        for size in (10, 30, 46):
+            for configuration in ("A", "B", "C"):
+                _, _, task_ids = runner.resolve_condition(
+                    ROOT, "E1", configuration, size
+                )
+                self.assertEqual(task_ids, list(EXPECTED_E1_TASK_IDS))
+
+    def test_frozen_e1_gold_contains_all_canonical_task_records(self) -> None:
+        full = json.loads(
+            (ROOT / "SkillNet_Gold_Tasks_V4" / "02_Gold_Standard_21_V4.json")
+            .read_text(encoding="utf-8")
+        )
+        frozen = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "skillnet"
+                / "frozen_eval"
+                / "E1_Gold_21_tasks.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(frozen["task_count"], 21)
+        self.assertEqual(frozen["tasks"], full["tasks"])
+        self.assertEqual(
+            frozen["subset_provenance"]["task_ids"],
+            list(EXPECTED_E1_TASK_IDS),
+        )
+
+    def test_live_runner_refuses_e1_size_46(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            argv = [
+                str(RUNNER_PATH),
+                "--experiment",
+                "E1",
+                "--configuration",
+                "A",
+                "--size",
+                "46",
+                "--run-id",
+                "must_reuse_e0",
+                "--fixture-response-dir",
+                "/nonexistent-fixtures",
+                "--state-root",
+                temporary,
+            ]
+            with patch.object(sys, "argv", argv):
+                with self.assertRaisesRegex(SystemExit, "E1 size 46 reuses E0"):
+                    runner.main()
+
     def test_child_prompt_contains_complete_fixed_output_contract(self) -> None:
         catalogue = {
             "configuration": "A",

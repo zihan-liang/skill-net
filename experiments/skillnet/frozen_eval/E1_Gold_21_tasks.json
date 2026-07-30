@@ -1,0 +1,1762 @@
+{
+  "version": "v4.1-bilingual",
+  "date": "2026-07-29",
+  "source_version": "v4.0",
+  "authoritative_main_commit": "cdb4ecdf838fdd4e0bbb01e4c766b32eb430eb47",
+  "basis_en": "V4 task semantics with canonical English Skill and department IDs from main. Evaluation remains deterministic and task-level; no global relation graph is required.",
+  "basis_zh": "保留 V4 任务语义，并使用 main 中的规范英文 Skill 与部门 ID。评价仍为确定性的任务级评价，不依赖全局关系图。",
+  "language_support": [
+    "en",
+    "zh-CN"
+  ],
+  "mapping_file": "skill_name_map.json",
+  "task_count": 21,
+  "distribution": {
+    "single_skill": 1,
+    "single_department_goal": 5,
+    "cross_department_goal": 9,
+    "special_constraint": 3,
+    "no_tool": 3
+  },
+  "department_catalog": [
+    "finance-agent",
+    "procurement-agent",
+    "technology-agent",
+    "business-agent",
+    "hr-agent"
+  ],
+  "skill_catalog": {
+    "business-acceptance": "business-agent",
+    "business-contract-signing": "business-agent",
+    "business-customer-lead": "business-agent",
+    "business-negotiation": "business-agent",
+    "business-opportunity-assessment": "business-agent",
+    "business-project-delivery-tracking": "business-agent",
+    "business-renewal": "business-agent",
+    "business-requirement-communication": "business-agent",
+    "business-solution-quotation": "business-agent",
+    "finance-accounting": "finance-agent",
+    "finance-budget-check": "finance-agent",
+    "finance-budget-planning": "finance-agent",
+    "finance-expense-request": "finance-agent",
+    "finance-expense-review": "finance-agent",
+    "finance-invoice-verification": "finance-agent",
+    "finance-payment-approval": "finance-agent",
+    "finance-reporting": "finance-agent",
+    "hr-employee-database": "hr-agent",
+    "hr-interview-scheduling": "hr-agent",
+    "hr-jd-generator": "hr-agent",
+    "hr-job-requirement": "hr-agent",
+    "hr-offer-generator": "hr-agent",
+    "hr-onboarding": "hr-agent",
+    "hr-recruitment-publish": "hr-agent",
+    "hr-resume-screening": "hr-agent",
+    "procurement-contract-generation": "procurement-agent",
+    "procurement-delivery-acceptance": "procurement-agent",
+    "procurement-delivery-tracking": "procurement-agent",
+    "procurement-purchase-order": "procurement-agent",
+    "procurement-quote-comparison": "procurement-agent",
+    "procurement-requirement": "procurement-agent",
+    "procurement-rfq-generation": "procurement-agent",
+    "procurement-supplier-evaluation": "procurement-agent",
+    "procurement-supplier-qualification": "procurement-agent",
+    "procurement-supplier-scoring": "procurement-agent",
+    "procurement-supplier-search": "procurement-agent",
+    "procurement-supplier-selection": "procurement-agent",
+    "technology-development-implementation": "technology-agent",
+    "technology-feasibility-assessment": "technology-agent",
+    "technology-operations-maintenance": "technology-agent",
+    "technology-requirement": "technology-agent",
+    "technology-solution-design": "technology-agent",
+    "technology-specification-confirmation": "technology-agent",
+    "technology-system-release": "technology-agent",
+    "technology-task-breakdown": "technology-agent",
+    "technology-test-acceptance": "technology-agent"
+  },
+  "aliases": {},
+  "evaluation_semantics": {
+    "required_skills": {
+      "description_en": "Skills that must appear to complete the task. A Skill already completed in the initial state must not be repeated.",
+      "description_zh": "完成任务必须出现的Skill；初始状态中已完成的Skill不应重复输出。"
+    },
+    "hard_order_constraints": {
+      "description_en": "Mandatory task-level partial orders. Only these required relations are checked; the predicted sequence is not compared for exact equality with canonical_sequence.",
+      "description_zh": "本任务必须满足的强制偏序。只比较这些必须关系，不要求预测序列与canonical_sequence完全一致。"
+    },
+    "canonical_sequence": {
+      "description_en": "One feasible sequence for team review; it is not used for strict sequence equality.",
+      "description_zh": "仅供团队审核的一个可行示例，不用于严格相等比较。"
+    },
+    "optional_skills": {
+      "description_en": "Allowed but unnecessary Skills. Using one does not reduce Skill Precision.",
+      "description_zh": "允许调用但不是完成任务的必要条件；调用后不降低Skill Precision。"
+    },
+    "forbidden_skills": {
+      "description_en": "Skills that must not be invoked in this task context.",
+      "description_zh": "在本任务情境中不得调用的Skill。"
+    },
+    "forbid_all_skills": {
+      "description_en": "When true, invoking any enterprise Skill is forbidden; this is used by no-tool tasks.",
+      "description_zh": "为 true 时禁止调用任何企业 Skill；用于 no-tool 任务。"
+    },
+    "task_constraints": {
+      "description_en": "Task-level conflict or mutex rules used for failure classification and Gold Constraint Violation Rate without a global graph dependency.",
+      "description_zh": "任务级冲突或互斥规则；用于失败分类和Gold Constraint Violation Rate，不依赖全局图文件。"
+    },
+    "expected_blocked_by": {
+      "description_en": "Canonical Skill IDs that correctly explain an expected blocked outcome.",
+      "description_zh": "任务应被阻断时，正确的阻断来源。"
+    },
+    "expected_route_choice": {
+      "description_en": "Expected route selections for mutex or acceptance-route tasks.",
+      "description_zh": "互斥或验收路线任务中预期选择的路线。"
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "GT01_SINGLE",
+      "category": "single_skill",
+      "difficulty": "easy",
+      "title_en": "Supplier Qualification Verification",
+      "title_zh": "供应商资质核验",
+      "prompt_en": "The procurement team has compiled a list of supplier candidates. Determine only whether these suppliers have the basic qualifications to participate in this procurement. Do not request quotations, score suppliers, or select a supplier. Return the Skill that should be invoked.",
+      "prompt_zh": "采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "procurement-supplier-qualification"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "contains"
+      ],
+      "relations_tested_display_zh": [
+        "包含关系"
+      ],
+      "gold_rationale_en": "This is the only retained single-Skill basic check; the current objective is limited to supplier qualification.",
+      "gold_rationale_zh": "这是唯一保留的单 Skill 基础检查；当前目标只涉及供应商资质核验。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [
+        "procurement-supplier-qualification"
+      ],
+      "initial_skill_states": {
+        "procurement-supplier-search": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Month-End Financial Statement Preparation",
+      "title_zh": "月末报表准备",
+      "prompt_en": "All approved payments for this month have been paid, but they have not yet been posted to the accounting system. Management needs to review this month's financial statements next Monday. Plan the work the finance department must complete next.",
+      "prompt_zh": "本月所有已批准款项都已经支付，但还没有进入账务系统。管理层下周一需要查看本月财务报表。请规划财务部门接下来需要完成的工作。",
+      "use_skills": true,
+      "required_departments": [
+        "finance-agent"
+      ],
+      "required_skills": [
+        "finance-accounting",
+        "finance-reporting"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖"
+      ],
+      "gold_rationale_en": "After payment is complete, accounting must be performed before the financial statements are generated.",
+      "gold_rationale_zh": "付款完成后，应先完成账务处理，再生成财务报表。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "finance-accounting",
+          "after": "finance-reporting",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "finance-accounting",
+        "finance-reporting"
+      ],
+      "initial_skill_states": {
+        "finance-payment-approval": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT03_PROC_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Select a Qualified Supplier",
+      "title_zh": "确定合格供应商",
+      "prompt_en": "The procurement requirement and budget have been confirmed. The company currently has no supplier candidates and wants to select a supplier with suitable qualifications, pricing, and overall performance. This task does not yet require negotiation, contract signing, or purchase-order generation. Plan the Skills the procurement department must invoke.",
+      "prompt_zh": "采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
+      ],
+      "optional_skills": [
+        "procurement-supplier-evaluation"
+      ],
+      "forbidden_skills": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "增强关系"
+      ],
+      "gold_rationale_en": "The task ends at supplier selection; negotiation, contract generation, and purchase-order generation must not be invoked.",
+      "gold_rationale_zh": "任务目标截止于供应商选择，后续谈判、合同和订单均不应调用。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
+      ],
+      "initial_skill_states": {
+        "procurement-requirement": {
+          "status": "completed",
+          "result": "success"
+        },
+        "finance-budget-check": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Prepare a Solution Ready for Development",
+      "title_zh": "形成可进入开发的方案",
+      "prompt_en": "The technical requirement for a new feature has been documented. The company wants to determine whether it is feasible and produce a detailed implementation plan sufficient to enter development. Do not actually begin development in this task. Plan the Skills the technology department must invoke.",
+      "prompt_zh": "一个新功能的技术需求已经整理完成。公司希望判断它是否可行，并形成一份足以进入开发阶段的详细实施方案；本任务暂时不要真正开始开发。请规划技术部门需要调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "technology-agent"
+      ],
+      "required_skills": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "technology-development-implementation",
+        "technology-test-acceptance",
+        "technology-system-release"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖"
+      ],
+      "gold_rationale_en": "The objective is an executable solution and task breakdown, stopping before development begins.",
+      "gold_rationale_zh": "目标是形成可执行方案并完成任务拆解，但不进入开发。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown"
+      ],
+      "initial_skill_states": {
+        "technology-requirement": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Assess an Opportunity and Prepare a Preliminary Quotation",
+      "title_zh": "判断商机并形成初步报价",
+      "prompt_en": "A prospective customer is already on the follow-up list, but the customer's requirements, budget, and delivery expectations are still unclear. The company wants to determine whether the opportunity is worth pursuing and, if so, prepare a preliminary solution and quotation. Do not enter formal negotiation or contract signing yet.",
+      "prompt_zh": "一名潜在客户已经进入跟进名单，但需求、预算和交付预期仍不清楚。公司的目标是判断这个机会是否值得继续，并在值得推进时形成初步方案和报价；暂时不要进入正式谈判或签合同。",
+      "use_skills": true,
+      "required_departments": [
+        "business-agent"
+      ],
+      "required_skills": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "business-negotiation",
+        "business-contract-signing"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖"
+      ],
+      "gold_rationale_en": "Starting from an existing customer lead, proceed through solution and quotation and then stop.",
+      "gold_rationale_zh": "从已存在的客户线索出发，推进到方案与报价即停止。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation"
+      ],
+      "initial_skill_states": {
+        "business-customer-lead": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "category": "single_department_goal",
+      "difficulty": "medium",
+      "title_en": "Produce an Interview Candidate Shortlist",
+      "title_zh": "形成面试候选人名单",
+      "prompt_en": "A job requirement has been approved and the recruitment budget has passed, but the vacancy has not been published. The company wants to collect applications from the market and produce a shortlist ready for interviews. Do not schedule interviews or generate an offer in this task.",
+      "prompt_zh": "一个岗位需求已经获得批准，招聘预算也已经通过，但职位尚未发布。公司希望从市场上收集申请并形成可以进入面试的候选人名单；本任务暂时不要安排面试或生成 Offer。",
+      "use_skills": true,
+      "required_departments": [
+        "hr-agent"
+      ],
+      "required_skills": [
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "hr-interview-scheduling",
+        "hr-offer-generator",
+        "hr-onboarding"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "conflict"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "冲突关系"
+      ],
+      "gold_rationale_en": "The budget and job requirement are complete, so the remaining path runs from JD generation through resume screening.",
+      "gold_rationale_zh": "预算和岗位需求已完成，从JD生成推进到简历筛选。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "hr-jd-generator",
+          "after": "hr-recruitment-publish",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-recruitment-publish",
+          "after": "hr-resume-screening",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
+      ],
+      "initial_skill_states": {
+        "hr-job-requirement": {
+          "status": "completed",
+          "result": "approved"
+        },
+        "finance-budget-check": {
+          "status": "completed",
+          "result": "recruitment_approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Select a Supplier for a Custom Technical Project",
+      "title_zh": "客户定制项目的供应商选择",
+      "prompt_en": "A new customer wants the company to deliver a custom technical solution that requires external equipment. Only a customer lead currently exists; the customer requirements, technical specifications, budget, and suppliers are all unconfirmed. The goal is to confirm the project direction and select a usable supplier without signing a customer contract, signing a supplier contract, or generating a purchase order.",
+      "prompt_zh": "一名新客户希望公司交付一套定制技术解决方案，其中必须采购外部设备。目前只有客户线索，客户需求、技术规格、预算和供应商都尚未确认。公司的目标是在不签客户合同、不签供应合同、也不生成采购订单的前提下，确认项目方向并选出可用供应商。",
+      "use_skills": true,
+      "required_departments": [
+        "business-agent",
+        "technology-agent",
+        "finance-agent",
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "technology-requirement",
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "business-negotiation",
+        "business-contract-signing",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale_en": "The task starts from a customer opportunity, completes the technical definition and external procurement preparation, and stops at supplier selection.",
+      "gold_rationale_zh": "任务从客户机会出发，同时完成技术定义和外部采购准备，最终停在供应商选择。",
+      "scoring_notes_en": "Business requirement communication enhances technology requirement identification and does not impose one unique adjacent order, but both are necessary inputs for this task.",
+      "scoring_notes_zh": "客户需求沟通对技术需求识别是增强关系，不强制唯一相邻顺序；但二者都属于本任务必要信息。",
+      "hard_order_constraints": [
+        {
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-requirement",
+          "after": "technology-feasibility-assessment",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-solution-quotation",
+          "after": "procurement-requirement",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "procurement-requirement",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-requirement",
+          "after": "finance-budget-check",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-budget-check",
+          "after": "procurement-supplier-search",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "technology-requirement",
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
+      ],
+      "initial_skill_states": {
+        "business-customer-lead": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Pay and Account for Delivered Technical Equipment",
+      "title_zh": "技术设备交付后的付款与入账",
+      "prompt_en": "A purchase order for technical equipment has been generated. The supplier reports that the equipment has been delivered and has submitted an invoice. Procurement has begun tracking delivery, but the technology department has not accepted the equipment. The final goal is to complete payment and accounting after all necessary conditions are satisfied.",
+      "prompt_zh": "一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent",
+        "technology-agent",
+        "finance-agent"
+      ],
+      "required_skills": [
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
+      ],
+      "optional_skills": [
+        "procurement-supplier-evaluation"
+      ],
+      "forbidden_skills": [
+        "business-acceptance"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale_en": "A technical product must pass technology test acceptance and procurement delivery acceptance before it can proceed to financial payment.",
+      "gold_rationale_zh": "技术产品必须经过技术测试验收和采购侧交付验收，之后才能进入财务付款。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "procurement-delivery-tracking",
+          "after": "technology-test-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-test-acceptance",
+          "after": "procurement-delivery-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-delivery-acceptance",
+          "after": "finance-invoice-verification",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
+      ],
+      "initial_skill_states": {
+        "procurement-purchase-order": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "technical_acceptance",
+          "forbidden_route_skills": [
+            "business-acceptance"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Pay after Business-Service Acceptance",
+      "title_zh": "业务服务验收后的付款",
+      "prompt_en": "An externally procured consulting service has been delivered and the supplier has submitted an invoice. The business team has not formally accepted the deliverables. The goal is to complete payment and accounting if the service conforms to the agreement. This task uses the business-acceptance route.",
+      "prompt_zh": "公司采购的一项外部咨询服务已经完成交付，供应商也提交了发票。业务团队尚未正式确认交付成果。公司的目标是在服务符合约定的情况下完成付款和入账，本任务采用业务验收路线。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent",
+        "business-agent",
+        "finance-agent"
+      ],
+      "required_skills": [
+        "procurement-delivery-tracking",
+        "business-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "technology-test-acceptance"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "mutex"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "互斥关系"
+      ],
+      "gold_rationale_en": "A business service uses only the business-acceptance primary route and must not also use technology test acceptance.",
+      "gold_rationale_zh": "业务服务只采用业务验收主路线，不应同时选择技术测试验收。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "procurement-delivery-tracking",
+          "after": "business-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-acceptance",
+          "after": "procurement-delivery-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-delivery-acceptance",
+          "after": "finance-invoice-verification",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "procurement-delivery-tracking",
+        "business-acceptance",
+        "procurement-delivery-acceptance",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting"
+      ],
+      "initial_skill_states": {
+        "procurement-purchase-order": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "business_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "business_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "business_acceptance",
+          "forbidden_route_skills": [
+            "technology-test-acceptance"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Onboard an Employee after Equipment Is Ready",
+      "title_zh": "新员工设备到位后的入职",
+      "prompt_en": "A new employee has accepted an offer, and a purchase order for an office computer has been generated. The equipment has not completed delivery or acceptance, and the employee has not been formally onboarded. The goal is to make the employee ready to work by the start date and complete the employee information record.",
+      "prompt_zh": "一名新员工已经接受 Offer，办公电脑的采购订单也已经生成。设备尚未完成交付和验收，员工也还没有正式办理入职。公司的目标是在入职日前让员工具备正常工作的条件，并完成员工信息归档。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent",
+        "technology-agent",
+        "hr-agent"
+      ],
+      "required_skills": [
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "hr-onboarding",
+        "hr-employee-database"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "business-acceptance"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖"
+      ],
+      "gold_rationale_en": "Because the equipment is a technical product, complete delivery and technical acceptance before onboarding and updating the employee database.",
+      "gold_rationale_zh": "设备属于技术产品，先完成交付和技术验收，再办理入职并更新员工数据库。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "procurement-delivery-tracking",
+          "after": "technology-test-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-test-acceptance",
+          "after": "procurement-delivery-acceptance",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-delivery-acceptance",
+          "after": "hr-onboarding",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-onboarding",
+          "after": "hr-employee-database",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "procurement-delivery-tracking",
+        "technology-test-acceptance",
+        "procurement-delivery-acceptance",
+        "hr-onboarding",
+        "hr-employee-database"
+      ],
+      "initial_skill_states": {
+        "hr-offer-generator": {
+          "status": "completed",
+          "result": "accepted"
+        },
+        "procurement-purchase-order": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "acceptance_route": "technical_acceptance"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "acceptance_route",
+          "expected_choice": "technical_acceptance",
+          "forbidden_route_skills": [
+            "business-acceptance"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Complete an Offer after Recruitment Budget Confirmation",
+      "title_zh": "招聘预算确认后完成 Offer",
+      "prompt_en": "The technology team's job requirement has been approved and the role criteria are defined, but the recruitment budget has not been confirmed. The company wants to complete recruitment and issue an offer to the final candidate if the budget permits. Do not perform onboarding yet.",
+      "prompt_zh": "技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。",
+      "use_skills": true,
+      "required_departments": [
+        "hr-agent",
+        "finance-agent"
+      ],
+      "required_skills": [
+        "finance-budget-check",
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "hr-interview-scheduling",
+        "hr-offer-generator"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "hr-onboarding"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "conflict"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "冲突关系"
+      ],
+      "gold_rationale_en": "The job requirement is already complete and approved, so the output begins with budget checking; after approval it continues through JD, publication, screening, interview, and offer.",
+      "gold_rationale_zh": "岗位需求已完成且已审批，因此输出应从预算检查开始；预算通过后继续JD、发布、筛选、面试和Offer。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "finance-budget-check",
+          "after": "hr-jd-generator",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-jd-generator",
+          "after": "hr-recruitment-publish",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-recruitment-publish",
+          "after": "hr-resume-screening",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-resume-screening",
+          "after": "hr-interview-scheduling",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-interview-scheduling",
+          "after": "hr-offer-generator",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "finance-budget-check",
+        "hr-jd-generator",
+        "hr-recruitment-publish",
+        "hr-resume-screening",
+        "hr-interview-scheduling",
+        "hr-offer-generator"
+      ],
+      "initial_skill_states": {
+        "hr-job-requirement": {
+          "status": "completed",
+          "result": "approved"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Generate a Purchase Order for a Customer Project Requiring an External Service",
+      "title_zh": "依赖外部服务的客户项目采购订单",
+      "prompt_en": "A prospective customer lead is on the follow-up list, and project delivery requires purchasing an external business service. The customer requirements are not yet sufficiently confirmed, and there is no supplier or budget conclusion. After confirming that the opportunity is viable, the goal is to select a supplier for the external service, complete negotiation and the supplier contract, and generate a purchase order.",
+      "prompt_zh": "一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。",
+      "use_skills": true,
+      "required_departments": [
+        "business-agent",
+        "finance-agent",
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection",
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "optional_skills": [
+        "procurement-supplier-evaluation"
+      ],
+      "forbidden_skills": [],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale_en": "The customer solution triggers external procurement; supplier selection and solution information jointly support negotiation, contract generation, and purchase-order generation.",
+      "gold_rationale_zh": "客户方案触发外部采购，供应商选择和方案信息共同支持谈判、合同和采购订单。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "business-requirement-communication",
+          "after": "business-opportunity-assessment",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-opportunity-assessment",
+          "after": "business-solution-quotation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-solution-quotation",
+          "after": "procurement-requirement",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-requirement",
+          "after": "finance-budget-check",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-budget-check",
+          "after": "procurement-supplier-search",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-search",
+          "after": "procurement-supplier-qualification",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-qualification",
+          "after": "procurement-rfq-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-rfq-generation",
+          "after": "procurement-quote-comparison",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-quote-comparison",
+          "after": "procurement-supplier-scoring",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-scoring",
+          "after": "procurement-supplier-selection",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-solution-quotation",
+          "after": "business-negotiation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-supplier-selection",
+          "after": "business-negotiation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "business-negotiation",
+          "after": "procurement-contract-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-contract-generation",
+          "after": "procurement-purchase-order",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "business-requirement-communication",
+        "business-opportunity-assessment",
+        "business-solution-quotation",
+        "procurement-requirement",
+        "finance-budget-check",
+        "procurement-supplier-search",
+        "procurement-supplier-qualification",
+        "procurement-rfq-generation",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection",
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "initial_skill_states": {
+        "business-customer-lead": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "category": "cross_department_goal",
+      "difficulty": "hard",
+      "title_en": "Use Employee Capability Data to Complete Technical Task Breakdown",
+      "title_zh": "利用员工能力数据完成技术任务拆解",
+      "prompt_en": "The company has decided to use internal development for a technical requirement. The requirement has been identified, and existing employee skill and project-experience data is available. The company wants to confirm feasibility and use employee capability information to create an executable technical task assignment. Do not begin development in this task.",
+      "prompt_zh": "公司已经决定对一个技术需求采用内部开发。技术需求已识别，现有员工技能和项目经验数据可用。公司希望先确认可行性，并利用员工能力信息形成可执行的技术任务分工；本任务暂时不要开始开发。",
+      "use_skills": true,
+      "required_departments": [
+        "technology-agent",
+        "hr-agent"
+      ],
+      "required_skills": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "technology-development-implementation",
+        "procurement-requirement"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances",
+        "mutex"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "增强关系",
+        "互斥关系"
+      ],
+      "gold_rationale_en": "The employee database normally only enhances task breakdown, but this task explicitly requires employee capability information, so it is a required task input.",
+      "gold_rationale_zh": "员工数据库通常只是增强任务拆解，但本任务明确要求利用员工能力信息，因此将其作为任务必要输入。",
+      "scoring_notes_en": "The employee-database-to-task-breakdown edge is an enhancement relation. Because the user explicitly requires employee capability data, this task promotes it to a task-level requirement.",
+      "scoring_notes_zh": "员工数据库→任务拆解来自增强关系；本题因用户明确要求使用员工能力数据，将其升级为任务级必要条件。",
+      "hard_order_constraints": [
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "hr-employee-database",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order",
+          "basis": "task_explicit_requirement"
+        }
+      ],
+      "canonical_sequence": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "hr-employee-database",
+        "technology-task-breakdown"
+      ],
+      "initial_skill_states": {
+        "technology-requirement": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "build_or_buy": "internal_development"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "build_or_buy": "internal_development"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "build_or_buy",
+          "expected_choice": "internal_development",
+          "forbidden_route_skills": [
+            "procurement-requirement"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "category": "cross_department_goal",
+      "difficulty": "medium",
+      "title_en": "Complete Payment and Accounting and Update Supplier Performance",
+      "title_zh": "付款入账并更新供应商绩效",
+      "prompt_en": "A batch of procured goods has completed delivery acceptance and the supplier has submitted an invoice, but finance has not verified it. The company wants to complete payment and accounting and include this delivery performance in the supplier evaluation.",
+      "prompt_zh": "一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。",
+      "use_skills": true,
+      "required_departments": [
+        "finance-agent",
+        "procurement-agent"
+      ],
+      "required_skills": [
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting",
+        "procurement-supplier-evaluation"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "enhances"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖",
+        "增强关系"
+      ],
+      "gold_rationale_en": "After payment approval, both accounting and supplier-performance evaluation may proceed; no unique order is required between those two activities.",
+      "gold_rationale_zh": "付款审批后既可进入账务处理，也可更新供应商绩效，二者不必规定唯一先后。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "finance-invoice-verification",
+          "after": "finance-payment-approval",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-payment-approval",
+          "after": "finance-accounting",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "finance-payment-approval",
+          "after": "procurement-supplier-evaluation",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "finance-accounting",
+        "procurement-supplier-evaluation"
+      ],
+      "initial_skill_states": {
+        "procurement-delivery-acceptance": {
+          "status": "completed",
+          "result": "passed"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "category": "cross_department_goal",
+      "difficulty": "medium",
+      "title_en": "Complete a Supplier Contract and Purchase Order",
+      "title_zh": "完成供应商合同和采购订单",
+      "prompt_en": "The budget has been approved, and a supplier has been scored and formally selected. The goal is to negotiate with the supplier, create the supplier contract, and generate a purchase order. Delivery tracking is not required in this task.",
+      "prompt_zh": "预算已经通过，供应商也已经完成评分并被正式选中。公司的目标是完成与供应商的商务谈判、形成供应合同并生成采购订单；本任务暂时不需要跟踪交付。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent",
+        "business-agent"
+      ],
+      "required_skills": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "procurement-delivery-tracking"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "跨部门依赖"
+      ],
+      "gold_rationale_en": "After supplier selection, proceed through business negotiation, procurement contract generation, and purchase-order generation.",
+      "gold_rationale_zh": "供应商选择完成后进入商务谈判，再形成采购合同和采购订单。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "business-negotiation",
+          "after": "procurement-contract-generation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "procurement-contract-generation",
+          "after": "procurement-purchase-order",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order"
+      ],
+      "initial_skill_states": {
+        "finance-budget-check": {
+          "status": "completed",
+          "result": "approved"
+        },
+        "procurement-supplier-selection": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "category": "special_constraint",
+      "difficulty": "hard",
+      "title_en": "Block Contracting with an Unqualified Supplier",
+      "title_zh": "不合格供应商要求继续签约",
+      "prompt_en": "A procurement has only one supplier candidate. The qualification result shows that the supplier is unqualified, but the business owner still demands that the supplier be selected immediately and a contract generated. Determine how the system should respond and provide the final status.",
+      "prompt_zh": "某次采购只有一家候选供应商。资质检查结果显示该供应商不合格，但业务负责人仍要求立即确定该供应商并生成合同。请判断系统应如何处理，并给出最终状态。",
+      "use_skills": true,
+      "required_departments": [
+        "procurement-agent"
+      ],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "procurement-supplier-selection",
+        "procurement-contract-generation"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "conflict"
+      ],
+      "relations_tested_display_zh": [
+        "冲突关系"
+      ],
+      "gold_rationale_en": "A failed supplier qualification blocks both supplier selection and contract generation.",
+      "gold_rationale_zh": "供应商资质检查不合格会同时阻止供应商选择和合同生成。",
+      "scoring_notes_en": "The correct answer may contain no newly executed Skill, but it must return blocked and must not invoke either blocked Skill.",
+      "scoring_notes_zh": "正确答案可以没有新增执行Skill，但必须返回blocked，且不得调用两个被阻止的Skill。",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {
+        "procurement-supplier-qualification": {
+          "status": "completed",
+          "result": "unqualified"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "blocked",
+      "expected_blocked_by": [
+        "procurement-supplier-qualification"
+      ],
+      "expected_route_choice": {},
+      "task_constraints": [
+        {
+          "type": "conflict_block",
+          "trigger_skill": "procurement-supplier-qualification",
+          "trigger_results": [
+            "unqualified"
+          ],
+          "blocked_skills": [
+            "procurement-supplier-selection",
+            "procurement-contract-generation"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "category": "special_constraint",
+      "difficulty": "hard",
+      "title_en": "Block Payment for an Invalid Invoice",
+      "title_zh": "无效发票要求付款",
+      "prompt_en": "The procured goods passed delivery acceptance, but invoice verification found that the invoice is invalid or does not match the contract and purchase order. The supplier still demands immediate payment. Determine how the system should respond and provide the final status.",
+      "prompt_zh": "采购物品已经通过交付验收，但发票核验结果显示发票无效或与合同、订单不匹配。供应商仍要求立即付款。请判断系统应如何处理，并给出最终状态。",
+      "use_skills": true,
+      "required_departments": [
+        "finance-agent"
+      ],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "finance-payment-approval",
+        "finance-accounting"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "conflict"
+      ],
+      "relations_tested_display_zh": [
+        "冲突关系"
+      ],
+      "gold_rationale_en": "Failed invoice verification blocks payment approval, and accounting must not continue.",
+      "gold_rationale_zh": "发票核验失败会阻止付款审批，账务处理也不应继续。",
+      "scoring_notes_en": "The correct answer may contain no newly executed Skill, but it must explicitly block payment approval.",
+      "scoring_notes_zh": "正确答案可以没有新增执行Skill，但必须明确阻止付款审批。",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {
+        "procurement-delivery-acceptance": {
+          "status": "completed",
+          "result": "passed"
+        },
+        "finance-invoice-verification": {
+          "status": "completed",
+          "result": "invalid"
+        }
+      },
+      "initial_route_choices": {},
+      "expected_final_status": "blocked",
+      "expected_blocked_by": [
+        "finance-invoice-verification"
+      ],
+      "expected_route_choice": {},
+      "task_constraints": [
+        {
+          "type": "conflict_block",
+          "trigger_skill": "finance-invoice-verification",
+          "trigger_results": [
+            "invalid",
+            "mismatch"
+          ],
+          "blocked_skills": [
+            "finance-payment-approval",
+            "finance-accounting"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "category": "special_constraint",
+      "difficulty": "hard",
+      "title_en": "Choose the Internal-Build Route under Build-or-Buy Mutual Exclusion",
+      "title_zh": "内部开发与外部采购互斥选择",
+      "prompt_en": "The company has decided to use internal development for the same technical requirement and must not procure an external technical service. The technical requirement has been identified. The goal is to complete the internal-development route through technology test acceptance. Plan the Skills that should be invoked.",
+      "prompt_zh": "公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。",
+      "use_skills": true,
+      "required_departments": [
+        "technology-agent"
+      ],
+      "required_skills": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown",
+        "technology-development-implementation",
+        "technology-test-acceptance"
+      ],
+      "optional_skills": [],
+      "forbidden_skills": [
+        "procurement-requirement"
+      ],
+      "forbid_all_skills": false,
+      "relations_tested": [
+        "prerequisite",
+        "mutex"
+      ],
+      "relations_tested_display_zh": [
+        "前置依赖",
+        "互斥关系"
+      ],
+      "gold_rationale_en": "Because internal development has already been selected for this technical requirement, the procurement-requirement route must not be entered.",
+      "gold_rationale_zh": "同一技术需求已经选择内部开发，因此不得再进入采购需求识别路线。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [
+        {
+          "before": "technology-feasibility-assessment",
+          "after": "technology-specification-confirmation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-specification-confirmation",
+          "after": "technology-solution-design",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-solution-design",
+          "after": "technology-task-breakdown",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-task-breakdown",
+          "after": "technology-development-implementation",
+          "constraint_type": "mandatory_order"
+        },
+        {
+          "before": "technology-development-implementation",
+          "after": "technology-test-acceptance",
+          "constraint_type": "mandatory_order"
+        }
+      ],
+      "canonical_sequence": [
+        "technology-feasibility-assessment",
+        "technology-specification-confirmation",
+        "technology-solution-design",
+        "technology-task-breakdown",
+        "technology-development-implementation",
+        "technology-test-acceptance"
+      ],
+      "initial_skill_states": {
+        "technology-requirement": {
+          "status": "completed",
+          "result": "success"
+        }
+      },
+      "initial_route_choices": {
+        "build_or_buy": "internal_development"
+      },
+      "expected_final_status": "completed",
+      "expected_blocked_by": [],
+      "expected_route_choice": {
+        "build_or_buy": "internal_development"
+      },
+      "task_constraints": [
+        {
+          "type": "mutex_route",
+          "decision_id": "build_or_buy",
+          "expected_choice": "internal_development",
+          "forbidden_route_skills": [
+            "procurement-requirement"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "category": "no_tool",
+      "difficulty": "easy",
+      "title_en": "Casual Conversation",
+      "title_zh": "普通闲聊",
+      "prompt_en": "Tell me a lighthearted joke.",
+      "prompt_zh": "给我讲一个轻松的笑话。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": true,
+      "relations_tested": [
+        "no_tool"
+      ],
+      "relations_tested_display_zh": [
+        "No-Tool"
+      ],
+      "gold_rationale_en": "This is ordinary conversation and requires no enterprise Skill.",
+      "gold_rationale_zh": "普通对话，不需要调用任何企业Skill。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "category": "no_tool",
+      "difficulty": "medium",
+      "title_en": "Concept Explanation with a Finance Keyword",
+      "title_zh": "带财务关键词的概念解释",
+      "prompt_en": "Explain in simple language what “budget check” means. Do not read, analyze, or modify any company budget data.",
+      "prompt_zh": "请用简单语言解释“预算检查”是什么意思，不要读取、分析或修改公司的任何预算数据。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": true,
+      "relations_tested": [
+        "no_tool"
+      ],
+      "relations_tested_display_zh": [
+        "No-Tool"
+      ],
+      "gold_rationale_en": "The user requests only a conceptual explanation and explicitly excludes processing company data.",
+      "gold_rationale_zh": "用户只要求概念解释，并明确不处理公司数据。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "category": "no_tool",
+      "difficulty": "medium",
+      "title_en": "Joke with a Procurement Keyword",
+      "title_zh": "带采购关键词的玩笑",
+      "prompt_en": "Tell me a joke about the procurement department. Do not execute any procurement process.",
+      "prompt_zh": "给我讲一个关于采购部门的笑话，不需要执行任何采购流程。",
+      "use_skills": false,
+      "required_departments": [],
+      "required_skills": [],
+      "optional_skills": [],
+      "forbidden_skills": [],
+      "forbid_all_skills": true,
+      "relations_tested": [
+        "no_tool"
+      ],
+      "relations_tested_display_zh": [
+        "No-Tool"
+      ],
+      "gold_rationale_en": "The presence of a procurement keyword must not trigger a procurement Skill.",
+      "gold_rationale_zh": "虽然出现采购关键词，但不应触发采购Skill。",
+      "scoring_notes_en": "",
+      "scoring_notes_zh": "",
+      "hard_order_constraints": [],
+      "canonical_sequence": [],
+      "initial_skill_states": {},
+      "initial_route_choices": {},
+      "expected_final_status": "no_tool",
+      "expected_blocked_by": [],
+      "expected_route_choice": {},
+      "task_constraints": []
+    }
+  ],
+  "subset_provenance": {
+    "source_gold_path": "SkillNet_Gold_Tasks_V4/02_Gold_Standard_21_V4.json",
+    "source_gold_sha256": "62f711e21ecbc7703c6c6fddf71f871525337c972e00688a29c46a611e93748b",
+    "source_gold_task_count": 21,
+    "manifest_path": "skillnet_run_guide_v1_1/E1_scale_manifest.json",
+    "manifest_sha256": "5b65702975a687c414c205d30fe8ec959056a925aa844dd2a58de399ad65a950",
+    "task_ids": [
+      "GT01_SINGLE",
+      "GT02_FIN_GOAL",
+      "GT03_PROC_GOAL",
+      "GT04_TECH_GOAL",
+      "GT05_BUS_GOAL",
+      "GT06_HR_GOAL",
+      "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "GT12_CROSS_BUSINESS_TO_PO",
+      "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "GT16_SPECIAL_SUPPLIER_FAIL",
+      "GT17_SPECIAL_INVALID_INVOICE",
+      "GT18_SPECIAL_BUILD_OR_BUY",
+      "GT19_NO_TOOL_CLEAR",
+      "GT20_NO_TOOL_FINANCE",
+      "GT21_NO_TOOL_PROC"
+    ],
+    "task_records_copied_without_modification": true
+  }
+}
