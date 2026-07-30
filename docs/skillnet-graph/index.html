@@ -136,6 +136,7 @@
       position: absolute;
       display: none;
       min-width: 140px;
+      max-width: 280px;
       padding: 9px 11px;
       transform: translate(14px, -50%);
       border: 1px solid rgba(255,255,255,.12);
@@ -144,7 +145,7 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.32);
       pointer-events: none;
     }
-    .tip .title { font-size: 11px; font-weight: 750; }
+    .tip .title { font-size: 11px; font-weight: 750; overflow-wrap: anywhere; }
     .tip .meta { margin-top: 3px; color: #8e9bb0; font-size: 9px; }
     @media (max-width: 760px) {
       .shell { padding: 6px; }
@@ -173,10 +174,10 @@
         </div>
       </header>
       <div class="stage" id="stage">
-        <canvas id="graph" aria-label="可拖动的 46 节点 Skill 关系图"></canvas>
+        <canvas id="graph" aria-label="可拖动的 46 节点 Skill 关系图；悬停节点显示名称"></canvas>
         <div class="legend" id="legend"></div>
         <button class="reset" id="reset" type="button">重置布局</button>
-        <p class="note">拖动节点调整布局 · 双击空白处重置 · Skill 名称已隐藏</p>
+        <p class="note">拖动节点调整布局 · 悬停显示 Skill 名称 · 双击空白处重置</p>
         <div class="tip" id="tip"><p class="title"></p><p class="meta"></p></div>
       </div>
     </section>
@@ -289,8 +290,8 @@
       hovered = findNode(p);
       if (!hovered) { tip.style.display = "none"; return; }
       const connected = filtered.filter(edge => edge.source === hovered.id || edge.target === hovered.id).length;
-      tipTitle.textContent = departments[hovered.department].label + " Skill";
-      tipMeta.textContent = "节点 " + (hovered.index + 1) + " · " + connected + " 条可见关系";
+      tipTitle.textContent = hovered.id;
+      tipMeta.textContent = departments[hovered.department].label + " · 节点 " + (hovered.index + 1) + " · " + connected + " 条可见关系";
       tip.style.left = p.x + "px"; tip.style.top = p.y + "px"; tip.style.display = "block";
     });
     const release = event => { if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId); dragged = null; };
