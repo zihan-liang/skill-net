@@ -1,0 +1,225 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "4318d99d3b830e6d123b78e1dbf3e8a02ca547b971c6c266240dc40ddc03237e",
+  "candidate_skill_ids_sha256": "5e86032d391ffcf7ed89c872c95fcda441d7e43eb4b47b3e3efe67265c24d54c",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": [
+        {
+          "skill_id": "business-acceptance",
+          "name_en": "Business Acceptance",
+          "display_name_zh": "业务验收",
+          "description_en": "Use when customer deliverables need contract-criteria checks, exception and remedy handling, customer review, or sign-off preparation; not for delivery tracking, invoicing, payment, or renewal.",
+          "description_zh": "负责交付物检查、异常处理和客户签署准备；不负责项目跟踪、发票付款或续约。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-acceptance/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": [
+        {
+          "skill_id": "finance-accounting",
+          "name_en": "Finance Accounting",
+          "display_name_zh": "账务处理",
+          "description_en": "Use when an approved financial event needs account classification, draft journal entries, debit-credit validation, source tracing, or posting preparation; not for payment approval or reporting.",
+          "description_zh": "根据已批准业务凭证生成记账草案，并检查借贷平衡、币种、会计期间和来源证据。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-accounting/SKILL.md"
+        },
+        {
+          "skill_id": "finance-budget-check",
+          "name_en": "Finance Budget Check",
+          "display_name_zh": "预算检查",
+          "description_en": "Use when a purchase or expense needs budget balance, funding source, budget account, approval threshold, and availability checks; not for creating the budget or approving the expense.",
+          "description_zh": "核对预算余额、资金来源、预算科目、审批阈值和预算可用性；采购可调用，但归属财务，检查结果不等于批准支出。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-check/SKILL.md"
+        },
+        {
+          "skill_id": "finance-expense-review",
+          "name_en": "Finance Expense Review",
+          "display_name_zh": "费用审核",
+          "description_en": "Use when a submitted expense or reimbursement needs policy, evidence, duplicate, conflict, and approval review after a finance budget check; not for recalculating budget availability or approving payment.",
+          "description_zh": "审核费用申请的制度合规性、预算余额、证明材料、重复风险和职责分离情况。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-expense-review/SKILL.md"
+        },
+        {
+          "skill_id": "finance-invoice-verification",
+          "name_en": "Finance Invoice Verification",
+          "display_name_zh": "发票核验",
+          "description_en": "Use when an invoice or supplier bill needs arithmetic, supplier, PO/contract, delivery-acceptance, expense, currency, and duplicate checks; not for payment approval or official tax authentication.",
+          "description_zh": "核验发票必填字段、金额税额、费用申请匹配度和重复风险，但不代替税务机关验真。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-invoice-verification/SKILL.md"
+        },
+        {
+          "skill_id": "finance-payment-approval",
+          "name_en": "Finance Payment Approval",
+          "display_name_zh": "付款审批",
+          "description_en": "Use when an approved expense and verified invoice need a payment packet, payee and duplicate checks, approval routing, or release controls; not for executing payment or accounting.",
+          "description_zh": "汇总费用、发票、收款方和职责分离证据，形成待授权的付款审批材料。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-payment-approval/SKILL.md"
+        },
+        {
+          "skill_id": "finance-reporting",
+          "name_en": "Finance Reporting",
+          "display_name_zh": "财务报表生成",
+          "description_en": "Use when posted finance data must be summarized, compared with budget, reconciled to cash, or prepared as a period management report; not for posting entries or approving payment.",
+          "description_zh": "汇总预算、收入、支出、现金、应收和应付数据，生成带勾稽差异与证据覆盖率的财务报告草案。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-reporting/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": []
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-delivery-acceptance",
+          "name_en": "Procurement Delivery Acceptance",
+          "display_name_zh": "交付验收",
+          "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+          "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-delivery-tracking",
+          "name_en": "Procurement Delivery Tracking",
+          "display_name_zh": "交付跟踪",
+          "description_en": "Use when a released purchase order needs supplier confirmation, expected delivery, logistics or service milestones, delay, exception, and expediting records; not for accepting delivery.",
+          "description_zh": "跟踪订单确认、预计交付、物流或服务里程碑、延期、异常和催交记录；不负责收货或验收。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-tracking/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-evaluation",
+          "name_en": "Procurement Supplier Evaluation",
+          "display_name_zh": "供应商绩效评价",
+          "description_en": "Use when completed deliveries or review periods need post-award supplier performance evaluation, improvement planning, or rating review; not for pre-award qualification, scoring, or selection.",
+          "description_zh": "基于交付、质量、服务、商务表现和合规证据评价供应商，展示评分与证据覆盖率；不得自动续约、停用或拉黑。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-evaluation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": []
+    }
+  ],
+  "relations_sha256": "ba897e5d3c681435cdade8657af19b7a5945f89eddeb05f1977eaf10613a07e0",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "finance-expense-review",
+        "after": "finance-invoice-verification",
+        "scope": "finance"
+      },
+      {
+        "before": "finance-invoice-verification",
+        "after": "finance-payment-approval",
+        "scope": "finance"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "finance-accounting",
+        "scope": "finance"
+      },
+      {
+        "before": "finance-accounting",
+        "after": "finance-reporting",
+        "scope": "finance"
+      },
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "business-acceptance",
+        "scope": "cross-domain",
+        "condition": "business_service_purchase"
+      },
+      {
+        "before": "business-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "scope": "cross-domain",
+        "condition": "business_acceptance_route"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "finance-invoice-verification",
+        "scope": "cross-domain"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "procurement-supplier-evaluation",
+        "scope": "cross-domain"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "procurement-delivery-acceptance",
+        "blocked_skill": "finance-invoice-verification",
+        "condition": "delivery_not_accepted"
+      },
+      {
+        "gate_skill": "finance-invoice-verification",
+        "blocked_skill": "finance-payment-approval",
+        "condition": "invoice_invalid_or_mismatched"
+      }
+    ],
+    "mutex": [],
+    "enhances": [
+      {
+        "source": "procurement-delivery-tracking",
+        "target": "procurement-supplier-evaluation",
+        "context": "delivery_history_available"
+      }
+    ]
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

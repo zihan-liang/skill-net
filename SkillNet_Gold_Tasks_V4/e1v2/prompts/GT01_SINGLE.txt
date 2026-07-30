@@ -1,0 +1,18 @@
+Task ID: GT01_SINGLE
+Task title (English): Supplier Qualification Verification
+任务名称（中文）：供应商资质核验
+
+English task prompt
+The procurement team has compiled a list of supplier candidates. Determine only whether these suppliers have the basic qualifications to participate in this procurement. Do not request quotations, score suppliers, or select a supplier. Return the Skill that should be invoked.
+
+中文任务
+采购团队已经整理出一份候选供应商名单。现在只需要判断这些供应商是否具备参与本次采购的基本资质，不需要询价、评分或选择供应商。请给出应调用的 Skill。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

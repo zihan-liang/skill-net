@@ -1,0 +1,1 @@
+{"task_id": "GT17_SPECIAL_INVALID_INVOICE", "use_skills": true, "selected_departments": ["finance-agent"], "skill_sequence": [], "final_status": "blocked", "blocked_by": ["finance-invoice-verification"], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "7534672d0eb69ab45a6ea71228a95d8dd0739828a3fd2f600e57a1563703aec4",
+  "candidate_skill_ids_sha256": "f4f09f2005409a163446c0a0a3ec3e7a130b28efe4c3606a9fe421756b63cb0a",
+  "configuration": "A",
+  "organization": "flat",
+  "skills": [
+    {
+      "skill_id": "procurement-delivery-acceptance",
+      "name_en": "Procurement Delivery Acceptance",
+      "display_name_zh": "交付验收",
+      "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+      "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-requirement",
+      "name_en": "Procurement Requirement",
+      "display_name_zh": "采购需求识别",
+      "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+      "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-rfq-generation",
+      "name_en": "Procurement RFQ Generation",
+      "display_name_zh": "询价单生成",
+      "description_en": "Use when an approved procurement requirement and admitted supplier list need an RFQ draft, inquiry scope, quotation template, deadline, and recipient list; not for sending or comparing quotes.",
+      "description_zh": "根据采购需求和技术规格生成 RFQ、询价范围、报价模板、截止日期与供应商发送清单；不负责发送或比价。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-rfq-generation/SKILL.md"
+    },
+    {
+      "skill_id": "technology-development-implementation",
+      "name_en": "Technology Development and Implementation",
+      "display_name_zh": "开发或实施",
+      "description_en": "Use when an approved technical task requires code, configuration, infrastructure, integration, migration, or implementation with test evidence; not for final test acceptance or release.",
+      "description_zh": "按已批准任务实施代码、配置或系统变更，遵循测试先行、最小范围、可回滚和证据交付；不得自动声称评审、合并或部署完成。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-development-implementation/SKILL.md"
+    },
+    {
+      "skill_id": "technology-feasibility-assessment",
+      "name_en": "Technology Feasibility Assessment",
+      "display_name_zh": "可行性评估",
+      "description_en": "Use when an approved technology requirement needs option comparison, prototype planning, dependency and risk analysis, estimates, or a go/no-go packet; not for specification confirmation or design.",
+      "description_zh": "从技术、运维、安全隐私、人员、周期、成本、依赖和迁移角度评估可行性，形成有证据的方案比较与人工立项建议。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-feasibility-assessment/SKILL.md"
+    },
+    {
+      "skill_id": "technology-requirement",
+      "name_en": "Technology Requirement",
+      "display_name_zh": "技术需求识别",
+      "description_en": "Use when a business need, product change, integration, infrastructure request, or operational problem needs a versioned, solution-neutral technology requirement; not for feasibility or specification approval.",
+      "description_zh": "将业务或运维需求整理为可追踪、可测试的技术需求，明确范围、功能、质量属性、依赖、风险和验收标准，避免过早锁定方案。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-requirement/SKILL.md"
+    },
+    {
+      "skill_id": "technology-solution-design",
+      "name_en": "Technology Solution Design",
+      "display_name_zh": "技术方案设计",
+      "description_en": "Use when approved technical specifications need architecture, components, data flow, deployment, observability, resilience, migration, and rollback design; not for confirming requirements or technical thresholds.",
+      "description_zh": "完成架构、组件、数据流、部署、可观测性、韧性、迁移和回滚方案；不重新定义技术规格与验收阈值。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-solution-design/SKILL.md"
+    },
+    {
+      "skill_id": "technology-specification-confirmation",
+      "name_en": "Technology Specification Confirmation",
+      "display_name_zh": "技术规格确认",
+      "description_en": "Use when a feasible technology requirement needs confirmed performance, interface, compatibility, security, acceptance, and procurement technical parameters; not for architecture design or implementation.",
+      "description_zh": "确认性能、接口、兼容性、安全、验收指标和采购技术参数；不负责架构、组件、部署或回滚方案。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-specification-confirmation/SKILL.md"
+    },
+    {
+      "skill_id": "technology-task-breakdown",
+      "name_en": "Technology Task Breakdown",
+      "display_name_zh": "任务拆解",
+      "description_en": "Use when an approved technical design needs owned, estimable, dependency-aware, testable implementation tasks or a delivery plan; not for architecture design or implementation.",
+      "description_zh": "将已批准的技术方案拆解为可执行、可估算、可验收的任务，明确负责人、交付物、依赖关系和完成标准，避免循环或隐藏依赖。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-task-breakdown/SKILL.md"
+    },
+    {
+      "skill_id": "technology-test-acceptance",
+      "name_en": "Technology Test Acceptance",
+      "display_name_zh": "技术测试验收",
+      "description_en": "Use when an implementation or system version needs reproducible test aggregation, gate checks, defect review, and human acceptance input; not for implementation or release execution.",
+      "description_zh": "汇总并复核测试套件、通过率、覆盖率、缺陷和证据，形成测试验收建议；自动门禁通过不等于人工验收或生产发布批准。",
+      "department_id": "technology-agent",
+      "source_skill_md": ".agents/skills/technology-test-acceptance/SKILL.md"
+    }
+  ]
+}

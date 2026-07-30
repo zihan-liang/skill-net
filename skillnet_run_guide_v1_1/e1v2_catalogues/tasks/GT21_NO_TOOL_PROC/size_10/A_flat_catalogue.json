@@ -1,0 +1,103 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT21_NO_TOOL_PROC",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "f6329a7d7e222265c6ab6ec057aeaa901b88d489873b90a2618dbcb024e460b1",
+  "candidate_skill_ids_sha256": "19361c6331117434432cf7f7ddaf68f30bbcf10230b9167ac925154179fe30e2",
+  "configuration": "A",
+  "organization": "flat",
+  "skills": [
+    {
+      "skill_id": "procurement-contract-generation",
+      "name_en": "Procurement Contract Generation",
+      "display_name_zh": "合同生成",
+      "description_en": "Use when an approved supplier selection needs contract terms, version control, deviation review, legal or finance approval routing, and signature preparation; not for creating or releasing a PO.",
+      "description_zh": "根据选商结果生成合同条款与版本，完成偏差和审批准备；不生成采购订单，也不自动签署。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-contract-generation/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-delivery-acceptance",
+      "name_en": "Procurement Delivery Acceptance",
+      "display_name_zh": "交付验收",
+      "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+      "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-delivery-tracking",
+      "name_en": "Procurement Delivery Tracking",
+      "display_name_zh": "交付跟踪",
+      "description_en": "Use when a released purchase order needs supplier confirmation, expected delivery, logistics or service milestones, delay, exception, and expediting records; not for accepting delivery.",
+      "description_zh": "跟踪订单确认、预计交付、物流或服务里程碑、延期、异常和催交记录；不负责收货或验收。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-delivery-tracking/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-purchase-order",
+      "name_en": "Procurement Purchase Order",
+      "display_name_zh": "采购订单生成",
+      "description_en": "Use when an approved procurement contract needs a purchase-order draft, line and total validation, approval routing, release control, or PO status record; not for drafting contract terms.",
+      "description_zh": "根据已批准合同生成采购订单，校验 PO 内容、审批、释放和状态记录；不负责合同条款设计。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-purchase-order/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-quote-comparison",
+      "name_en": "Procurement Quote Comparison",
+      "display_name_zh": "报价比较",
+      "description_en": "Use when RFQ responses need completeness checks, line normalization, currency and commercial-term comparison, or a comparison table; not for qualification, composite supplier scoring, or selection.",
+      "description_zh": "只负责报价完整性、行项目、币种、税费、运费、折扣、付款与交付条款的标准化商业比较，不负责供应商综合评分或选商。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-quote-comparison/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-requirement",
+      "name_en": "Procurement Requirement",
+      "display_name_zh": "采购需求识别",
+      "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+      "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-rfq-generation",
+      "name_en": "Procurement RFQ Generation",
+      "display_name_zh": "询价单生成",
+      "description_en": "Use when an approved procurement requirement and admitted supplier list need an RFQ draft, inquiry scope, quotation template, deadline, and recipient list; not for sending or comparing quotes.",
+      "description_zh": "根据采购需求和技术规格生成 RFQ、询价范围、报价模板、截止日期与供应商发送清单；不负责发送或比价。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-rfq-generation/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-supplier-evaluation",
+      "name_en": "Procurement Supplier Evaluation",
+      "display_name_zh": "供应商绩效评价",
+      "description_en": "Use when completed deliveries or review periods need post-award supplier performance evaluation, improvement planning, or rating review; not for pre-award qualification, scoring, or selection.",
+      "description_zh": "基于交付、质量、服务、商务表现和合规证据评价供应商，展示评分与证据覆盖率；不得自动续约、停用或拉黑。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-supplier-evaluation/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-supplier-qualification",
+      "name_en": "Procurement Supplier Qualification",
+      "display_name_zh": "供应商资质检查",
+      "description_en": "Use when discovered supplier candidates need qualification, compliance, risk, capacity, and admission checks; not for supplier discovery, quote scoring, award, or post-delivery evaluation.",
+      "description_zh": "对候选供应商进行资质、合规、风险、能力和准入检查；不负责搜索、报价评分、选商或履约评价。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-supplier-qualification/SKILL.md"
+    },
+    {
+      "skill_id": "procurement-supplier-scoring",
+      "name_en": "Procurement Supplier Scoring",
+      "display_name_zh": "供应商评分",
+      "description_en": "Use when qualified suppliers need an evidence-backed pre-award score across qualification, price, delivery, quality, and risk; not for quote normalization, selection, or post-delivery evaluation.",
+      "description_zh": "综合资质、价格、交付、质量与风险形成供应商评分表；与报价标准化和最终选商分离。",
+      "department_id": "procurement-agent",
+      "source_skill_md": ".agents/skills/procurement-supplier-scoring/SKILL.md"
+    }
+  ]
+}

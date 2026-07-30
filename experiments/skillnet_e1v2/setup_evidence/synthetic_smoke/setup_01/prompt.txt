@@ -1,0 +1,19 @@
+This is a synthetic transport and JSON-format smoke test.
+It is not a benchmark task, contains no Gold, and contains no Skill Catalogue.
+Do not use tools or read files. Return exactly one JSON object and no other text.
+
+Use exactly these eight keys and types:
+- task_id: string, exactly "SYNTHETIC_E1V2_SETUP"
+- use_skills: boolean
+- selected_departments: array of strings
+- skill_sequence: array of strings
+- final_status: one of "completed", "blocked", "no_tool"
+- blocked_by: array of strings
+- route_choice: object whose keys and values are strings
+- reason: non-empty string
+
+For this synthetic request, choose no_tool. Status rules:
+- completed requires use_skills=true and blocked_by=[]
+- blocked requires use_skills=true, at least one blocked_by string, and skill_sequence=[]
+- no_tool requires use_skills=false and selected_departments=[], skill_sequence=[],
+  blocked_by=[], route_choice={}

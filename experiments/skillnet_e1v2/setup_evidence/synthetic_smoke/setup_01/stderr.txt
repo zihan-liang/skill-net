@@ -1,0 +1,8 @@
+2026-07-30T13:20:47.566309Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-30T13:20:47.566688Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-07-30T13:21:18.909499Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 184ms)... turn_id=019fb32f-45f5-7042-9693-c2bd5ce4f528 retries=1 max_retries=5 sampling_error=request timed out
+2026-07-30T13:21:34.098829Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 422ms)... turn_id=019fb32f-45f5-7042-9693-c2bd5ce4f528 retries=2 max_retries=5 sampling_error=request timed out
+2026-07-30T13:21:49.526856Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 844ms)... turn_id=019fb32f-45f5-7042-9693-c2bd5ce4f528 retries=3 max_retries=5 sampling_error=request timed out
+2026-07-30T13:22:05.376196Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.63s)... turn_id=019fb32f-45f5-7042-9693-c2bd5ce4f528 retries=4 max_retries=5 sampling_error=request timed out
+2026-07-30T13:22:22.011868Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 3.408s)... turn_id=019fb32f-45f5-7042-9693-c2bd5ce4f528 retries=5 max_retries=5 sampling_error=request timed out
+2026-07-30T13:22:40.424854Z  WARN codex_core::client: falling back to HTTP

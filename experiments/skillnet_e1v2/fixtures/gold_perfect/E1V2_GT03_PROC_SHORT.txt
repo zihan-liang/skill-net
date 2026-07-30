@@ -1,0 +1,1 @@
+{"task_id": "E1V2_GT03_PROC_SHORT", "use_skills": true, "selected_departments": ["procurement-agent"], "skill_sequence": ["procurement-quote-comparison", "procurement-supplier-scoring", "procurement-supplier-selection"], "final_status": "completed", "blocked_by": [], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

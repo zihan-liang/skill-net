@@ -1,0 +1,129 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "freeze_status": "frozen_before_formal_model_calls",
+  "metrics": {
+    "strict_functional_success": {
+      "requires": [
+        "transport_success",
+        "nonempty_response",
+        "valid_json",
+        "schema_valid",
+        "use_skills_correct",
+        "exact_skill_selection",
+        "required_order_accuracy_1",
+        "exact_departments",
+        "final_status_correct",
+        "exact_blocked_by",
+        "strict_route_choice_correct",
+        "no_tool_contract_correct_when_applicable",
+        "blocked_flow_correct_when_applicable",
+        "no_strict_gold_constraint_violation"
+      ],
+      "route_policy": "exact JSON key/value equality"
+    },
+    "semantic_functional_success": {
+      "inherits": "strict_functional_success",
+      "only_relaxations": [
+        "semantic_route_choice_correct replaces strict_route_choice_correct",
+        "semantic_gold_constraint_violated replaces strict_gold_constraint_violated",
+        "a no-tool route_choice containing only frozen harmless no_tool redundancy is allowed"
+      ],
+      "cannot_rescue": [
+        "transport_or_response_failure",
+        "invalid_json_or_schema",
+        "wrong_use_skills",
+        "wrong_final_status",
+        "missing_or_extra_or_forbidden_or_unknown_skill",
+        "wrong_order_or_department",
+        "duplicate_or_repeated_completed_skill",
+        "actual_sequence_conflict_or_mutex",
+        "wrong_blocker_or_continue_after_block",
+        "genuinely_wrong_route"
+      ]
+    },
+    "skill_routing_success": {
+      "normal_task_requires": [
+        "format_valid",
+        "use_skills_correct",
+        "skill_precision_1",
+        "skill_recall_1",
+        "required_order_accuracy_1",
+        "department_precision_1",
+        "department_recall_1",
+        "no_unknown_skill_or_department",
+        "no_duplicate_or_repeated_completed_skill",
+        "no_forbidden_skill",
+        "no_actual_sequence_conflict_or_mutex"
+      ],
+      "blocked_task_requires": [
+        "format_valid",
+        "use_skills_correct",
+        "empty_skill_sequence",
+        "exact_departments",
+        "no_failed_gate_or_blocked_downstream_or_forbidden_skill_in_sequence"
+      ],
+      "no_tool_requires": [
+        "format_valid",
+        "use_skills_false",
+        "empty_skill_sequence",
+        "empty_selected_departments",
+        "empty_blocked_by"
+      ],
+      "explicitly_independent_of": [
+        "final_status_correct",
+        "strict_route_choice_correct",
+        "blocked_reason_f1",
+        "reason_text"
+      ]
+    },
+    "control_success": {
+      "evaluates": [
+        "final_status",
+        "blocked_by",
+        "no_tool_control",
+        "blocked_flow",
+        "continue_after_block",
+        "semantic_route_choice",
+        "actual_branch_choice"
+      ],
+      "does_not_replace": "skill_routing_success"
+    }
+  },
+  "detail_metrics": [
+    "skill_precision",
+    "skill_recall",
+    "skill_f1",
+    "department_precision",
+    "department_recall",
+    "department_f1",
+    "required_order_accuracy",
+    "final_status_correct",
+    "strict_route_choice_correct",
+    "semantic_route_choice_correct",
+    "blocked_reason_f1",
+    "blocked_flow_accuracy",
+    "no_tool_accuracy",
+    "strict_gold_constraint_violation_rate",
+    "semantic_gold_constraint_violation_rate"
+  ],
+  "severity_counts": [
+    "missing_required_skill_count",
+    "extra_skill_count",
+    "forbidden_skill_count",
+    "repeated_completed_skill_count",
+    "unsatisfied_order_pair_count",
+    "conflict_violation_count",
+    "mutex_violation_count",
+    "continue_after_block_count",
+    "transport_failure_count"
+  ],
+  "condition_consistency_categories": [
+    "strict_true_semantic_true",
+    "strict_false_semantic_true",
+    "semantic_true_skill_routing_false",
+    "strict_semantic_skill_routing_all_false",
+    "transport_or_schema_failure"
+  ],
+  "hard_stop_invariant": "semantic_functional_success=true implies skill_routing_success=true"
+}

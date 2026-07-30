@@ -1,0 +1,837 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "task_count": 21,
+  "records": [
+    {
+      "task_id": "GT01_SINGLE",
+      "source_task_id": "GT01_SINGLE",
+      "count": 2,
+      "skill_ids": [
+        "procurement-supplier-qualification",
+        "procurement-supplier-search"
+      ],
+      "sources": {
+        "procurement-supplier-qualification": [
+          "canonical_sequence[0]",
+          "required_skills[0]"
+        ],
+        "procurement-supplier-search": [
+          "initial_skill_states.procurement-supplier-search"
+        ]
+      }
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "source_task_id": "GT02_FIN_GOAL",
+      "count": 3,
+      "skill_ids": [
+        "finance-accounting",
+        "finance-payment-approval",
+        "finance-reporting"
+      ],
+      "sources": {
+        "finance-accounting": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "finance-payment-approval": [
+          "initial_skill_states.finance-payment-approval"
+        ],
+        "finance-reporting": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "required_skills[1]"
+        ]
+      }
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "source_task_id": "GT03_PROC_GOAL",
+      "count": 8,
+      "skill_ids": [
+        "business-negotiation",
+        "procurement-contract-generation",
+        "procurement-purchase-order",
+        "procurement-quote-comparison",
+        "procurement-rfq-generation",
+        "procurement-supplier-qualification",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection"
+      ],
+      "sources": {
+        "business-negotiation": [
+          "forbidden_skills[0]"
+        ],
+        "procurement-contract-generation": [
+          "forbidden_skills[1]"
+        ],
+        "procurement-purchase-order": [
+          "forbidden_skills[2]"
+        ],
+        "procurement-quote-comparison": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "procurement-rfq-generation": [
+          "initial_skill_states.procurement-rfq-generation"
+        ],
+        "procurement-supplier-qualification": [
+          "initial_skill_states.procurement-supplier-qualification"
+        ],
+        "procurement-supplier-scoring": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "procurement-supplier-selection": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "source_task_id": "GT04_TECH_GOAL",
+      "count": 8,
+      "skill_ids": [
+        "technology-development-implementation",
+        "technology-feasibility-assessment",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-system-release",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ],
+      "sources": {
+        "technology-development-implementation": [
+          "forbidden_skills[0]"
+        ],
+        "technology-feasibility-assessment": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "technology-requirement": [
+          "initial_skill_states.technology-requirement"
+        ],
+        "technology-solution-design": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "technology-specification-confirmation": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "technology-system-release": [
+          "forbidden_skills[2]"
+        ],
+        "technology-task-breakdown": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "required_skills[3]"
+        ],
+        "technology-test-acceptance": [
+          "forbidden_skills[1]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "source_task_id": "GT05_BUS_GOAL",
+      "count": 6,
+      "skill_ids": [
+        "business-contract-signing",
+        "business-customer-lead",
+        "business-negotiation",
+        "business-opportunity-assessment",
+        "business-requirement-communication",
+        "business-solution-quotation"
+      ],
+      "sources": {
+        "business-contract-signing": [
+          "forbidden_skills[1]"
+        ],
+        "business-customer-lead": [
+          "initial_skill_states.business-customer-lead"
+        ],
+        "business-negotiation": [
+          "forbidden_skills[0]"
+        ],
+        "business-opportunity-assessment": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "business-requirement-communication": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "business-solution-quotation": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "source_task_id": "GT06_HR_GOAL",
+      "count": 8,
+      "skill_ids": [
+        "finance-budget-check",
+        "hr-interview-scheduling",
+        "hr-jd-generator",
+        "hr-job-requirement",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
+      ],
+      "sources": {
+        "finance-budget-check": [
+          "initial_skill_states.finance-budget-check"
+        ],
+        "hr-interview-scheduling": [
+          "forbidden_skills[0]"
+        ],
+        "hr-jd-generator": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "hr-job-requirement": [
+          "initial_skill_states.hr-job-requirement"
+        ],
+        "hr-offer-generator": [
+          "forbidden_skills[1]"
+        ],
+        "hr-onboarding": [
+          "forbidden_skills[2]"
+        ],
+        "hr-recruitment-publish": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "hr-resume-screening": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ]
+      }
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "source_task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "count": 10,
+      "skill_ids": [
+        "business-contract-signing",
+        "business-negotiation",
+        "business-solution-quotation",
+        "finance-budget-check",
+        "procurement-contract-generation",
+        "procurement-purchase-order",
+        "procurement-quote-comparison",
+        "procurement-supplier-scoring",
+        "procurement-supplier-selection",
+        "technology-specification-confirmation"
+      ],
+      "sources": {
+        "business-contract-signing": [
+          "forbidden_skills[1]"
+        ],
+        "business-negotiation": [
+          "forbidden_skills[0]"
+        ],
+        "business-solution-quotation": [
+          "initial_skill_states.business-solution-quotation"
+        ],
+        "finance-budget-check": [
+          "initial_skill_states.finance-budget-check"
+        ],
+        "procurement-contract-generation": [
+          "forbidden_skills[2]"
+        ],
+        "procurement-purchase-order": [
+          "forbidden_skills[3]"
+        ],
+        "procurement-quote-comparison": [
+          "initial_skill_states.procurement-quote-comparison"
+        ],
+        "procurement-supplier-scoring": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "procurement-supplier-selection": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "required_skills[1]"
+        ],
+        "technology-specification-confirmation": [
+          "initial_skill_states.technology-specification-confirmation"
+        ]
+      }
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "source_task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "count": 9,
+      "skill_ids": [
+        "business-acceptance",
+        "finance-accounting",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "procurement-delivery-acceptance",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-supplier-evaluation",
+        "technology-test-acceptance"
+      ],
+      "sources": {
+        "business-acceptance": [
+          "forbidden_skills[0]",
+          "task_constraints[0].forbidden_route_skills[0]"
+        ],
+        "finance-accounting": [
+          "canonical_sequence[5]",
+          "hard_order_constraints[4].after",
+          "required_skills[5]"
+        ],
+        "finance-invoice-verification": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ],
+        "finance-payment-approval": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[3].after",
+          "hard_order_constraints[4].before",
+          "required_skills[4]"
+        ],
+        "procurement-delivery-acceptance": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "procurement-delivery-tracking": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "procurement-purchase-order": [
+          "initial_skill_states.procurement-purchase-order"
+        ],
+        "procurement-supplier-evaluation": [
+          "optional_skills[0]"
+        ],
+        "technology-test-acceptance": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "source_task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "count": 8,
+      "skill_ids": [
+        "business-acceptance",
+        "finance-accounting",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "procurement-delivery-acceptance",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "technology-test-acceptance"
+      ],
+      "sources": {
+        "business-acceptance": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "finance-accounting": [
+          "canonical_sequence[5]",
+          "hard_order_constraints[4].after",
+          "required_skills[5]"
+        ],
+        "finance-invoice-verification": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ],
+        "finance-payment-approval": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[3].after",
+          "hard_order_constraints[4].before",
+          "required_skills[4]"
+        ],
+        "procurement-delivery-acceptance": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "procurement-delivery-tracking": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "procurement-purchase-order": [
+          "initial_skill_states.procurement-purchase-order"
+        ],
+        "technology-test-acceptance": [
+          "forbidden_skills[0]",
+          "task_constraints[0].forbidden_route_skills[0]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "source_task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "count": 8,
+      "skill_ids": [
+        "business-acceptance",
+        "hr-employee-database",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "procurement-delivery-acceptance",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "technology-test-acceptance"
+      ],
+      "sources": {
+        "business-acceptance": [
+          "forbidden_skills[0]",
+          "task_constraints[0].forbidden_route_skills[0]"
+        ],
+        "hr-employee-database": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[3].after",
+          "required_skills[4]"
+        ],
+        "hr-offer-generator": [
+          "initial_skill_states.hr-offer-generator"
+        ],
+        "hr-onboarding": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ],
+        "procurement-delivery-acceptance": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "procurement-delivery-tracking": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "procurement-purchase-order": [
+          "initial_skill_states.procurement-purchase-order"
+        ],
+        "technology-test-acceptance": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "source_task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "count": 8,
+      "skill_ids": [
+        "finance-budget-check",
+        "hr-interview-scheduling",
+        "hr-jd-generator",
+        "hr-job-requirement",
+        "hr-offer-generator",
+        "hr-onboarding",
+        "hr-recruitment-publish",
+        "hr-resume-screening"
+      ],
+      "sources": {
+        "finance-budget-check": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "hr-interview-scheduling": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[3].after",
+          "hard_order_constraints[4].before",
+          "required_skills[4]"
+        ],
+        "hr-jd-generator": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "hr-job-requirement": [
+          "initial_skill_states.hr-job-requirement"
+        ],
+        "hr-offer-generator": [
+          "canonical_sequence[5]",
+          "hard_order_constraints[4].after",
+          "required_skills[5]"
+        ],
+        "hr-onboarding": [
+          "forbidden_skills[0]"
+        ],
+        "hr-recruitment-publish": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "hr-resume-screening": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ]
+      }
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "source_task_id": "GT12_CROSS_BUSINESS_TO_PO",
+      "count": 8,
+      "skill_ids": [
+        "business-contract-signing",
+        "business-negotiation",
+        "business-solution-quotation",
+        "finance-budget-check",
+        "procurement-contract-generation",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-supplier-selection"
+      ],
+      "sources": {
+        "business-contract-signing": [
+          "forbidden_skills[0]"
+        ],
+        "business-negotiation": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "business-solution-quotation": [
+          "initial_skill_states.business-solution-quotation"
+        ],
+        "finance-budget-check": [
+          "initial_skill_states.finance-budget-check"
+        ],
+        "procurement-contract-generation": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "procurement-delivery-tracking": [
+          "forbidden_skills[1]"
+        ],
+        "procurement-purchase-order": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ],
+        "procurement-supplier-selection": [
+          "initial_skill_states.procurement-supplier-selection"
+        ]
+      }
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "source_task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "count": 8,
+      "skill_ids": [
+        "hr-employee-database",
+        "procurement-requirement",
+        "technology-development-implementation",
+        "technology-feasibility-assessment",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-task-breakdown"
+      ],
+      "sources": {
+        "hr-employee-database": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ],
+        "procurement-requirement": [
+          "forbidden_skills[1]",
+          "task_constraints[0].forbidden_route_skills[0]"
+        ],
+        "technology-development-implementation": [
+          "forbidden_skills[0]"
+        ],
+        "technology-feasibility-assessment": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "technology-requirement": [
+          "initial_skill_states.technology-requirement"
+        ],
+        "technology-solution-design": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "technology-specification-confirmation": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "technology-task-breakdown": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].after",
+          "required_skills[4]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "source_task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "count": 5,
+      "skill_ids": [
+        "finance-accounting",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "procurement-delivery-acceptance",
+        "procurement-supplier-evaluation"
+      ],
+      "sources": {
+        "finance-accounting": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ],
+        "finance-invoice-verification": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "finance-payment-approval": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "hard_order_constraints[2].before",
+          "required_skills[1]"
+        ],
+        "procurement-delivery-acceptance": [
+          "initial_skill_states.procurement-delivery-acceptance"
+        ],
+        "procurement-supplier-evaluation": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "required_skills[3]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "source_task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "count": 6,
+      "skill_ids": [
+        "business-negotiation",
+        "finance-budget-check",
+        "procurement-contract-generation",
+        "procurement-delivery-tracking",
+        "procurement-purchase-order",
+        "procurement-supplier-selection"
+      ],
+      "sources": {
+        "business-negotiation": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "finance-budget-check": [
+          "initial_skill_states.finance-budget-check"
+        ],
+        "procurement-contract-generation": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "procurement-delivery-tracking": [
+          "forbidden_skills[0]"
+        ],
+        "procurement-purchase-order": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "required_skills[2]"
+        ],
+        "procurement-supplier-selection": [
+          "initial_skill_states.procurement-supplier-selection"
+        ]
+      }
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "source_task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "count": 3,
+      "skill_ids": [
+        "procurement-contract-generation",
+        "procurement-supplier-qualification",
+        "procurement-supplier-selection"
+      ],
+      "sources": {
+        "procurement-contract-generation": [
+          "forbidden_skills[1]",
+          "task_constraints[0].blocked_skills[1]"
+        ],
+        "procurement-supplier-qualification": [
+          "expected_blocked_by[0]",
+          "initial_skill_states.procurement-supplier-qualification",
+          "task_constraints[0].trigger_skill"
+        ],
+        "procurement-supplier-selection": [
+          "forbidden_skills[0]",
+          "task_constraints[0].blocked_skills[0]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "source_task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "count": 4,
+      "skill_ids": [
+        "finance-accounting",
+        "finance-invoice-verification",
+        "finance-payment-approval",
+        "procurement-delivery-acceptance"
+      ],
+      "sources": {
+        "finance-accounting": [
+          "forbidden_skills[1]",
+          "task_constraints[0].blocked_skills[1]"
+        ],
+        "finance-invoice-verification": [
+          "expected_blocked_by[0]",
+          "initial_skill_states.finance-invoice-verification",
+          "task_constraints[0].trigger_skill"
+        ],
+        "finance-payment-approval": [
+          "forbidden_skills[0]",
+          "task_constraints[0].blocked_skills[0]"
+        ],
+        "procurement-delivery-acceptance": [
+          "initial_skill_states.procurement-delivery-acceptance"
+        ]
+      }
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "source_task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "count": 8,
+      "skill_ids": [
+        "procurement-requirement",
+        "technology-development-implementation",
+        "technology-feasibility-assessment",
+        "technology-requirement",
+        "technology-solution-design",
+        "technology-specification-confirmation",
+        "technology-task-breakdown",
+        "technology-test-acceptance"
+      ],
+      "sources": {
+        "procurement-requirement": [
+          "forbidden_skills[0]",
+          "task_constraints[0].forbidden_route_skills[0]"
+        ],
+        "technology-development-implementation": [
+          "canonical_sequence[4]",
+          "hard_order_constraints[3].after",
+          "hard_order_constraints[4].before",
+          "required_skills[4]"
+        ],
+        "technology-feasibility-assessment": [
+          "canonical_sequence[0]",
+          "hard_order_constraints[0].before",
+          "required_skills[0]"
+        ],
+        "technology-requirement": [
+          "initial_skill_states.technology-requirement"
+        ],
+        "technology-solution-design": [
+          "canonical_sequence[2]",
+          "hard_order_constraints[1].after",
+          "hard_order_constraints[2].before",
+          "required_skills[2]"
+        ],
+        "technology-specification-confirmation": [
+          "canonical_sequence[1]",
+          "hard_order_constraints[0].after",
+          "hard_order_constraints[1].before",
+          "required_skills[1]"
+        ],
+        "technology-task-breakdown": [
+          "canonical_sequence[3]",
+          "hard_order_constraints[2].after",
+          "hard_order_constraints[3].before",
+          "required_skills[3]"
+        ],
+        "technology-test-acceptance": [
+          "canonical_sequence[5]",
+          "hard_order_constraints[4].after",
+          "required_skills[5]"
+        ]
+      }
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "source_task_id": "GT19_NO_TOOL_CLEAR",
+      "count": 0,
+      "skill_ids": [],
+      "sources": {}
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "source_task_id": "GT20_NO_TOOL_FINANCE",
+      "count": 0,
+      "skill_ids": [],
+      "sources": {}
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "source_task_id": "GT21_NO_TOOL_PROC",
+      "count": 0,
+      "skill_ids": [],
+      "sources": {}
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Task ID: E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT
+Task title (English): Finalize Supplier Selection for a Custom Technical Project
+任务名称（中文）：完成定制技术项目的供应商选择
+
+English task prompt
+For a custom customer solution requiring external equipment, the business solution, technical specification, procurement budget, and normalized quote comparison have all been completed. Use the existing evidence to score the suppliers and select one. Do not negotiate, sign either a customer or supplier contract, or create a purchase order.
+
+中文任务
+一个需要外部设备的客户定制技术方案已经完成业务方案、技术规格、采购预算确认和报价归一化比较。请使用现有证据完成供应商评分并确定一家供应商；不要进入谈判，不要签客户合同或供应合同，也不要创建采购订单。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

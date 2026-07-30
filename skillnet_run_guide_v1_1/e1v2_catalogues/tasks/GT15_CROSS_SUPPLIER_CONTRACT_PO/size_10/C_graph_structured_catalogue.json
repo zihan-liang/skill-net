@@ -1,0 +1,228 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "0f269d916f329850ddd7eeb799acd4f81147e67f58992fb517844c5233a313c0",
+  "candidate_skill_ids_sha256": "0e3f40e9f1708c4c961a431d58869758e8f5b05992419a440cef5b24e269de65",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": [
+        {
+          "skill_id": "business-contract-signing",
+          "name_en": "Business Contract Signing",
+          "display_name_zh": "合同签署",
+          "description_en": "Use when a negotiated customer contract needs version reconciliation, approval routing, signatory-authority review, signature readiness, or execution evidence; not for negotiation or project delivery.",
+          "description_zh": "核验合同版本、文件指纹、双方主体、签署权限、审批、谈判偏差和关键条款；仅判断是否可进入人工签署，不自动签署或发送。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-contract-signing/SKILL.md"
+        },
+        {
+          "skill_id": "business-negotiation",
+          "name_en": "Business Negotiation",
+          "display_name_zh": "商务谈判",
+          "description_en": "Use when a proposal, scope, price, service level, risk allocation, or contract term needs negotiation preparation or a traceable session record; not for quotation creation or contract signature.",
+          "description_zh": "明确谈判目标、权限和底线，记录双方立场、让步、交换条件、未决问题与审批；未经授权不得承诺价格、范围或合同条款。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-negotiation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": [
+        {
+          "skill_id": "finance-budget-check",
+          "name_en": "Finance Budget Check",
+          "display_name_zh": "预算检查",
+          "description_en": "Use when a purchase or expense needs budget balance, funding source, budget account, approval threshold, and availability checks; not for creating the budget or approving the expense.",
+          "description_zh": "核对预算余额、资金来源、预算科目、审批阈值和预算可用性；采购可调用，但归属财务，检查结果不等于批准支出。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": []
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-contract-generation",
+          "name_en": "Procurement Contract Generation",
+          "display_name_zh": "合同生成",
+          "description_en": "Use when an approved supplier selection needs contract terms, version control, deviation review, legal or finance approval routing, and signature preparation; not for creating or releasing a PO.",
+          "description_zh": "根据选商结果生成合同条款与版本，完成偏差和审批准备；不生成采购订单，也不自动签署。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-contract-generation/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-delivery-tracking",
+          "name_en": "Procurement Delivery Tracking",
+          "display_name_zh": "交付跟踪",
+          "description_en": "Use when a released purchase order needs supplier confirmation, expected delivery, logistics or service milestones, delay, exception, and expediting records; not for accepting delivery.",
+          "description_zh": "跟踪订单确认、预计交付、物流或服务里程碑、延期、异常和催交记录；不负责收货或验收。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-tracking/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-purchase-order",
+          "name_en": "Procurement Purchase Order",
+          "display_name_zh": "采购订单生成",
+          "description_en": "Use when an approved procurement contract needs a purchase-order draft, line and total validation, approval routing, release control, or PO status record; not for drafting contract terms.",
+          "description_zh": "根据已批准合同生成采购订单，校验 PO 内容、审批、释放和状态记录；不负责合同条款设计。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-purchase-order/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-evaluation",
+          "name_en": "Procurement Supplier Evaluation",
+          "display_name_zh": "供应商绩效评价",
+          "description_en": "Use when completed deliveries or review periods need post-award supplier performance evaluation, improvement planning, or rating review; not for pre-award qualification, scoring, or selection.",
+          "description_zh": "基于交付、质量、服务、商务表现和合规证据评价供应商，展示评分与证据覆盖率；不得自动续约、停用或拉黑。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-evaluation/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-qualification",
+          "name_en": "Procurement Supplier Qualification",
+          "display_name_zh": "供应商资质检查",
+          "description_en": "Use when discovered supplier candidates need qualification, compliance, risk, capacity, and admission checks; not for supplier discovery, quote scoring, award, or post-delivery evaluation.",
+          "description_zh": "对候选供应商进行资质、合规、风险、能力和准入检查；不负责搜索、报价评分、选商或履约评价。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-qualification/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-search",
+          "name_en": "Procurement Supplier Search",
+          "display_name_zh": "供应商搜索",
+          "description_en": "Use when an approved, budget-cleared procurement requirement needs supplier discovery and a traceable candidate list; not for qualification, scoring, selection, or supplier outreach.",
+          "description_zh": "根据已确认需求搜索潜在供应商并形成候选名单，只负责发现与去重，不负责资质准入、评分或选商。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-search/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-selection",
+          "name_en": "Procurement Supplier Selection",
+          "display_name_zh": "供应商选择",
+          "description_en": "Use when qualification, commercial comparison, and supplier scores need an award recommendation or selection decision packet; not for scoring, contracting, or order release.",
+          "description_zh": "基于供应商资质、报价比较、风险与利益冲突证据形成选商建议；最终选择和例外批准必须由授权人员决定。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-selection/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": []
+    }
+  ],
+  "relations_sha256": "9e730977e623b9758db84bba349b4d8d54644cd20399b118484d818b6342bcf1",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "finance-budget-check",
+        "after": "procurement-supplier-search",
+        "scope": "procurement"
+      },
+      {
+        "before": "procurement-supplier-search",
+        "after": "procurement-supplier-qualification",
+        "scope": "procurement"
+      },
+      {
+        "before": "procurement-supplier-selection",
+        "after": "business-negotiation",
+        "scope": "procurement"
+      },
+      {
+        "before": "business-negotiation",
+        "after": "procurement-contract-generation",
+        "scope": "procurement"
+      },
+      {
+        "before": "procurement-contract-generation",
+        "after": "procurement-purchase-order",
+        "scope": "procurement"
+      },
+      {
+        "before": "procurement-purchase-order",
+        "after": "procurement-delivery-tracking",
+        "scope": "procurement"
+      },
+      {
+        "before": "business-negotiation",
+        "after": "business-contract-signing",
+        "scope": "business"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "finance-budget-check",
+        "blocked_skill": "procurement-purchase-order",
+        "condition": "budget_not_approved"
+      },
+      {
+        "gate_skill": "procurement-supplier-qualification",
+        "blocked_skill": "procurement-supplier-selection",
+        "condition": "supplier_not_qualified"
+      },
+      {
+        "gate_skill": "procurement-supplier-qualification",
+        "blocked_skill": "procurement-contract-generation",
+        "condition": "supplier_not_qualified"
+      }
+    ],
+    "mutex": [],
+    "enhances": [
+      {
+        "source": "procurement-delivery-tracking",
+        "target": "procurement-supplier-evaluation",
+        "context": "delivery_history_available"
+      },
+      {
+        "source": "procurement-supplier-evaluation",
+        "target": "procurement-supplier-search",
+        "context": "historical_supplier_performance_available"
+      }
+    ]
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

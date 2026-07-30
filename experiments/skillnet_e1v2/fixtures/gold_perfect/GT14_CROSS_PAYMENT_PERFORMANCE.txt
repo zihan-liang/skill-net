@@ -1,0 +1,1 @@
+{"task_id": "GT14_CROSS_PAYMENT_PERFORMANCE", "use_skills": true, "selected_departments": ["finance-agent", "procurement-agent"], "skill_sequence": ["finance-invoice-verification", "finance-payment-approval", "finance-accounting", "procurement-supplier-evaluation"], "final_status": "completed", "blocked_by": [], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

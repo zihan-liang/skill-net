@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb32f-45ca-7462-afb3-1a71d45881e8"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"SYNTHETIC_E1V2_SETUP\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{},\"reason\":\"No tools or skills are required for this synthetic transport and JSON-format smoke test.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":14939,"cached_input_tokens":4864,"cache_write_input_tokens":0,"output_tokens":68,"reasoning_output_tokens":0}}

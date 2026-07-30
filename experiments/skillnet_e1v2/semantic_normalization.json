@@ -1,0 +1,103 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "freeze_status": "frozen_before_formal_model_calls",
+  "scope": "global_rules_only",
+  "task_specific_whitelists": [],
+  "route_key_aliases": {
+    "delivery_mode": "build_or_buy",
+    "development_mode": "build_or_buy",
+    "single_primary_acceptance_route": "acceptance_route"
+  },
+  "route_value_aliases": {
+    "build": "internal_development",
+    "internal_build": "internal_development",
+    "technology-test-acceptance": "technical_acceptance",
+    "business-acceptance": "business_acceptance",
+    "business_acceptance_route": "business_acceptance"
+  },
+  "sequence_first_policy": {
+    "description": "For a Gold route decision, actual skill_sequence evidence is authoritative when it is sufficient and non-conflicting. A normalized route_choice is used only when sequence evidence is insufficient.",
+    "simultaneous_mutex_routes_are_always_incorrect": true,
+    "insufficient_sequence_and_missing_normalized_choice_is_incorrect": true
+  },
+  "route_domains": {
+    "acceptance_route": {
+      "technical_acceptance": {
+        "positive_sequence_skills": [
+          "technology-test-acceptance"
+        ],
+        "forbidden_sequence_skills": [
+          "business-acceptance"
+        ],
+        "positive_evidence_mode": "all"
+      },
+      "business_acceptance": {
+        "positive_sequence_skills": [
+          "business-acceptance"
+        ],
+        "forbidden_sequence_skills": [
+          "technology-test-acceptance"
+        ],
+        "positive_evidence_mode": "all"
+      }
+    },
+    "build_or_buy": {
+      "internal_development": {
+        "positive_sequence_skills": [
+          "technology-feasibility-assessment",
+          "technology-specification-confirmation",
+          "technology-solution-design",
+          "technology-task-breakdown",
+          "technology-development-implementation",
+          "technology-test-acceptance"
+        ],
+        "forbidden_sequence_skills": [
+          "procurement-requirement",
+          "procurement-supplier-search",
+          "procurement-rfq-generation",
+          "procurement-quote-comparison",
+          "procurement-supplier-scoring",
+          "procurement-supplier-selection",
+          "procurement-contract-generation",
+          "procurement-purchase-order"
+        ],
+        "positive_evidence_mode": "any"
+      },
+      "external_procurement": {
+        "positive_sequence_skills": [
+          "procurement-requirement",
+          "procurement-supplier-search",
+          "procurement-supplier-qualification",
+          "procurement-rfq-generation",
+          "procurement-quote-comparison",
+          "procurement-supplier-scoring",
+          "procurement-supplier-selection",
+          "procurement-contract-generation",
+          "procurement-purchase-order",
+          "procurement-delivery-tracking",
+          "procurement-delivery-acceptance"
+        ],
+        "forbidden_sequence_skills": [
+          "technology-development-implementation"
+        ],
+        "positive_evidence_mode": "any"
+      }
+    }
+  },
+  "no_tool_harmless_redundancy": {
+    "allowed_keys": [
+      "no_tool",
+      "tool_decision",
+      "route"
+    ],
+    "allowed_values": [
+      "no_tool",
+      "none",
+      "not_applicable"
+    ],
+    "must_contain_value": "no_tool",
+    "other_business_route_values_are_forbidden": true
+  },
+  "post_run_rule_changes_allowed": false
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+  "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": []
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": [
+        {
+          "skill_id": "finance-budget-check",
+          "name_en": "Finance Budget Check",
+          "display_name_zh": "预算检查",
+          "description_en": "Use when a purchase or expense needs budget balance, funding source, budget account, approval threshold, and availability checks; not for creating the budget or approving the expense.",
+          "description_zh": "核对预算余额、资金来源、预算科目、审批阈值和预算可用性；采购可调用，但归属财务，检查结果不等于批准支出。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-check/SKILL.md"
+        },
+        {
+          "skill_id": "finance-budget-planning",
+          "name_en": "Finance Budget Planning",
+          "display_name_zh": "预算制定",
+          "description_en": "Use when a department needs a new budget, revision, forecast baseline, or approval-ready plan for a financial period; not for checking one transaction’s budget availability.",
+          "description_zh": "制定和修订部门预算，明确预算科目、假设、责任人、风险和审批路线。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-planning/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": [
+        {
+          "skill_id": "hr-employee-database",
+          "name_en": "HR Employee Database",
+          "display_name_zh": "员工数据库",
+          "description_en": "Use when authorized HR users need minimum employee-record queries, skill/KPI/training updates, personnel statistics, or audit history; not for candidate screening or onboarding decisions.",
+          "description_zh": "管理员工基本信息、技能、KPI和培训记录，并为每次数据变更保留审计日志。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-employee-database/SKILL.md"
+        },
+        {
+          "skill_id": "hr-interview-scheduling",
+          "name_en": "HR Interview Scheduling",
+          "display_name_zh": "面试安排",
+          "description_en": "Use when shortlisted candidates need interview logistics, notices, interviewer assignment, structured scorecards, and feedback consolidation; not for resume screening or offer issuance.",
+          "description_zh": "安排面试、生成通知与六维评估表，并汇总形成可审计的面试决策材料。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-interview-scheduling/SKILL.md"
+        },
+        {
+          "skill_id": "hr-jd-generator",
+          "name_en": "HR JD Generator",
+          "display_name_zh": "JD生成",
+          "description_en": "Use when an approved role brief must become a canonical, bilingual, or channel-adaptable job description; not for approving headcount or publishing the role.",
+          "description_zh": "根据已审批的岗位需求生成适配不同招聘渠道的职位描述。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-jd-generator/SKILL.md"
+        },
+        {
+          "skill_id": "hr-job-requirement",
+          "name_en": "HR Job Requirement",
+          "display_name_zh": "岗位需求",
+          "description_en": "Use when a manager requests headcount, proposes opening a role, or needs a hiring request clarified and approved; not for writing or publishing the JD.",
+          "description_zh": "收集并分析岗位需求，形成可审批的岗位需求说明书。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-job-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "hr-offer-generator",
+          "name_en": "HR Offer Generator",
+          "display_name_zh": "Offer生成",
+          "description_en": "Use when an approved finalist needs compensation validation, a draft offer, version tracking, or verified acceptance recording; not for candidate selection or onboarding before acceptance.",
+          "description_zh": "校验薪资与录用审批，生成Offer草案并跟踪版本及候选人状态。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-offer-generator/SKILL.md"
+        },
+        {
+          "skill_id": "hr-onboarding",
+          "name_en": "HR Onboarding",
+          "display_name_zh": "入职管理",
+          "description_en": "Use when a candidate has verified offer acceptance and needs preboarding, access, a 30/60/90-day plan, training, or probation review; not for issuing offers or maintaining general employee records.",
+          "description_zh": "管理新员工入职清单、30/60/90天计划、试用期反馈与转正评估。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-onboarding/SKILL.md"
+        },
+        {
+          "skill_id": "hr-recruitment-publish",
+          "name_en": "HR Recruitment Publish",
+          "display_name_zh": "招聘发布",
+          "description_en": "Use when an approved JD needs channel adaptation, publication preflight, tracking fields, or confirmed publication recording; not for changing role criteria or screening applicants.",
+          "description_zh": "将已审批JD适配到招聘平台、内推和社交渠道，并生成渠道跟踪表。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-recruitment-publish/SKILL.md"
+        },
+        {
+          "skill_id": "hr-resume-screening",
+          "name_en": "HR Resume Screening",
+          "display_name_zh": "简历筛选",
+          "description_en": "Use when resumes or candidate profiles need evidence-based screening against approved role criteria and a shortlist review packet; not for scheduling interviews or deciding final selection.",
+          "description_zh": "按五个岗位相关维度筛选简历，输出证据、评分、排名与信息缺口。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-resume-screening/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": []
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": []
+    }
+  ],
+  "relations_sha256": "f950ee488f31845aad6b283328e5b68908532d1ab11799288ff859040b623366",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "finance-budget-planning",
+        "after": "finance-budget-check",
+        "scope": "finance"
+      },
+      {
+        "before": "hr-job-requirement",
+        "after": "hr-jd-generator",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-jd-generator",
+        "after": "hr-recruitment-publish",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-recruitment-publish",
+        "after": "hr-resume-screening",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-resume-screening",
+        "after": "hr-interview-scheduling",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-interview-scheduling",
+        "after": "hr-offer-generator",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-offer-generator",
+        "after": "hr-onboarding",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-onboarding",
+        "after": "hr-employee-database",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-job-requirement",
+        "after": "finance-budget-check",
+        "scope": "cross-domain",
+        "condition": "recruitment_budget_required"
+      },
+      {
+        "before": "finance-budget-check",
+        "after": "hr-jd-generator",
+        "scope": "cross-domain",
+        "condition": "recruitment_budget_approved"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "finance-budget-check",
+        "blocked_skill": "hr-recruitment-publish",
+        "condition": "recruitment_budget_not_approved"
+      },
+      {
+        "gate_skill": "hr-job-requirement",
+        "blocked_skill": "hr-jd-generator",
+        "condition": "job_requirement_not_approved"
+      },
+      {
+        "gate_skill": "hr-job-requirement",
+        "blocked_skill": "hr-resume-screening",
+        "condition": "job_criteria_missing"
+      },
+      {
+        "gate_skill": "hr-interview-scheduling",
+        "blocked_skill": "hr-offer-generator",
+        "condition": "candidate_not_approved"
+      },
+      {
+        "gate_skill": "hr-offer-generator",
+        "blocked_skill": "hr-onboarding",
+        "condition": "offer_not_accepted"
+      }
+    ],
+    "mutex": [],
+    "enhances": [
+      {
+        "source": "hr-employee-database",
+        "target": "hr-job-requirement",
+        "context": "internal_skill_coverage_available"
+      },
+      {
+        "source": "hr-interview-scheduling",
+        "target": "hr-employee-database",
+        "context": "authorized_interview_evidence_available"
+      },
+      {
+        "source": "hr-employee-database",
+        "target": "hr-onboarding",
+        "context": "employee_and_training_data_available"
+      }
+    ]
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+Task ID: GT08_CROSS_TECH_DELIVERY_PAYMENT
+Task title (English): Pay and Account for Delivered Technical Equipment
+任务名称（中文）：技术设备交付后的付款与入账
+
+English task prompt
+A purchase order for technical equipment has been generated. The supplier reports that the equipment has been delivered and has submitted an invoice. Procurement has begun tracking delivery, but the technology department has not accepted the equipment. The final goal is to complete payment and accounting after all necessary conditions are satisfied.
+
+中文任务
+一套技术设备的采购订单已经生成，供应商报告设备已经送达并提交了发票。采购团队已经开始跟踪交付，但技术部门尚未验收。公司的最终目标是在所有必要条件满足后完成付款和入账。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

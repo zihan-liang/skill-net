@@ -1,0 +1,23 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "identical": true,
+  "before_file_count": 2494,
+  "after_file_count": 2494,
+  "before_bundle_sha256": "35b2a976f0065dae6a639ceafff7e4fbf5002bd9625406caa8f21d482e611481",
+  "after_bundle_sha256": "35b2a976f0065dae6a639ceafff7e4fbf5002bd9625406caa8f21d482e611481",
+  "added_protected_files": [],
+  "removed_protected_files": [],
+  "changed_protected_files": [],
+  "run_02_before": {
+    "path_token": "/run_02/",
+    "file_count": 1462,
+    "bundle_sha256": "a008a462d0ecfd44282f94eb8c8b1565033e4d1745588a48bd559a7db35ea479"
+  },
+  "run_02_after": {
+    "path_token": "/run_02/",
+    "file_count": 1462,
+    "bundle_sha256": "a008a462d0ecfd44282f94eb8c8b1565033e4d1745588a48bd559a7db35ea479"
+  },
+  "run_02_identical": true
+}

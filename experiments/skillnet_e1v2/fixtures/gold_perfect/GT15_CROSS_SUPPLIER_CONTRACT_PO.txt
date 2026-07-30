@@ -1,0 +1,1 @@
+{"task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO", "use_skills": true, "selected_departments": ["procurement-agent", "business-agent"], "skill_sequence": ["business-negotiation", "procurement-contract-generation", "procurement-purchase-order"], "final_status": "completed", "blocked_by": [], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

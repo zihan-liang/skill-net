@@ -1,0 +1,123 @@
+WorkBuddy / CodeBuddy E0/E1 C组（图结构）Standard RUN Commands v1（中文）
+
+使用方法
+========
+每个模型使用一个独立 WorkBuddy 控制窗口。先完成
+WorkBuddy_Setup_Prompt_E0_E1_C_v1_CN.txt 的 MODEL_PREFLIGHT，得到 READY 后，再在
+同一个控制窗口粘贴本文件中该模型的 RUN 块。
+
+控制窗口可以继续用于编排和报告；真正回答每一道题的 child 必须始终是新的
+codebuddy 非交互进程、新 UUID 和新空临时工作目录。
+
+三个模型固定标识
+================
+
+DeepSeekV4-Pro：
+MODEL_DISPLAY_NAME=DeepSeekV4-Pro
+MODEL_ID=<使用 Setup 实测确认的精确值；候选为 deepseek-v4-pro>
+MODEL_SLUG=deepseek_v4_pro
+RUN_ID=wb_deepseek_v4_pro_c_r01
+
+GLM5.2：
+MODEL_DISPLAY_NAME=GLM5.2
+MODEL_ID=<使用 Setup 实测确认的精确值，不得猜测>
+MODEL_SLUG=glm_5_2
+RUN_ID=wb_glm_5_2_c_r01
+
+Kimi-K3：
+MODEL_DISPLAY_NAME=Kimi-K3
+MODEL_ID=<使用 Setup 实测确认的精确值，不得猜测>
+MODEL_SLUG=kimi_k3
+RUN_ID=wb_kimi_k3_c_r01
+
+正式 RUN 块（每个窗口替换为该模型变量后原样执行）
+=================================================
+
+你现在只负责执行已经完成 WorkBuddy Setup 的 SkillNet E0/E1 C组（图结构）
+正式实验。只运行 C 组，不运行 A/B 组，不重新设计或修改实验框架。
+
+固定变量：
+MODEL_DISPLAY_NAME=<本窗口模型>
+MODEL_ID=<Setup evidence 中实测的精确 ID>
+MODEL_SLUG=<本窗口 slug>
+RUN_ID=<本窗口唯一 run_id>
+
+先读取：
+
+- workbuddy_run_guide_v1/WorkBuddy_Setup_Prompt_E0_E1_C_v1_CN.txt
+- workbuddy_run_guide_v1/WorkBuddy_Standard_RUN_Commands_E0_E1_C_v1_CN.txt
+- experiments/skillnet_workbuddy/RUNBOOK.md
+- experiments/skillnet/RUNBOOK.md
+- experiments/skillnet/verify_condition.py
+- experiments/skillnet/frozen_eval/E1_Gold_5_tasks.json
+- skillnet_run_guide_v1_1/catalogues/catalogue_manifest.json
+- skillnet_run_guide_v1_1/catalogues/catalogue_validation_report.json
+
+先确认：
+
+1. 当前 commit 与 Setup evidence 完全一致，正式分支已同步。
+2. working tree 符合 WorkBuddy RUNBOOK 正式运行要求。
+3. 本模型的 Setup、fixture dry run、Catalogue validation、E1 Gold 固定五题
+   C组路径验证、synthetic smoke 和跨题隔离 smoke 均已通过。
+4. WorkBuddy、CodeBuddy CLI、MODEL_ID、provider、reasoning、Auto Mode、Memory、
+   tools/MCP 和 fallback 配置与 Setup evidence 一致。
+5. RUN_ID 不存在，且只写入本 MODEL_SLUG 的隔离目录。
+6. 不重新运行或修改 Setup；不修改 adapter。
+7. 不修改 Skills、Gold、Catalogue、relations、schema 或 evaluator。
+8. transport 必须是 codebuddy/cbc，不能是 codex。
+
+确认通过后执行：
+
+RUN C ONLY E0 E1
+run_id: <RUN_ID>
+model_slug: <MODEL_SLUG>
+model_id: <MODEL_ID>
+
+按以下顺序串行执行：
+
+1. E0-C-size46
+2. E1-C-size10
+3. E1-C-size30
+4. 从本模型 E0-C-size46 中提取 E1-C-size46 的固定五题，不重新调用模型
+
+强制执行规则：
+
+- 每一道正式任务启动一个全新的独立 codebuddy/cbc 非交互进程。
+- 每题使用新的 UUID session、新的空临时工作目录和新的隔离上下文。
+- 不使用上一题的 session、conversation、response、context 或 memory。
+- 禁止 continue、resume、fallback 和自动模型路由。
+- child 只能看到当前任务、当前 C组图结构 Catalogue 和固定八字段 JSON 契约。
+- child 不得看到其他任务、其他 Catalogue、Gold、relations、evaluator 或以前结果。
+- 禁用 tools、MCP、Skills、Expert、Connectors 和 Automations。
+- condition 内和窗口内严格串行，max_workers=1。
+- 每题只尝试一次，不自动重试，不修复或重写答案。
+- 模型格式错误、transport 错误或非零 exit 均按一次真实失败记录并继续当前 condition。
+- 保存每题完整命令（密钥脱敏）、MODEL_ID、UUID、PID、CWD、时间、stdout、stderr、
+  exit code、原始 response、结构化结果和评价文件。
+- 每个 condition 完成后立即运行 WorkBuddy adapter verifier，并保存精确 VERIFY COMMAND。
+- 每个 condition 前后重新检查 commit、Catalogue hash、MODEL_ID 和隔离配置。
+- 如果 Catalogue、模型、reasoning、commit、memory/tools/MCP/fallback 或实验隔离发生
+  变化，立即停止所有后续 condition，保留已完成证据并报告。
+- 某一题失败时不得伪造结果；除上述 drift/隔离问题外，记录后继续当前 condition。
+- E1-C-size46 必须从本模型 E0-C-size46 的固定五题逐字节派生；
+  该 condition 新增模型调用数必须为 0。
+- 禁止创建、运行或派生任何 A/B condition。
+- 不读取、不复制、不复用 Codex run_01/run_02 或另外两个 WorkBuddy 模型的输出。
+
+全部完成后运行全局审计，并报告：
+
+- MODEL_DISPLAY_NAME、MODEL_ID、MODEL_SLUG、RUN_ID、commit SHA
+- 4 个 C组 condition 的状态和 verifier exit code
+- 正式模型进程总数、唯一 UUID 数、唯一临时 CWD 数
+- schema-valid、schema-invalid、transport-failure 数量
+- E1-C-size46 派生一致性及新增模型调用数
+- 每个 condition 的结果路径、评价路径和 VERIFY COMMAND
+- setup evidence、全局审计和所有原始日志路径
+- 任何失败与停止原因；不做事后重试或改答案
+
+并发说明
+========
+三个 WorkBuddy 控制窗口可以同时打开，但为了控制服务器负载、限流和时间段差异，
+推荐三个模型的正式 RUN 依次开始。若确实同时运行，必须保证三套输出根目录、
+RUN_ID、temp CWD 和 session 完全不同，并在最终报告中把“跨模型并发运行”记录为
+实验限制。无论跨模型是否并发，每个模型内部都必须 max_workers=1。

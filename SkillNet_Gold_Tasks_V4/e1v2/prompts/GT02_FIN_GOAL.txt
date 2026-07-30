@@ -1,0 +1,18 @@
+Task ID: GT02_FIN_GOAL
+Task title (English): Month-End Financial Statement Preparation
+任务名称（中文）：月末报表准备
+
+English task prompt
+All approved payments for this month have been paid, but they have not yet been posted to the accounting system. Management needs to review this month's financial statements next Monday. Plan the work the finance department must complete next.
+
+中文任务
+本月所有已批准款项都已经支付，但还没有进入账务系统。管理层下周一需要查看本月财务报表。请规划财务部门接下来需要完成的工作。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

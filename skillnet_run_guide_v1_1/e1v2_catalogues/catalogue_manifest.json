@@ -1,0 +1,1912 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "catalogue_count": 189,
+  "expected_catalogue_count": 189,
+  "source_full_catalogues": {
+    "A": {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "B": {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "C": {
+      "path": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+      "sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef"
+    }
+  },
+  "catalogues": [
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_10/A_flat_catalogue.json",
+      "file_sha256": "b2b1b1bf5daba0a8eee5ed3aba2ab85ae06a496e3d8d289930132607c5adc7b5",
+      "skill_cards_sha256": "8f4a7b27cbeba7d5c2d372458a4c4e6f33d16751c2fdc623b51851a2223462ab",
+      "candidate_skill_ids_sha256": "1b46638789b59073d4d5bb7dab4eb8b855632915982fb327a9df17fe9cec554f",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "4383dc02d4a1737760b81cceb3219718ee856dd2ff02e2693611857047d09d9c",
+      "skill_cards_sha256": "8f4a7b27cbeba7d5c2d372458a4c4e6f33d16751c2fdc623b51851a2223462ab",
+      "candidate_skill_ids_sha256": "1b46638789b59073d4d5bb7dab4eb8b855632915982fb327a9df17fe9cec554f",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "d2c710656e5450f4cfed42f6a88a69f6da15877046a83e2a3231f21aa3387a2c",
+      "skill_cards_sha256": "8f4a7b27cbeba7d5c2d372458a4c4e6f33d16751c2fdc623b51851a2223462ab",
+      "candidate_skill_ids_sha256": "1b46638789b59073d4d5bb7dab4eb8b855632915982fb327a9df17fe9cec554f",
+      "relations_sha256": "020ca158143c95afbeeaca4e8bd65d3f90c0a9a0e4e2b1746dee4535e1f58173"
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_30/A_flat_catalogue.json",
+      "file_sha256": "95c654165d49203545e29ea1332b97878a44eb8e83462eecc5a73ce280fa0026",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "9f6a4f4beee4c128ee8ff6ad51e0cda9fcee9b900b0d1b0bf858a17c9bcf3c69",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "d15fec069060c0d3afc53ed44081b7fecf306a9bc4e1bdc6dd16d2b684f6ce96",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "9f6a4f4beee4c128ee8ff6ad51e0cda9fcee9b900b0d1b0bf858a17c9bcf3c69",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "e226558a9ebd579da0434a07eb2ebd238d56dc31974f48c111a8322be10aa4df",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "9f6a4f4beee4c128ee8ff6ad51e0cda9fcee9b900b0d1b0bf858a17c9bcf3c69",
+      "relations_sha256": "25139e136f28035abdde1350a9f5bb62671aa872e05df2e2ffc288ec56d22e4f"
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_46/A_flat_catalogue.json",
+      "file_sha256": "fe7ac934f64aae63338aa72e179e38094ab693fccafaa180e700d53cdbf2ecfd",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a637973aa67d6de8b9a12c1bdc6ac1ba53f020629ca36e4978ea502afd01aff3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "ec2672ad2f3a1e8c688c9b0f75eeece220445c6ce1509c6387c1b8e7531c3ca3",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a637973aa67d6de8b9a12c1bdc6ac1ba53f020629ca36e4978ea502afd01aff3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT01_SINGLE",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT01_SINGLE/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "9d35d0cd579e4d690f3384e0c11b43328b2d7b9ca60f55fe564f00dc1b10df6c",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a637973aa67d6de8b9a12c1bdc6ac1ba53f020629ca36e4978ea502afd01aff3",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_10/A_flat_catalogue.json",
+      "file_sha256": "417423ff42c5edb2cdb1f6c96c22220106c99c46b8fb26bf1061b19f16b8786f",
+      "skill_cards_sha256": "6687842bd7c797898acf9ad670819e05876f223abcf2dd0ea9217bea70b8b97d",
+      "candidate_skill_ids_sha256": "bb37096ec4f5e9becc1a401917039f15bffac30d9cdcf6de12283e3b30ee8d59",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "dd0d10c4b1386332707f8e8923fadefa6465f12e40ffcd182bb974cda27c11a2",
+      "skill_cards_sha256": "6687842bd7c797898acf9ad670819e05876f223abcf2dd0ea9217bea70b8b97d",
+      "candidate_skill_ids_sha256": "bb37096ec4f5e9becc1a401917039f15bffac30d9cdcf6de12283e3b30ee8d59",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "35cc045f07e29665302875c632a1e0cffaf2ca2d6281a7d332dac52b4fd68f3e",
+      "skill_cards_sha256": "6687842bd7c797898acf9ad670819e05876f223abcf2dd0ea9217bea70b8b97d",
+      "candidate_skill_ids_sha256": "bb37096ec4f5e9becc1a401917039f15bffac30d9cdcf6de12283e3b30ee8d59",
+      "relations_sha256": "d0257907d3ac572aa267a8085009593a6065beb8dc9232d5c059495713acc612"
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_30/A_flat_catalogue.json",
+      "file_sha256": "7168eba7571f0a3ef5cd5fb19ea911f035e3b3592c8bde95984aad6f49bab3a0",
+      "skill_cards_sha256": "e67e1afcc29d097be8a02d014943fdef2c858ab83e7f8f3e399ab280d3c1a33e",
+      "candidate_skill_ids_sha256": "6086d2333dd54b05f3454871bf86131e173eef35a5ddf6132e72c9382d059376",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "586dab888231ed7c7888800970dd8179939728a88355aae047cc869c965fec6a",
+      "skill_cards_sha256": "e67e1afcc29d097be8a02d014943fdef2c858ab83e7f8f3e399ab280d3c1a33e",
+      "candidate_skill_ids_sha256": "6086d2333dd54b05f3454871bf86131e173eef35a5ddf6132e72c9382d059376",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "c21fe4510703a709482be3b5e1475ab73f54c09092c27d339035a466f512232e",
+      "skill_cards_sha256": "e67e1afcc29d097be8a02d014943fdef2c858ab83e7f8f3e399ab280d3c1a33e",
+      "candidate_skill_ids_sha256": "6086d2333dd54b05f3454871bf86131e173eef35a5ddf6132e72c9382d059376",
+      "relations_sha256": "811312cd4776b8f59741c45c34cf3bb6f51153cb8f63e24855ae5bb5f1aec62a"
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_46/A_flat_catalogue.json",
+      "file_sha256": "b3bdf3a356dd96686d57887f1e7b1b7f4ee7c2633e90325eadd1065dfff60700",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "aa5fa0b3e1fba8b7846511fdbf936485acd36bbba82822ff3fcaa35a5115cbdf",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "7a4166e9f91cedb88b04ac1cf8ce054c2b27d146d11547ae8c48d453a1f28d94",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "aa5fa0b3e1fba8b7846511fdbf936485acd36bbba82822ff3fcaa35a5115cbdf",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT02_FIN_GOAL/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "0be24d46690c1bb8ae6970a7e72c5e9cbbae574789d0a0a7f2a18767fd742a50",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "aa5fa0b3e1fba8b7846511fdbf936485acd36bbba82822ff3fcaa35a5115cbdf",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_10/A_flat_catalogue.json",
+      "file_sha256": "892b6bb351b9a36ad70691cda1306348dc3b823bce00f20eabc939baddc63e9a",
+      "skill_cards_sha256": "bc5aa9bed13e67193b1ecb02e21d6d46dfb288e7bd80571be2f77d335ad4eea7",
+      "candidate_skill_ids_sha256": "2c89155d90e94567fa20930cd1ec60c5fc965bb914506f107f7899d5ec882e27",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "91509014f0ec5bf25a778e4b7d8bee5da7821a1846ed4ad3f930d5c0ad26b177",
+      "skill_cards_sha256": "bc5aa9bed13e67193b1ecb02e21d6d46dfb288e7bd80571be2f77d335ad4eea7",
+      "candidate_skill_ids_sha256": "2c89155d90e94567fa20930cd1ec60c5fc965bb914506f107f7899d5ec882e27",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "86f3ca55db192b8e5a08efe5018cc06412712cf08d05e2c1efa3bd46ca440be8",
+      "skill_cards_sha256": "bc5aa9bed13e67193b1ecb02e21d6d46dfb288e7bd80571be2f77d335ad4eea7",
+      "candidate_skill_ids_sha256": "2c89155d90e94567fa20930cd1ec60c5fc965bb914506f107f7899d5ec882e27",
+      "relations_sha256": "f50aafc73df643af4eae4cfad45d74a795dc2f7f862169396e4bcae92c626549"
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_30/A_flat_catalogue.json",
+      "file_sha256": "75099d853fed1c5da7a022da0e3478b2ea5aa6bcde6e85329474f9f98fc06d41",
+      "skill_cards_sha256": "e7e385d074bbe9be6fcf841d9c51b42c13b42581b7bf621a6cfc85bcb5d7def0",
+      "candidate_skill_ids_sha256": "5a72a7b45c14d1048207827f1111a641d921afbcfcaed90b4ea20470f0565359",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "dabdefa2ae816af8ac782c4b0559b23feee2debe9379ebbb0fbd2ae155224e64",
+      "skill_cards_sha256": "e7e385d074bbe9be6fcf841d9c51b42c13b42581b7bf621a6cfc85bcb5d7def0",
+      "candidate_skill_ids_sha256": "5a72a7b45c14d1048207827f1111a641d921afbcfcaed90b4ea20470f0565359",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "0b2768fe3b9f990a255026eb68fc79eb5b666168dd78372ec0dac5136b8596b2",
+      "skill_cards_sha256": "e7e385d074bbe9be6fcf841d9c51b42c13b42581b7bf621a6cfc85bcb5d7def0",
+      "candidate_skill_ids_sha256": "5a72a7b45c14d1048207827f1111a641d921afbcfcaed90b4ea20470f0565359",
+      "relations_sha256": "8bedd71440c172ce1bb5f377ab76eb1e1c601517165027ac3db9cb431b4f76a2"
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_46/A_flat_catalogue.json",
+      "file_sha256": "34a02d5dc1771cf4f3fe04c25dfb5d6b1153fa6671dcb29442f8914ab9c799bf",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a02613dd7ac24f7278ff6c737655321b5de414bb60c289fd9e7d79f05cd05822",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "cc28ea6c7142ba5419f573c1d3cf291d7687ba2c830bcb478b23ae3f0dac0c30",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a02613dd7ac24f7278ff6c737655321b5de414bb60c289fd9e7d79f05cd05822",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT03_PROC_SHORT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT03_PROC_SHORT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "cc72cbaf4d5700ec22d1e49b69ba5a33c1d75ac73490504fc5d11b0a42682a1f",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "a02613dd7ac24f7278ff6c737655321b5de414bb60c289fd9e7d79f05cd05822",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_10/A_flat_catalogue.json",
+      "file_sha256": "894e2c7035dc4798536aca8aa1b09a76f448235ae2e15230a0013a5f06cbf400",
+      "skill_cards_sha256": "7073dc7bd57770406db72c51a27578b4cc09093568357271e34a2e88661ea385",
+      "candidate_skill_ids_sha256": "ef89b78c1406861236835a4b83470fee1e9291316938709015bfb4ce2147a9e1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "77329f28b973f6b7d5885e48725ef220903d0a120fbcf7458a7537076418842f",
+      "skill_cards_sha256": "7073dc7bd57770406db72c51a27578b4cc09093568357271e34a2e88661ea385",
+      "candidate_skill_ids_sha256": "ef89b78c1406861236835a4b83470fee1e9291316938709015bfb4ce2147a9e1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "da1ce5afd47f8fc462e7f533c81a8c3e8816bc2482317e37b3aab177ab80604f",
+      "skill_cards_sha256": "7073dc7bd57770406db72c51a27578b4cc09093568357271e34a2e88661ea385",
+      "candidate_skill_ids_sha256": "ef89b78c1406861236835a4b83470fee1e9291316938709015bfb4ce2147a9e1",
+      "relations_sha256": "82a4be0a5480ff5e5937197ccbe0fbc788b800778bfde3168fd0213f51bb9d29"
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_30/A_flat_catalogue.json",
+      "file_sha256": "e8c2f3fc493155dee854db92e5da55db7e675995d4f84a69a48432801e14b072",
+      "skill_cards_sha256": "d83c3d27079dc72467e3ec96dd8777f1c29c1e46fc9ac1eb428c0832ec1f7831",
+      "candidate_skill_ids_sha256": "0307ca3f4e9397c3cf3aaa4b5246f699bc0c22529ab03cdedf96fec09ab8facd",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "d35d7fd0f0ff7c005f569f0936478863da5a9a9f6cec1031f71ca011dd687b9f",
+      "skill_cards_sha256": "d83c3d27079dc72467e3ec96dd8777f1c29c1e46fc9ac1eb428c0832ec1f7831",
+      "candidate_skill_ids_sha256": "0307ca3f4e9397c3cf3aaa4b5246f699bc0c22529ab03cdedf96fec09ab8facd",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "160a67c1637e149cdde78002dd2ef15461f700a103720e1371438057da7f11c3",
+      "skill_cards_sha256": "d83c3d27079dc72467e3ec96dd8777f1c29c1e46fc9ac1eb428c0832ec1f7831",
+      "candidate_skill_ids_sha256": "0307ca3f4e9397c3cf3aaa4b5246f699bc0c22529ab03cdedf96fec09ab8facd",
+      "relations_sha256": "ba32bc7d72ba284b07734102c83b7403cf0164e1e920a5768b92011f6e1f00da"
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_46/A_flat_catalogue.json",
+      "file_sha256": "da6848eefaec1c4d8282f5c6fe253a9bf5a5989c663ed28e47f3a783d4e153a5",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "3f3f2bd5f76abe20ad1957914742c7669f0a37f2819e86a5e17e39175acbb094",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "202bb50e61755c9df2e19a29a3f6325206fb3e96d6ce74d040935f73a5474c4d",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "3f3f2bd5f76abe20ad1957914742c7669f0a37f2819e86a5e17e39175acbb094",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT04_TECH_GOAL/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "2fcbf8a23ffda2e1faf986683d2a147a3e7a5f8c041a5c06a3312a55f50d7a66",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "3f3f2bd5f76abe20ad1957914742c7669f0a37f2819e86a5e17e39175acbb094",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_10/A_flat_catalogue.json",
+      "file_sha256": "eaa9e525f1c9cd9e9050400a20003880b30fa2b7c2f34d3eaadbb8d2869b6c6e",
+      "skill_cards_sha256": "0b76aa5451e03cf9888521be2bcaf78fec4282d96523baebcb598e12ccf5c983",
+      "candidate_skill_ids_sha256": "1e4b81dd7720ea22a640a6f21255d0d457e9503d8051ae6b98fd67d157f90223",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "309ebbe71b6001886c05310c956a9c2fa6ed2ddefb70979ef91816d9c9626506",
+      "skill_cards_sha256": "0b76aa5451e03cf9888521be2bcaf78fec4282d96523baebcb598e12ccf5c983",
+      "candidate_skill_ids_sha256": "1e4b81dd7720ea22a640a6f21255d0d457e9503d8051ae6b98fd67d157f90223",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "b3bf74ef5bdce14663649dbc13fec65547f9bf100eab4c47785d5f29f5dcfcec",
+      "skill_cards_sha256": "0b76aa5451e03cf9888521be2bcaf78fec4282d96523baebcb598e12ccf5c983",
+      "candidate_skill_ids_sha256": "1e4b81dd7720ea22a640a6f21255d0d457e9503d8051ae6b98fd67d157f90223",
+      "relations_sha256": "f52edfdb56ea00c671742123974ca0e04c0ec58190cb8ceb133b62c86b83d976"
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_30/A_flat_catalogue.json",
+      "file_sha256": "93ed8f6a8e3d53bf9346caccb27cca96df18daa0f782d8b11a62f2c3500298ab",
+      "skill_cards_sha256": "6b8a7c0086001d6d8f260acbfc9165d1d94d9f40bc06acd5610c1f6a0b1570c6",
+      "candidate_skill_ids_sha256": "09a2fac671098b70eb775690051575f7d4e03a3f44a13e32dbf2a843792ef7f5",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "bfbdb1514a1ec34886825d4542dd4c83e4f58361ab15cd16445925d54e76b1ca",
+      "skill_cards_sha256": "6b8a7c0086001d6d8f260acbfc9165d1d94d9f40bc06acd5610c1f6a0b1570c6",
+      "candidate_skill_ids_sha256": "09a2fac671098b70eb775690051575f7d4e03a3f44a13e32dbf2a843792ef7f5",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "2aa68b5fc5a9cf19aa471db4273163f209f5c534b6c1f282b11548e733a21783",
+      "skill_cards_sha256": "6b8a7c0086001d6d8f260acbfc9165d1d94d9f40bc06acd5610c1f6a0b1570c6",
+      "candidate_skill_ids_sha256": "09a2fac671098b70eb775690051575f7d4e03a3f44a13e32dbf2a843792ef7f5",
+      "relations_sha256": "559751699c55c8a41eb1aa5241da5a88c640f28dd0f6516728c530eb45617d16"
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_46/A_flat_catalogue.json",
+      "file_sha256": "b2fa29c877ca4cee03d0df115c7a16855778fddd49a729af4d6242c9c29f0472",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "0596e99b83ef25e956fbd5e936e8b6bfa1f4e546e1ca5d2e1a0d3f1e0872601a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "152acf5bf20403bdbcfd3415c4e494e840f4feefab29717be11e8d81ca9318f2",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "0596e99b83ef25e956fbd5e936e8b6bfa1f4e546e1ca5d2e1a0d3f1e0872601a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT05_BUS_GOAL/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "574db3d289c3354e12a410e5a75013622af6c8320880312b68c717d473b5477d",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "0596e99b83ef25e956fbd5e936e8b6bfa1f4e546e1ca5d2e1a0d3f1e0872601a",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_10/A_flat_catalogue.json",
+      "file_sha256": "73d902ae56eeece4bfb713bad6656fe0e3f8a71eb1cdec3c540f918fb41c57cb",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "4ab45af000fc08080a166ff662e091b004103284a28b81bd7f60fae946cd314a",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "1e90bbfd1315b749cd6159b4d3459125e1d1a852e04a711173291a200ef929f5",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": "f950ee488f31845aad6b283328e5b68908532d1ab11799288ff859040b623366"
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_30/A_flat_catalogue.json",
+      "file_sha256": "4b87d7a5bc2edf9a5ceac67d86771d325bc7690eb7cd0f3dffea986cc42df145",
+      "skill_cards_sha256": "34dd052286460ff0a0e10175ffda6cce362f1a690b9fabfee3b7dfe735a4cf2b",
+      "candidate_skill_ids_sha256": "f4dc64464804ddd65b836a0302c7137d0d47585a55cd28e8658702788eeff9ef",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "c943182072d51ff2de2eee24236c4552f5124cfb49ac5f399a86de1d02b353fd",
+      "skill_cards_sha256": "34dd052286460ff0a0e10175ffda6cce362f1a690b9fabfee3b7dfe735a4cf2b",
+      "candidate_skill_ids_sha256": "f4dc64464804ddd65b836a0302c7137d0d47585a55cd28e8658702788eeff9ef",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "9184023d96fa6dd2bf008a1752bbdcbf61170f2b47b2cab456e4cbf8e969d877",
+      "skill_cards_sha256": "34dd052286460ff0a0e10175ffda6cce362f1a690b9fabfee3b7dfe735a4cf2b",
+      "candidate_skill_ids_sha256": "f4dc64464804ddd65b836a0302c7137d0d47585a55cd28e8658702788eeff9ef",
+      "relations_sha256": "680a0a732716ce4d2cd6ebf506a9d3c6f4267d05981dd501a0104afde5545df4"
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_46/A_flat_catalogue.json",
+      "file_sha256": "39355b1f30263d027939d738d14d9cddda3baa32f0c9ec7f1c5555ab0b1b4e3b",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f0f399e821a002f58770f8132db8d457976b9046057015060ebaa00cc35ee9b5",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "e915d137fe76cc10cdf42f5928f006c5c8b96ead21f45c8b8706fea48849045c",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f0f399e821a002f58770f8132db8d457976b9046057015060ebaa00cc35ee9b5",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT06_HR_GOAL/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "70a35a92fc88cd5d8a72c9179073bdfba9fb8b8cfcf5b087f325b5ec1d7f0254",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f0f399e821a002f58770f8132db8d457976b9046057015060ebaa00cc35ee9b5",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_10/A_flat_catalogue.json",
+      "file_sha256": "cfaaecc197327901a94fb6cee31b6b51ca03636296612777c7a8cde2a8b69238",
+      "skill_cards_sha256": "662f9206a98bbde80f3cbc6c5168ce81ab7f5d92e94110c9d5d4e4bc526779b2",
+      "candidate_skill_ids_sha256": "8270902935a0870d47ef7cc617bde7c07cbbc2ee02f3d2674cccddc4f9d152c0",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "b5bb21fdf8fba99d5d98af3d07ecba1c2b5637ebbb485f961ba386c013ed77e9",
+      "skill_cards_sha256": "662f9206a98bbde80f3cbc6c5168ce81ab7f5d92e94110c9d5d4e4bc526779b2",
+      "candidate_skill_ids_sha256": "8270902935a0870d47ef7cc617bde7c07cbbc2ee02f3d2674cccddc4f9d152c0",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "aac5a8c7fc10d409fa2c8706daae36f763b06e611a3107f86bb63b1893485950",
+      "skill_cards_sha256": "662f9206a98bbde80f3cbc6c5168ce81ab7f5d92e94110c9d5d4e4bc526779b2",
+      "candidate_skill_ids_sha256": "8270902935a0870d47ef7cc617bde7c07cbbc2ee02f3d2674cccddc4f9d152c0",
+      "relations_sha256": "2bf9c82d25003d78d5ba2a61642da79500a115f8c9bcb536d39e995250d38d52"
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_30/A_flat_catalogue.json",
+      "file_sha256": "d74b0715b492ffd98febd1b8d722a0970d2022226188e30bba2a99f1420895b8",
+      "skill_cards_sha256": "6b4f2ed2c425d8b418c09b089b85e92aa1b44055756f4fe9c1ea8b87a840d09c",
+      "candidate_skill_ids_sha256": "5e6057252d0cad4ab8258a4d42927d0124653d27e91f7ef16d41857a6cfb85c2",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "37af7d06a10e57597309a6cbad496abd26864d02c7f13ef55a4003b489d1f1c3",
+      "skill_cards_sha256": "6b4f2ed2c425d8b418c09b089b85e92aa1b44055756f4fe9c1ea8b87a840d09c",
+      "candidate_skill_ids_sha256": "5e6057252d0cad4ab8258a4d42927d0124653d27e91f7ef16d41857a6cfb85c2",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "046d9fa31ea84e0613d8ef7bdc362db5c969c02be0a3ecf18118cff291fbe04d",
+      "skill_cards_sha256": "6b4f2ed2c425d8b418c09b089b85e92aa1b44055756f4fe9c1ea8b87a840d09c",
+      "candidate_skill_ids_sha256": "5e6057252d0cad4ab8258a4d42927d0124653d27e91f7ef16d41857a6cfb85c2",
+      "relations_sha256": "58ad5127afb78b1d66468330defd7b5d9120e8c0be31da2e316bcbee12d32c22"
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_46/A_flat_catalogue.json",
+      "file_sha256": "60af56508cefe920f2962721a9aea013de9d3d606548722d7580d9bad1affed9",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "840095c7c68105d508620113b476fce94a694fe6fbcd511855d2b914209ee031",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "ce43b191a2cc45120bf499dba05dc7537f3843e0796c4757ecb87be13b0ced23",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "840095c7c68105d508620113b476fce94a694fe6fbcd511855d2b914209ee031",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT07_CUSTOM_TECH_SUPPLIER_SHORT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "e02d970f81a0802d9d590578bb49b13143a4ac8443220422502dd40b2994e66c",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "840095c7c68105d508620113b476fce94a694fe6fbcd511855d2b914209ee031",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_10/A_flat_catalogue.json",
+      "file_sha256": "262c4ef26457d15fca1bd6bea0dc0fe8dd3c0aeee413b2a934142f4ab0bb1902",
+      "skill_cards_sha256": "ffaa5be388473329182f257ee3ba933d1489b9a6a7cd9274a60704cee4d25516",
+      "candidate_skill_ids_sha256": "4a574f245f61bec650864d9dc527afc120f652985ad3c8c9d79f3e0a3540f145",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "2aa0be6bc8b6ad68cf45ee71731698166e8d3022ec9bf92ad3ab8fbfb5ad9011",
+      "skill_cards_sha256": "ffaa5be388473329182f257ee3ba933d1489b9a6a7cd9274a60704cee4d25516",
+      "candidate_skill_ids_sha256": "4a574f245f61bec650864d9dc527afc120f652985ad3c8c9d79f3e0a3540f145",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "4de29528121743d3369b9cdb7940b63e052530576c65ae2c534b8db631b42a67",
+      "skill_cards_sha256": "ffaa5be388473329182f257ee3ba933d1489b9a6a7cd9274a60704cee4d25516",
+      "candidate_skill_ids_sha256": "4a574f245f61bec650864d9dc527afc120f652985ad3c8c9d79f3e0a3540f145",
+      "relations_sha256": "b915ef6f042a7ba50a9082d6c2ae20dfc7ae7a7cdc7b791ffaeeb9e944fac38f"
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_30/A_flat_catalogue.json",
+      "file_sha256": "8fea04d0563f51cfbfed40e1dd62ee443cf789431bea9f26e765a85e1b6b5747",
+      "skill_cards_sha256": "e0465e20f67e3135aa6f4af49aee9f17043410c0f125fc2ac604fe70a4332e5b",
+      "candidate_skill_ids_sha256": "26e7a5c54fa5ea817bbd6b001ce137754b08c77f9e0531547a0dac3a1550971a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "f4a205b6ef05974a5c2d0c8641841f877f97f3b1e316f9b75b2830589285eb66",
+      "skill_cards_sha256": "e0465e20f67e3135aa6f4af49aee9f17043410c0f125fc2ac604fe70a4332e5b",
+      "candidate_skill_ids_sha256": "26e7a5c54fa5ea817bbd6b001ce137754b08c77f9e0531547a0dac3a1550971a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "1504b8f25677502cb1495d9cd719d1a7c044e51579a561106699b0dcd57755c7",
+      "skill_cards_sha256": "e0465e20f67e3135aa6f4af49aee9f17043410c0f125fc2ac604fe70a4332e5b",
+      "candidate_skill_ids_sha256": "26e7a5c54fa5ea817bbd6b001ce137754b08c77f9e0531547a0dac3a1550971a",
+      "relations_sha256": "ca0bc744129569851cf55b9a6305bae457602e46977752f4f4a99689bc50f7f8"
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_46/A_flat_catalogue.json",
+      "file_sha256": "5c7100ad91cd067a756c385343536136a0f024d0e97d7e55e8d967b122068322",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "d16e1bdf10b85ebe744a05c0f4947b792fd35c313b2b065907b96a556aab31a3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "92e864dc55be7d5bd82ac3a12520db6ee51d5e84f1fa8d542c3d5160c15331fe",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "d16e1bdf10b85ebe744a05c0f4947b792fd35c313b2b065907b96a556aab31a3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT08_CROSS_TECH_DELIVERY_PAYMENT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "67e54c0247a2b580055c5b9669f799c5d74b68f96767f868bb748f85ed852728",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "d16e1bdf10b85ebe744a05c0f4947b792fd35c313b2b065907b96a556aab31a3",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_10/A_flat_catalogue.json",
+      "file_sha256": "e753154629082a724f8e624e0da854f56327363948bc35a086ec3c1e5e826158",
+      "skill_cards_sha256": "9e272751c68d918721b714bfd6b33f6f3a0b419baf12f2b4246f117872583f48",
+      "candidate_skill_ids_sha256": "7b60168bd96fbf03793aa8a25ed30596da3bf62c586fcaa625fd783a2abd6b28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "cb58eec0e3d7eb0b2b86bacf16a2d8b1bcf3072c154cab031b8e39dade76a691",
+      "skill_cards_sha256": "9e272751c68d918721b714bfd6b33f6f3a0b419baf12f2b4246f117872583f48",
+      "candidate_skill_ids_sha256": "7b60168bd96fbf03793aa8a25ed30596da3bf62c586fcaa625fd783a2abd6b28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "3faa73c601533a7de6c3a4ac033d29f289a02fcd4c4608abf5a1d142a2fe9efd",
+      "skill_cards_sha256": "9e272751c68d918721b714bfd6b33f6f3a0b419baf12f2b4246f117872583f48",
+      "candidate_skill_ids_sha256": "7b60168bd96fbf03793aa8a25ed30596da3bf62c586fcaa625fd783a2abd6b28",
+      "relations_sha256": "c487093a770390517a83597fee00f8f344f420159b2c5fa2d764ac7cf55a0737"
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_30/A_flat_catalogue.json",
+      "file_sha256": "04c9602b36ce0774c6fc8450e939efdb5f14e753b9357b2eef25a7091f36682d",
+      "skill_cards_sha256": "e71a9d084e65264632fa07a521f1970c581251e63f334418a7900784195ac6b7",
+      "candidate_skill_ids_sha256": "dce94125283acd27d6d47b5c2b482c56e7c00bd4bf22f43ffc89488975492869",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "3a833861a8abb309f6ea2619c9d0bda163c06b9bb575cea26b003dfb7d981701",
+      "skill_cards_sha256": "e71a9d084e65264632fa07a521f1970c581251e63f334418a7900784195ac6b7",
+      "candidate_skill_ids_sha256": "dce94125283acd27d6d47b5c2b482c56e7c00bd4bf22f43ffc89488975492869",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "c56a72a9070555a17eaa5f0f0ad67c57cbdaa135bd6631ccb5f8c9a446e092eb",
+      "skill_cards_sha256": "e71a9d084e65264632fa07a521f1970c581251e63f334418a7900784195ac6b7",
+      "candidate_skill_ids_sha256": "dce94125283acd27d6d47b5c2b482c56e7c00bd4bf22f43ffc89488975492869",
+      "relations_sha256": "a111d7b749d223cd2c9d0873496885e1df412401a745d360e3bc25773b8ac39b"
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_46/A_flat_catalogue.json",
+      "file_sha256": "a7631474bd10b717133fed70505243af87f0eb08084116c631889127c8679b57",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "29ccfe390b973879b12a88e348739d4778983c3878ab0f4f6442dbf8bb4ac537",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "ca899de084412e70b72cc12efbc81a3304f4d4587807baec9e8472b06cfdb9fb",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "29ccfe390b973879b12a88e348739d4778983c3878ab0f4f6442dbf8bb4ac537",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT09_CROSS_BUS_SERVICE_PAYMENT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "f34ebb1726e2b73b74cce532b72041ec7c9318288cfcd267fde20daa83f85f48",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "29ccfe390b973879b12a88e348739d4778983c3878ab0f4f6442dbf8bb4ac537",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_10/A_flat_catalogue.json",
+      "file_sha256": "c8d8bd13c8811ffb9c8138126cd49167c47737c4ea1b15dbc7bce884657cf8cf",
+      "skill_cards_sha256": "888f27a06518c40105cb83d08b91be16ab2e693c4fb7ce784caf4bcff51ef38f",
+      "candidate_skill_ids_sha256": "632f0955bf313a127f7a635df6004f5e0961876d70b2e92e0289ff2f8b00f966",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "056c3b72af3db47f134a33694fb756bc562ee9cf21a32c6b4a6670bb5e723f3e",
+      "skill_cards_sha256": "888f27a06518c40105cb83d08b91be16ab2e693c4fb7ce784caf4bcff51ef38f",
+      "candidate_skill_ids_sha256": "632f0955bf313a127f7a635df6004f5e0961876d70b2e92e0289ff2f8b00f966",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "a387e1bd119dcc4486bd2646fefd208484dd3bded5f3c62995b54e124125860e",
+      "skill_cards_sha256": "888f27a06518c40105cb83d08b91be16ab2e693c4fb7ce784caf4bcff51ef38f",
+      "candidate_skill_ids_sha256": "632f0955bf313a127f7a635df6004f5e0961876d70b2e92e0289ff2f8b00f966",
+      "relations_sha256": "d07b637b87280576c335cdf227f866393493cf8a2068b00261949bf0726a0483"
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_30/A_flat_catalogue.json",
+      "file_sha256": "5b6abe267c1a9e6fd51e18fa9810244f605bf4b2d4bab1ee80f19e154de85d57",
+      "skill_cards_sha256": "47bcd28471dda01a7952fb6f2885fa918624456790c2e4311c306cae732f1ee9",
+      "candidate_skill_ids_sha256": "44f8f12a9d73c8ca81a3f083279738e14b1c81ccdf3e515b08bca4f7c99a34c1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "7ce87943046ba33b159db5d5adda0c24ff16083d8024a5b018e9262ce28282cc",
+      "skill_cards_sha256": "47bcd28471dda01a7952fb6f2885fa918624456790c2e4311c306cae732f1ee9",
+      "candidate_skill_ids_sha256": "44f8f12a9d73c8ca81a3f083279738e14b1c81ccdf3e515b08bca4f7c99a34c1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "8d147f17c7c58da3a409da4176d7966ee6c6aff334f17dee6107bc50f7cabadb",
+      "skill_cards_sha256": "47bcd28471dda01a7952fb6f2885fa918624456790c2e4311c306cae732f1ee9",
+      "candidate_skill_ids_sha256": "44f8f12a9d73c8ca81a3f083279738e14b1c81ccdf3e515b08bca4f7c99a34c1",
+      "relations_sha256": "590a35d965c26cd32b48e3c3f41de7afb87e18379cb986a729dcaf32d7a0dc13"
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_46/A_flat_catalogue.json",
+      "file_sha256": "8d4821aa0b4ddd7c8f1a3ff39253c64fbf704fed5943a5d02ed78a0f016c6505",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "44a6ec58469b70e7a77b02fb92e76519336dfdeb938c3cd31cc98c8511a2d4de",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "fb5e0bd6f0ebfd2255b806bf5816fc6fd473d8335060f10d2e7052dd6b6396ed",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "44a6ec58469b70e7a77b02fb92e76519336dfdeb938c3cd31cc98c8511a2d4de",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT10_CROSS_ONBOARDING_EQUIPMENT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "97e5a6ab15e2982e368eb35ea369cee06e150cd223d19a27923da84a1c320c5f",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "44a6ec58469b70e7a77b02fb92e76519336dfdeb938c3cd31cc98c8511a2d4de",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_10/A_flat_catalogue.json",
+      "file_sha256": "f1c9901dced0037fa79aa9829b4202cb8051ca4f56563f9028d94099e60ce677",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "6c63154c8a4224e64ecd43289c6ce02c76ba96f3a2de96377c1d69f23afcf36d",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "064f02430f10b92a4a072147511b8be6d22c4d7ee6bf5ec99bd153d0a0101ee8",
+      "skill_cards_sha256": "c295c2bc271ed4ba8316fff1655e456a30d68800b7df39c33fd7e05ccc9ecaae",
+      "candidate_skill_ids_sha256": "21be1511203b53420cb3a2af5204076f44d4c7213f2d9db2a154cc68b553df28",
+      "relations_sha256": "f950ee488f31845aad6b283328e5b68908532d1ab11799288ff859040b623366"
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_30/A_flat_catalogue.json",
+      "file_sha256": "52f6936034d38b5ae1de226681618b284eedc504d9969d4951a785e5c7eb3de8",
+      "skill_cards_sha256": "a4f83da89a0d5721dd266edd6a416317eacb21b1e91fb8ff66b13d54946a2dca",
+      "candidate_skill_ids_sha256": "dbb8cf3c20da3d78f182d014df5672279decc5fafa488e01d20e6be70209059b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "62434a6bc8a2662f0b92538d93c8ba084af5219fc71ae165f59b892334d273f8",
+      "skill_cards_sha256": "a4f83da89a0d5721dd266edd6a416317eacb21b1e91fb8ff66b13d54946a2dca",
+      "candidate_skill_ids_sha256": "dbb8cf3c20da3d78f182d014df5672279decc5fafa488e01d20e6be70209059b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "55f11e254b61b8620dee2b20f8824a116685d850fe75d7d66fced4df5165a902",
+      "skill_cards_sha256": "a4f83da89a0d5721dd266edd6a416317eacb21b1e91fb8ff66b13d54946a2dca",
+      "candidate_skill_ids_sha256": "dbb8cf3c20da3d78f182d014df5672279decc5fafa488e01d20e6be70209059b",
+      "relations_sha256": "f723313d47dbe877870751177162ab03e66b8044645f038a893b6b058e3e62f9"
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_46/A_flat_catalogue.json",
+      "file_sha256": "caa0fd1a1d705cd42cac2857a800d5819a725dd23c10fb7ce5724fbe1769cedd",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "96799af8d0f1ea39e7e8a39e47606103cf47672fdd83654a9d9eda8a3d5d0b53",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "05f0a03615b5502923fc846e9fd4f786fb0bea569c93f90933367ecae73e25ab",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "96799af8d0f1ea39e7e8a39e47606103cf47672fdd83654a9d9eda8a3d5d0b53",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT11_CROSS_RECRUIT_BUDGET_OFFER/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "9bac968286833e7609d0b8f5e57aeae6593e15b1974bcacf8756b6887f77f890",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "96799af8d0f1ea39e7e8a39e47606103cf47672fdd83654a9d9eda8a3d5d0b53",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_10/A_flat_catalogue.json",
+      "file_sha256": "9e094be46b9fa830444c06d715083f06c397b01bf83cdbbde851bd4d4a2aa595",
+      "skill_cards_sha256": "dfa61244cbf23ba46b0e223be4e0fc3309346acdf65870abe61d953dd4a7365e",
+      "candidate_skill_ids_sha256": "47b09b11ec0d6ad3f5fa187543ee442022d66065b6cf4cfa53ec99e9e2143597",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "78978b04959914c24b791a964d83519c363efe2df7691607c1f18df84ae2e5b0",
+      "skill_cards_sha256": "dfa61244cbf23ba46b0e223be4e0fc3309346acdf65870abe61d953dd4a7365e",
+      "candidate_skill_ids_sha256": "47b09b11ec0d6ad3f5fa187543ee442022d66065b6cf4cfa53ec99e9e2143597",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "d4b6030a26b9c0204fbaf762f60e6f975855caf757f32cb45a19ddc042b28cb6",
+      "skill_cards_sha256": "dfa61244cbf23ba46b0e223be4e0fc3309346acdf65870abe61d953dd4a7365e",
+      "candidate_skill_ids_sha256": "47b09b11ec0d6ad3f5fa187543ee442022d66065b6cf4cfa53ec99e9e2143597",
+      "relations_sha256": "fc4b71f0645dc36445cb4a996324b179d2aa39e07d0dc2c3bc289e69e3b72111"
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_30/A_flat_catalogue.json",
+      "file_sha256": "0c207a0ffd2799e71a3d8f1bcb116f5d279c7d4ab8bee0897aec6ac38defe06f",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "26a26fc3acdee1b9e462664b081d98462f6cb27990017f54aaac818f3c8a1e14",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "aa211e47938bb7fcb18b9728a22d5f653529dd763799499710e8ce282dc0bcbc",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "26a26fc3acdee1b9e462664b081d98462f6cb27990017f54aaac818f3c8a1e14",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "22109076e6babb949ebf40992c26ebbf7ce2436d919b9c4074135b409824b373",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "26a26fc3acdee1b9e462664b081d98462f6cb27990017f54aaac818f3c8a1e14",
+      "relations_sha256": "96e22893e83b3f5b0b44179258c3e38aeafe0b4ad24216257514871d5ba84c7d"
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_46/A_flat_catalogue.json",
+      "file_sha256": "ae5078ca744aaba5122a445ffbb303de91101402d9b344ba439c5dc5187da8e9",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "c230d567e661625a603a93d6251b69afc7dbad95b4a6f39e457352ac4570bc09",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "7851d6be8a30b7dec543ef3a527538937b1e61a6736c7fe86f75ed9c2c33bfae",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "c230d567e661625a603a93d6251b69afc7dbad95b4a6f39e457352ac4570bc09",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/E1V2_GT12_BUSINESS_TO_PO_SHORT/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "8926ecd27ec2db67c15159249c3a59a522d3ba88371b9e5fd2985c67ea1b1c5a",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "c230d567e661625a603a93d6251b69afc7dbad95b4a6f39e457352ac4570bc09",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_10/A_flat_catalogue.json",
+      "file_sha256": "420094aa171a1a7636f500e2ea9ccfcb81bb338198b17e1dd51b783972ba9107",
+      "skill_cards_sha256": "fcddf9323719451237a1d36f91c5564eaf418baed4057cb8da9456bf73aedd38",
+      "candidate_skill_ids_sha256": "e0ae8c9970b232e301ebafddb34a36e8553beb87e1034889156d3b87a2c55fb1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "e970cca41b5a811eea3939be56cd45ab1364503ee2a7df482c248ed003683270",
+      "skill_cards_sha256": "fcddf9323719451237a1d36f91c5564eaf418baed4057cb8da9456bf73aedd38",
+      "candidate_skill_ids_sha256": "e0ae8c9970b232e301ebafddb34a36e8553beb87e1034889156d3b87a2c55fb1",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "1f08984d8c55f9d0a3350848a5664d5c4fe1d15e5346068d1ae4a5811a45b960",
+      "skill_cards_sha256": "fcddf9323719451237a1d36f91c5564eaf418baed4057cb8da9456bf73aedd38",
+      "candidate_skill_ids_sha256": "e0ae8c9970b232e301ebafddb34a36e8553beb87e1034889156d3b87a2c55fb1",
+      "relations_sha256": "bb0b8bb3f461025ab0d294647f93cfec820f1c2a244cf18ef675b8ad5069d63a"
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_30/A_flat_catalogue.json",
+      "file_sha256": "f62cbc3c4b74b7ba6024be86d601a746e678dd5cf42a7322695b31ac2f3c711b",
+      "skill_cards_sha256": "9a981517e00e3a1ec34a358bf770c587a1c849a8293f3bbc5a7e69efe5bdfe29",
+      "candidate_skill_ids_sha256": "363f1cf6259b6e391619089643c99f28b38ebc68c6583154f4b6b3cff7126b5d",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "db9badcdfb9b5af7f3672ef2c17e0727147fe8d5e07bd87a4beb421e8477712d",
+      "skill_cards_sha256": "9a981517e00e3a1ec34a358bf770c587a1c849a8293f3bbc5a7e69efe5bdfe29",
+      "candidate_skill_ids_sha256": "363f1cf6259b6e391619089643c99f28b38ebc68c6583154f4b6b3cff7126b5d",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "3ecf7a5023ba5df37c8f92ed5441e6a178e6134338fcb7313782d65cdc03d6b5",
+      "skill_cards_sha256": "9a981517e00e3a1ec34a358bf770c587a1c849a8293f3bbc5a7e69efe5bdfe29",
+      "candidate_skill_ids_sha256": "363f1cf6259b6e391619089643c99f28b38ebc68c6583154f4b6b3cff7126b5d",
+      "relations_sha256": "2bb5562bbe36e131079ca6e4ecdb8e14c74286d20137d9c6e37526472804be1f"
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_46/A_flat_catalogue.json",
+      "file_sha256": "7b20a5977f159666effd793ef3de99e3bf29bf60ce73e759b94c5a7274f10e86",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "ae00cfca4431a22eba26b7dc52a73ba7db72d71adadbddd4b65513c23e3b2258",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "661487a51c2efae0b2eb6099a83c0d58d715dc87ea572650d2ce5fa00d104302",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "ae00cfca4431a22eba26b7dc52a73ba7db72d71adadbddd4b65513c23e3b2258",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "440ef5723b38c726cca67235671adda2be71cde3d3bc5577db5c7a120557751e",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "ae00cfca4431a22eba26b7dc52a73ba7db72d71adadbddd4b65513c23e3b2258",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_10/A_flat_catalogue.json",
+      "file_sha256": "6e8ff495b67e631790143ea5b244ca00d2b97b8b9849f60a4a8a2aaccfdb707f",
+      "skill_cards_sha256": "79b272660d4811cf5f672403548a975d5d063a1dc16ed56cf1fe7607d3965056",
+      "candidate_skill_ids_sha256": "a482b8f4c7cf2c5ec8f38d605ec3517a82e2c392a89049e2152feb78fce82c3f",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "948ed8a3383e80cd7213b673082741bc27b8cda7114f1fdbb8db735a61383168",
+      "skill_cards_sha256": "79b272660d4811cf5f672403548a975d5d063a1dc16ed56cf1fe7607d3965056",
+      "candidate_skill_ids_sha256": "a482b8f4c7cf2c5ec8f38d605ec3517a82e2c392a89049e2152feb78fce82c3f",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "4d6943976841458da1428408d15c7f7d0d513c8d2020ecf0c7f23df76fab9af6",
+      "skill_cards_sha256": "79b272660d4811cf5f672403548a975d5d063a1dc16ed56cf1fe7607d3965056",
+      "candidate_skill_ids_sha256": "a482b8f4c7cf2c5ec8f38d605ec3517a82e2c392a89049e2152feb78fce82c3f",
+      "relations_sha256": "8baae5458074e798a32a12841f0e19c24c0d8a83b037c0b0f8ea68a7a98275fb"
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_30/A_flat_catalogue.json",
+      "file_sha256": "4e74c9fbc433efed9ed2828aa5885820bf748378f6b340fc82fadf9a5d9147ec",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "d5d59ce8ff4460f5d95bc491d3be5a024d05a05462ac14e4cee11cad9480b9d0",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "03f39789fab445593c47ebcd3f191dae3e1520f6ef2f364c9fd80238924f76a6",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "d5d59ce8ff4460f5d95bc491d3be5a024d05a05462ac14e4cee11cad9480b9d0",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "1134de6d666fc098e25925349d78efb589c97121124414af0535a9709510420c",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "d5d59ce8ff4460f5d95bc491d3be5a024d05a05462ac14e4cee11cad9480b9d0",
+      "relations_sha256": "409647be4f8bd8512c5558706954c68d7591fad5f2f6656904d2ecc5df198125"
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_46/A_flat_catalogue.json",
+      "file_sha256": "0c735e69b992fb31c5142d6c996a0aac9663f57d84e993cc24b7780b7bbcf42d",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f4c3ee5c138573f9024ca3e2a9b8e4d8e7acb5d1d2d1a57d6a634920cac2c59a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "b2bca721a9908db593089405eb1e977edfe2b0aad87f3d829eb2abf7d6fe2fba",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f4c3ee5c138573f9024ca3e2a9b8e4d8e7acb5d1d2d1a57d6a634920cac2c59a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT14_CROSS_PAYMENT_PERFORMANCE/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "03c00583f581fd15eb04706cccfc0cc77254e33c763ee9af6a6f5ff644ff409e",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "f4c3ee5c138573f9024ca3e2a9b8e4d8e7acb5d1d2d1a57d6a634920cac2c59a",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_10/A_flat_catalogue.json",
+      "file_sha256": "31eac1319cc2e95cbfc7dae4de38854a34070e15331f8d7961dcb85181334d34",
+      "skill_cards_sha256": "0f269d916f329850ddd7eeb799acd4f81147e67f58992fb517844c5233a313c0",
+      "candidate_skill_ids_sha256": "0e3f40e9f1708c4c961a431d58869758e8f5b05992419a440cef5b24e269de65",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "70fa943d06277317d7e2be65c9e53109443b5d17ef1d0e82cab91365c14e2231",
+      "skill_cards_sha256": "0f269d916f329850ddd7eeb799acd4f81147e67f58992fb517844c5233a313c0",
+      "candidate_skill_ids_sha256": "0e3f40e9f1708c4c961a431d58869758e8f5b05992419a440cef5b24e269de65",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "8e5dd8d0fc3fb445558b07332b9b887ee97ce35d6b8e1a413794d124a502909a",
+      "skill_cards_sha256": "0f269d916f329850ddd7eeb799acd4f81147e67f58992fb517844c5233a313c0",
+      "candidate_skill_ids_sha256": "0e3f40e9f1708c4c961a431d58869758e8f5b05992419a440cef5b24e269de65",
+      "relations_sha256": "9e730977e623b9758db84bba349b4d8d54644cd20399b118484d818b6342bcf1"
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_30/A_flat_catalogue.json",
+      "file_sha256": "35c55e0a61469fabd9338109353518171623550648b44db972e63ce2dadace9a",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "39a58f933857ff053030edbcdee23fe8c39e1d496580a873c2f0113ad42bf716",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "bf57a2867a23bf9b118034e97dd4c28cf810055146c2b5d1b34287ebb67c0737",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "39a58f933857ff053030edbcdee23fe8c39e1d496580a873c2f0113ad42bf716",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "0041565ce9f5338f38ccbbaf9ffd765ac024e05d76d708331f737b92713593e8",
+      "skill_cards_sha256": "eb4a1d7751ad0c8e54aea4ce6f53c931fd92011dafaf39a2a6d89cd2e60e73a0",
+      "candidate_skill_ids_sha256": "39a58f933857ff053030edbcdee23fe8c39e1d496580a873c2f0113ad42bf716",
+      "relations_sha256": "96e22893e83b3f5b0b44179258c3e38aeafe0b4ad24216257514871d5ba84c7d"
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_46/A_flat_catalogue.json",
+      "file_sha256": "2c5ce229f0408c0baf25c16db4a6f793cd0788d9a39088c6e11a535e58dfc56d",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "413cefa47ebeb6912abeb36962920bb41e8988dc5fd493c55e5cef35b4d41280",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "cdf2a845bfaf99148d38c50de48188f2477a774fbb2295898d1415cf9e72bbe1",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "413cefa47ebeb6912abeb36962920bb41e8988dc5fd493c55e5cef35b4d41280",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT15_CROSS_SUPPLIER_CONTRACT_PO/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "6ec671fa666dfe7612e70ca6a4daef3a47613c594f29415559b8d07b386905d2",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "413cefa47ebeb6912abeb36962920bb41e8988dc5fd493c55e5cef35b4d41280",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_10/A_flat_catalogue.json",
+      "file_sha256": "556d27c78b32f707970d17f171b076c42cbd9d9af417a8ef9679e86d8a66e758",
+      "skill_cards_sha256": "41d583068af3de933752f3e1687a8ab63471db2402cb92247bff48c881a361a0",
+      "candidate_skill_ids_sha256": "5370e361250ea4bfb2f81fc8831f1824c198ea4448a002d411abfc9d48d54f19",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "9954212054bc65ed58671649d502ec389f045aa664e5c6d2079c89a9014db1e8",
+      "skill_cards_sha256": "41d583068af3de933752f3e1687a8ab63471db2402cb92247bff48c881a361a0",
+      "candidate_skill_ids_sha256": "5370e361250ea4bfb2f81fc8831f1824c198ea4448a002d411abfc9d48d54f19",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "7713ce12f1b3e2201c64d4e8d799f6d600d650337fe058a200f006e56881afd1",
+      "skill_cards_sha256": "41d583068af3de933752f3e1687a8ab63471db2402cb92247bff48c881a361a0",
+      "candidate_skill_ids_sha256": "5370e361250ea4bfb2f81fc8831f1824c198ea4448a002d411abfc9d48d54f19",
+      "relations_sha256": "9e01f507f3fda67c96450d1fb5304df42b5b08a566d0af62a95ee37601b3c5fe"
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_30/A_flat_catalogue.json",
+      "file_sha256": "af668e6e96022ff7138655d64d29310b517d59d473b2148cced33ab6ad055ca0",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "bc89d090a5bdfc5ec7388aebcf7b89cbf8f3a40f68b0cf14bc756933a9eaa9f9",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "d03ef11b7515f9795ae664cd8971ecdfc9ce9c2d3728da7697f97279bca7c79c",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "bc89d090a5bdfc5ec7388aebcf7b89cbf8f3a40f68b0cf14bc756933a9eaa9f9",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "49d459ffca7deb980e2e75fbaa5cad47e85d33dc43eae2f9816e7a001b93c8e2",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "bc89d090a5bdfc5ec7388aebcf7b89cbf8f3a40f68b0cf14bc756933a9eaa9f9",
+      "relations_sha256": "25139e136f28035abdde1350a9f5bb62671aa872e05df2e2ffc288ec56d22e4f"
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_46/A_flat_catalogue.json",
+      "file_sha256": "bdb8d238649c11c6dea106fbc874b67dcd099960420547395e3b99eb58cb4ed3",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "75f6803fec38b51fbd88effb28fd492c1cbcfe77206778985f896cf1fae33388",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "4e4fff56263f3a366af5376afc7536346b1eacc53f2371ab1941d7a310f37349",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "75f6803fec38b51fbd88effb28fd492c1cbcfe77206778985f896cf1fae33388",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT16_SPECIAL_SUPPLIER_FAIL/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "61ec7ff0e0ceb145ad785c65d52b80420e231a18c5994c61dfdf14d3157f1499",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "75f6803fec38b51fbd88effb28fd492c1cbcfe77206778985f896cf1fae33388",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_10/A_flat_catalogue.json",
+      "file_sha256": "fcdf0bc2113fc403631b5dabbd260f12b426d738427cedb49ab52cd943ddcaa3",
+      "skill_cards_sha256": "4318d99d3b830e6d123b78e1dbf3e8a02ca547b971c6c266240dc40ddc03237e",
+      "candidate_skill_ids_sha256": "5e86032d391ffcf7ed89c872c95fcda441d7e43eb4b47b3e3efe67265c24d54c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "082a3fe1b355705ef6206df0a77a0bb9e34bca11c966ee1e43fb17a96bca79f4",
+      "skill_cards_sha256": "4318d99d3b830e6d123b78e1dbf3e8a02ca547b971c6c266240dc40ddc03237e",
+      "candidate_skill_ids_sha256": "5e86032d391ffcf7ed89c872c95fcda441d7e43eb4b47b3e3efe67265c24d54c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "9097d289dfa3be55f9e5869578bf9f7e330d383c7997c32d967e12de8e65a3f1",
+      "skill_cards_sha256": "4318d99d3b830e6d123b78e1dbf3e8a02ca547b971c6c266240dc40ddc03237e",
+      "candidate_skill_ids_sha256": "5e86032d391ffcf7ed89c872c95fcda441d7e43eb4b47b3e3efe67265c24d54c",
+      "relations_sha256": "ba897e5d3c681435cdade8657af19b7a5945f89eddeb05f1977eaf10613a07e0"
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_30/A_flat_catalogue.json",
+      "file_sha256": "39918f9e635913f9e309bc6407aa1c467662962ba7dfdace27ea6ee0f28d463e",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "57947f60ba93794f17fff7fb25282314f99edf05eb6e9b542926890621b3e0b3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "e5258ff8e987673a2097b4193f6c25d37b7739b7a168db68e2abb25da570db63",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "57947f60ba93794f17fff7fb25282314f99edf05eb6e9b542926890621b3e0b3",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "3795cb4ae5bf22b17e3acc45330fe1d3c38860e20e4c1ac518ed0ae5bfcbd9f0",
+      "skill_cards_sha256": "5b0b3029587ba353f4c13f016f0e14ae11a37b6691b5f98bf1b12b7f7eb6d2de",
+      "candidate_skill_ids_sha256": "57947f60ba93794f17fff7fb25282314f99edf05eb6e9b542926890621b3e0b3",
+      "relations_sha256": "409647be4f8bd8512c5558706954c68d7591fad5f2f6656904d2ecc5df198125"
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_46/A_flat_catalogue.json",
+      "file_sha256": "0f0245759744cacf40e0d2021407c51e3c3c14a0d1c5e76d93c8ee349d24d923",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "970f82c9ada9f6e21b7a5452c074a43530e92adb55c1eb1b3e60b82b3c2eb065",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "2e7c00829042d8050b64979fee0ae827cfa9b9846e0723706115aef04ad734cf",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "970f82c9ada9f6e21b7a5452c074a43530e92adb55c1eb1b3e60b82b3c2eb065",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT17_SPECIAL_INVALID_INVOICE/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "9c457d50406de815c890863de5d2c5e6363fc67cc6352adfdbc6f881973074f3",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "970f82c9ada9f6e21b7a5452c074a43530e92adb55c1eb1b3e60b82b3c2eb065",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_10/A_flat_catalogue.json",
+      "file_sha256": "a5fab738344d5d96873e5faebb96f0f2dac12692f078fc10be0e9068ce4e8b64",
+      "skill_cards_sha256": "7534672d0eb69ab45a6ea71228a95d8dd0739828a3fd2f600e57a1563703aec4",
+      "candidate_skill_ids_sha256": "f4f09f2005409a163446c0a0a3ec3e7a130b28efe4c3606a9fe421756b63cb0a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "609a7eae58668a253fc4440dfced370190ffb25c33dcc5938c13cb60da333b82",
+      "skill_cards_sha256": "7534672d0eb69ab45a6ea71228a95d8dd0739828a3fd2f600e57a1563703aec4",
+      "candidate_skill_ids_sha256": "f4f09f2005409a163446c0a0a3ec3e7a130b28efe4c3606a9fe421756b63cb0a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "69052180509b6290e8cba5ef937627fd35a35e2ddbd64f8b64d88fd6bf70bc9f",
+      "skill_cards_sha256": "7534672d0eb69ab45a6ea71228a95d8dd0739828a3fd2f600e57a1563703aec4",
+      "candidate_skill_ids_sha256": "f4f09f2005409a163446c0a0a3ec3e7a130b28efe4c3606a9fe421756b63cb0a",
+      "relations_sha256": "c6fd1e09fb5cf2cc6e678c1a8fc1d334c6d6bf563d433b720c24ea2a890a2d78"
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_30/A_flat_catalogue.json",
+      "file_sha256": "7629b6ac72b35f0cb3f0580055e9b3f3c7d9c8dccb251f291411c7fdd8b364ab",
+      "skill_cards_sha256": "7733219ab9d50e81f7803399016617870c487dfae5a6030ed6c7cdd0a9afe476",
+      "candidate_skill_ids_sha256": "e56f86898fea8417c8b5390ecbe4ab6ef27ca0ab5989d6d7a0a5848f5be61c1c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "435d69c0bc5e51c0a22b1ec55a112b9094ad1d74d423e75a2fb2a22623fdc737",
+      "skill_cards_sha256": "7733219ab9d50e81f7803399016617870c487dfae5a6030ed6c7cdd0a9afe476",
+      "candidate_skill_ids_sha256": "e56f86898fea8417c8b5390ecbe4ab6ef27ca0ab5989d6d7a0a5848f5be61c1c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "b4733bc13f912969e90d793f34a4c79c2d99805c4c85499ba6ebf6179bf39f9c",
+      "skill_cards_sha256": "7733219ab9d50e81f7803399016617870c487dfae5a6030ed6c7cdd0a9afe476",
+      "candidate_skill_ids_sha256": "e56f86898fea8417c8b5390ecbe4ab6ef27ca0ab5989d6d7a0a5848f5be61c1c",
+      "relations_sha256": "0f2e85d640a6c0e11f930b9d4aac706c2892713dc4ed6de1821127bec43ebd15"
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_46/A_flat_catalogue.json",
+      "file_sha256": "36544d4b0e7b6578e42069957ee6547760a3a0159f7940db467be3d32fc7dbcd",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "b853ecd09e77747eb318e1429a4ab5e87af56524a692282dfcfd71356657a392",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "b85dd295f12440677a2feae9732016df3e3b625178580ef7f260b3b1426dccec",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "b853ecd09e77747eb318e1429a4ab5e87af56524a692282dfcfd71356657a392",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT18_SPECIAL_BUILD_OR_BUY/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "b6739af77e328a5983403a5d0bae60a3ff71422b8468c98abaf731f20e4b4aba",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "b853ecd09e77747eb318e1429a4ab5e87af56524a692282dfcfd71356657a392",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_10/A_flat_catalogue.json",
+      "file_sha256": "21f08d9130cbc1cb1389fa2ed4c4c0563a448326faab40f4bb60cb23c8e598c2",
+      "skill_cards_sha256": "daa5019aa8b275f5a65aa1e45cf6a7997fa96d83e60abdd1cb06a222f1408495",
+      "candidate_skill_ids_sha256": "35435550b0adc14b57da0676c1f89407892518bd687818d8decfaaad828b0f3a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "f70e2036fe097dce1558416838e789d7801c017fbc710a21f033f8ee6005ff2d",
+      "skill_cards_sha256": "daa5019aa8b275f5a65aa1e45cf6a7997fa96d83e60abdd1cb06a222f1408495",
+      "candidate_skill_ids_sha256": "35435550b0adc14b57da0676c1f89407892518bd687818d8decfaaad828b0f3a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "895a76d123779333cf61242e9e75378fd13e10239041e235a8c67fd834a45975",
+      "skill_cards_sha256": "daa5019aa8b275f5a65aa1e45cf6a7997fa96d83e60abdd1cb06a222f1408495",
+      "candidate_skill_ids_sha256": "35435550b0adc14b57da0676c1f89407892518bd687818d8decfaaad828b0f3a",
+      "relations_sha256": "4a1b32accd730d6761bc3d97f49af8684db04a324185878615bf49f1431aa133"
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_30/A_flat_catalogue.json",
+      "file_sha256": "404092a126fe8ad28d154d48335ddb3a2a6c8e756196d72da0f0f32aebe1cf10",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "106dde547c239a01e7f72d92b483f7b470f3f28681688744b1281a6d40eb6795",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "ed8bf3bbdba4765518c25d9484a475523f4ab92d1e8c656677d9681f8756d2cf",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "106dde547c239a01e7f72d92b483f7b470f3f28681688744b1281a6d40eb6795",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "3bbca85d24ef632f0ef1f8c128b67421c720266e8539d1751cd413496b4e1c21",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "106dde547c239a01e7f72d92b483f7b470f3f28681688744b1281a6d40eb6795",
+      "relations_sha256": "95850b4827c3b8b8606818d4ed2a3671bc969a4c64d67cd23ca3246cbece50af"
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_46/A_flat_catalogue.json",
+      "file_sha256": "0fa449b46c78bf97e3709eeeabcb64abff6688bdbb6383ea7fa66a487794455b",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "4596e22d952d4004382ce8b55253a13af5f10f271b4dd8119aec73a092bdfd14",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "43ad65507b6886fe76622525963a76e0a60cdd9537d93fd0b8cf0f572d107736",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "4596e22d952d4004382ce8b55253a13af5f10f271b4dd8119aec73a092bdfd14",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT19_NO_TOOL_CLEAR/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "fc4ed6c34c2c14b7687943b82d0f027f214296fdb1ad16eeb70e939cae7f9ed3",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "4596e22d952d4004382ce8b55253a13af5f10f271b4dd8119aec73a092bdfd14",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_10/A_flat_catalogue.json",
+      "file_sha256": "6606e2541c8a06668f9589ac771fd75f5fe8738b15d4657b43722a96a015e6e9",
+      "skill_cards_sha256": "60c218d2f8cd6cc1a832deb5ae6bde49b099fe92e81d057491ee04e6fb30c611",
+      "candidate_skill_ids_sha256": "9838294995d21c13108e6b421f11211c1f7c3966e01ee8665cb3f6351360566b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "df5cf64402a1abdb0482381631144981e2f1a6cd53f7c9e85ff2bfb60c6f9bf7",
+      "skill_cards_sha256": "60c218d2f8cd6cc1a832deb5ae6bde49b099fe92e81d057491ee04e6fb30c611",
+      "candidate_skill_ids_sha256": "9838294995d21c13108e6b421f11211c1f7c3966e01ee8665cb3f6351360566b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "3f5b8dfb539d5a4d8e865aebe2f3c2a9af37def12c27ac57cfbcb31b74cef903",
+      "skill_cards_sha256": "60c218d2f8cd6cc1a832deb5ae6bde49b099fe92e81d057491ee04e6fb30c611",
+      "candidate_skill_ids_sha256": "9838294995d21c13108e6b421f11211c1f7c3966e01ee8665cb3f6351360566b",
+      "relations_sha256": "9cbaf869451a95e627cb0b7c85c9f8874fc1c754ce77881382e6c2839c7badea"
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_30/A_flat_catalogue.json",
+      "file_sha256": "bb22b701018714e0ae460e96181d1e17a33e30a1b722a64b8ed76ca642c8b1da",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "a81bb5e32818c30d689fc7ad0fb1c7605e73417ffdc4f8a69315f23f11e8697c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "69ae9bdd3316575f66f571943f521b375f879f0e0c0ab3a9e97b8fdbe748e0d3",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "a81bb5e32818c30d689fc7ad0fb1c7605e73417ffdc4f8a69315f23f11e8697c",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "97057a6dc746b90b4c06ab3fabcd03c20f201035b0be6657d9aeb1f9386d484d",
+      "skill_cards_sha256": "929719ccf608633922ae11c6cba2387402087a06abe1a38465998d9c50a8f548",
+      "candidate_skill_ids_sha256": "a81bb5e32818c30d689fc7ad0fb1c7605e73417ffdc4f8a69315f23f11e8697c",
+      "relations_sha256": "95850b4827c3b8b8606818d4ed2a3671bc969a4c64d67cd23ca3246cbece50af"
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_46/A_flat_catalogue.json",
+      "file_sha256": "4e867628da48b28352600916bfdfe98063e210d4d34068db94e0f9fd1172991d",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "e9822fe743ed766a67812d84ae209f924eb0192c9b59757423a6f446a245b40b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "2d978eebee2966927e244f36b6a2e009a6c8ebe15cb4e2933abc698cc0dcb4c9",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "e9822fe743ed766a67812d84ae209f924eb0192c9b59757423a6f446a245b40b",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT20_NO_TOOL_FINANCE/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "236eab9e7555c8e9ee20dc8bacba28a72cb2bc25dd55b807fc66eb53fe79c929",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "e9822fe743ed766a67812d84ae209f924eb0192c9b59757423a6f446a245b40b",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 10,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_10/A_flat_catalogue.json",
+      "file_sha256": "0826e2a5234c371cfde770005eeb731dd9cc0666c04bd8da5d1fb2b840b348c1",
+      "skill_cards_sha256": "f6329a7d7e222265c6ab6ec057aeaa901b88d489873b90a2618dbcb024e460b1",
+      "candidate_skill_ids_sha256": "19361c6331117434432cf7f7ddaf68f30bbcf10230b9167ac925154179fe30e2",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 10,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_10/B_department_grouped_catalogue.json",
+      "file_sha256": "ac6eef8f259115030c6c5584ff7a0ab620155135ca94f25cf1f8ba56495d8f8e",
+      "skill_cards_sha256": "f6329a7d7e222265c6ab6ec057aeaa901b88d489873b90a2618dbcb024e460b1",
+      "candidate_skill_ids_sha256": "19361c6331117434432cf7f7ddaf68f30bbcf10230b9167ac925154179fe30e2",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 10,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_10/C_graph_structured_catalogue.json",
+      "file_sha256": "da23ac10a293555c8127751eba693df124cad18e875c037a694bbf967f98239c",
+      "skill_cards_sha256": "f6329a7d7e222265c6ab6ec057aeaa901b88d489873b90a2618dbcb024e460b1",
+      "candidate_skill_ids_sha256": "19361c6331117434432cf7f7ddaf68f30bbcf10230b9167ac925154179fe30e2",
+      "relations_sha256": "8a856812f3baa830f510d7faa19dcbcd7b4b5f00f56aa48e29107e75202e5589"
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 30,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_30/A_flat_catalogue.json",
+      "file_sha256": "1cc200819a278ddae5a6154f6d4113a374223319ac03c71f30de4764aa0c42a3",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "481d996479ae2e0f63deac2fd33e9fd7755c1153e2c7a4ee1e980b187ad4083a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 30,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_30/B_department_grouped_catalogue.json",
+      "file_sha256": "6c1fb933baaa64709248410edf50c9965fc864df81e041cbc91ebe9586a770aa",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "481d996479ae2e0f63deac2fd33e9fd7755c1153e2c7a4ee1e980b187ad4083a",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 30,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_30/C_graph_structured_catalogue.json",
+      "file_sha256": "9ec15b0527872a587c180cd1bc61eeb6848df1c1e668b57b9b55468e5f6004b3",
+      "skill_cards_sha256": "87251bbe26d1d061a0e93b126fed573478b3d1e145bd03d5665f53c12e20959c",
+      "candidate_skill_ids_sha256": "481d996479ae2e0f63deac2fd33e9fd7755c1153e2c7a4ee1e980b187ad4083a",
+      "relations_sha256": "25139e136f28035abdde1350a9f5bb62671aa872e05df2e2ffc288ec56d22e4f"
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 46,
+      "configuration": "A",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_46/A_flat_catalogue.json",
+      "file_sha256": "9eb867efc5ea160f599f283c83c0e23c7a52042c22ffed28ab452352e8fba36e",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "97d273e9ada66d5c2eecbb02fb81b89d55dcc33e2518f31c80f87580a0847ab8",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 46,
+      "configuration": "B",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_46/B_department_grouped_catalogue.json",
+      "file_sha256": "c394d628e853dcd1f28b0431efefb408ac287d51f30d1053f7c1cbea63d38117",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "97d273e9ada66d5c2eecbb02fb81b89d55dcc33e2518f31c80f87580a0847ab8",
+      "relations_sha256": null
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "catalogue_size": 46,
+      "configuration": "C",
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/tasks/GT21_NO_TOOL_PROC/size_46/C_graph_structured_catalogue.json",
+      "file_sha256": "ecca5f6f378a6a3ff02e68d12cc1d5ef2a9d548423ecd28b6fa6dfcbb9aa7d23",
+      "skill_cards_sha256": "d0b71e55655917dc48c83f4355a6d6da1be791e0e763137f1d5c544775d474d8",
+      "candidate_skill_ids_sha256": "97d273e9ada66d5c2eecbb02fb81b89d55dcc33e2518f31c80f87580a0847ab8",
+      "relations_sha256": "0d068cf316873e6c9a504a969eb85ce3974df1813535a233374a91edaefea146"
+    }
+  ]
+}

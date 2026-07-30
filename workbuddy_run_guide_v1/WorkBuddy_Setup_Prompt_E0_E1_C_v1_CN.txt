@@ -1,0 +1,178 @@
+WorkBuddy / CodeBuddy E0/E1 C组（图结构）Setup Prompt v1（中文）
+
+用途
+====
+本 Prompt 只用于把已经冻结的 SkillNet E0/E1 C组（图结构）实验迁移到
+WorkBuddy / CodeBuddy 传输层。正式范围只有 E0-C 和 E1-C；不得运行 A/B 组，
+不得重新设计实验，不得修改 Skills、Gold、Catalogue、relations、schema 或
+evaluator。
+
+重要限制
+========
+现有 experiments/skillnet/run_condition.py 是 Codex 专用 runner，里面固定了
+Codex CLI、Codex model 和 Codex 参数。WorkBuddy 实验不得直接调用它，也不得
+把“WorkBuddy 窗口中执行了这个文件”误认为是在测试 WorkBuddy 模型。
+
+正式实验的每一道题必须由一个全新的、非交互式 CodeBuddy CLI 进程完成。
+WorkBuddy 窗口只作为控制器。禁止让同一个 WorkBuddy 对话连续回答多道题。
+
+运行变量（开始前由操作者填写）
+============================
+SETUP_MODE=<COMMON_ADAPTER 或 MODEL_PREFLIGHT>
+MODEL_DISPLAY_NAME=<界面中显示的模型名>
+MODEL_ID=<本机 codebuddy 实际接受的精确模型 ID>
+MODEL_SLUG=<只含小写字母、数字和下划线>
+RUN_ID=<该模型唯一的正式运行编号>
+
+建议值：
+
+1. DeepSeekV4-Pro
+   MODEL_DISPLAY_NAME=DeepSeekV4-Pro
+   MODEL_ID=deepseek-v4-pro（仅为初始候选，必须用本机配置和 CLI 实测确认）
+   MODEL_SLUG=deepseek_v4_pro
+   RUN_ID=wb_deepseek_v4_pro_c_r01
+
+2. GLM5.2
+   MODEL_DISPLAY_NAME=GLM5.2
+   MODEL_ID=<不得猜测；从本机 WorkBuddy/CodeBuddy 配置中读取并实测>
+   MODEL_SLUG=glm_5_2
+   RUN_ID=wb_glm_5_2_c_r01
+
+3. Kimi-K3
+   MODEL_DISPLAY_NAME=Kimi-K3
+   MODEL_ID=<不得猜测；从本机 WorkBuddy/CodeBuddy 配置中读取并实测>
+   MODEL_SLUG=kimi_k3
+   RUN_ID=wb_kimi_k3_c_r01
+
+必须先读取
+==========
+- experiments/skillnet/RUNBOOK.md
+- experiments/skillnet/run_condition.py
+- experiments/skillnet/verify_condition.py
+- experiments/skillnet/frozen_eval/E1_Gold_5_tasks.json
+- skillnet_run_guide_v1_1/catalogues/catalogue_manifest.json
+- skillnet_run_guide_v1_1/catalogues/catalogue_validation_report.json
+- 本文件
+
+读取 run_condition.py 只是为了理解任务、产物和评价契约；禁止调用其中固定的
+Codex transport，禁止改动该文件。
+
+人工界面前置条件
+================
+操作者必须在 WorkBuddy 中完成并截图/记录：
+
+1. 关闭 Auto Mode，明确选择 MODEL_DISPLAY_NAME。
+2. 禁用 fallback model；任何失败都不得切换到其他模型。
+3. Settings → Memory 中关闭自动/持久记忆，并清除与本项目有关的旧记忆。
+4. 禁用或不加载 Skills、Expert、Connectors、Automations 和 MCP。
+5. 不把 API key、token 或其他密钥写入 repo、日志或实验结果。
+6. 三个模型可以使用同一个项目，但不得共用 RUN_ID、结果目录或 child session。
+
+SETUP_MODE=COMMON_ADAPTER（只做一次）
+====================================
+这一步只能由一个控制窗口串行完成。其他两个窗口等待；不要让三个窗口同时创建
+或修改 adapter。
+
+在不改动现有 experiments/skillnet/ 的前提下，新建最小的
+experiments/skillnet_workbuddy/ 适配层，至少包含：
+
+- RUNBOOK.md
+- runner、verifier 和相应 tests
+- runs/<MODEL_SLUG>/ 与 results/<MODEL_SLUG>/ 的隔离路径契约
+- setup_evidence/ 和 synthetic_smoke/ 证据路径
+
+适配器必须满足：
+
+1. 只调用本机实际安装的 codebuddy 或 cbc，绝不调用 codex。
+2. 先保存 codebuddy --version 和 codebuddy --help 原始输出。
+3. 根据本机 --help 实测并确认以下能力，不得凭文档猜参数：
+   - 非交互单次执行（通常为 --print）
+   - 精确指定 --model
+   - 为每题指定新的 UUID session
+   - 禁止 tools、MCP 和 fallback
+   - 可机械保存 stdout、stderr、exit code 和最终 response
+4. 每题创建新的空临时工作目录；child 只能看到：
+   - 当前一题的中文任务
+   - 当前 C condition 唯一一份图结构 Catalogue
+   - 固定八字段 JSON 输出契约
+5. 每题启动一个全新的 codebuddy 进程；max_workers=1；每题只尝试一次。
+6. 禁止 -c、--continue、-r、--resume 或复用 session。
+7. 每题使用新的 UUID；保存 PID、开始/结束时间、临时 CWD、完整命令（密钥脱敏）、
+   MODEL_ID、CLI 版本、stdout、stderr 和 exit code。
+8. 禁止自动修复、补全或重写模型答案。transport 原始输出必须逐字节保存；
+   结构化结果只能机械提取。格式错误应作为真实 schema-invalid 记录。
+9. 评价仅在模型回答结束后进行，并使用现有冻结 schema/evaluator；不得让 child
+   看到 Gold、relations、evaluator、其他 Catalogue 或以前的结果。
+10. E1-C-size46 必须从同一模型 E0-C-size46 的固定五题结果派生，不再调用模型。
+11. 不得读写 experiments/skillnet/runs/run_01、run_02 或其结果；WorkBuddy
+    结果只能写入 experiments/skillnet_workbuddy/。
+12. 如果本机 CLI 不能可靠关闭 memory/tools/MCP/fallback，或无法提供一题一进程
+    和唯一 session，立即停止并报告 WORKBUDDY_TRANSPORT_NOT_FORMAL_READY。
+    不得静默回退到 Codex，也不得改为一个 GUI 对话回答多题。
+
+适配器应保持固定八字段 JSON 契约，并在调用后使用冻结 schema 做事后验证；不要
+用任何“保证正确格式”的机制替模型修正答案。具体字段、C组任务选择、C组图结构
+Catalogue 打包和评分逻辑必须与当前已冻结实验完全一致。适配器正式运行入口只允许
+以下四个 condition：E0-C-size46、E1-C-size10、E1-C-size30、E1-C-size46；
+任何 A/B condition 请求都必须拒绝。
+
+COMMON_ADAPTER 完成后：
+
+1. 运行适配器单元测试。
+2. 运行 git diff --check。
+3. 人工审查没有改动冻结实验资产。
+4. 提交并同步该 adapter；记录 commit SHA。
+5. 三个正式模型窗口都必须基于同一个已提交 commit 做 MODEL_PREFLIGHT。
+
+SETUP_MODE=MODEL_PREFLIGHT（每个模型窗口各做一次）
+===================================================
+不得修改 adapter 或冻结实验文件，只允许生成本 MODEL_SLUG 的 setup evidence。
+
+依次检查并保存证据：
+
+1. local HEAD 与 origin/main（或团队明确冻结的正式分支 HEAD）一致。
+2. working tree 符合 WorkBuddy RUNBOOK；正式代码和 prompt 已提交。
+3. Catalogue manifest、validation report、fixture dry run 和 E1 Gold 固定五题的
+   C组路径验证通过。
+4. 记录 Python、jsonschema、WorkBuddy、CodeBuddy CLI、MODEL_DISPLAY_NAME、MODEL_ID、
+   provider、reasoning 设置、Auto Mode、Memory、fallback、tools/MCP 状态。
+5. MODEL_ID 必须由一次无害 synthetic 调用证明是实际生效的模型，而不是路由别名。
+6. RUN_ID 在该 MODEL_SLUG 的 runs/results 下均不存在。
+7. 记录所有冻结输入和 adapter 的 hash；之后每个 condition 前后检查 drift。
+
+Synthetic smoke（不能使用 Gold 或正式 Catalogue）
+===================================================
+使用人工编写的虚构任务与虚构 Catalogue，完成：
+
+1. fixture dry run：不调用模型，验证目录、解析、schema、evaluator 和 verify 管线。
+2. 单题 transport smoke：一个新 codebuddy 进程、新 UUID、新空 CWD、一次尝试。
+3. 跨题隔离 smoke：
+   - synthetic-1 中放入唯一随机 marker；
+   - synthetic-2 使用另一个新进程、新 UUID、新空 CWD，任务中不含该 marker；
+   - synthetic-2 输出不得出现 marker。
+4. 证明 child 没有工具/MCP/Skills/Connector 调用，并保存全部原始证据。
+5. smoke 失败时查明 transport/config 原因并修复 adapter；修复后重新从完整 preflight
+   开始。不得用正式 Gold 调试。
+
+Setup 完成条件
+==============
+只有以下全部成立才输出 READY：
+
+- COMMON_ADAPTER 已提交并同步，三个窗口使用同一 commit；
+- 当前模型的 preflight、fixture dry run、Catalogue validation、E1 Gold 固定五题
+  C组路径验证、synthetic transport smoke 和跨题隔离 smoke 全部通过；
+- 精确 MODEL_ID、CLI 版本、reasoning、memory/tools/MCP/fallback 状态均已记录；
+- 未改动 Skills、Gold、Catalogue、relations、schema 或 evaluator；
+- 未运行任何正式 Gold task。
+
+最后只报告：
+
+- READY 或 STOPPED
+- MODEL_DISPLAY_NAME / MODEL_ID / MODEL_SLUG / RUN_ID
+- commit SHA、working tree 状态
+- CLI 与关键配置
+- setup evidence 路径
+- 各项测试命令和 exit code
+- 若 STOPPED，给出可复现原因；不要开始正式运行
+
+READY 后等待操作者发送对应模型的正式 RUN 指令。

@@ -1,0 +1,216 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT05_BUS_GOAL",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "0b76aa5451e03cf9888521be2bcaf78fec4282d96523baebcb598e12ccf5c983",
+  "candidate_skill_ids_sha256": "1e4b81dd7720ea22a640a6f21255d0d457e9503d8051ae6b98fd67d157f90223",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": [
+        {
+          "skill_id": "business-acceptance",
+          "name_en": "Business Acceptance",
+          "display_name_zh": "业务验收",
+          "description_en": "Use when customer deliverables need contract-criteria checks, exception and remedy handling, customer review, or sign-off preparation; not for delivery tracking, invoicing, payment, or renewal.",
+          "description_zh": "负责交付物检查、异常处理和客户签署准备；不负责项目跟踪、发票付款或续约。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "business-contract-signing",
+          "name_en": "Business Contract Signing",
+          "display_name_zh": "合同签署",
+          "description_en": "Use when a negotiated customer contract needs version reconciliation, approval routing, signatory-authority review, signature readiness, or execution evidence; not for negotiation or project delivery.",
+          "description_zh": "核验合同版本、文件指纹、双方主体、签署权限、审批、谈判偏差和关键条款；仅判断是否可进入人工签署，不自动签署或发送。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-contract-signing/SKILL.md"
+        },
+        {
+          "skill_id": "business-customer-lead",
+          "name_en": "Business Customer Lead",
+          "display_name_zh": "客户线索管理",
+          "description_en": "Use when a potential customer, partner, referral, inquiry, or target account needs a traceable lead record before discovery; not for requirement confirmation, opportunity scoring, or outreach execution.",
+          "description_zh": "记录客户线索来源、潜在需求、联系依据、负责人和下一步；未经授权不得抓取个人信息、联系客户或把假设写成事实。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-customer-lead/SKILL.md"
+        },
+        {
+          "skill_id": "business-negotiation",
+          "name_en": "Business Negotiation",
+          "display_name_zh": "商务谈判",
+          "description_en": "Use when a proposal, scope, price, service level, risk allocation, or contract term needs negotiation preparation or a traceable session record; not for quotation creation or contract signature.",
+          "description_zh": "明确谈判目标、权限和底线，记录双方立场、让步、交换条件、未决问题与审批；未经授权不得承诺价格、范围或合同条款。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-negotiation/SKILL.md"
+        },
+        {
+          "skill_id": "business-opportunity-assessment",
+          "name_en": "Business Opportunity Assessment",
+          "display_name_zh": "商机评估",
+          "description_en": "Use when confirmed customer needs require an opportunity score, pursuit review, pipeline priority recommendation, or qualification decision packet; not for discovery, solution pricing, or negotiation.",
+          "description_zh": "按战略匹配、需求清晰度、决策人触达、预算准备度、时间准备度和交付匹配度评估商机；评分只供人工决策，不自动判定客户价值。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-opportunity-assessment/SKILL.md"
+        },
+        {
+          "skill_id": "business-project-delivery-tracking",
+          "name_en": "Business Project Delivery Tracking",
+          "display_name_zh": "项目交付跟踪",
+          "description_en": "Use when a signed customer project needs contract-linked milestone, change, blocker, risk, and delivery-status tracking; not for customer acceptance or renewal.",
+          "description_zh": "按合同和里程碑跟踪项目交付、完成度、证据、逾期、阻塞、变更与风险；不得虚构进度、擅改范围或代替客户验收。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-project-delivery-tracking/SKILL.md"
+        },
+        {
+          "skill_id": "business-renewal",
+          "name_en": "Business Renewal",
+          "display_name_zh": "客户续约",
+          "description_en": "Use when an accepted customer contract approaches renewal and needs renewal evaluation, options, scope and price proposal, quotation, or follow-up tracking; not for acceptance or contract signature.",
+          "description_zh": "负责续约评估、续约方案、报价和续约跟踪；不负责业务验收或合同签署。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-renewal/SKILL.md"
+        },
+        {
+          "skill_id": "business-requirement-communication",
+          "name_en": "Business Requirement Communication",
+          "display_name_zh": "客户需求沟通",
+          "description_en": "Use when a customer discovery meeting, needs interview, requirement clarification, or follow-up confirmation needs preparation or documentation; not for lead creation or opportunity scoring.",
+          "description_zh": "准备并记录客户需求沟通，区分客户原话、内部理解、假设和已确认需求，形成责任明确的下一步；不得虚构沟通或替客户确认。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-requirement-communication/SKILL.md"
+        },
+        {
+          "skill_id": "business-solution-quotation",
+          "name_en": "Business Solution and Quotation",
+          "display_name_zh": "方案与报价",
+          "description_en": "Use when a qualified opportunity needs a solution scope, proposal, pricing model, line-item quotation, or quote-version review; not for opportunity scoring, negotiation, or contract signing.",
+          "description_zh": "根据已确认需求形成方案与报价草案，核对范围、交付、币种、折扣、税费和有效期；不得擅自定价、承诺或向客户发送。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-solution-quotation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": []
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": []
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-contract-generation",
+          "name_en": "Procurement Contract Generation",
+          "display_name_zh": "合同生成",
+          "description_en": "Use when an approved supplier selection needs contract terms, version control, deviation review, legal or finance approval routing, and signature preparation; not for creating or releasing a PO.",
+          "description_zh": "根据选商结果生成合同条款与版本，完成偏差和审批准备；不生成采购订单，也不自动签署。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-contract-generation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": []
+    }
+  ],
+  "relations_sha256": "f52edfdb56ea00c671742123974ca0e04c0ec58190cb8ceb133b62c86b83d976",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "business-negotiation",
+        "after": "procurement-contract-generation",
+        "scope": "procurement"
+      },
+      {
+        "before": "business-customer-lead",
+        "after": "business-requirement-communication",
+        "scope": "business"
+      },
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "scope": "business"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "scope": "business"
+      },
+      {
+        "before": "business-solution-quotation",
+        "after": "business-negotiation",
+        "scope": "business"
+      },
+      {
+        "before": "business-negotiation",
+        "after": "business-contract-signing",
+        "scope": "business"
+      },
+      {
+        "before": "business-contract-signing",
+        "after": "business-project-delivery-tracking",
+        "scope": "business"
+      },
+      {
+        "before": "business-project-delivery-tracking",
+        "after": "business-acceptance",
+        "scope": "business"
+      },
+      {
+        "before": "business-acceptance",
+        "after": "business-renewal",
+        "scope": "business"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "business-acceptance",
+        "blocked_skill": "business-renewal",
+        "condition": "business_acceptance_failed"
+      }
+    ],
+    "mutex": [],
+    "enhances": []
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

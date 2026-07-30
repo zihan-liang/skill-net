@@ -1,0 +1,18 @@
+Task ID: E1V2_GT03_PROC_SHORT
+Task title (English): Select a Supplier from Qualified Comparable Quotes
+任务名称（中文）：从合格且可比的报价中确定供应商
+
+English task prompt
+The procurement team has completed supplier qualification and received RFQ responses from the qualified candidates. Normalize and compare the quotes, score the qualified suppliers, and select one supplier. Stop at selection; do not negotiate, generate a contract, or create a purchase order.
+
+中文任务
+采购团队已经完成供应商资质核验，并收到合格候选供应商的询价回复。请对报价进行归一化比较、对合格供应商评分并确定一家供应商；任务到选择供应商为止，不要进入谈判、生成合同或创建采购订单。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

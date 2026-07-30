@@ -1,0 +1,246 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "888f27a06518c40105cb83d08b91be16ab2e693c4fb7ce784caf4bcff51ef38f",
+  "candidate_skill_ids_sha256": "632f0955bf313a127f7a635df6004f5e0961876d70b2e92e0289ff2f8b00f966",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": [
+        {
+          "skill_id": "business-acceptance",
+          "name_en": "Business Acceptance",
+          "display_name_zh": "业务验收",
+          "description_en": "Use when customer deliverables need contract-criteria checks, exception and remedy handling, customer review, or sign-off preparation; not for delivery tracking, invoicing, payment, or renewal.",
+          "description_zh": "负责交付物检查、异常处理和客户签署准备；不负责项目跟踪、发票付款或续约。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-acceptance/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": []
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": [
+        {
+          "skill_id": "hr-employee-database",
+          "name_en": "HR Employee Database",
+          "display_name_zh": "员工数据库",
+          "description_en": "Use when authorized HR users need minimum employee-record queries, skill/KPI/training updates, personnel statistics, or audit history; not for candidate screening or onboarding decisions.",
+          "description_zh": "管理员工基本信息、技能、KPI和培训记录，并为每次数据变更保留审计日志。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-employee-database/SKILL.md"
+        },
+        {
+          "skill_id": "hr-job-requirement",
+          "name_en": "HR Job Requirement",
+          "display_name_zh": "岗位需求",
+          "description_en": "Use when a manager requests headcount, proposes opening a role, or needs a hiring request clarified and approved; not for writing or publishing the JD.",
+          "description_zh": "收集并分析岗位需求，形成可审批的岗位需求说明书。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-job-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "hr-offer-generator",
+          "name_en": "HR Offer Generator",
+          "display_name_zh": "Offer生成",
+          "description_en": "Use when an approved finalist needs compensation validation, a draft offer, version tracking, or verified acceptance recording; not for candidate selection or onboarding before acceptance.",
+          "description_zh": "校验薪资与录用审批，生成Offer草案并跟踪版本及候选人状态。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-offer-generator/SKILL.md"
+        },
+        {
+          "skill_id": "hr-onboarding",
+          "name_en": "HR Onboarding",
+          "display_name_zh": "入职管理",
+          "description_en": "Use when a candidate has verified offer acceptance and needs preboarding, access, a 30/60/90-day plan, training, or probation review; not for issuing offers or maintaining general employee records.",
+          "description_zh": "管理新员工入职清单、30/60/90天计划、试用期反馈与转正评估。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-onboarding/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-delivery-acceptance",
+          "name_en": "Procurement Delivery Acceptance",
+          "display_name_zh": "交付验收",
+          "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+          "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-delivery-tracking",
+          "name_en": "Procurement Delivery Tracking",
+          "display_name_zh": "交付跟踪",
+          "description_en": "Use when a released purchase order needs supplier confirmation, expected delivery, logistics or service milestones, delay, exception, and expediting records; not for accepting delivery.",
+          "description_zh": "跟踪订单确认、预计交付、物流或服务里程碑、延期、异常和催交记录；不负责收货或验收。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-tracking/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-purchase-order",
+          "name_en": "Procurement Purchase Order",
+          "display_name_zh": "采购订单生成",
+          "description_en": "Use when an approved procurement contract needs a purchase-order draft, line and total validation, approval routing, release control, or PO status record; not for drafting contract terms.",
+          "description_zh": "根据已批准合同生成采购订单，校验 PO 内容、审批、释放和状态记录；不负责合同条款设计。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-purchase-order/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-requirement",
+          "name_en": "Procurement Requirement",
+          "display_name_zh": "采购需求识别",
+          "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+          "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": [
+        {
+          "skill_id": "technology-test-acceptance",
+          "name_en": "Technology Test Acceptance",
+          "display_name_zh": "技术测试验收",
+          "description_en": "Use when an implementation or system version needs reproducible test aggregation, gate checks, defect review, and human acceptance input; not for implementation or release execution.",
+          "description_zh": "汇总并复核测试套件、通过率、覆盖率、缺陷和证据，形成测试验收建议；自动门禁通过不等于人工验收或生产发布批准。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-test-acceptance/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "relations_sha256": "d07b637b87280576c335cdf227f866393493cf8a2068b00261949bf0726a0483",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "procurement-purchase-order",
+        "after": "procurement-delivery-tracking",
+        "scope": "procurement"
+      },
+      {
+        "before": "hr-offer-generator",
+        "after": "hr-onboarding",
+        "scope": "hr"
+      },
+      {
+        "before": "hr-onboarding",
+        "after": "hr-employee-database",
+        "scope": "hr"
+      },
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "scope": "cross-domain",
+        "condition": "technology_purchase"
+      },
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "business-acceptance",
+        "scope": "cross-domain",
+        "condition": "business_service_purchase"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "scope": "cross-domain",
+        "condition": "technology_acceptance_route"
+      },
+      {
+        "before": "business-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "scope": "cross-domain",
+        "condition": "business_acceptance_route"
+      },
+      {
+        "before": "hr-offer-generator",
+        "after": "procurement-requirement",
+        "scope": "cross-domain",
+        "condition": "onboarding_equipment_required"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "hr-onboarding",
+        "scope": "cross-domain",
+        "condition": "onboarding_equipment_delivered"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "hr-offer-generator",
+        "blocked_skill": "hr-onboarding",
+        "condition": "offer_not_accepted"
+      }
+    ],
+    "mutex": [
+      {
+        "skill_a": "technology-test-acceptance",
+        "skill_b": "business-acceptance",
+        "context": "single_primary_acceptance_route"
+      },
+      {
+        "skill_a": "hr-job-requirement",
+        "skill_b": "procurement-requirement",
+        "context": "same_capability_gap"
+      }
+    ],
+    "enhances": [
+      {
+        "source": "hr-employee-database",
+        "target": "hr-job-requirement",
+        "context": "internal_skill_coverage_available"
+      },
+      {
+        "source": "hr-employee-database",
+        "target": "hr-onboarding",
+        "context": "employee_and_training_data_available"
+      }
+    ]
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

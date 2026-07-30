@@ -1,0 +1,141 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "setup_status": "READY",
+  "freeze_record_status": "provisional",
+  "official_setup_commit_sha": null,
+  "artifact_hashes": {
+    "gold": {
+      "path": "SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_21.json",
+      "sha256": "f5002a4b5c25c4ca1751e368486324946d663505e21f0b0eda64ac4525da0347"
+    },
+    "gold_relevant_skills": {
+      "path": "SkillNet_Gold_Tasks_V4/e1v2/gold_relevant_skills.json",
+      "sha256": "b77d33e6ac9992776c9cedaea1d60ef72385e0b93b60699468b0272c390ee331"
+    },
+    "gold_validation": {
+      "path": "SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_validation.json",
+      "sha256": "5a76c4829842ee88ffc6b8f73d5c6eb514a08f5a236f257a0e71b7567d240038"
+    },
+    "candidate_pool_manifest": {
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/candidate_pool_manifest.json",
+      "sha256": "3e1295c215153077c13a8734c02864f3600c13accd6867d52eb70867cd68ae7a"
+    },
+    "catalogue_manifest": {
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/catalogue_manifest.json",
+      "sha256": "d639bae36288f4db4308ba4c1e7255857e2feefcd9db55caf7a8a909456264f6"
+    },
+    "candidate_pool_validation": {
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/candidate_pool_validation_report.json",
+      "sha256": "340715b19281ef2da910dfdd006fe6f87d1f75a46d0e11f75329799bc98b8aad"
+    },
+    "catalogue_validation": {
+      "path": "skillnet_run_guide_v1_1/e1v2_catalogues/catalogue_validation_report.json",
+      "sha256": "6fc929cc3e8d7108fcf8e1cd7e60d5bfcf0e314a6d17866ebb7e923f4fd805ad"
+    },
+    "semantic_normalization": {
+      "path": "experiments/skillnet_e1v2/semantic_normalization.json",
+      "sha256": "1b78b64b4a36cda5ec3a7146d4ce2a1aa910881fefe182bf1790103f3d49fc3c"
+    },
+    "metric_definitions": {
+      "path": "experiments/skillnet_e1v2/metric_definitions.json",
+      "sha256": "16c94322b6540afb4233b75043429eef3df4876b2609cbe773d9ff1c469db158"
+    },
+    "evaluator": {
+      "path": "experiments/skillnet_e1v2/evaluate_e1v2.py",
+      "sha256": "6f4cb9bb649a31b5c160d7aa57dd0314d5b60b3011f02c4f052f7923e48dd9cd"
+    },
+    "prediction_schema_wrapper": {
+      "path": "experiments/skillnet_e1v2/prediction_schema_e1v2.json",
+      "sha256": "28e81516707e0c47201383f9ab464d2408e1b2368e895e31c89f30da737c0f09"
+    },
+    "runner": {
+      "path": "experiments/skillnet_e1v2/run_condition.py",
+      "sha256": "d63675d62bc098cc537bdbeacf6a6866fbebed557c90df7949ab98830d1ba686"
+    },
+    "verifier": {
+      "path": "experiments/skillnet_e1v2/verify_condition.py",
+      "sha256": "d44d0894cbc60e621e4a139796e513172dd5bbb5f67f01bf76ae643340ed8e8c"
+    },
+    "builder": {
+      "path": "experiments/skillnet_e1v2/build_setup.py",
+      "sha256": "f6dbb8b88344f86bb4162a8be6749e639e68af6532199366464f01320820b066"
+    },
+    "setup_verifier": {
+      "path": "experiments/skillnet_e1v2/verify_setup.py",
+      "sha256": "d7bb5aa20d77a6615f82b8f7e94c2b3d365d76653f84edffe94998052dc8b96c"
+    },
+    "synthetic_smoke": {
+      "path": "experiments/skillnet_e1v2/synthetic_smoke.py",
+      "sha256": "2ca55aa94d6a377fd12b16a5f9af4bf7d601e955f0a2716356fb13c8545dda8b"
+    },
+    "fixture_dry_run": {
+      "path": "experiments/skillnet_e1v2/fixture_dry_run.py",
+      "sha256": "92230bd53a703cc8d3894ea6c87736c22716ec49760bf7abe2f9366869c35714"
+    },
+    "runbook": {
+      "path": "experiments/skillnet_e1v2/RUNBOOK.md",
+      "sha256": "4538d0ef2fcc8633907ee90ed925b25970c913829be67dc21b8e1a63c9f1b60f"
+    },
+    "fixture_dry_run_evidence": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/fixture_dry_run_setup_01.json",
+      "sha256": "01da7e9521774dd7a284f049820677bae03ed2841f6980a1c9e9ea64bc531a29"
+    },
+    "synthetic_smoke_validation": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/synthetic_smoke/setup_01/validation.json",
+      "sha256": "5dca6d43668e34cb8a70736a0bee763111e149be32fd5640109a25b3ed2e1ad0"
+    },
+    "synthetic_smoke_raw_response": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/synthetic_smoke/setup_01/raw_response.txt",
+      "sha256": "954ce4b88c613517cd3e7688a0df686665822530ebdaa19617352d7836f73725"
+    },
+    "test_commands": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/test_commands.json",
+      "sha256": "6d4129f99543826de3030549a6fe8c28f76576c342d6223c61c178dc996d1993"
+    },
+    "protected_hash_comparison": {
+      "path": "experiments/skillnet_e1v2/setup_evidence/protected_hash_comparison.json",
+      "sha256": "7fb42f599f009d8dfb1aaf758a069e0222a7227376f55f340e1ccaf28d9d1425"
+    }
+  },
+  "artifact_hash_bundle_sha256": "90a2a797ce04859a86258d171234647780fad9760e48f36db2b2d26682161598",
+  "semantic_normalization_sha256": "1b78b64b4a36cda5ec3a7146d4ce2a1aa910881fefe182bf1790103f3d49fc3c",
+  "metric_definitions_sha256": "16c94322b6540afb4233b75043429eef3df4876b2609cbe773d9ff1c469db158",
+  "protected_files_identical": true,
+  "run_02_identical": true,
+  "candidate_pool_validation": {
+    "schema_version": "E1V2-1.0",
+    "experiment_id": "E1V2",
+    "status": "passed",
+    "valid": true,
+    "task_count": 21,
+    "checks": {
+      "task_count_unique_21": true,
+      "gold_relevant_at_most_10": true,
+      "nested_pool_sizes": true,
+      "gold_relevant_in_s10": true
+    },
+    "errors": [],
+    "formal_model_tasks_started": 0
+  },
+  "catalogue_validation": {
+    "schema_version": "E1V2-1.0",
+    "experiment_id": "E1V2",
+    "status": "passed",
+    "valid": true,
+    "catalogue_count": 189,
+    "checks": {
+      "abc_skill_cards_identical": true,
+      "ab_relations_absent": true,
+      "c_complete_induced_subgraph": true,
+      "catalogue_gold_leak_absent": true
+    },
+    "errors": [],
+    "formal_model_tasks_started": 0
+  },
+  "gold_validation_passed": true,
+  "fixture_dry_run_passed": true,
+  "synthetic_smoke_passed": true,
+  "formal_model_tasks_started": 0,
+  "missing_artifacts": []
+}

@@ -1,0 +1,318 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT06_HR_GOAL",
+  "catalogue_size": 30,
+  "skill_cards_sha256": "34dd052286460ff0a0e10175ffda6cce362f1a690b9fabfee3b7dfe735a4cf2b",
+  "candidate_skill_ids_sha256": "f4dc64464804ddd65b836a0302c7137d0d47585a55cd28e8658702788eeff9ef",
+  "configuration": "B",
+  "organization": "department_grouped",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": [
+        {
+          "skill_id": "business-acceptance",
+          "name_en": "Business Acceptance",
+          "display_name_zh": "业务验收",
+          "description_en": "Use when customer deliverables need contract-criteria checks, exception and remedy handling, customer review, or sign-off preparation; not for delivery tracking, invoicing, payment, or renewal.",
+          "description_zh": "负责交付物检查、异常处理和客户签署准备；不负责项目跟踪、发票付款或续约。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "business-contract-signing",
+          "name_en": "Business Contract Signing",
+          "display_name_zh": "合同签署",
+          "description_en": "Use when a negotiated customer contract needs version reconciliation, approval routing, signatory-authority review, signature readiness, or execution evidence; not for negotiation or project delivery.",
+          "description_zh": "核验合同版本、文件指纹、双方主体、签署权限、审批、谈判偏差和关键条款；仅判断是否可进入人工签署，不自动签署或发送。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-contract-signing/SKILL.md"
+        },
+        {
+          "skill_id": "business-customer-lead",
+          "name_en": "Business Customer Lead",
+          "display_name_zh": "客户线索管理",
+          "description_en": "Use when a potential customer, partner, referral, inquiry, or target account needs a traceable lead record before discovery; not for requirement confirmation, opportunity scoring, or outreach execution.",
+          "description_zh": "记录客户线索来源、潜在需求、联系依据、负责人和下一步；未经授权不得抓取个人信息、联系客户或把假设写成事实。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-customer-lead/SKILL.md"
+        },
+        {
+          "skill_id": "business-negotiation",
+          "name_en": "Business Negotiation",
+          "display_name_zh": "商务谈判",
+          "description_en": "Use when a proposal, scope, price, service level, risk allocation, or contract term needs negotiation preparation or a traceable session record; not for quotation creation or contract signature.",
+          "description_zh": "明确谈判目标、权限和底线，记录双方立场、让步、交换条件、未决问题与审批；未经授权不得承诺价格、范围或合同条款。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-negotiation/SKILL.md"
+        },
+        {
+          "skill_id": "business-opportunity-assessment",
+          "name_en": "Business Opportunity Assessment",
+          "display_name_zh": "商机评估",
+          "description_en": "Use when confirmed customer needs require an opportunity score, pursuit review, pipeline priority recommendation, or qualification decision packet; not for discovery, solution pricing, or negotiation.",
+          "description_zh": "按战略匹配、需求清晰度、决策人触达、预算准备度、时间准备度和交付匹配度评估商机；评分只供人工决策，不自动判定客户价值。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-opportunity-assessment/SKILL.md"
+        },
+        {
+          "skill_id": "business-project-delivery-tracking",
+          "name_en": "Business Project Delivery Tracking",
+          "display_name_zh": "项目交付跟踪",
+          "description_en": "Use when a signed customer project needs contract-linked milestone, change, blocker, risk, and delivery-status tracking; not for customer acceptance or renewal.",
+          "description_zh": "按合同和里程碑跟踪项目交付、完成度、证据、逾期、阻塞、变更与风险；不得虚构进度、擅改范围或代替客户验收。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-project-delivery-tracking/SKILL.md"
+        },
+        {
+          "skill_id": "business-renewal",
+          "name_en": "Business Renewal",
+          "display_name_zh": "客户续约",
+          "description_en": "Use when an accepted customer contract approaches renewal and needs renewal evaluation, options, scope and price proposal, quotation, or follow-up tracking; not for acceptance or contract signature.",
+          "description_zh": "负责续约评估、续约方案、报价和续约跟踪；不负责业务验收或合同签署。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-renewal/SKILL.md"
+        },
+        {
+          "skill_id": "business-requirement-communication",
+          "name_en": "Business Requirement Communication",
+          "display_name_zh": "客户需求沟通",
+          "description_en": "Use when a customer discovery meeting, needs interview, requirement clarification, or follow-up confirmation needs preparation or documentation; not for lead creation or opportunity scoring.",
+          "description_zh": "准备并记录客户需求沟通，区分客户原话、内部理解、假设和已确认需求，形成责任明确的下一步；不得虚构沟通或替客户确认。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-requirement-communication/SKILL.md"
+        },
+        {
+          "skill_id": "business-solution-quotation",
+          "name_en": "Business Solution and Quotation",
+          "display_name_zh": "方案与报价",
+          "description_en": "Use when a qualified opportunity needs a solution scope, proposal, pricing model, line-item quotation, or quote-version review; not for opportunity scoring, negotiation, or contract signing.",
+          "description_zh": "根据已确认需求形成方案与报价草案，核对范围、交付、币种、折扣、税费和有效期；不得擅自定价、承诺或向客户发送。",
+          "department_id": "business-agent",
+          "source_skill_md": ".agents/skills/business-solution-quotation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": [
+        {
+          "skill_id": "finance-accounting",
+          "name_en": "Finance Accounting",
+          "display_name_zh": "账务处理",
+          "description_en": "Use when an approved financial event needs account classification, draft journal entries, debit-credit validation, source tracing, or posting preparation; not for payment approval or reporting.",
+          "description_zh": "根据已批准业务凭证生成记账草案，并检查借贷平衡、币种、会计期间和来源证据。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-accounting/SKILL.md"
+        },
+        {
+          "skill_id": "finance-budget-check",
+          "name_en": "Finance Budget Check",
+          "display_name_zh": "预算检查",
+          "description_en": "Use when a purchase or expense needs budget balance, funding source, budget account, approval threshold, and availability checks; not for creating the budget or approving the expense.",
+          "description_zh": "核对预算余额、资金来源、预算科目、审批阈值和预算可用性；采购可调用，但归属财务，检查结果不等于批准支出。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-check/SKILL.md"
+        },
+        {
+          "skill_id": "finance-budget-planning",
+          "name_en": "Finance Budget Planning",
+          "display_name_zh": "预算制定",
+          "description_en": "Use when a department needs a new budget, revision, forecast baseline, or approval-ready plan for a financial period; not for checking one transaction’s budget availability.",
+          "description_zh": "制定和修订部门预算，明确预算科目、假设、责任人、风险和审批路线。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-budget-planning/SKILL.md"
+        },
+        {
+          "skill_id": "finance-expense-request",
+          "name_en": "Finance Expense Request",
+          "display_name_zh": "费用申请",
+          "description_en": "Use when an employee or department needs a traceable spending, reimbursement, supplier-purchase, or commitment request; not for budget availability checks, policy review, or payment.",
+          "description_zh": "将部门或员工的支出需求整理为包含预算、用途、金额和证据的标准费用申请。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-expense-request/SKILL.md"
+        },
+        {
+          "skill_id": "finance-expense-review",
+          "name_en": "Finance Expense Review",
+          "display_name_zh": "费用审核",
+          "description_en": "Use when a submitted expense or reimbursement needs policy, evidence, duplicate, conflict, and approval review after a finance budget check; not for recalculating budget availability or approving payment.",
+          "description_zh": "审核费用申请的制度合规性、预算余额、证明材料、重复风险和职责分离情况。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-expense-review/SKILL.md"
+        },
+        {
+          "skill_id": "finance-invoice-verification",
+          "name_en": "Finance Invoice Verification",
+          "display_name_zh": "发票核验",
+          "description_en": "Use when an invoice or supplier bill needs arithmetic, supplier, PO/contract, delivery-acceptance, expense, currency, and duplicate checks; not for payment approval or official tax authentication.",
+          "description_zh": "核验发票必填字段、金额税额、费用申请匹配度和重复风险，但不代替税务机关验真。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-invoice-verification/SKILL.md"
+        },
+        {
+          "skill_id": "finance-payment-approval",
+          "name_en": "Finance Payment Approval",
+          "display_name_zh": "付款审批",
+          "description_en": "Use when an approved expense and verified invoice need a payment packet, payee and duplicate checks, approval routing, or release controls; not for executing payment or accounting.",
+          "description_zh": "汇总费用、发票、收款方和职责分离证据，形成待授权的付款审批材料。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-payment-approval/SKILL.md"
+        },
+        {
+          "skill_id": "finance-reporting",
+          "name_en": "Finance Reporting",
+          "display_name_zh": "财务报表生成",
+          "description_en": "Use when posted finance data must be summarized, compared with budget, reconciled to cash, or prepared as a period management report; not for posting entries or approving payment.",
+          "description_zh": "汇总预算、收入、支出、现金、应收和应付数据，生成带勾稽差异与证据覆盖率的财务报告草案。",
+          "department_id": "finance-agent",
+          "source_skill_md": ".agents/skills/finance-reporting/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": [
+        {
+          "skill_id": "hr-employee-database",
+          "name_en": "HR Employee Database",
+          "display_name_zh": "员工数据库",
+          "description_en": "Use when authorized HR users need minimum employee-record queries, skill/KPI/training updates, personnel statistics, or audit history; not for candidate screening or onboarding decisions.",
+          "description_zh": "管理员工基本信息、技能、KPI和培训记录，并为每次数据变更保留审计日志。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-employee-database/SKILL.md"
+        },
+        {
+          "skill_id": "hr-interview-scheduling",
+          "name_en": "HR Interview Scheduling",
+          "display_name_zh": "面试安排",
+          "description_en": "Use when shortlisted candidates need interview logistics, notices, interviewer assignment, structured scorecards, and feedback consolidation; not for resume screening or offer issuance.",
+          "description_zh": "安排面试、生成通知与六维评估表，并汇总形成可审计的面试决策材料。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-interview-scheduling/SKILL.md"
+        },
+        {
+          "skill_id": "hr-jd-generator",
+          "name_en": "HR JD Generator",
+          "display_name_zh": "JD生成",
+          "description_en": "Use when an approved role brief must become a canonical, bilingual, or channel-adaptable job description; not for approving headcount or publishing the role.",
+          "description_zh": "根据已审批的岗位需求生成适配不同招聘渠道的职位描述。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-jd-generator/SKILL.md"
+        },
+        {
+          "skill_id": "hr-job-requirement",
+          "name_en": "HR Job Requirement",
+          "display_name_zh": "岗位需求",
+          "description_en": "Use when a manager requests headcount, proposes opening a role, or needs a hiring request clarified and approved; not for writing or publishing the JD.",
+          "description_zh": "收集并分析岗位需求，形成可审批的岗位需求说明书。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-job-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "hr-offer-generator",
+          "name_en": "HR Offer Generator",
+          "display_name_zh": "Offer生成",
+          "description_en": "Use when an approved finalist needs compensation validation, a draft offer, version tracking, or verified acceptance recording; not for candidate selection or onboarding before acceptance.",
+          "description_zh": "校验薪资与录用审批，生成Offer草案并跟踪版本及候选人状态。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-offer-generator/SKILL.md"
+        },
+        {
+          "skill_id": "hr-onboarding",
+          "name_en": "HR Onboarding",
+          "display_name_zh": "入职管理",
+          "description_en": "Use when a candidate has verified offer acceptance and needs preboarding, access, a 30/60/90-day plan, training, or probation review; not for issuing offers or maintaining general employee records.",
+          "description_zh": "管理新员工入职清单、30/60/90天计划、试用期反馈与转正评估。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-onboarding/SKILL.md"
+        },
+        {
+          "skill_id": "hr-recruitment-publish",
+          "name_en": "HR Recruitment Publish",
+          "display_name_zh": "招聘发布",
+          "description_en": "Use when an approved JD needs channel adaptation, publication preflight, tracking fields, or confirmed publication recording; not for changing role criteria or screening applicants.",
+          "description_zh": "将已审批JD适配到招聘平台、内推和社交渠道，并生成渠道跟踪表。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-recruitment-publish/SKILL.md"
+        },
+        {
+          "skill_id": "hr-resume-screening",
+          "name_en": "HR Resume Screening",
+          "display_name_zh": "简历筛选",
+          "description_en": "Use when resumes or candidate profiles need evidence-based screening against approved role criteria and a shortlist review packet; not for scheduling interviews or deciding final selection.",
+          "description_zh": "按五个岗位相关维度筛选简历，输出证据、评分、排名与信息缺口。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-resume-screening/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-delivery-acceptance",
+          "name_en": "Procurement Delivery Acceptance",
+          "display_name_zh": "交付验收",
+          "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+          "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-purchase-order",
+          "name_en": "Procurement Purchase Order",
+          "display_name_zh": "采购订单生成",
+          "description_en": "Use when an approved procurement contract needs a purchase-order draft, line and total validation, approval routing, release control, or PO status record; not for drafting contract terms.",
+          "description_zh": "根据已批准合同生成采购订单，校验 PO 内容、审批、释放和状态记录；不负责合同条款设计。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-purchase-order/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-requirement",
+          "name_en": "Procurement Requirement",
+          "display_name_zh": "采购需求识别",
+          "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+          "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-supplier-search",
+          "name_en": "Procurement Supplier Search",
+          "display_name_zh": "供应商搜索",
+          "description_en": "Use when an approved, budget-cleared procurement requirement needs supplier discovery and a traceable candidate list; not for qualification, scoring, selection, or supplier outreach.",
+          "description_zh": "根据已确认需求搜索潜在供应商并形成候选名单，只负责发现与去重，不负责资质准入、评分或选商。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-supplier-search/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": [
+        {
+          "skill_id": "technology-requirement",
+          "name_en": "Technology Requirement",
+          "display_name_zh": "技术需求识别",
+          "description_en": "Use when a business need, product change, integration, infrastructure request, or operational problem needs a versioned, solution-neutral technology requirement; not for feasibility or specification approval.",
+          "description_zh": "将业务或运维需求整理为可追踪、可测试的技术需求，明确范围、功能、质量属性、依赖、风险和验收标准，避免过早锁定方案。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-requirement/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

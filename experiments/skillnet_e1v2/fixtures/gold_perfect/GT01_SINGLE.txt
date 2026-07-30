@@ -1,0 +1,1 @@
+{"task_id": "GT01_SINGLE", "use_skills": true, "selected_departments": ["procurement-agent"], "skill_sequence": ["procurement-supplier-qualification"], "final_status": "completed", "blocked_by": [], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

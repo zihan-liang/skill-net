@@ -1,0 +1,21 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "status": "passed",
+  "valid": true,
+  "checks": {
+    "task_count_unique_21": true,
+    "gold_relevant_at_most_10": true,
+    "nested_pool_sizes": true,
+    "gold_relevant_in_s10": true,
+    "abc_skill_cards_identical": true,
+    "ab_relations_absent": true,
+    "c_complete_induced_subgraph": true,
+    "catalogue_gold_leak_absent": true
+  },
+  "task_count": 21,
+  "catalogue_count": 189,
+  "errors": [],
+  "generation_mode": "deterministic_builder",
+  "formal_model_tasks_started": 0
+}

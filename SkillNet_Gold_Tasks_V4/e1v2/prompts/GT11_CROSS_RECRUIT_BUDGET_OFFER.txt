@@ -1,0 +1,18 @@
+Task ID: GT11_CROSS_RECRUIT_BUDGET_OFFER
+Task title (English): Complete an Offer after Recruitment Budget Confirmation
+任务名称（中文）：招聘预算确认后完成 Offer
+
+English task prompt
+The technology team's job requirement has been approved and the role criteria are defined, but the recruitment budget has not been confirmed. The company wants to complete recruitment and issue an offer to the final candidate if the budget permits. Do not perform onboarding yet.
+
+中文任务
+技术团队提出的岗位需求已经获得审批，岗位标准也已明确，但招聘预算尚未确认。公司希望在预算允许的情况下完成招聘并向最终候选人发出 Offer；暂时不办理入职。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

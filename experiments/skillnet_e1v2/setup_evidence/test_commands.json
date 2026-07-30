@@ -1,0 +1,85 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "environment": {
+    "python": "Python 3.9.6",
+    "jsonschema": "4.25.1",
+    "codex_cli": "codex-cli 0.146.0-alpha.3.1",
+    "model": "gpt-5.6-sol",
+    "model_reasoning_effort": "high"
+  },
+  "commands": [
+    {
+      "name": "test_first_expected_failure",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet_e1v2/tests -v",
+      "exit_code": 1,
+      "expected": true,
+      "reason": "New evaluator, runner, Gold, and manifest did not exist yet."
+    },
+    {
+      "name": "deterministic_build",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/build_setup.py",
+      "exit_code": 0
+    },
+    {
+      "name": "deterministic_build_check",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/build_setup.py --check",
+      "exit_code": 0
+    },
+    {
+      "name": "e1v2_gold_package_validation",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python SkillNet_Gold_Tasks_V4/evaluation/evaluate_skillnet.py validate-package --gold SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_21.json --output SkillNet_Gold_Tasks_V4/e1v2/E1V2_Gold_validation.json",
+      "exit_code": 0
+    },
+    {
+      "name": "e1v2_tests_and_fixture_artifact_chain",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet_e1v2/tests -v",
+      "exit_code": 0,
+      "tests_run": 21
+    },
+    {
+      "name": "standalone_fixture_dry_run",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/fixture_dry_run.py --evidence-id setup_01",
+      "exit_code": 0,
+      "evidence": "experiments/skillnet_e1v2/setup_evidence/fixture_dry_run_setup_01.json"
+    },
+    {
+      "name": "synthetic_live_smoke",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/synthetic_smoke.py --smoke-id setup_01",
+      "exit_code": 0,
+      "fresh_codex_process_count": 1,
+      "formal_model_task": false,
+      "evidence": "experiments/skillnet_e1v2/setup_evidence/synthetic_smoke/setup_01/validation.json"
+    },
+    {
+      "name": "old_evaluator_compatibility",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s SkillNet_Gold_Tasks_V4/evaluation/tests -v",
+      "exit_code": 0,
+      "tests_run": 16,
+      "tests_skipped": 2
+    },
+    {
+      "name": "old_artifact_contract_compatibility",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s experiments/skillnet/tests -v",
+      "exit_code": 0,
+      "tests_run": 6
+    },
+    {
+      "name": "repository_suite",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests_run": 146
+    },
+    {
+      "name": "protected_hash_and_setup_freeze",
+      "command": "PYTHONDONTWRITEBYTECODE=1 experiments/skillnet/.venv/bin/python experiments/skillnet_e1v2/verify_setup.py --protected-before /tmp/skillnet_e1v2_protected_before.json",
+      "exit_code": 0
+    },
+    {
+      "name": "git_diff_check",
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "formal_e1v2_model_tasks_started": 0
+}

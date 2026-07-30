@@ -1,0 +1,18 @@
+Task ID: GT14_CROSS_PAYMENT_PERFORMANCE
+Task title (English): Complete Payment and Accounting and Update Supplier Performance
+任务名称（中文）：付款入账并更新供应商绩效
+
+English task prompt
+A batch of procured goods has completed delivery acceptance and the supplier has submitted an invoice, but finance has not verified it. The company wants to complete payment and accounting and include this delivery performance in the supplier evaluation.
+
+中文任务
+一批采购物品已经完成交付验收，供应商提交了发票，但财务尚未核验。公司希望完成付款和入账，同时把本次履约表现纳入供应商评价。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

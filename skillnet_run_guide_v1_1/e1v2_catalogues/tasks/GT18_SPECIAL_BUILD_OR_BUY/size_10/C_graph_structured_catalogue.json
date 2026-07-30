@@ -1,0 +1,230 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "7534672d0eb69ab45a6ea71228a95d8dd0739828a3fd2f600e57a1563703aec4",
+  "candidate_skill_ids_sha256": "f4f09f2005409a163446c0a0a3ec3e7a130b28efe4c3606a9fe421756b63cb0a",
+  "configuration": "C",
+  "organization": "department_grouped_graph",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": []
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": []
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": []
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-delivery-acceptance",
+          "name_en": "Procurement Delivery Acceptance",
+          "display_name_zh": "交付验收",
+          "description_en": "Use when arrived goods or completed services need quantity, condition, quality, document, and acceptance-criteria checks; not for delivery tracking, invoice verification, or payment approval.",
+          "description_zh": "对照合同和订单检查交付数量、时间、状态、质量与文件，记录差异和证据；最终验收、拒收或例外接收由授权人员决定。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-delivery-acceptance/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-requirement",
+          "name_en": "Procurement Requirement",
+          "display_name_zh": "采购需求识别",
+          "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+          "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "procurement-rfq-generation",
+          "name_en": "Procurement RFQ Generation",
+          "display_name_zh": "询价单生成",
+          "description_en": "Use when an approved procurement requirement and admitted supplier list need an RFQ draft, inquiry scope, quotation template, deadline, and recipient list; not for sending or comparing quotes.",
+          "description_zh": "根据采购需求和技术规格生成 RFQ、询价范围、报价模板、截止日期与供应商发送清单；不负责发送或比价。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-rfq-generation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": [
+        {
+          "skill_id": "technology-development-implementation",
+          "name_en": "Technology Development and Implementation",
+          "display_name_zh": "开发或实施",
+          "description_en": "Use when an approved technical task requires code, configuration, infrastructure, integration, migration, or implementation with test evidence; not for final test acceptance or release.",
+          "description_zh": "按已批准任务实施代码、配置或系统变更，遵循测试先行、最小范围、可回滚和证据交付；不得自动声称评审、合并或部署完成。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-development-implementation/SKILL.md"
+        },
+        {
+          "skill_id": "technology-feasibility-assessment",
+          "name_en": "Technology Feasibility Assessment",
+          "display_name_zh": "可行性评估",
+          "description_en": "Use when an approved technology requirement needs option comparison, prototype planning, dependency and risk analysis, estimates, or a go/no-go packet; not for specification confirmation or design.",
+          "description_zh": "从技术、运维、安全隐私、人员、周期、成本、依赖和迁移角度评估可行性，形成有证据的方案比较与人工立项建议。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-feasibility-assessment/SKILL.md"
+        },
+        {
+          "skill_id": "technology-requirement",
+          "name_en": "Technology Requirement",
+          "display_name_zh": "技术需求识别",
+          "description_en": "Use when a business need, product change, integration, infrastructure request, or operational problem needs a versioned, solution-neutral technology requirement; not for feasibility or specification approval.",
+          "description_zh": "将业务或运维需求整理为可追踪、可测试的技术需求，明确范围、功能、质量属性、依赖、风险和验收标准，避免过早锁定方案。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "technology-solution-design",
+          "name_en": "Technology Solution Design",
+          "display_name_zh": "技术方案设计",
+          "description_en": "Use when approved technical specifications need architecture, components, data flow, deployment, observability, resilience, migration, and rollback design; not for confirming requirements or technical thresholds.",
+          "description_zh": "完成架构、组件、数据流、部署、可观测性、韧性、迁移和回滚方案；不重新定义技术规格与验收阈值。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-solution-design/SKILL.md"
+        },
+        {
+          "skill_id": "technology-specification-confirmation",
+          "name_en": "Technology Specification Confirmation",
+          "display_name_zh": "技术规格确认",
+          "description_en": "Use when a feasible technology requirement needs confirmed performance, interface, compatibility, security, acceptance, and procurement technical parameters; not for architecture design or implementation.",
+          "description_zh": "确认性能、接口、兼容性、安全、验收指标和采购技术参数；不负责架构、组件、部署或回滚方案。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-specification-confirmation/SKILL.md"
+        },
+        {
+          "skill_id": "technology-task-breakdown",
+          "name_en": "Technology Task Breakdown",
+          "display_name_zh": "任务拆解",
+          "description_en": "Use when an approved technical design needs owned, estimable, dependency-aware, testable implementation tasks or a delivery plan; not for architecture design or implementation.",
+          "description_zh": "将已批准的技术方案拆解为可执行、可估算、可验收的任务，明确负责人、交付物、依赖关系和完成标准，避免循环或隐藏依赖。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-task-breakdown/SKILL.md"
+        },
+        {
+          "skill_id": "technology-test-acceptance",
+          "name_en": "Technology Test Acceptance",
+          "display_name_zh": "技术测试验收",
+          "description_en": "Use when an implementation or system version needs reproducible test aggregation, gate checks, defect review, and human acceptance input; not for implementation or release execution.",
+          "description_zh": "汇总并复核测试套件、通过率、覆盖率、缺陷和证据，形成测试验收建议；自动门禁通过不等于人工验收或生产发布批准。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-test-acceptance/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "relations_sha256": "c6fd1e09fb5cf2cc6e678c1a8fc1d334c6d6bf563d433b720c24ea2a890a2d78",
+  "relations": {
+    "prerequisite": [
+      {
+        "before": "technology-requirement",
+        "after": "technology-feasibility-assessment",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-task-breakdown",
+        "after": "technology-development-implementation",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-development-implementation",
+        "after": "technology-test-acceptance",
+        "scope": "technology"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "procurement-requirement",
+        "scope": "cross-domain",
+        "condition": "external_technology_procurement"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "scope": "cross-domain",
+        "condition": "technology_acceptance_route"
+      }
+    ],
+    "conflict": [
+      {
+        "gate_skill": "technology-feasibility-assessment",
+        "blocked_skill": "technology-development-implementation",
+        "condition": "technology_not_feasible"
+      }
+    ],
+    "mutex": [
+      {
+        "skill_a": "technology-development-implementation",
+        "skill_b": "procurement-requirement",
+        "context": "same_technology_requirement"
+      }
+    ],
+    "enhances": [
+      {
+        "source": "technology-specification-confirmation",
+        "target": "procurement-rfq-generation",
+        "context": "technical_specification_available"
+      },
+      {
+        "source": "technology-feasibility-assessment",
+        "target": "procurement-requirement",
+        "context": "build_or_buy_decision"
+      }
+    ]
+  },
+  "relation_semantics": {
+    "department_grouping": {
+      "en": "Department grouping expresses ownership only. It does not define an executable Skill, hierarchy, route, or execution order.",
+      "zh": "部门分组只表示归属，不定义可执行 Skill、层级、路线或执行顺序。"
+    },
+    "prerequisite": {
+      "en": "When its stated scope and any stated condition apply, before must precede after.",
+      "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+    },
+    "conflict": {
+      "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+      "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+    },
+    "mutex": {
+      "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+      "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+    },
+    "enhances": {
+      "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+      "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+    }
+  }
+}

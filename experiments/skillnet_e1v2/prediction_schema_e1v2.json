@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillNet E1-v2 Prediction — Fixed Eight Fields",
+  "description": "E1-v2 isolated wrapper of the unchanged canonical eight-field contract; only the task_id pattern is expanded for the three new frozen short tasks.",
+  "type": "object",
+  "required": [
+    "task_id",
+    "use_skills",
+    "selected_departments",
+    "skill_sequence",
+    "final_status",
+    "blocked_by",
+    "route_choice",
+    "reason"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^(?:GT[0-9]{2}_[A-Z0-9_]+|E1V2_GT(?:03|07|12)_[A-Z0-9_]+)$"
+    },
+    "use_skills": {
+      "type": "boolean"
+    },
+    "selected_departments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "finance-agent",
+          "procurement-agent",
+          "technology-agent",
+          "business-agent",
+          "hr-agent"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "skill_sequence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "business-acceptance",
+          "business-contract-signing",
+          "business-customer-lead",
+          "business-negotiation",
+          "business-opportunity-assessment",
+          "business-project-delivery-tracking",
+          "business-renewal",
+          "business-requirement-communication",
+          "business-solution-quotation",
+          "finance-accounting",
+          "finance-budget-check",
+          "finance-budget-planning",
+          "finance-expense-request",
+          "finance-expense-review",
+          "finance-invoice-verification",
+          "finance-payment-approval",
+          "finance-reporting",
+          "hr-employee-database",
+          "hr-interview-scheduling",
+          "hr-jd-generator",
+          "hr-job-requirement",
+          "hr-offer-generator",
+          "hr-onboarding",
+          "hr-recruitment-publish",
+          "hr-resume-screening",
+          "procurement-contract-generation",
+          "procurement-delivery-acceptance",
+          "procurement-delivery-tracking",
+          "procurement-purchase-order",
+          "procurement-quote-comparison",
+          "procurement-requirement",
+          "procurement-rfq-generation",
+          "procurement-supplier-evaluation",
+          "procurement-supplier-qualification",
+          "procurement-supplier-scoring",
+          "procurement-supplier-search",
+          "procurement-supplier-selection",
+          "technology-development-implementation",
+          "technology-feasibility-assessment",
+          "technology-operations-maintenance",
+          "technology-requirement",
+          "technology-solution-design",
+          "technology-specification-confirmation",
+          "technology-system-release",
+          "technology-task-breakdown",
+          "technology-test-acceptance"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "final_status": {
+      "enum": [
+        "completed",
+        "blocked",
+        "no_tool"
+      ]
+    },
+    "blocked_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "business-acceptance",
+          "business-contract-signing",
+          "business-customer-lead",
+          "business-negotiation",
+          "business-opportunity-assessment",
+          "business-project-delivery-tracking",
+          "business-renewal",
+          "business-requirement-communication",
+          "business-solution-quotation",
+          "finance-accounting",
+          "finance-budget-check",
+          "finance-budget-planning",
+          "finance-expense-request",
+          "finance-expense-review",
+          "finance-invoice-verification",
+          "finance-payment-approval",
+          "finance-reporting",
+          "hr-employee-database",
+          "hr-interview-scheduling",
+          "hr-jd-generator",
+          "hr-job-requirement",
+          "hr-offer-generator",
+          "hr-onboarding",
+          "hr-recruitment-publish",
+          "hr-resume-screening",
+          "procurement-contract-generation",
+          "procurement-delivery-acceptance",
+          "procurement-delivery-tracking",
+          "procurement-purchase-order",
+          "procurement-quote-comparison",
+          "procurement-requirement",
+          "procurement-rfq-generation",
+          "procurement-supplier-evaluation",
+          "procurement-supplier-qualification",
+          "procurement-supplier-scoring",
+          "procurement-supplier-search",
+          "procurement-supplier-selection",
+          "technology-development-implementation",
+          "technology-feasibility-assessment",
+          "technology-operations-maintenance",
+          "technology-requirement",
+          "technology-solution-design",
+          "technology-specification-confirmation",
+          "technology-system-release",
+          "technology-task-breakdown",
+          "technology-test-acceptance"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "route_choice": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "final_status": {
+            "const": "no_tool"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "use_skills": {
+            "const": false
+          },
+          "selected_departments": {
+            "maxItems": 0
+          },
+          "skill_sequence": {
+            "maxItems": 0
+          },
+          "blocked_by": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "final_status": {
+            "const": "blocked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "use_skills": {
+            "const": true
+          },
+          "blocked_by": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "final_status": {
+            "const": "completed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "use_skills": {
+            "const": true
+          },
+          "blocked_by": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "e1v2_provenance": {
+    "source_schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+    "source_schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+    "canonical_fields_changed": [],
+    "task_id_pattern_only_wrapper_change": true
+  }
+}

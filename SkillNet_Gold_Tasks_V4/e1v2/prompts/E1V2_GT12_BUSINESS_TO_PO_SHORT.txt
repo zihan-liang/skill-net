@@ -1,0 +1,18 @@
+Task ID: E1V2_GT12_BUSINESS_TO_PO_SHORT
+Task title (English): Create the Supplier Contract and PO for a Customer Project
+任务名称（中文）：为客户项目形成供应合同和采购订单
+
+English task prompt
+A customer project's solution and quotation are approved, its external-service budget is approved, and a supplier has been formally selected. Complete supplier negotiation, generate the supplier contract, and create the purchase order. Do not sign a customer contract or begin delivery tracking in this task.
+
+中文任务
+一个客户项目的方案与报价已经通过，外部服务预算也已批准，并且供应商已正式选定。请完成供应商谈判、生成供应合同并创建采购订单；本任务不要签客户合同，也不要开始交付跟踪。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

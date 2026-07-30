@@ -1,0 +1,15 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "status": "passed",
+  "valid": true,
+  "catalogue_count": 189,
+  "checks": {
+    "abc_skill_cards_identical": true,
+    "ab_relations_absent": true,
+    "c_complete_induced_subgraph": true,
+    "catalogue_gold_leak_absent": true
+  },
+  "errors": [],
+  "formal_model_tasks_started": 0
+}

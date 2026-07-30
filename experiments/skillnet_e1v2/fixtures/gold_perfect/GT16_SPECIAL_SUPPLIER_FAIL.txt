@@ -1,0 +1,1 @@
+{"task_id": "GT16_SPECIAL_SUPPLIER_FAIL", "use_skills": true, "selected_departments": ["procurement-agent"], "skill_sequence": [], "final_status": "blocked", "blocked_by": ["procurement-supplier-qualification"], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

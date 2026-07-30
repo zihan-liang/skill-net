@@ -1,0 +1,1 @@
+{"task_id": "E1V2_GT12_BUSINESS_TO_PO_SHORT", "use_skills": true, "selected_departments": ["business-agent", "procurement-agent"], "skill_sequence": ["business-negotiation", "procurement-contract-generation", "procurement-purchase-order"], "final_status": "completed", "blocked_by": [], "route_choice": {}, "reason": "Frozen deterministic Setup fixture."}

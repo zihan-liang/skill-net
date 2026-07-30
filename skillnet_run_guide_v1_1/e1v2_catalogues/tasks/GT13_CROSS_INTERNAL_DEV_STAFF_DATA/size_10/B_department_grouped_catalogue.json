@@ -1,0 +1,136 @@
+{
+  "schema_version": "E1V2-1.0",
+  "experiment_id": "E1V2",
+  "source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "catalogue_size": 10,
+  "skill_cards_sha256": "fcddf9323719451237a1d36f91c5564eaf418baed4057cb8da9456bf73aedd38",
+  "candidate_skill_ids_sha256": "e0ae8c9970b232e301ebafddb34a36e8553beb87e1034889156d3b87a2c55fb1",
+  "configuration": "B",
+  "organization": "department_grouped",
+  "departments": [
+    {
+      "department_id": "business-agent",
+      "department_name_en": "Business Agent",
+      "department_display_name_zh": "业务部门",
+      "skills": []
+    },
+    {
+      "department_id": "finance-agent",
+      "department_name_en": "Finance Agent",
+      "department_display_name_zh": "财务部门",
+      "skills": []
+    },
+    {
+      "department_id": "hr-agent",
+      "department_name_en": "HR Agent",
+      "department_display_name_zh": "人力资源部门",
+      "skills": [
+        {
+          "skill_id": "hr-employee-database",
+          "name_en": "HR Employee Database",
+          "display_name_zh": "员工数据库",
+          "description_en": "Use when authorized HR users need minimum employee-record queries, skill/KPI/training updates, personnel statistics, or audit history; not for candidate screening or onboarding decisions.",
+          "description_zh": "管理员工基本信息、技能、KPI和培训记录，并为每次数据变更保留审计日志。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-employee-database/SKILL.md"
+        },
+        {
+          "skill_id": "hr-job-requirement",
+          "name_en": "HR Job Requirement",
+          "display_name_zh": "岗位需求",
+          "description_en": "Use when a manager requests headcount, proposes opening a role, or needs a hiring request clarified and approved; not for writing or publishing the JD.",
+          "description_zh": "收集并分析岗位需求，形成可审批的岗位需求说明书。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-job-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "hr-onboarding",
+          "name_en": "HR Onboarding",
+          "display_name_zh": "入职管理",
+          "description_en": "Use when a candidate has verified offer acceptance and needs preboarding, access, a 30/60/90-day plan, training, or probation review; not for issuing offers or maintaining general employee records.",
+          "description_zh": "管理新员工入职清单、30/60/90天计划、试用期反馈与转正评估。",
+          "department_id": "hr-agent",
+          "source_skill_md": ".agents/skills/hr-onboarding/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "procurement-agent",
+      "department_name_en": "Procurement Agent",
+      "department_display_name_zh": "采购部门",
+      "skills": [
+        {
+          "skill_id": "procurement-requirement",
+          "name_en": "Procurement Requirement",
+          "display_name_zh": "采购需求识别",
+          "description_en": "Use when a business need must become a versioned, supplier-neutral procurement requirement before finance budget checking; not for technical specification approval, sourcing, or ordering.",
+          "description_zh": "将业务采购需求整理为可追踪、可比较、供应商中立的需求文件，明确规格、验收标准、证据缺口与审批状态。",
+          "department_id": "procurement-agent",
+          "source_skill_md": ".agents/skills/procurement-requirement/SKILL.md"
+        }
+      ]
+    },
+    {
+      "department_id": "technology-agent",
+      "department_name_en": "Technology Agent",
+      "department_display_name_zh": "技术部门",
+      "skills": [
+        {
+          "skill_id": "technology-development-implementation",
+          "name_en": "Technology Development and Implementation",
+          "display_name_zh": "开发或实施",
+          "description_en": "Use when an approved technical task requires code, configuration, infrastructure, integration, migration, or implementation with test evidence; not for final test acceptance or release.",
+          "description_zh": "按已批准任务实施代码、配置或系统变更，遵循测试先行、最小范围、可回滚和证据交付；不得自动声称评审、合并或部署完成。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-development-implementation/SKILL.md"
+        },
+        {
+          "skill_id": "technology-feasibility-assessment",
+          "name_en": "Technology Feasibility Assessment",
+          "display_name_zh": "可行性评估",
+          "description_en": "Use when an approved technology requirement needs option comparison, prototype planning, dependency and risk analysis, estimates, or a go/no-go packet; not for specification confirmation or design.",
+          "description_zh": "从技术、运维、安全隐私、人员、周期、成本、依赖和迁移角度评估可行性，形成有证据的方案比较与人工立项建议。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-feasibility-assessment/SKILL.md"
+        },
+        {
+          "skill_id": "technology-requirement",
+          "name_en": "Technology Requirement",
+          "display_name_zh": "技术需求识别",
+          "description_en": "Use when a business need, product change, integration, infrastructure request, or operational problem needs a versioned, solution-neutral technology requirement; not for feasibility or specification approval.",
+          "description_zh": "将业务或运维需求整理为可追踪、可测试的技术需求，明确范围、功能、质量属性、依赖、风险和验收标准，避免过早锁定方案。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-requirement/SKILL.md"
+        },
+        {
+          "skill_id": "technology-solution-design",
+          "name_en": "Technology Solution Design",
+          "display_name_zh": "技术方案设计",
+          "description_en": "Use when approved technical specifications need architecture, components, data flow, deployment, observability, resilience, migration, and rollback design; not for confirming requirements or technical thresholds.",
+          "description_zh": "完成架构、组件、数据流、部署、可观测性、韧性、迁移和回滚方案；不重新定义技术规格与验收阈值。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-solution-design/SKILL.md"
+        },
+        {
+          "skill_id": "technology-specification-confirmation",
+          "name_en": "Technology Specification Confirmation",
+          "display_name_zh": "技术规格确认",
+          "description_en": "Use when a feasible technology requirement needs confirmed performance, interface, compatibility, security, acceptance, and procurement technical parameters; not for architecture design or implementation.",
+          "description_zh": "确认性能、接口、兼容性、安全、验收指标和采购技术参数；不负责架构、组件、部署或回滚方案。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-specification-confirmation/SKILL.md"
+        },
+        {
+          "skill_id": "technology-task-breakdown",
+          "name_en": "Technology Task Breakdown",
+          "display_name_zh": "任务拆解",
+          "description_en": "Use when an approved technical design needs owned, estimable, dependency-aware, testable implementation tasks or a delivery plan; not for architecture design or implementation.",
+          "description_zh": "将已批准的技术方案拆解为可执行、可估算、可验收的任务，明确负责人、交付物、依赖关系和完成标准，避免循环或隐藏依赖。",
+          "department_id": "technology-agent",
+          "source_skill_md": ".agents/skills/technology-task-breakdown/SKILL.md"
+        }
+      ]
+    }
+  ]
+}
