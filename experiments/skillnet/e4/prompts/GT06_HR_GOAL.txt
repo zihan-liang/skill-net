@@ -1,0 +1,14 @@
+Task ID: GT06_HR_GOAL
+Experiment: E4 fuzzy language
+
+中文任务
+用人需求和招聘经费都已批准，但职位还没对外发布；请从市场获得申请并整理出可进入面试的候选名单，先不要约面或发录用通知。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

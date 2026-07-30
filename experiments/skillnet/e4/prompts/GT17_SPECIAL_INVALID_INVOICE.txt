@@ -1,0 +1,14 @@
+Task ID: GT17_SPECIAL_INVALID_INVOICE
+Experiment: E4 fuzzy language
+
+中文任务
+货物已验收通过，但发票被判定无效或与合同、订单对不上，供应商仍催着立刻付款；请按规则处理并说明最终状态。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

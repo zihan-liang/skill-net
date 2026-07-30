@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import copy
+from collections import Counter
 import json
 import os
 import shlex
@@ -24,6 +26,27 @@ VERIFIER_REQUIRED_ARTIFACTS = (
     "evaluation_trace.json",
     "graph_overlay.json",
     "result_row.json",
+)
+E0_BASELINE_RUN_IDS = {
+    "A": "run_02",
+    "B": "run_02",
+    "C": "run_04",
+}
+ROBUSTNESS_METRICS = (
+    "functional_success",
+    "clean_success",
+    "skill_precision",
+    "skill_recall",
+    "skill_f1",
+    "department_precision",
+    "department_recall",
+    "department_f1",
+    "required_order_accuracy",
+    "final_status_correct",
+    "route_choice_correct",
+    "no_tool_accuracy",
+    "blocked_flow_accuracy",
+    "gold_constraint_violation_rate",
 )
 
 
@@ -263,6 +286,182 @@ def result_root(
         / f"size_{size}"
         / run_id
     )
+
+
+def read_configuration_summary(path: Path) -> dict[str, float]:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    if len(rows) != 1:
+        raise RuntimeError(f"Expected one configuration summary row: {path}")
+    row = rows[0]
+    missing = [metric for metric in ROBUSTNESS_METRICS if metric not in row]
+    if missing:
+        raise RuntimeError(f"Summary is missing metrics {missing}: {path}")
+    return {metric: float(row[metric]) for metric in ROBUSTNESS_METRICS}
+
+
+def failure_tags(row: dict[str, Any]) -> list[str]:
+    values: list[str] = []
+    primary = row.get("primary_failure")
+    if isinstance(primary, str) and primary:
+        values.append(primary)
+    secondary = row.get("secondary_failures", [])
+    if isinstance(secondary, list):
+        values.extend(
+            value for value in secondary if isinstance(value, str) and value
+        )
+    return values
+
+
+def success_transition(e0_success: bool, e4_success: bool) -> str:
+    if e0_success and e4_success:
+        return "stable_success"
+    if e0_success and not e4_success:
+        return "regression"
+    if not e0_success and e4_success:
+        return "recovery"
+    return "stable_failure"
+
+
+def build_e0_robustness_comparison(
+    *,
+    repo: Path,
+    args: argparse.Namespace,
+    e4_result_root: Path,
+    e4_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    if args.experiment != "E4":
+        raise ValueError("E0 robustness comparison is defined only for E4")
+    baseline_run_id = E0_BASELINE_RUN_IDS[args.configuration]
+    baseline_root = (
+        repo
+        / "experiments"
+        / "skillnet"
+        / "results"
+        / "E0"
+        / args.configuration
+        / "size_46"
+        / baseline_run_id
+    )
+    baseline_rows_path = baseline_root / "evaluator_output" / "per_task_results.json"
+    baseline_summary_path = (
+        baseline_root / "evaluator_output" / "summary_by_configuration.csv"
+    )
+    baseline_manifest_path = baseline_root / "verification_manifest.json"
+    for required in (
+        baseline_rows_path,
+        baseline_summary_path,
+        baseline_manifest_path,
+    ):
+        if not required.is_file():
+            raise RuntimeError(f"Missing fixed E0 baseline artifact: {required}")
+    baseline_manifest = runner.load_json(baseline_manifest_path)
+    if (
+        baseline_manifest.get("experiment") != "E0"
+        or baseline_manifest.get("configuration") != args.configuration
+        or baseline_manifest.get("size") != 46
+        or baseline_manifest.get("run_id") != baseline_run_id
+    ):
+        raise RuntimeError(f"E0 baseline identity mismatch: {baseline_manifest_path}")
+
+    baseline_rows = runner.load_json(baseline_rows_path)
+    if not isinstance(baseline_rows, list):
+        raise RuntimeError("E0 per-task results must be a JSON list")
+    e0_by_task = {row.get("task_id"): row for row in baseline_rows}
+    e4_by_task = {row.get("task_id"): row for row in e4_rows}
+    expected_ids = set(baseline_manifest.get("task_ids", []))
+    if len(expected_ids) != 21 or set(e0_by_task) != expected_ids:
+        raise RuntimeError("Fixed E0 baseline must contain GT01-GT21")
+    if set(e4_by_task) != expected_ids:
+        raise RuntimeError("E4 results do not align with the fixed E0 baseline")
+
+    e4_summary_path = (
+        e4_result_root / "evaluator_output" / "summary_by_configuration.csv"
+    )
+    e0_summary = read_configuration_summary(baseline_summary_path)
+    e4_summary = read_configuration_summary(e4_summary_path)
+    metric_rows: dict[str, dict[str, Any]] = {}
+    for metric in ROBUSTNESS_METRICS:
+        lower_is_better = metric == "gold_constraint_violation_rate"
+        signed_change = round(e4_summary[metric] - e0_summary[metric], 6)
+        robustness_drop = (
+            signed_change if lower_is_better else -signed_change
+        )
+        metric_rows[metric] = {
+            "direction": "lower_is_better" if lower_is_better else "higher_is_better",
+            "e0": e0_summary[metric],
+            "e4": e4_summary[metric],
+            "signed_change_e4_minus_e0": signed_change,
+            "robustness_drop": round(robustness_drop, 6),
+            "drop_interpretation": "positive means E4 is worse than E0",
+        }
+
+    task_transitions = []
+    for task_id in baseline_manifest["task_ids"]:
+        e0_row = e0_by_task[task_id]
+        e4_row = e4_by_task[task_id]
+        e0_success = e0_row.get("functional_success") is True
+        e4_success = e4_row.get("functional_success") is True
+        e0_clean = e0_row.get("clean_success") is True
+        e4_clean = e4_row.get("clean_success") is True
+        task_transitions.append(
+            {
+                "task_id": task_id,
+                "e0_functional_success": e0_success,
+                "e4_functional_success": e4_success,
+                "functional_transition": success_transition(e0_success, e4_success),
+                "e0_clean_success": e0_clean,
+                "e4_clean_success": e4_clean,
+                "clean_transition": success_transition(e0_clean, e4_clean),
+                "e0_failure_tags": failure_tags(e0_row),
+                "e4_failure_tags": failure_tags(e4_row),
+            }
+        )
+
+    e0_counts = Counter(
+        tag for row in baseline_rows for tag in failure_tags(row)
+    )
+    e4_counts = Counter(tag for row in e4_rows for tag in failure_tags(row))
+    failure_deltas = [
+        {
+            "failure_tag": tag,
+            "e0_count": e0_counts[tag],
+            "e4_count": e4_counts[tag],
+            "delta_e4_minus_e0": e4_counts[tag] - e0_counts[tag],
+        }
+        for tag in sorted(set(e0_counts) | set(e4_counts))
+    ]
+    return {
+        "schema_version": "1.0",
+        "experiment_id": "E4",
+        "configuration": args.configuration,
+        "catalogue_size": 46,
+        "run_id": args.run_id,
+        "baseline": {
+            "experiment_id": "E0",
+            "configuration": args.configuration,
+            "catalogue_size": 46,
+            "run_id": baseline_run_id,
+            "result_root": str(baseline_root.relative_to(repo)),
+            "verification_manifest_sha256": runner.sha256_file(
+                baseline_manifest_path
+            ),
+            "per_task_results_sha256": runner.sha256_file(baseline_rows_path),
+            "summary_sha256": runner.sha256_file(baseline_summary_path),
+            "selection_note": (
+                "A/B use the original formal run_02; C uses run_04 because "
+                "C run_02 is the permission-failure run."
+            ),
+        },
+        "metrics": metric_rows,
+        "task_transitions": task_transitions,
+        "failure_tag_counting": "primary plus every secondary tag occurrence",
+        "failure_tag_deltas": failure_deltas,
+        "interpretation_limit": (
+            "Observed differences from one selected run per condition are "
+            "descriptive and do not establish statistical significance."
+        ),
+    }
 
 
 def expected_verify_command(args: argparse.Namespace) -> str:
@@ -1000,6 +1199,20 @@ def verify_condition(args: argparse.Namespace) -> int:
                 exclusive=True,
             )
 
+        e0_comparison_path: Path | None = None
+        if args.experiment == "E4":
+            e0_comparison_path = final_root / "e0_robustness_comparison.json"
+            runner.write_json(
+                e0_comparison_path,
+                build_e0_robustness_comparison(
+                    repo=repo,
+                    args=args,
+                    e4_result_root=final_root,
+                    e4_rows=result_rows,
+                ),
+                exclusive=True,
+            )
+
         missing, unexpected, matrix = task_artifact_audit(
             run_root, task_ids, include_verifier_artifacts=True
         )
@@ -1034,6 +1247,12 @@ def verify_condition(args: argparse.Namespace) -> int:
             "gold_path": str(gold_path.relative_to(repo)),
             "gold_sha256": runner.sha256_file(gold_path),
             "prediction_schema_sha256": runner.sha256_file(schema_path),
+            "e4_prompt_manifest_sha256": condition_metadata.get(
+                "e4_prompt_manifest_sha256"
+            ),
+            "e4_semantic_audit_sha256": condition_metadata.get(
+                "e4_semantic_audit_sha256"
+            ),
             "raw_response_count": len(task_ids),
             "valid_prediction_count": valid_predictions,
             "invalid_prediction_count": len(task_ids) - valid_predictions,
@@ -1043,6 +1262,16 @@ def verify_condition(args: argparse.Namespace) -> int:
             "missing_artifacts": missing,
             "unexpected_artifacts": unexpected,
             "verify_command": verify_command,
+            "e0_robustness_comparison_path": (
+                str(e0_comparison_path.relative_to(final_root))
+                if e0_comparison_path is not None
+                else None
+            ),
+            "e0_robustness_comparison_sha256": (
+                runner.sha256_file(e0_comparison_path)
+                if e0_comparison_path is not None
+                else None
+            ),
         }
         runner.write_json(final_root / "verification_manifest.json", manifest)
     except Exception:
@@ -1093,7 +1322,7 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Mechanically create and validate the frozen five-task E1 Gold.",
     )
-    parser.add_argument("--experiment", choices=("E0", "E1"))
+    parser.add_argument("--experiment", choices=("E0", "E1", "E4"))
     parser.add_argument("--configuration", choices=("A", "B", "C"))
     parser.add_argument("--size", type=int)
     parser.add_argument("--run-id")

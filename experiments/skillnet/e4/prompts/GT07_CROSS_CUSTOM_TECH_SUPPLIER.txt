@@ -1,0 +1,14 @@
+Task ID: GT07_CROSS_CUSTOM_TECH_SUPPLIER
+Experiment: E4 fuzzy language
+
+中文任务
+新客户只有一条跟进线索，想要一套必须配外部设备的定制技术方案，需求、规格、预算和供应来源都未确定；请把项目推进到方向明确且已有可用供货方，客户和供应商都先不签约，也先不下单。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

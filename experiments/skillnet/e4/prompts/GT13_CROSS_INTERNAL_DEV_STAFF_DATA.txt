@@ -1,0 +1,14 @@
+Task ID: GT13_CROSS_INTERNAL_DEV_STAFF_DATA
+Experiment: E4 fuzzy language
+
+中文任务
+这个已识别的技术需求确定由内部团队开发，现有员工的技能和项目经历可查；请据此确认能否做成并形成可执行的人员任务分工，先不要开工。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

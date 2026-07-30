@@ -1,0 +1,14 @@
+Task ID: GT01_SINGLE
+Experiment: E4 fuzzy language
+
+中文任务
+候选供应商名单已经整理好，这次只判断他们能不能获得本次采购的准入，询价、打分和定标都先不做。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

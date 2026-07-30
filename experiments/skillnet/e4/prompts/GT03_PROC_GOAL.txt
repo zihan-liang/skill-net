@@ -1,0 +1,14 @@
+Task ID: GT03_PROC_GOAL
+Experiment: E4 fuzzy language
+
+中文任务
+采购内容和预算均已确定，目前还没有候选方；请选出一家资质、价格和综合表现都合适的供应商，谈判、签约和下单暂不处理。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

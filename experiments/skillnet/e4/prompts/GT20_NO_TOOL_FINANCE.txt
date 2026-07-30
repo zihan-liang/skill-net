@@ -1,0 +1,14 @@
+Task ID: GT20_NO_TOOL_FINANCE
+Experiment: E4 fuzzy language
+
+中文任务
+用大白话解释一下“预算检查”是什么意思，不要读取、分析或改动任何公司预算数据。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

@@ -1,0 +1,14 @@
+Task ID: GT10_CROSS_ONBOARDING_EQUIPMENT
+Experiment: E4 fuzzy language
+
+中文任务
+新员工已接受录用，办公电脑也已下单，但电脑尚未送达，也未由技术人员确认可用；请在入职日前把办公条件准备好并完成员工资料归档。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

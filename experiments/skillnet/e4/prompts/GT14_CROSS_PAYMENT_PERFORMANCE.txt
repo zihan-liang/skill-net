@@ -1,0 +1,14 @@
+Task ID: GT14_CROSS_PAYMENT_PERFORMANCE
+Experiment: E4 fuzzy language
+
+中文任务
+采购物品已验收通过并收到发票，财务还没核对；请把款项处理并入账，同时将这次履约表现记入该供应商的后续评价。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

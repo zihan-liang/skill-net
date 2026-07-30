@@ -1,0 +1,14 @@
+Task ID: GT16_SPECIAL_SUPPLIER_FAIL
+Experiment: E4 fuzzy language
+
+中文任务
+这次采购只有一家候选方，资质结论是不合格，业务负责人仍催着立即定下并出合同；请按规则处理并说明最终状态。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

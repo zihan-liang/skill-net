@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run one frozen SkillNet E0/E1 condition.
+"""Run one frozen SkillNet E0/E1/E4 condition.
 
 Each task is sent to a fresh, ephemeral ``codex exec`` process. The child
 process receives only the current Chinese task, the one selected Catalogue,
@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib.metadata
+import importlib.util
 import json
 import re
 import shutil
@@ -130,8 +131,15 @@ def extract_chinese_prompt(path: Path) -> tuple[str, str]:
     return task_id, prompt_zh
 
 
-def load_prompt_map(repo: Path) -> dict[str, dict[str, str]]:
-    prompt_dir = repo / "SkillNet_Gold_Tasks_V4" / "prompts"
+def load_prompt_map(
+    repo: Path,
+    experiment: str = "E0",
+) -> dict[str, dict[str, str]]:
+    prompt_dir = (
+        repo / "experiments" / "skillnet" / "e4" / "prompts"
+        if experiment == "E4"
+        else repo / "SkillNet_Gold_Tasks_V4" / "prompts"
+    )
     records: dict[str, dict[str, str]] = {}
     for path in sorted(prompt_dir.glob("GT*.txt")):
         task_id, prompt_zh = extract_chinese_prompt(path)
@@ -149,6 +157,42 @@ def load_prompt_map(repo: Path) -> dict[str, dict[str, str]]:
             f"Expected GT01-GT21 exactly once; found {sorted(records)}"
         )
     return records
+
+
+def prompt_set_sha256(records: dict[str, dict[str, str]]) -> str:
+    payload = [
+        {"task_id": task_id, "e4_prompt_sha256": record["sha256"]}
+        for task_id, record in records.items()
+    ]
+    return sha256_bytes(
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    )
+
+
+def validate_e4_prompt_package(repo: Path) -> dict[str, Any]:
+    validator_path = (
+        repo
+        / "experiments"
+        / "skillnet"
+        / "e4"
+        / "validate_e4_prompts.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "skillnet_e4_prompt_validator", validator_path
+    )
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Cannot load E4 validator: {validator_path}")
+    validator = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(validator)
+    report = validator.validate_repository(repo)
+    if report.get("valid") is not True:
+        raise ValueError(f"E4 prompt package validation failed: {report['errors']}")
+    return report
 
 
 def flatten_catalogue_skills(catalogue: dict[str, Any]) -> list[dict[str, Any]]:
@@ -175,6 +219,12 @@ def resolve_condition(
         raise ValueError("E0 is fixed to size 46")
     if experiment == "E1" and size not in {10, 30, 46}:
         raise ValueError("E1 size must be 10, 30, or 46")
+    if experiment == "E4" and size != 46:
+        raise ValueError("E4 is fixed to size 46")
+    if experiment not in {"E0", "E1", "E4"}:
+        raise ValueError(f"Unsupported experiment: {experiment}")
+    if experiment == "E4":
+        validate_e4_prompt_package(repo)
 
     catalogue_path = (
         repo
@@ -192,8 +242,8 @@ def resolve_condition(
     if len(skill_ids) != size or len(set(skill_ids)) != size:
         raise ValueError(f"Catalogue has wrong or duplicate Skill IDs: {catalogue_path}")
 
-    prompts = load_prompt_map(repo)
-    if experiment == "E0":
+    prompts = load_prompt_map(repo, experiment)
+    if experiment in {"E0", "E4"}:
         task_ids = sorted(prompts, key=lambda item: int(item[2:4]))
     else:
         manifest_path = repo / "skillnet_run_guide_v1_1" / "E1_scale_manifest.json"
@@ -495,7 +545,7 @@ def execute_codex(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--experiment", choices=("E0", "E1"), required=True)
+    parser.add_argument("--experiment", choices=("E0", "E1", "E4"), required=True)
     parser.add_argument("--configuration", choices=("A", "B", "C"), required=True)
     parser.add_argument("--size", type=int, required=True)
     parser.add_argument("--run-id", required=True)
@@ -530,13 +580,16 @@ def main() -> int:
         raise SystemExit(
             "run_id must match [A-Za-z0-9][A-Za-z0-9._-]*"
         )
+    if args.experiment == "E4" and args.resume:
+        raise SystemExit("E4 does not allow --resume; model answers are immutable")
 
     repo = repository_root()
     state_root = args.state_root.resolve()
     catalogue_path, catalogue, task_ids = resolve_condition(
         repo, args.experiment, args.configuration, args.size
     )
-    prompts = load_prompt_map(repo)
+    prompts = load_prompt_map(repo, args.experiment)
+    prompt_set_hash = prompt_set_sha256(prompts)
     schema_path = canonical_schema_path(repo)
     canonical_schema = load_json(schema_path)
     run_root = condition_run_root(
@@ -559,6 +612,7 @@ def main() -> int:
             "run_id": args.run_id,
             "task_ids": task_ids,
             "catalogue_sha256": sha256_file(catalogue_path),
+            "prompt_set_sha256": prompt_set_hash,
             "execution_mode": "codex" if args.execute else "fixture",
         }
         for key, expected in identity.items():
@@ -601,6 +655,7 @@ def main() -> int:
             "catalogue_path": str(catalogue_path.relative_to(repo)),
             "catalogue_source_commit": catalogue.get("source_commit"),
             "catalogue_sha256": sha256_file(catalogue_path),
+            "prompt_set_sha256": prompt_set_hash,
             "prediction_schema_path": str(schema_path.relative_to(repo)),
             "prediction_schema_sha256": sha256_file(schema_path),
             "e1_manifest_sha256": (
@@ -608,6 +663,33 @@ def main() -> int:
                     repo / "skillnet_run_guide_v1_1" / "E1_scale_manifest.json"
                 )
                 if args.experiment == "E1"
+                else None
+            ),
+            "e4_prompt_manifest_path": (
+                "experiments/skillnet/e4/E4_prompt_manifest.json"
+                if args.experiment == "E4"
+                else None
+            ),
+            "e4_prompt_manifest_sha256": (
+                sha256_file(
+                    repo
+                    / "experiments"
+                    / "skillnet"
+                    / "e4"
+                    / "E4_prompt_manifest.json"
+                )
+                if args.experiment == "E4"
+                else None
+            ),
+            "e4_semantic_audit_sha256": (
+                sha256_file(
+                    repo
+                    / "experiments"
+                    / "skillnet"
+                    / "e4"
+                    / "E4_semantic_audit.json"
+                )
+                if args.experiment == "E4"
                 else None
             ),
             "codex": {
@@ -767,6 +849,9 @@ def main() -> int:
                 "catalogue_snapshot_sha256": catalogue_snapshot_sha256,
                 "prediction_schema_sha256": schema_sha256,
                 "runner_source_sha256": sha256_file(Path(__file__).resolve()),
+                "e4_prompt_manifest_sha256": condition_metadata.get(
+                    "e4_prompt_manifest_sha256"
+                ),
             },
             "execution_mode": "codex" if args.execute else "fixture",
             "attempt_number": 1,

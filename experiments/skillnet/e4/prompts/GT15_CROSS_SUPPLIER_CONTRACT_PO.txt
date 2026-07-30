@@ -1,0 +1,14 @@
+Task ID: GT15_CROSS_SUPPLIER_CONTRACT_PO
+Experiment: E4 fuzzy language
+
+中文任务
+预算和供应商都定了，把这次采购推进到可以正式下单，先不用管交付。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

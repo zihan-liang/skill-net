@@ -1,0 +1,14 @@
+Task ID: GT05_BUS_GOAL
+Experiment: E4 fuzzy language
+
+中文任务
+潜在客户已在跟进，但需求、预算和交付预期都还不清楚；请判断是否值得继续，并在值得时拿出可供客户讨论的初步方案和价格，正式谈判与签约先不开始。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.

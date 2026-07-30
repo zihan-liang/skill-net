@@ -1,0 +1,14 @@
+Task ID: GT12_CROSS_BUSINESS_TO_PO
+Experiment: E4 fuzzy language
+
+中文任务
+只有一条潜在客户线索，项目交付明确依赖外部咨询服务，客户需求还没确认，预算和供应方也没有结论；请在确认值得做后把外部服务推进到可以正式下单。
+
+Output requirements
+Return exactly one valid JSON object with these fields:
+task_id, use_skills, selected_departments, skill_sequence, final_status,
+blocked_by, route_choice, reason.
+
+Use exact canonical English Skill IDs from the current Catalogue in skill_sequence
+and blocked_by. Use exact canonical department IDs from the current Catalogue in
+selected_departments. Do not output a Markdown code block or non-JSON text.
