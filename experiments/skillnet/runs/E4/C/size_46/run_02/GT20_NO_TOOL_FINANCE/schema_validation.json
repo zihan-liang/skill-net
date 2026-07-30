@@ -1,0 +1,10 @@
+{
+  "task_id": "GT20_NO_TOOL_FINANCE",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "ee267608d6d176e5c93cb61f794621e9d9914bbc2767a67a2fac39c56bdb01e3",
+  "prediction_saved": true
+}

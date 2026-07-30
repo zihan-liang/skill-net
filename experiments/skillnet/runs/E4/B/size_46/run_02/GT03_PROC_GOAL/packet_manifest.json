@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT03_PROC_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT03_PROC_GOAL.txt",
+      "source_sha256": "23220f04c34de43990db7e31a15513f2b60abe3e1f55535f47beae650620f1d8",
+      "text_zh": "采购内容和预算均已确定，目前还没有候选方；请选出一家资质、价格和综合表现都合适的供应商，谈判、签约和下单暂不处理。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "5ee8d5694c9b15860d93aff8e6cda0c76de011b52619ae72fcda6b2efe77355e",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

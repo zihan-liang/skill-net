@@ -1,0 +1,10 @@
+{
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "8ad37a274ec3680fed09d3a7ed95191b077708c1f105c8ad2d3c71f11574f4bb",
+  "prediction_saved": true
+}

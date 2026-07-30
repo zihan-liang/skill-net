@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT08_CROSS_TECH_DELIVERY_PAYMENT.txt",
+      "source_sha256": "af5e1beafbe2d6cde521b76d2cb773f2278773d0f777afa65cc3a6b5dadd54db",
+      "text_zh": "技术设备的订单已下，供应商称已送达并开了发票，目前只是采购侧开始跟进，设备还没经过技术人员确认；请在条件齐备后完成付款并入账。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "source_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "embedded_json_sha256": "1aa0f3e9aca115209de6bff9b534ab8381f51d49fd7713935df16fa10cc5e264",
+      "snapshot_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "child_prompt": {
+      "sha256": "31f517221a820e8e23f547c16e0f8b174054a9384b99730e109c20acc300418f",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

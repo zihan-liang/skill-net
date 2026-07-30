@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT17_SPECIAL_INVALID_INVOICE.txt",
+      "source_sha256": "aebf84ad1877ae597d9ea781a8f958602c704a83947f704a59f23cc49308f1c8",
+      "text_zh": "货物已验收通过，但发票被判定无效或与合同、订单对不上，供应商仍催着立刻付款；请按规则处理并说明最终状态。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+      "source_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef",
+      "embedded_json_sha256": "f0df8d68ee5f6603f7de9174ae3d138ab65e55970db966edfcba3c44abf60ab4",
+      "snapshot_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef"
+    },
+    "child_prompt": {
+      "sha256": "f6a7c7dee53d83e1b42dfe64a665170331d3fd2f5393f1805d7b507fb2cebc4c",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

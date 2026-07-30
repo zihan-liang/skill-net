@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "baseline": {
+    "experiment_id": "E0",
+    "configuration": "C",
+    "catalogue_size": 46,
+    "run_id": "run_04",
+    "result_root": "experiments/skillnet/results/E0/C/size_46/run_04",
+    "verification_manifest_sha256": "0bfcb1e299930976d1c203cdb0d99a81603096906387f5b528be77958fdcee26",
+    "per_task_results_sha256": "aba230e58ee2c1e3bd77fc0e8b3bbaf2a1d3d72b9096ae084103393cc3f3467b",
+    "summary_sha256": "827c53e30a274779ad37468d24f1360b8443c38db6751efa97ccf226545b8664",
+    "selection_note": "A/B use the original formal run_02; C uses run_04 because C run_02 is the permission-failure run."
+  },
+  "metrics": {
+    "functional_success": {
+      "direction": "higher_is_better",
+      "e0": 0.571429,
+      "e4": 0.47619,
+      "signed_change_e4_minus_e0": -0.095239,
+      "robustness_drop": 0.095239,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "clean_success": {
+      "direction": "higher_is_better",
+      "e0": 0.571429,
+      "e4": 0.47619,
+      "signed_change_e4_minus_e0": -0.095239,
+      "robustness_drop": 0.095239,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "skill_precision": {
+      "direction": "higher_is_better",
+      "e0": 0.896359,
+      "e4": 0.895635,
+      "signed_change_e4_minus_e0": -0.000724,
+      "robustness_drop": 0.000724,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "skill_recall": {
+      "direction": "higher_is_better",
+      "e0": 0.992063,
+      "e4": 0.984127,
+      "signed_change_e4_minus_e0": -0.007936,
+      "robustness_drop": 0.007936,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "skill_f1": {
+      "direction": "higher_is_better",
+      "e0": 0.895825,
+      "e4": 0.891287,
+      "signed_change_e4_minus_e0": -0.004538,
+      "robustness_drop": 0.004538,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "department_precision": {
+      "direction": "higher_is_better",
+      "e0": 1.0,
+      "e4": 1.0,
+      "signed_change_e4_minus_e0": 0.0,
+      "robustness_drop": -0.0,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "department_recall": {
+      "direction": "higher_is_better",
+      "e0": 1.0,
+      "e4": 1.0,
+      "signed_change_e4_minus_e0": 0.0,
+      "robustness_drop": -0.0,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "department_f1": {
+      "direction": "higher_is_better",
+      "e0": 1.0,
+      "e4": 1.0,
+      "signed_change_e4_minus_e0": 0.0,
+      "robustness_drop": -0.0,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "required_order_accuracy": {
+      "direction": "higher_is_better",
+      "e0": 0.990476,
+      "e4": 0.980952,
+      "signed_change_e4_minus_e0": -0.009524,
+      "robustness_drop": 0.009524,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "final_status_correct": {
+      "direction": "higher_is_better",
+      "e0": 0.857143,
+      "e4": 0.809524,
+      "signed_change_e4_minus_e0": -0.047619,
+      "robustness_drop": 0.047619,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "route_choice_correct": {
+      "direction": "higher_is_better",
+      "e0": 0.761905,
+      "e4": 0.761905,
+      "signed_change_e4_minus_e0": 0.0,
+      "robustness_drop": -0.0,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "no_tool_accuracy": {
+      "direction": "higher_is_better",
+      "e0": 1.0,
+      "e4": 0.666667,
+      "signed_change_e4_minus_e0": -0.333333,
+      "robustness_drop": 0.333333,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "blocked_flow_accuracy": {
+      "direction": "higher_is_better",
+      "e0": 0.0,
+      "e4": 0.0,
+      "signed_change_e4_minus_e0": 0.0,
+      "robustness_drop": -0.0,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    },
+    "gold_constraint_violation_rate": {
+      "direction": "lower_is_better",
+      "e0": 0.380952,
+      "e4": 0.428571,
+      "signed_change_e4_minus_e0": 0.047619,
+      "robustness_drop": 0.047619,
+      "drop_interpretation": "positive means E4 is worse than E0"
+    }
+  },
+  "task_transitions": [
+    {
+      "task_id": "GT01_SINGLE",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT02_FIN_GOAL",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT03_PROC_GOAL",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT04_TECH_GOAL",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT05_BUS_GOAL",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT06_HR_GOAL",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "REPEATED_COMPLETED_SKILL",
+        "UNNECESSARY_SKILL"
+      ],
+      "e4_failure_tags": [
+        "REPEATED_COMPLETED_SKILL",
+        "UNNECESSARY_SKILL"
+      ]
+    },
+    {
+      "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_FINAL_STATUS",
+        "MUTEX_VIOLATION",
+        "WRONG_ROUTE_CHOICE"
+      ],
+      "e4_failure_tags": [
+        "WRONG_FINAL_STATUS",
+        "MUTEX_VIOLATION",
+        "WRONG_ROUTE_CHOICE"
+      ]
+    },
+    {
+      "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_ROUTE_CHOICE",
+        "MISSING_REQUIRED_SKILL",
+        "ORDER_VIOLATION",
+        "MUTEX_VIOLATION"
+      ],
+      "e4_failure_tags": [
+        "WRONG_FINAL_STATUS",
+        "MISSING_REQUIRED_SKILL",
+        "ORDER_VIOLATION",
+        "WRONG_ROUTE_CHOICE"
+      ]
+    },
+    {
+      "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_FINAL_STATUS",
+        "MUTEX_VIOLATION",
+        "WRONG_ROUTE_CHOICE"
+      ],
+      "e4_failure_tags": [
+        "WRONG_FINAL_STATUS",
+        "MUTEX_VIOLATION",
+        "WRONG_ROUTE_CHOICE"
+      ]
+    },
+    {
+      "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_FINAL_STATUS"
+      ],
+      "e4_failure_tags": [
+        "WRONG_FINAL_STATUS"
+      ]
+    },
+    {
+      "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+      "e0_functional_success": true,
+      "e4_functional_success": false,
+      "functional_transition": "regression",
+      "e0_clean_success": true,
+      "e4_clean_success": false,
+      "clean_transition": "regression",
+      "e0_failure_tags": [],
+      "e4_failure_tags": [
+        "REPEATED_COMPLETED_SKILL",
+        "UNNECESSARY_SKILL"
+      ]
+    },
+    {
+      "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_ROUTE_CHOICE"
+      ],
+      "e4_failure_tags": [
+        "WRONG_ROUTE_CHOICE"
+      ]
+    },
+    {
+      "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "REPEATED_COMPLETED_SKILL",
+        "UNNECESSARY_SKILL"
+      ],
+      "e4_failure_tags": [
+        "REPEATED_COMPLETED_SKILL",
+        "UNNECESSARY_SKILL"
+      ]
+    },
+    {
+      "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "CONFLICT_VIOLATION",
+        "FORBIDDEN_SKILL_VIOLATION",
+        "REPEATED_COMPLETED_SKILL",
+        "CONTINUE_AFTER_BLOCK",
+        "UNNECESSARY_SKILL"
+      ],
+      "e4_failure_tags": [
+        "WRONG_BLOCK_REASON",
+        "FORBIDDEN_SKILL_VIOLATION",
+        "CONFLICT_VIOLATION",
+        "REPEATED_COMPLETED_SKILL",
+        "CONTINUE_AFTER_BLOCK",
+        "UNNECESSARY_SKILL"
+      ]
+    },
+    {
+      "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+      "e0_functional_success": false,
+      "e4_functional_success": false,
+      "functional_transition": "stable_failure",
+      "e0_clean_success": false,
+      "e4_clean_success": false,
+      "clean_transition": "stable_failure",
+      "e0_failure_tags": [
+        "WRONG_ROUTE_CHOICE",
+        "MUTEX_VIOLATION"
+      ],
+      "e4_failure_tags": [
+        "WRONG_ROUTE_CHOICE",
+        "MISSING_REQUIRED_SKILL",
+        "ORDER_VIOLATION",
+        "MUTEX_VIOLATION"
+      ]
+    },
+    {
+      "task_id": "GT19_NO_TOOL_CLEAR",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT20_NO_TOOL_FINANCE",
+      "e0_functional_success": true,
+      "e4_functional_success": false,
+      "functional_transition": "regression",
+      "e0_clean_success": true,
+      "e4_clean_success": false,
+      "clean_transition": "regression",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    },
+    {
+      "task_id": "GT21_NO_TOOL_PROC",
+      "e0_functional_success": true,
+      "e4_functional_success": true,
+      "functional_transition": "stable_success",
+      "e0_clean_success": true,
+      "e4_clean_success": true,
+      "clean_transition": "stable_success",
+      "e0_failure_tags": [],
+      "e4_failure_tags": []
+    }
+  ],
+  "failure_tag_counting": "primary plus every secondary tag occurrence",
+  "failure_tag_deltas": [
+    {
+      "failure_tag": "CONFLICT_VIOLATION",
+      "e0_count": 1,
+      "e4_count": 1,
+      "delta_e4_minus_e0": 0
+    },
+    {
+      "failure_tag": "CONTINUE_AFTER_BLOCK",
+      "e0_count": 1,
+      "e4_count": 1,
+      "delta_e4_minus_e0": 0
+    },
+    {
+      "failure_tag": "FORBIDDEN_SKILL_VIOLATION",
+      "e0_count": 1,
+      "e4_count": 1,
+      "delta_e4_minus_e0": 0
+    },
+    {
+      "failure_tag": "MISSING_REQUIRED_SKILL",
+      "e0_count": 1,
+      "e4_count": 2,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "MUTEX_VIOLATION",
+      "e0_count": 4,
+      "e4_count": 3,
+      "delta_e4_minus_e0": -1
+    },
+    {
+      "failure_tag": "ORDER_VIOLATION",
+      "e0_count": 1,
+      "e4_count": 2,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "REPEATED_COMPLETED_SKILL",
+      "e0_count": 3,
+      "e4_count": 4,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "UNNECESSARY_SKILL",
+      "e0_count": 3,
+      "e4_count": 4,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "WRONG_BLOCK_REASON",
+      "e0_count": 0,
+      "e4_count": 1,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "WRONG_FINAL_STATUS",
+      "e0_count": 3,
+      "e4_count": 4,
+      "delta_e4_minus_e0": 1
+    },
+    {
+      "failure_tag": "WRONG_ROUTE_CHOICE",
+      "e0_count": 5,
+      "e4_count": 5,
+      "delta_e4_minus_e0": 0
+    }
+  ],
+  "interpretation_limit": "Observed differences from one selected run per condition are descriptive and do not establish statistical significance."
+}

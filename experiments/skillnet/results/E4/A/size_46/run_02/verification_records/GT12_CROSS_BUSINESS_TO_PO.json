@@ -1,0 +1,17 @@
+{
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/A/size_46/run_02/GT12_CROSS_BUSINESS_TO_PO/raw_response.txt",
+  "raw_response_sha256": "5ed4992b739cfcdb23321626d14aad076e5584f2c51e77693e8d35d9ff77bc91",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 982,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

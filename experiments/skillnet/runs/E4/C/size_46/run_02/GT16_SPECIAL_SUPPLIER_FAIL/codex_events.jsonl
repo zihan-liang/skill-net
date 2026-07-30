@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3f3-99a1-7533-87ee-6535de7c478b"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection refused (os error 61)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT16_SPECIAL_SUPPLIER_FAIL\",\"use_skills\":true,\"selected_departments\":[\"procurement-agent\"],\"skill_sequence\":[\"procurement-supplier-qualification\"],\"final_status\":\"blocked\",\"blocked_by\":[\"procurement-supplier-qualification\"],\"route_choice\":{\"gate_result\":\"supplier_not_qualified\",\"blocked_selection\":\"procurement-supplier-selection\",\"blocked_contract\":\"procurement-contract-generation\"},\"reason\":\"唯一候选供应商资质不合格，按冲突规则必须停止选商及合同生成，不得因业务催促绕过准入门禁。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23462,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":368,"reasoning_output_tokens":241}}

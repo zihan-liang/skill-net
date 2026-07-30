@@ -1,0 +1,10 @@
+{
+  "task_id": "GT21_NO_TOOL_PROC",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {},
+  "reason": "任务仅要求讲采购主题笑话，并明确不执行采购业务；Catalogue 中无适用的娱乐或笑话 Skill。"
+}

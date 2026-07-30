@@ -1,0 +1,10 @@
+{
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "cceb49130021fc2475626219721897ae4b0669d18fa0157c52236f4690f1bc63",
+  "prediction_saved": true
+}

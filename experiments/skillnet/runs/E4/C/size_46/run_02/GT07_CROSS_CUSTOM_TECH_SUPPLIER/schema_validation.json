@@ -1,0 +1,10 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "86617edea63dca3c48bf6ca607c067e634929957ec645a3c8809a5f3a5620d61",
+  "prediction_saved": true
+}

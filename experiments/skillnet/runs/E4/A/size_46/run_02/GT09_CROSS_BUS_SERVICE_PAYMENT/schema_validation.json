@@ -1,0 +1,10 @@
+{
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "273b36b6be873fa7a6778b99ac49730db775491e6f6e7e8924a3e57de6aac281",
+  "prediction_saved": true
+}

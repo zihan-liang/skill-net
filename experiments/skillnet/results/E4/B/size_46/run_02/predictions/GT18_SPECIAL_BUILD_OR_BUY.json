@@ -1,0 +1,22 @@
+{
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "use_skills": true,
+  "selected_departments": [
+    "technology-agent"
+  ],
+  "skill_sequence": [
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown",
+    "technology-development-implementation",
+    "technology-test-acceptance"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "internal_build",
+    "terminal_stage": "technology_test_acceptance",
+    "external_procurement": "excluded"
+  },
+  "reason": "技术需求已识别且明确选择内部建设，因此跳过采购与选商流程，依次完成规格确认、方案设计、任务拆解、开发实施和技术测试验收。"
+}

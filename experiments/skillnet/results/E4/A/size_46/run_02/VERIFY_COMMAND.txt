@@ -1,0 +1,1 @@
+VERIFY COMMAND: /Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/.venv/bin/python experiments/skillnet/verify_condition.py --experiment E4 --configuration A --size 46 --run-id run_02

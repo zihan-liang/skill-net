@@ -1,0 +1,20 @@
+{
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "use_skills": true,
+  "selected_departments": [
+    "technology-agent"
+  ],
+  "skill_sequence": [
+    "technology-solution-design",
+    "technology-task-breakdown",
+    "technology-development-implementation",
+    "technology-test-acceptance"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "build_or_buy": "build",
+    "delivery_boundary": "test_acceptance"
+  },
+  "reason": "技术需求已识别且明确限定内部实施，因此跳过采购路线，推进方案设计、任务拆解、开发实施并完成技术测试验收把关。"
+}

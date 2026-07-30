@@ -1,0 +1,23 @@
+{
+  "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent",
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting",
+    "procurement-supplier-evaluation"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "invoice_check": "finance-invoice-verification",
+    "payment_processing": "finance-payment-approval",
+    "accounting": "finance-accounting",
+    "supplier_performance": "procurement-supplier-evaluation"
+  },
+  "reason": "验收已完成，需依次核验发票、准备付款审批、完成账务处理，并将本次履约证据纳入供应商绩效评价。"
+}

@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb381-42c3-7ab3-89ca-0a07ddbdb337"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT20_NO_TOOL_FINANCE\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{},\"reason\":\"任务仅要求通俗解释概念，且明确不得处理公司预算数据，无需调用任何 Catalogue Skill。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19881,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":71,"reasoning_output_tokens":0}}

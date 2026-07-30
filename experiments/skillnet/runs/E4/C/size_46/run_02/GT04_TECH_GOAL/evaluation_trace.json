@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT04_TECH_GOAL",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "technology-task-breakdown"
+  ],
+  "skill_checks": {
+    "required": [
+      "technology-feasibility-assessment",
+      "technology-specification-confirmation",
+      "technology-solution-design",
+      "technology-task-breakdown"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "technology-agent"
+    ],
+    "required": [
+      "technology-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "technology-development-implementation",
+      "technology-test-acceptance",
+      "technology-system-release"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "route": "technology_planning",
+      "start_from": "technology-feasibility-assessment",
+      "stop_after": "technology-task-breakdown",
+      "excluded": "technology-development-implementation"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": null,
+    "secondary": [],
+    "all": []
+  }
+}

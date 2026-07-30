@@ -1,0 +1,1 @@
+{"task_id":"GT01_SINGLE","use_skills":true,"selected_departments":["procurement-agent"],"skill_sequence":["procurement-supplier-qualification"],"final_status":"completed","blocked_by":[],"route_choice":{"procurement-supplier-qualification":"对候选供应商进行资质、合规、风险、能力和准入检查"},"reason":"候选名单已具备，任务仅判断采购准入，明确排除询价、评分和选商，因此只路由供应商资质检查。"}

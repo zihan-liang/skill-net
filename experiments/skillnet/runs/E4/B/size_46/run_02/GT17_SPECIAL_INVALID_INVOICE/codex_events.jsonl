@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3b5-bfe2-70a3-90cc-81ce3a7ed40c"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT17_SPECIAL_INVALID_INVOICE\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\"],\"skill_sequence\":[\"finance-invoice-verification\",\"finance-payment-approval\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-invoice-verification\"],\"route_choice\":{\"核验\":\"finance-invoice-verification\",\"付款审批\":\"finance-payment-approval\"},\"reason\":\"发票无效或无法匹配合同、订单，未通过发票核验，付款审批前置条件不成立；即使货物已验收且供应商催款，也必须暂停付款并补正发票或解决匹配差异。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20115,"cached_input_tokens":6912,"cache_write_input_tokens":0,"output_tokens":505,"reasoning_output_tokens":365}}

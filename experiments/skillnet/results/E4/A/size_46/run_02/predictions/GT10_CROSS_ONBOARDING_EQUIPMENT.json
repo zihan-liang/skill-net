@@ -1,0 +1,27 @@
+{
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "hr-agent",
+    "procurement-agent",
+    "technology-agent"
+  ],
+  "skill_sequence": [
+    "hr-onboarding",
+    "procurement-delivery-tracking",
+    "procurement-delivery-acceptance",
+    "technology-test-acceptance",
+    "hr-employee-database"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "procurement-delivery-acceptance",
+    "technology-test-acceptance"
+  ],
+  "route_choice": {
+    "onboarding": "accepted_offer_preboarding",
+    "equipment": "track_then_accept_then_technical_verify",
+    "records": "archive_after_readiness"
+  },
+  "reason": "已满足入职管理前提，但电脑尚未到货，无法完成交付验收和技术可用性确认；待两项门禁通过后再完成入职准备与员工资料归档。"
+}

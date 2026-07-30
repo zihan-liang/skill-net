@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT01_SINGLE",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT01_SINGLE.txt",
+      "source_sha256": "e289af284d638e39eac30692006fa12af62d3dfc63636c848742ea712bec3eee",
+      "text_zh": "候选供应商名单已经整理好，这次只判断他们能不能获得本次采购的准入，询价、打分和定标都先不做。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "0887dd9428b9d005e20c7f99cfdeb351116dafea3f226d3935fb31e57978a1b6",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

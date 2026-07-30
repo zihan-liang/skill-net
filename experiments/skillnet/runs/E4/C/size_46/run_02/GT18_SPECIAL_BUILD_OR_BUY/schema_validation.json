@@ -1,0 +1,10 @@
+{
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "7b3eb017ee7478cd628e3e48aad0c84d94c7bdc548d9f175984b243f46b47d58",
+  "prediction_saved": true
+}

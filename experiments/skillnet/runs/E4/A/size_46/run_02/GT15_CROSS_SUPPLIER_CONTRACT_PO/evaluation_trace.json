@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "skill_checks": {
+    "required": [
+      "business-negotiation",
+      "procurement-contract-generation",
+      "procurement-purchase-order"
+    ],
+    "optional": [],
+    "missing": [
+      "business-negotiation"
+    ],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "procurement-agent"
+    ],
+    "required": [
+      "procurement-agent",
+      "business-agent"
+    ],
+    "missing": [
+      "business-agent"
+    ],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "business-negotiation",
+        "after": "procurement-contract-generation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-contract-generation",
+        "after": "procurement-purchase-order",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "business-negotiation",
+        "after": "procurement-contract-generation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      },
+      {
+        "before": "procurement-contract-generation",
+        "after": "procurement-purchase-order",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [
+      {
+        "before": "business-negotiation",
+        "after": "procurement-contract-generation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      }
+    ],
+    "passed": false
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "procurement-delivery-tracking"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "contract_stage": "procurement-contract-generation",
+      "order_stage": "procurement-purchase-order"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "MISSING_REQUIRED_SKILL",
+    "secondary": [
+      "ORDER_VIOLATION",
+      "MISSING_DEPARTMENT"
+    ],
+    "all": [
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION",
+      "MISSING_DEPARTMENT"
+    ]
+  }
+}

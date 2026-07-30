@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification"
+  ],
+  "skill_checks": {
+    "required": [
+      "business-requirement-communication",
+      "business-opportunity-assessment",
+      "business-solution-quotation",
+      "technology-requirement",
+      "technology-feasibility-assessment",
+      "technology-specification-confirmation",
+      "procurement-requirement",
+      "finance-budget-check",
+      "procurement-supplier-search",
+      "procurement-supplier-qualification",
+      "procurement-rfq-generation",
+      "procurement-quote-comparison",
+      "procurement-supplier-scoring",
+      "procurement-supplier-selection"
+    ],
+    "optional": [],
+    "missing": [
+      "business-opportunity-assessment",
+      "business-solution-quotation",
+      "procurement-quote-comparison",
+      "procurement-rfq-generation",
+      "procurement-supplier-scoring",
+      "procurement-supplier-selection"
+    ],
+    "extra": [
+      "business-customer-lead",
+      "technology-solution-design"
+    ]
+  },
+  "department_checks": {
+    "selected": [
+      "business-agent",
+      "technology-agent",
+      "procurement-agent",
+      "finance-agent"
+    ],
+    "required": [
+      "business-agent",
+      "technology-agent",
+      "finance-agent",
+      "procurement-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-requirement",
+        "after": "technology-feasibility-assessment",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "business-solution-quotation",
+        "after": "procurement-requirement",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "procurement-requirement",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-requirement",
+        "after": "finance-budget-check",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "finance-budget-check",
+        "after": "procurement-supplier-search",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-supplier-search",
+        "after": "procurement-supplier-qualification",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-supplier-qualification",
+        "after": "procurement-rfq-generation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-rfq-generation",
+        "after": "procurement-quote-comparison",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-quote-comparison",
+        "after": "procurement-supplier-scoring",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-supplier-scoring",
+        "after": "procurement-supplier-selection",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-requirement",
+        "after": "technology-feasibility-assessment",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "business-solution-quotation",
+        "after": "procurement-requirement",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "procurement-requirement",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "procurement-requirement",
+        "after": "finance-budget-check",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "finance-budget-check",
+        "after": "procurement-supplier-search",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "procurement-supplier-search",
+        "after": "procurement-supplier-qualification",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "procurement-supplier-qualification",
+        "after": "procurement-rfq-generation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-rfq-generation",
+        "after": "procurement-quote-comparison",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-quote-comparison",
+        "after": "procurement-supplier-scoring",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-supplier-scoring",
+        "after": "procurement-supplier-selection",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      }
+    ],
+    "violations": [
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "business-solution-quotation",
+        "after": "procurement-requirement",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      },
+      {
+        "before": "procurement-supplier-qualification",
+        "after": "procurement-rfq-generation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-rfq-generation",
+        "after": "procurement-quote-comparison",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-quote-comparison",
+        "after": "procurement-supplier-scoring",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "procurement-supplier-scoring",
+        "after": "procurement-supplier-selection",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      }
+    ],
+    "passed": false
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "business-negotiation",
+      "business-contract-signing",
+      "procurement-contract-generation",
+      "procurement-purchase-order"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "business_route": "先建档并澄清客户需求与预算边界",
+      "technology_route": "完成需求、可行性、规格及方案方向确认",
+      "procurement_route": "形成中立采购需求并找到通过准入检查的供应商",
+      "stop_boundary": "止于可用供应商，不进入客户或采购合同及下单"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "REPEATED_COMPLETED_SKILL",
+    "secondary": [
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION",
+      "UNNECESSARY_SKILL"
+    ],
+    "all": [
+      "REPEATED_COMPLETED_SKILL",
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION",
+      "UNNECESSARY_SKILL"
+    ]
+  }
+}

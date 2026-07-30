@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT14_CROSS_PAYMENT_PERFORMANCE.txt",
+      "source_sha256": "4d0989eac0063813b2fb57e627525f744464cfbc54c3102aa84688712be3f618",
+      "text_zh": "采购物品已验收通过并收到发票，财务还没核对；请把款项处理并入账，同时将这次履约表现记入该供应商的后续评价。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+      "source_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef",
+      "embedded_json_sha256": "f0df8d68ee5f6603f7de9174ae3d138ab65e55970db966edfcba3c44abf60ab4",
+      "snapshot_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef"
+    },
+    "child_prompt": {
+      "sha256": "a90f4ba5a7da3ba5855923d28cd687601c3ec8075d573f52f51339a7f56cb336",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

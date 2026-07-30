@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT13_CROSS_INTERNAL_DEV_STAFF_DATA.txt",
+      "source_sha256": "6a0a88d930ef15928025ac38aad34d053cfaafc9133d4d2df5844e300b3193e7",
+      "text_zh": "这个已识别的技术需求确定由内部团队开发，现有员工的技能和项目经历可查；请据此确认能否做成并形成可执行的人员任务分工，先不要开工。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "source_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "embedded_json_sha256": "1aa0f3e9aca115209de6bff9b534ab8381f51d49fd7713935df16fa10cc5e264",
+      "snapshot_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "child_prompt": {
+      "sha256": "171a34680fbbc5e66becb4f69aecc006aee2abc72677f9fda679072008e07ed5",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

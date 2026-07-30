@@ -1,0 +1,17 @@
+{
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/A/size_46/run_02/GT15_CROSS_SUPPLIER_CONTRACT_PO/raw_response.txt",
+  "raw_response_sha256": "ba4e3610840bd735a5e2a2fb9b68b631b63d7306b9f36f4b7ceb3e0e918920fd",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 411,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

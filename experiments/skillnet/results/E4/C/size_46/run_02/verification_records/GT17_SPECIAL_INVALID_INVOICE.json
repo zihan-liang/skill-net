@@ -1,0 +1,17 @@
+{
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/C/size_46/run_02/GT17_SPECIAL_INVALID_INVOICE/raw_response.txt",
+  "raw_response_sha256": "a1f83a15cb4ac2f9b44540544e6907fa68347f08bc0b546e208f11836af5e37d",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 418,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

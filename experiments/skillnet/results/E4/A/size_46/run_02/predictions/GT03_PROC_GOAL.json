@@ -1,0 +1,23 @@
+{
+  "task_id": "GT03_PROC_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "start": "procurement-supplier-search",
+    "end": "procurement-supplier-selection",
+    "scope": "pre-award-selection"
+  },
+  "reason": "采购需求和预算已确定但尚无候选方，需依次完成供应商搜索、资质检查、询价准备、报价比较、综合评分和最终选商；不包含谈判、签约及下单。"
+}

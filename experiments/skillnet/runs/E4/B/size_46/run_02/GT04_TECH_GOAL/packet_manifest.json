@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT04_TECH_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT04_TECH_GOAL.txt",
+      "source_sha256": "7c6cccc18a6f35619a0a7e9d269ded052f45a1795def559a63f627fa90943a85",
+      "text_zh": "新功能需求已整理完成，请把它推进到具备开工条件的详细实施安排，实际开发先不要开始。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "1f89d7ea21e2191c7950ed764e800af347cde2c5568f72a6670f8cd5460c72e6",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

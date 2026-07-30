@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3b9-a1f7-7d70-b26c-46e264064885"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT19_NO_TOOL_CLEAR\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{},\"reason\":\"讲笑话属于普通对话需求，当前 Catalogue 中没有适用的 Skill。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20079,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":65,"reasoning_output_tokens":0}}

@@ -1,0 +1,10 @@
+{
+  "task_id": "GT01_SINGLE",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "724a241860b8cec82d9edaf99085fdac7766100a0ab6cbde4e98dec8c2f76ab2",
+  "prediction_saved": true
+}

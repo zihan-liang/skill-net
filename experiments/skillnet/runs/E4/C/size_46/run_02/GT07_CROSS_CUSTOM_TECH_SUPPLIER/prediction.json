@@ -1,0 +1,37 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "technology-agent",
+    "finance-agent",
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "business-solution-quotation",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "business_route": "lead_to_solution",
+    "technology_route": "requirement_to_design",
+    "procurement_route": "requirement_to_supplier_selection",
+    "stop_boundary": "before_negotiation_contract_and_order"
+  },
+  "reason": "先澄清客户需求并完成商机与定制技术方案，再形成采购需求、核查预算并完成供应商发现、准入、询价、比较、评分和选择；在客户或供应商谈判签约及采购下单前停止。"
+}

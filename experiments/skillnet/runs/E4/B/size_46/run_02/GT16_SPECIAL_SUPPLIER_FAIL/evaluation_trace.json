@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "procurement-supplier-qualification",
+    "procurement-supplier-selection",
+    "procurement-contract-generation"
+  ],
+  "skill_checks": {
+    "required": [],
+    "optional": [],
+    "missing": [],
+    "extra": [
+      "procurement-contract-generation",
+      "procurement-supplier-qualification",
+      "procurement-supplier-selection"
+    ]
+  },
+  "department_checks": {
+    "selected": [
+      "procurement-agent"
+    ],
+    "required": [
+      "procurement-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [],
+    "results": [],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "procurement-supplier-selection",
+      "procurement-contract-generation"
+    ],
+    "hits": [
+      "procurement-contract-generation",
+      "procurement-supplier-selection"
+    ],
+    "passed": false
+  },
+  "conflict_checks": {
+    "constraints": [
+      {
+        "type": "conflict_block",
+        "trigger_skill": "procurement-supplier-qualification",
+        "trigger_results": [
+          "unqualified"
+        ],
+        "blocked_skills": [
+          "procurement-supplier-selection",
+          "procurement-contract-generation"
+        ]
+      }
+    ],
+    "violations": [
+      {
+        "trigger_skill": "procurement-supplier-qualification",
+        "trigger_result": "unqualified",
+        "blocked_skills_called": [
+          "procurement-contract-generation",
+          "procurement-supplier-selection"
+        ]
+      }
+    ],
+    "passed": false
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "blocked",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "decision": "stop_before_selection_and_contract",
+      "final_state": "supplier_disqualified"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [
+      "procurement-supplier-qualification"
+    ],
+    "expected": [
+      "procurement-supplier-qualification"
+    ],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "CONFLICT_VIOLATION",
+    "secondary": [
+      "FORBIDDEN_SKILL_VIOLATION",
+      "REPEATED_COMPLETED_SKILL",
+      "CONTINUE_AFTER_BLOCK",
+      "UNNECESSARY_SKILL"
+    ],
+    "all": [
+      "CONFLICT_VIOLATION",
+      "FORBIDDEN_SKILL_VIOLATION",
+      "REPEATED_COMPLETED_SKILL",
+      "CONTINUE_AFTER_BLOCK",
+      "UNNECESSARY_SKILL"
+    ]
+  }
+}

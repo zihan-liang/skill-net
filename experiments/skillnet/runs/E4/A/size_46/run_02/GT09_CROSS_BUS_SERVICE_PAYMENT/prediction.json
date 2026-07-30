@@ -1,0 +1,25 @@
+{
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "procurement-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "procurement-delivery-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "procurement-delivery-acceptance"
+  ],
+  "route_choice": {
+    "service_acceptance": "procurement-delivery-acceptance",
+    "invoice_check": "finance-invoice-verification",
+    "payment_processing": "finance-payment-approval",
+    "bookkeeping": "finance-accounting"
+  },
+  "reason": "外购咨询服务须先由授权业务负责人按合同完成验收；当前验收未确认，因此付款核验、审批及入账流程暂被阻塞。"
+}

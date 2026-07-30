@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT12_CROSS_BUSINESS_TO_PO.txt",
+      "source_sha256": "205559e2db1daef38343b4f728e811e600375a5bb990c1efecf64cc1d8232f76",
+      "text_zh": "只有一条潜在客户线索，项目交付明确依赖外部咨询服务，客户需求还没确认，预算和供应方也没有结论；请在确认值得做后把外部服务推进到可以正式下单。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "source_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "embedded_json_sha256": "1aa0f3e9aca115209de6bff9b534ab8381f51d49fd7713935df16fa10cc5e264",
+      "snapshot_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "child_prompt": {
+      "sha256": "396ae5c699881f089e4268f4e5e75cb30ddecbe7a966489c0c04a096d68f8bb6",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

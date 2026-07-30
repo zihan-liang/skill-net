@@ -1,0 +1,1 @@
+{"task_id":"GT02_FIN_GOAL","use_skills":true,"selected_departments":["finance-agent"],"skill_sequence":["finance-accounting","finance-reporting"],"final_status":"completed","blocked_by":[],"route_choice":{"accounting":"finance-accounting","reporting":"finance-reporting"},"reason":"已付款但未入账，需先完成账务处理，再基于已入账数据生成本月财务报表。"}

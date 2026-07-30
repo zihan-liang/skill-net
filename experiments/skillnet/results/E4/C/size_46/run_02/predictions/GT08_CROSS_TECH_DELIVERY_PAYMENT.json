@@ -1,0 +1,28 @@
+{
+  "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+  "use_skills": true,
+  "selected_departments": [
+    "procurement-agent",
+    "technology-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "procurement-delivery-tracking",
+    "technology-test-acceptance",
+    "procurement-delivery-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "technology-test-acceptance"
+  ],
+  "route_choice": {
+    "acceptance_route": "technology-test-acceptance",
+    "delivery_gate": "procurement-delivery-acceptance",
+    "payment_route": "finance-payment-approval",
+    "posting_route": "finance-accounting"
+  },
+  "reason": "技术设备尚未经技术人员测试验收，须先完成技术验收和采购交付验收，再核验发票、办理付款审批并入账。"
+}

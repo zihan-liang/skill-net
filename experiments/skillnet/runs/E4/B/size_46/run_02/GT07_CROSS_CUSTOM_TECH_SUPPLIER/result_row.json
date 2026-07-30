@@ -1,0 +1,198 @@
+{
+  "configuration": "B",
+  "run_id": "run_02",
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 0.75,
+  "skill_recall": 0.642857,
+  "skill_f1": 0.692308,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 0.538462,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 12,
+  "required_skill_count": 14,
+  "unnecessary_skill_count": 3,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "business-solution-quotation",
+    "procurement-quote-comparison",
+    "procurement-rfq-generation",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "extra_skills": [
+    "business-customer-lead",
+    "finance-budget-planning",
+    "technology-solution-design"
+  ],
+  "hard_order_results": [
+    {
+      "before": "business-requirement-communication",
+      "after": "business-opportunity-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "technology-requirement",
+      "after": "technology-feasibility-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-feasibility-assessment",
+      "after": "technology-specification-confirmation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "technology-specification-confirmation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-requirement",
+      "after": "finance-budget-check",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "procurement-supplier-search",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-search",
+      "after": "procurement-supplier-qualification",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-qualification",
+      "after": "procurement-rfq-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-rfq-generation",
+      "after": "procurement-quote-comparison",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-quote-comparison",
+      "after": "procurement-supplier-scoring",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-supplier-scoring",
+      "after": "procurement-supplier-selection",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "procurement-supplier-qualification",
+      "after": "procurement-rfq-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-rfq-generation",
+      "after": "procurement-quote-comparison",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-quote-comparison",
+      "after": "procurement-supplier-scoring",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "procurement-supplier-scoring",
+      "after": "procurement-supplier-selection",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [
+    "business-customer-lead"
+  ],
+  "aliases_used": [],
+  "primary_failure": "REPEATED_COMPLETED_SKILL",
+  "secondary_failures": [
+    "MISSING_REQUIRED_SKILL",
+    "ORDER_VIOLATION",
+    "UNNECESSARY_SKILL"
+  ],
+  "model_reason": "该任务需跨业务、技术、财务和采购推进；Catalogue 可覆盖从单条线索、需求与规格澄清、方案设计和预算确定到供应商搜索及资质确认的完整前置链路，并可在合同与订单之前停止。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/B/size_46/run_02/predictions/GT07_CROSS_CUSTOM_TECH_SUPPLIER.json",
+  "source_line": ""
+}

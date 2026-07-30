@@ -1,0 +1,19 @@
+{
+  "task_id": "GT06_HR_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "hr-agent"
+  ],
+  "skill_sequence": [
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "route": "approved_hiring_to_shortlist",
+    "stop_before": "hr-interview-scheduling"
+  },
+  "reason": "用人需求和招聘预算均已批准，应依次生成JD、发布职位获取市场申请并筛选候选名单，止于面试安排之前。"
+}

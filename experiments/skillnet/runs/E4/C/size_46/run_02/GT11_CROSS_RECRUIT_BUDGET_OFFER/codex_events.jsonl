@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3e9-7e07-7981-8a05-81f7acab1c50"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT11_CROSS_RECRUIT_BUDGET_OFFER\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\",\"hr-agent\"],\"skill_sequence\":[\"finance-budget-check\",\"hr-jd-generator\",\"hr-recruitment-publish\",\"hr-resume-screening\",\"hr-interview-scheduling\",\"hr-offer-generator\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-budget-check\"],\"route_choice\":{\"budget_gate\":\"finance-budget-check\",\"recruitment_start\":\"hr-jd-generator\",\"recruitment_end\":\"hr-offer-generator\",\"excluded_stage\":\"hr-onboarding\"},\"reason\":\"招聘名额和岗位标准已具备，但预算尚未确认；须先通过预算检查，之后才能发布招聘、筛选面试并向获批人选生成Offer，且按要求不进入入职流程。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23490,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":461,"reasoning_output_tokens":282}}

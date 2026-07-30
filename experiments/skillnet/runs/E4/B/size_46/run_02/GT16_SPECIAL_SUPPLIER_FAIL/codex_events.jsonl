@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3b5-502f-7ad1-9490-436f85865cf3"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection refused (os error 61))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection refused (os error 61))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection refused (os error 61))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection refused (os error 61))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection refused (os error 61)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT16_SPECIAL_SUPPLIER_FAIL\",\"use_skills\":true,\"selected_departments\":[\"procurement-agent\"],\"skill_sequence\":[\"procurement-supplier-qualification\",\"procurement-supplier-selection\",\"procurement-contract-generation\"],\"final_status\":\"blocked\",\"blocked_by\":[\"procurement-supplier-qualification\"],\"route_choice\":{\"decision\":\"stop_before_selection_and_contract\",\"final_state\":\"supplier_disqualified\"},\"reason\":\"唯一候选供应商资质不合格，无法形成合规选商结果，合同生成缺少已批准的供应商选择，因此应阻断并不得因催办而例外出合同。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20117,"cached_input_tokens":12032,"cache_write_input_tokens":0,"output_tokens":591,"reasoning_output_tokens":454}}

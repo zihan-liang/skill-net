@@ -1,0 +1,17 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/A/size_46/run_02/GT07_CROSS_CUSTOM_TECH_SUPPLIER/raw_response.txt",
+  "raw_response_sha256": "c8bc2aa7e4a3bd6c1000c9630cc4e6385a8fe307e30d0d18960dd6c0b428cabd",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 775,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

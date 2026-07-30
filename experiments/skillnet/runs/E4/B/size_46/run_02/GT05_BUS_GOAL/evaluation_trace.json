@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT05_BUS_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "business-solution-quotation"
+  ],
+  "skill_checks": {
+    "required": [
+      "business-requirement-communication",
+      "business-opportunity-assessment",
+      "business-solution-quotation"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "business-agent"
+    ],
+    "required": [
+      "business-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "business-requirement-communication",
+        "after": "business-opportunity-assessment",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "business-opportunity-assessment",
+        "after": "business-solution-quotation",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "business-negotiation",
+      "business-contract-signing"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "discovery": "business-requirement-communication",
+      "qualification": "business-opportunity-assessment",
+      "proposal_if_qualified": "business-solution-quotation"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": null,
+    "secondary": [],
+    "all": []
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "finance_accounting": "补录本月已付款项",
+    "finance_reporting": "基于入账数据生成本月报表"
+  },
+  "reason": "款项已获批并付清，无需重复付款流程；应先完成账务处理，再生成本月财务报表。"
+}

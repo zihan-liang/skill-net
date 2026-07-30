@@ -1,0 +1,94 @@
+{
+  "configuration": "B",
+  "run_id": "run_02",
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": false,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 1.0,
+  "skill_f1": 1.0,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 0.5,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 0.0,
+  "route_choice_correct": false,
+  "predicted_skill_count": 5,
+  "required_skill_count": 5,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "procurement-delivery-tracking",
+      "after": "technology-test-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-test-acceptance",
+      "after": "procurement-delivery-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "reversed_order"
+    },
+    {
+      "before": "procurement-delivery-acceptance",
+      "after": "hr-onboarding",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "reversed_order"
+    },
+    {
+      "before": "hr-onboarding",
+      "after": "hr-employee-database",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "technology-test-acceptance",
+      "after": "procurement-delivery-acceptance",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "reversed_order"
+    },
+    {
+      "before": "procurement-delivery-acceptance",
+      "after": "hr-onboarding",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "reversed_order"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "WRONG_FINAL_STATUS",
+  "secondary_failures": [
+    "ORDER_VIOLATION",
+    "WRONG_ROUTE_CHOICE"
+  ],
+  "model_reason": "录用已接受且电脑已下单，应进入入职、交付跟踪和资料归档流程；但电脑尚未到货，无法完成交付验收及后续技术可用性确认，因此当前受阻。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/B/size_46/run_02/predictions/GT10_CROSS_ONBOARDING_EQUIPMENT.json",
+  "source_line": ""
+}

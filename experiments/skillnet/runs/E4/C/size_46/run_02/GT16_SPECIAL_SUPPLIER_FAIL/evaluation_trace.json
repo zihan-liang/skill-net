@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "procurement-supplier-qualification"
+  ],
+  "skill_checks": {
+    "required": [],
+    "optional": [],
+    "missing": [],
+    "extra": [
+      "procurement-supplier-qualification"
+    ]
+  },
+  "department_checks": {
+    "selected": [
+      "procurement-agent"
+    ],
+    "required": [
+      "procurement-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [],
+    "results": [],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "procurement-supplier-selection",
+      "procurement-contract-generation"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [
+      {
+        "type": "conflict_block",
+        "trigger_skill": "procurement-supplier-qualification",
+        "trigger_results": [
+          "unqualified"
+        ],
+        "blocked_skills": [
+          "procurement-supplier-selection",
+          "procurement-contract-generation"
+        ]
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "blocked",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "gate_result": "supplier_not_qualified",
+      "blocked_selection": "procurement-supplier-selection",
+      "blocked_contract": "procurement-contract-generation"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [
+      "procurement-supplier-qualification"
+    ],
+    "expected": [
+      "procurement-supplier-qualification"
+    ],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "REPEATED_COMPLETED_SKILL",
+    "secondary": [
+      "UNNECESSARY_SKILL"
+    ],
+    "all": [
+      "REPEATED_COMPLETED_SKILL",
+      "UNNECESSARY_SKILL"
+    ]
+  }
+}

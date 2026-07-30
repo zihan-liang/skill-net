@@ -1,0 +1,77 @@
+{
+  "configuration": "A",
+  "run_id": "run_02",
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "category": "cross_department_goal",
+  "difficulty": "medium",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 0.666667,
+  "skill_f1": 0.8,
+  "department_precision": 1.0,
+  "department_recall": 0.5,
+  "department_f1": 0.666667,
+  "required_order_accuracy": 0.5,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 2,
+  "required_skill_count": 3,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "business-negotiation"
+  ],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "business-negotiation",
+      "after": "procurement-contract-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "procurement-contract-generation",
+      "after": "procurement-purchase-order",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "business-negotiation",
+      "after": "procurement-contract-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [
+    "business-agent"
+  ],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "MISSING_REQUIRED_SKILL",
+  "secondary_failures": [
+    "ORDER_VIOLATION",
+    "MISSING_DEPARTMENT"
+  ],
+  "model_reason": "预算和供应商已确定，应先完成采购合同生成与审批准备，再依据已批准合同生成并释放采购订单；交付环节不在本次范围。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/A/size_46/run_02/predictions/GT15_CROSS_SUPPLIER_CONTRACT_PO.json",
+  "source_line": ""
+}

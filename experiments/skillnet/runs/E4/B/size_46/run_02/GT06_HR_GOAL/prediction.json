@@ -1,0 +1,20 @@
+{
+  "task_id": "GT06_HR_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "hr-agent"
+  ],
+  "skill_sequence": [
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "job_description": "hr-jd-generator",
+    "market_publication": "hr-recruitment-publish",
+    "candidate_shortlist": "hr-resume-screening"
+  },
+  "reason": "岗位需求与经费已批准，应先生成JD并发布招聘，再按岗位标准筛选申请形成面试候选名单；不包含面试安排或Offer生成。"
+}

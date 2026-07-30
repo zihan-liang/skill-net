@@ -1,0 +1,10 @@
+{
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "edf60ca60c339dd40a1faa663c464226d63e54c9705a3340abbac8334298b0e2",
+  "prediction_saved": true
+}

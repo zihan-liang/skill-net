@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/.venv/bin/python",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/SkillNet_Gold_Tasks_V4/evaluation/evaluate_skillnet.py",
+    "evaluate",
+    "--gold",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/SkillNet_Gold_Tasks_V4/02_Gold_Standard_21_V4.json",
+    "--predictions",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/A/size_46/run_02/predictions",
+    "--configuration",
+    "A",
+    "--run-id",
+    "run_02",
+    "--output-dir",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/A/size_46/run_02/evaluator_output"
+  ],
+  "stdout": "{\n  \"evaluated_tasks\": 21,\n  \"output_dir\": \"/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E4/A/size_46/run_02/evaluator_output\",\n  \"unmatched_prediction_records\": 0,\n  \"duplicate_prediction_records\": 0\n}\n",
+  "stderr": "",
+  "exit_code": 0
+}

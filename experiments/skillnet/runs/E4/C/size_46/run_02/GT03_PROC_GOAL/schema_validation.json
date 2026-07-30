@@ -1,0 +1,10 @@
+{
+  "task_id": "GT03_PROC_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "429999d12f9a0c413fa48e3fc887c3c3be24ce21e91af6805e3d445e1e35819b",
+  "prediction_saved": true
+}

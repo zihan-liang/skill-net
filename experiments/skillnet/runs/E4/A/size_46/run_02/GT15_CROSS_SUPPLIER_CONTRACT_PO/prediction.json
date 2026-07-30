@@ -1,0 +1,18 @@
+{
+  "task_id": "GT15_CROSS_SUPPLIER_CONTRACT_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "contract_stage": "procurement-contract-generation",
+    "order_stage": "procurement-purchase-order"
+  },
+  "reason": "预算和供应商已确定，应先完成采购合同生成与审批准备，再依据已批准合同生成并释放采购订单；交付环节不在本次范围。"
+}

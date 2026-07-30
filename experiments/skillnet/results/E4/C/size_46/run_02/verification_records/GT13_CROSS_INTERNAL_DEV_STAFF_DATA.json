@@ -1,0 +1,17 @@
+{
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/C/size_46/run_02/GT13_CROSS_INTERNAL_DEV_STAFF_DATA/raw_response.txt",
+  "raw_response_sha256": "66bee986effc03b6d99d2c1db919d54d419225deaa73d3a4b7b4b15edae80044",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 653,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

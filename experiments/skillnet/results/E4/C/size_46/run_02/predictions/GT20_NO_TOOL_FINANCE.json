@@ -1,0 +1,13 @@
+{
+  "task_id": "GT20_NO_TOOL_FINANCE",
+  "use_skills": false,
+  "selected_departments": [],
+  "skill_sequence": [],
+  "final_status": "no_tool",
+  "blocked_by": [],
+  "route_choice": {
+    "decision": "no_tool",
+    "task_type": "general_explanation"
+  },
+  "reason": "任务只要求用大白话解释概念，并明确禁止读取、分析或改动预算数据，无需调用任何业务 Skill。"
+}

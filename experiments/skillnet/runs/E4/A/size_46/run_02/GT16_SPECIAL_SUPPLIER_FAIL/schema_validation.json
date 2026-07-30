@@ -1,0 +1,10 @@
+{
+  "task_id": "GT16_SPECIAL_SUPPLIER_FAIL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "3d91d9e31a12836ca8acb4a3fcc60882a0012412f8f1c378d3a313328846d6a9",
+  "prediction_saved": true
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "GT19_NO_TOOL_CLEAR",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "0dd6b88bddfe9172ae47837d1da1fb9115ff2e74d7c3cf13b2e6d410193ac76f",
+  "prediction_saved": true
+}

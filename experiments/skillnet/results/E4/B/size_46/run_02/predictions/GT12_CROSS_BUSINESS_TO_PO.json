@@ -1,0 +1,40 @@
+{
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "procurement-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection",
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "business-opportunity-assessment",
+    "finance-budget-check",
+    "procurement-supplier-selection"
+  ],
+  "route_choice": {
+    "lead_record": "business-customer-lead",
+    "customer_discovery": "business-requirement-communication",
+    "pursuit_decision": "business-opportunity-assessment",
+    "external_service_procurement": "procurement-requirement",
+    "budget_clearance": "finance-budget-check",
+    "supplier_award": "procurement-supplier-selection",
+    "formal_order": "procurement-purchase-order"
+  },
+  "reason": "需先确认客户需求并完成人工商机判断，再明确预算、完成供应商寻源评选及合同审批后才能生成并释放正式采购订单；当前价值判断、预算和供应方均未定，故路由受阻。"
+}

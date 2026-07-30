@@ -1,0 +1,10 @@
+{
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "c046d676764c49425c54f12c892876346d4119949e8cff29756e0ab5b9e28fab",
+  "prediction_saved": true
+}

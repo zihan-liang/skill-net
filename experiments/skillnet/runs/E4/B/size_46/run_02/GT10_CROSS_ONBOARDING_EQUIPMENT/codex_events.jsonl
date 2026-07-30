@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb3ac-1c3e-7050-9de4-1684d33a061e"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT10_CROSS_ONBOARDING_EQUIPMENT\",\"use_skills\":true,\"selected_departments\":[\"hr-agent\",\"procurement-agent\",\"technology-agent\"],\"skill_sequence\":[\"hr-onboarding\",\"procurement-delivery-tracking\",\"procurement-delivery-acceptance\",\"technology-test-acceptance\",\"hr-employee-database\"],\"final_status\":\"blocked\",\"blocked_by\":[\"procurement-delivery-acceptance\",\"technology-test-acceptance\"],\"route_choice\":{\"入职统筹\":\"hr-onboarding\",\"电脑交付跟踪\":\"procurement-delivery-tracking\",\"电脑到货验收\":\"procurement-delivery-acceptance\",\"技术可用性确认\":\"technology-test-acceptance\",\"员工资料归档\":\"hr-employee-database\"},\"reason\":\"录用已接受且电脑已下单，应进入入职、交付跟踪和资料归档流程；但电脑尚未到货，无法完成交付验收及后续技术可用性确认，因此当前受阻。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20136,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":814,"reasoning_output_tokens":598}}

@@ -1,0 +1,17 @@
+{
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E4/A/size_46/run_02/GT10_CROSS_ONBOARDING_EQUIPMENT/raw_response.txt",
+  "raw_response_sha256": "65d10762e66b92d84761a385b112af7e6afd19dd5b5827992b347cb45c295a78",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 613,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

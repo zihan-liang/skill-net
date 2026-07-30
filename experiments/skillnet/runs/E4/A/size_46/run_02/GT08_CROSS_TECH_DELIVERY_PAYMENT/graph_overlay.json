@@ -1,0 +1,1200 @@
+{
+  "schema_version": "1.0",
+  "post_evaluation_overlay": true,
+  "relations_loaded_after_response": true,
+  "overlay_catalogue_configuration": "C",
+  "visible_nodes": [
+    {
+      "skill_id": "business-acceptance",
+      "department_id": "business-agent",
+      "name_en": "Business Acceptance",
+      "display_name_zh": "业务验收"
+    },
+    {
+      "skill_id": "business-contract-signing",
+      "department_id": "business-agent",
+      "name_en": "Business Contract Signing",
+      "display_name_zh": "合同签署"
+    },
+    {
+      "skill_id": "business-customer-lead",
+      "department_id": "business-agent",
+      "name_en": "Business Customer Lead",
+      "display_name_zh": "客户线索管理"
+    },
+    {
+      "skill_id": "business-negotiation",
+      "department_id": "business-agent",
+      "name_en": "Business Negotiation",
+      "display_name_zh": "商务谈判"
+    },
+    {
+      "skill_id": "business-opportunity-assessment",
+      "department_id": "business-agent",
+      "name_en": "Business Opportunity Assessment",
+      "display_name_zh": "商机评估"
+    },
+    {
+      "skill_id": "business-project-delivery-tracking",
+      "department_id": "business-agent",
+      "name_en": "Business Project Delivery Tracking",
+      "display_name_zh": "项目交付跟踪"
+    },
+    {
+      "skill_id": "business-renewal",
+      "department_id": "business-agent",
+      "name_en": "Business Renewal",
+      "display_name_zh": "客户续约"
+    },
+    {
+      "skill_id": "business-requirement-communication",
+      "department_id": "business-agent",
+      "name_en": "Business Requirement Communication",
+      "display_name_zh": "客户需求沟通"
+    },
+    {
+      "skill_id": "business-solution-quotation",
+      "department_id": "business-agent",
+      "name_en": "Business Solution and Quotation",
+      "display_name_zh": "方案与报价"
+    },
+    {
+      "skill_id": "finance-accounting",
+      "department_id": "finance-agent",
+      "name_en": "Finance Accounting",
+      "display_name_zh": "账务处理"
+    },
+    {
+      "skill_id": "finance-budget-check",
+      "department_id": "finance-agent",
+      "name_en": "Finance Budget Check",
+      "display_name_zh": "预算检查"
+    },
+    {
+      "skill_id": "finance-budget-planning",
+      "department_id": "finance-agent",
+      "name_en": "Finance Budget Planning",
+      "display_name_zh": "预算制定"
+    },
+    {
+      "skill_id": "finance-expense-request",
+      "department_id": "finance-agent",
+      "name_en": "Finance Expense Request",
+      "display_name_zh": "费用申请"
+    },
+    {
+      "skill_id": "finance-expense-review",
+      "department_id": "finance-agent",
+      "name_en": "Finance Expense Review",
+      "display_name_zh": "费用审核"
+    },
+    {
+      "skill_id": "finance-invoice-verification",
+      "department_id": "finance-agent",
+      "name_en": "Finance Invoice Verification",
+      "display_name_zh": "发票核验"
+    },
+    {
+      "skill_id": "finance-payment-approval",
+      "department_id": "finance-agent",
+      "name_en": "Finance Payment Approval",
+      "display_name_zh": "付款审批"
+    },
+    {
+      "skill_id": "finance-reporting",
+      "department_id": "finance-agent",
+      "name_en": "Finance Reporting",
+      "display_name_zh": "财务报表生成"
+    },
+    {
+      "skill_id": "hr-employee-database",
+      "department_id": "hr-agent",
+      "name_en": "HR Employee Database",
+      "display_name_zh": "员工数据库"
+    },
+    {
+      "skill_id": "hr-interview-scheduling",
+      "department_id": "hr-agent",
+      "name_en": "HR Interview Scheduling",
+      "display_name_zh": "面试安排"
+    },
+    {
+      "skill_id": "hr-jd-generator",
+      "department_id": "hr-agent",
+      "name_en": "HR JD Generator",
+      "display_name_zh": "JD生成"
+    },
+    {
+      "skill_id": "hr-job-requirement",
+      "department_id": "hr-agent",
+      "name_en": "HR Job Requirement",
+      "display_name_zh": "岗位需求"
+    },
+    {
+      "skill_id": "hr-offer-generator",
+      "department_id": "hr-agent",
+      "name_en": "HR Offer Generator",
+      "display_name_zh": "Offer生成"
+    },
+    {
+      "skill_id": "hr-onboarding",
+      "department_id": "hr-agent",
+      "name_en": "HR Onboarding",
+      "display_name_zh": "入职管理"
+    },
+    {
+      "skill_id": "hr-recruitment-publish",
+      "department_id": "hr-agent",
+      "name_en": "HR Recruitment Publish",
+      "display_name_zh": "招聘发布"
+    },
+    {
+      "skill_id": "hr-resume-screening",
+      "department_id": "hr-agent",
+      "name_en": "HR Resume Screening",
+      "display_name_zh": "简历筛选"
+    },
+    {
+      "skill_id": "procurement-contract-generation",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Contract Generation",
+      "display_name_zh": "合同生成"
+    },
+    {
+      "skill_id": "procurement-delivery-acceptance",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Delivery Acceptance",
+      "display_name_zh": "交付验收"
+    },
+    {
+      "skill_id": "procurement-delivery-tracking",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Delivery Tracking",
+      "display_name_zh": "交付跟踪"
+    },
+    {
+      "skill_id": "procurement-purchase-order",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Purchase Order",
+      "display_name_zh": "采购订单生成"
+    },
+    {
+      "skill_id": "procurement-quote-comparison",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Quote Comparison",
+      "display_name_zh": "报价比较"
+    },
+    {
+      "skill_id": "procurement-requirement",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Requirement",
+      "display_name_zh": "采购需求识别"
+    },
+    {
+      "skill_id": "procurement-rfq-generation",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement RFQ Generation",
+      "display_name_zh": "询价单生成"
+    },
+    {
+      "skill_id": "procurement-supplier-evaluation",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Supplier Evaluation",
+      "display_name_zh": "供应商绩效评价"
+    },
+    {
+      "skill_id": "procurement-supplier-qualification",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Supplier Qualification",
+      "display_name_zh": "供应商资质检查"
+    },
+    {
+      "skill_id": "procurement-supplier-scoring",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Supplier Scoring",
+      "display_name_zh": "供应商评分"
+    },
+    {
+      "skill_id": "procurement-supplier-search",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Supplier Search",
+      "display_name_zh": "供应商搜索"
+    },
+    {
+      "skill_id": "procurement-supplier-selection",
+      "department_id": "procurement-agent",
+      "name_en": "Procurement Supplier Selection",
+      "display_name_zh": "供应商选择"
+    },
+    {
+      "skill_id": "technology-development-implementation",
+      "department_id": "technology-agent",
+      "name_en": "Technology Development and Implementation",
+      "display_name_zh": "开发或实施"
+    },
+    {
+      "skill_id": "technology-feasibility-assessment",
+      "department_id": "technology-agent",
+      "name_en": "Technology Feasibility Assessment",
+      "display_name_zh": "可行性评估"
+    },
+    {
+      "skill_id": "technology-operations-maintenance",
+      "department_id": "technology-agent",
+      "name_en": "Technology Operations and Maintenance",
+      "display_name_zh": "运行维护"
+    },
+    {
+      "skill_id": "technology-requirement",
+      "department_id": "technology-agent",
+      "name_en": "Technology Requirement",
+      "display_name_zh": "技术需求识别"
+    },
+    {
+      "skill_id": "technology-solution-design",
+      "department_id": "technology-agent",
+      "name_en": "Technology Solution Design",
+      "display_name_zh": "技术方案设计"
+    },
+    {
+      "skill_id": "technology-specification-confirmation",
+      "department_id": "technology-agent",
+      "name_en": "Technology Specification Confirmation",
+      "display_name_zh": "技术规格确认"
+    },
+    {
+      "skill_id": "technology-system-release",
+      "department_id": "technology-agent",
+      "name_en": "Technology System Release",
+      "display_name_zh": "系统上线"
+    },
+    {
+      "skill_id": "technology-task-breakdown",
+      "department_id": "technology-agent",
+      "name_en": "Technology Task Breakdown",
+      "display_name_zh": "任务拆解"
+    },
+    {
+      "skill_id": "technology-test-acceptance",
+      "department_id": "technology-agent",
+      "name_en": "Technology Test Acceptance",
+      "display_name_zh": "技术测试验收"
+    }
+  ],
+  "visible_edges": [
+    {
+      "edge_id": "prerequisite:0:finance-budget-planning->finance-budget-check",
+      "relation_type": "prerequisite",
+      "source": "finance-budget-planning",
+      "target": "finance-budget-check",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:1:finance-budget-check->finance-expense-request",
+      "relation_type": "prerequisite",
+      "source": "finance-budget-check",
+      "target": "finance-expense-request",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:2:finance-expense-request->finance-expense-review",
+      "relation_type": "prerequisite",
+      "source": "finance-expense-request",
+      "target": "finance-expense-review",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:3:finance-expense-review->finance-invoice-verification",
+      "relation_type": "prerequisite",
+      "source": "finance-expense-review",
+      "target": "finance-invoice-verification",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:4:finance-invoice-verification->finance-payment-approval",
+      "relation_type": "prerequisite",
+      "source": "finance-invoice-verification",
+      "target": "finance-payment-approval",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:5:finance-payment-approval->finance-accounting",
+      "relation_type": "prerequisite",
+      "source": "finance-payment-approval",
+      "target": "finance-accounting",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:6:finance-accounting->finance-reporting",
+      "relation_type": "prerequisite",
+      "source": "finance-accounting",
+      "target": "finance-reporting",
+      "attributes": {
+        "scope": "finance"
+      }
+    },
+    {
+      "edge_id": "prerequisite:7:procurement-requirement->finance-budget-check",
+      "relation_type": "prerequisite",
+      "source": "procurement-requirement",
+      "target": "finance-budget-check",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:8:finance-budget-check->procurement-supplier-search",
+      "relation_type": "prerequisite",
+      "source": "finance-budget-check",
+      "target": "procurement-supplier-search",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:9:procurement-supplier-search->procurement-supplier-qualification",
+      "relation_type": "prerequisite",
+      "source": "procurement-supplier-search",
+      "target": "procurement-supplier-qualification",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:10:procurement-supplier-qualification->procurement-rfq-generation",
+      "relation_type": "prerequisite",
+      "source": "procurement-supplier-qualification",
+      "target": "procurement-rfq-generation",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:11:procurement-rfq-generation->procurement-quote-comparison",
+      "relation_type": "prerequisite",
+      "source": "procurement-rfq-generation",
+      "target": "procurement-quote-comparison",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:12:procurement-quote-comparison->procurement-supplier-scoring",
+      "relation_type": "prerequisite",
+      "source": "procurement-quote-comparison",
+      "target": "procurement-supplier-scoring",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:13:procurement-supplier-scoring->procurement-supplier-selection",
+      "relation_type": "prerequisite",
+      "source": "procurement-supplier-scoring",
+      "target": "procurement-supplier-selection",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:14:procurement-supplier-selection->business-negotiation",
+      "relation_type": "prerequisite",
+      "source": "procurement-supplier-selection",
+      "target": "business-negotiation",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:15:business-negotiation->procurement-contract-generation",
+      "relation_type": "prerequisite",
+      "source": "business-negotiation",
+      "target": "procurement-contract-generation",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:16:procurement-contract-generation->procurement-purchase-order",
+      "relation_type": "prerequisite",
+      "source": "procurement-contract-generation",
+      "target": "procurement-purchase-order",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:17:procurement-purchase-order->procurement-delivery-tracking",
+      "relation_type": "prerequisite",
+      "source": "procurement-purchase-order",
+      "target": "procurement-delivery-tracking",
+      "attributes": {
+        "scope": "procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:18:technology-requirement->technology-feasibility-assessment",
+      "relation_type": "prerequisite",
+      "source": "technology-requirement",
+      "target": "technology-feasibility-assessment",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:19:technology-feasibility-assessment->technology-specification-confirmation",
+      "relation_type": "prerequisite",
+      "source": "technology-feasibility-assessment",
+      "target": "technology-specification-confirmation",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:20:technology-specification-confirmation->technology-solution-design",
+      "relation_type": "prerequisite",
+      "source": "technology-specification-confirmation",
+      "target": "technology-solution-design",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:21:technology-solution-design->technology-task-breakdown",
+      "relation_type": "prerequisite",
+      "source": "technology-solution-design",
+      "target": "technology-task-breakdown",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:22:technology-task-breakdown->technology-development-implementation",
+      "relation_type": "prerequisite",
+      "source": "technology-task-breakdown",
+      "target": "technology-development-implementation",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:23:technology-development-implementation->technology-test-acceptance",
+      "relation_type": "prerequisite",
+      "source": "technology-development-implementation",
+      "target": "technology-test-acceptance",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:24:technology-test-acceptance->technology-system-release",
+      "relation_type": "prerequisite",
+      "source": "technology-test-acceptance",
+      "target": "technology-system-release",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:25:technology-system-release->technology-operations-maintenance",
+      "relation_type": "prerequisite",
+      "source": "technology-system-release",
+      "target": "technology-operations-maintenance",
+      "attributes": {
+        "scope": "technology"
+      }
+    },
+    {
+      "edge_id": "prerequisite:26:business-customer-lead->business-requirement-communication",
+      "relation_type": "prerequisite",
+      "source": "business-customer-lead",
+      "target": "business-requirement-communication",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:27:business-requirement-communication->business-opportunity-assessment",
+      "relation_type": "prerequisite",
+      "source": "business-requirement-communication",
+      "target": "business-opportunity-assessment",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:28:business-opportunity-assessment->business-solution-quotation",
+      "relation_type": "prerequisite",
+      "source": "business-opportunity-assessment",
+      "target": "business-solution-quotation",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:29:business-solution-quotation->business-negotiation",
+      "relation_type": "prerequisite",
+      "source": "business-solution-quotation",
+      "target": "business-negotiation",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:30:business-negotiation->business-contract-signing",
+      "relation_type": "prerequisite",
+      "source": "business-negotiation",
+      "target": "business-contract-signing",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:31:business-contract-signing->business-project-delivery-tracking",
+      "relation_type": "prerequisite",
+      "source": "business-contract-signing",
+      "target": "business-project-delivery-tracking",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:32:business-project-delivery-tracking->business-acceptance",
+      "relation_type": "prerequisite",
+      "source": "business-project-delivery-tracking",
+      "target": "business-acceptance",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:33:business-acceptance->business-renewal",
+      "relation_type": "prerequisite",
+      "source": "business-acceptance",
+      "target": "business-renewal",
+      "attributes": {
+        "scope": "business"
+      }
+    },
+    {
+      "edge_id": "prerequisite:34:hr-job-requirement->hr-jd-generator",
+      "relation_type": "prerequisite",
+      "source": "hr-job-requirement",
+      "target": "hr-jd-generator",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:35:hr-jd-generator->hr-recruitment-publish",
+      "relation_type": "prerequisite",
+      "source": "hr-jd-generator",
+      "target": "hr-recruitment-publish",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:36:hr-recruitment-publish->hr-resume-screening",
+      "relation_type": "prerequisite",
+      "source": "hr-recruitment-publish",
+      "target": "hr-resume-screening",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:37:hr-resume-screening->hr-interview-scheduling",
+      "relation_type": "prerequisite",
+      "source": "hr-resume-screening",
+      "target": "hr-interview-scheduling",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:38:hr-interview-scheduling->hr-offer-generator",
+      "relation_type": "prerequisite",
+      "source": "hr-interview-scheduling",
+      "target": "hr-offer-generator",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:39:hr-offer-generator->hr-onboarding",
+      "relation_type": "prerequisite",
+      "source": "hr-offer-generator",
+      "target": "hr-onboarding",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:40:hr-onboarding->hr-employee-database",
+      "relation_type": "prerequisite",
+      "source": "hr-onboarding",
+      "target": "hr-employee-database",
+      "attributes": {
+        "scope": "hr"
+      }
+    },
+    {
+      "edge_id": "prerequisite:41:technology-specification-confirmation->procurement-requirement",
+      "relation_type": "prerequisite",
+      "source": "technology-specification-confirmation",
+      "target": "procurement-requirement",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "external_technology_procurement"
+      }
+    },
+    {
+      "edge_id": "prerequisite:42:business-solution-quotation->procurement-requirement",
+      "relation_type": "prerequisite",
+      "source": "business-solution-quotation",
+      "target": "procurement-requirement",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "external_procurement_required"
+      }
+    },
+    {
+      "edge_id": "prerequisite:43:procurement-delivery-tracking->technology-test-acceptance",
+      "relation_type": "prerequisite",
+      "source": "procurement-delivery-tracking",
+      "target": "technology-test-acceptance",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "technology_purchase"
+      }
+    },
+    {
+      "edge_id": "prerequisite:44:procurement-delivery-tracking->business-acceptance",
+      "relation_type": "prerequisite",
+      "source": "procurement-delivery-tracking",
+      "target": "business-acceptance",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "business_service_purchase"
+      }
+    },
+    {
+      "edge_id": "prerequisite:45:technology-test-acceptance->procurement-delivery-acceptance",
+      "relation_type": "prerequisite",
+      "source": "technology-test-acceptance",
+      "target": "procurement-delivery-acceptance",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "technology_acceptance_route"
+      }
+    },
+    {
+      "edge_id": "prerequisite:46:business-acceptance->procurement-delivery-acceptance",
+      "relation_type": "prerequisite",
+      "source": "business-acceptance",
+      "target": "procurement-delivery-acceptance",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "business_acceptance_route"
+      }
+    },
+    {
+      "edge_id": "prerequisite:47:procurement-delivery-acceptance->finance-invoice-verification",
+      "relation_type": "prerequisite",
+      "source": "procurement-delivery-acceptance",
+      "target": "finance-invoice-verification",
+      "attributes": {
+        "scope": "cross-domain"
+      }
+    },
+    {
+      "edge_id": "prerequisite:48:finance-payment-approval->procurement-supplier-evaluation",
+      "relation_type": "prerequisite",
+      "source": "finance-payment-approval",
+      "target": "procurement-supplier-evaluation",
+      "attributes": {
+        "scope": "cross-domain"
+      }
+    },
+    {
+      "edge_id": "prerequisite:49:hr-job-requirement->finance-budget-check",
+      "relation_type": "prerequisite",
+      "source": "hr-job-requirement",
+      "target": "finance-budget-check",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "recruitment_budget_required"
+      }
+    },
+    {
+      "edge_id": "prerequisite:50:finance-budget-check->hr-jd-generator",
+      "relation_type": "prerequisite",
+      "source": "finance-budget-check",
+      "target": "hr-jd-generator",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "recruitment_budget_approved"
+      }
+    },
+    {
+      "edge_id": "prerequisite:51:hr-offer-generator->procurement-requirement",
+      "relation_type": "prerequisite",
+      "source": "hr-offer-generator",
+      "target": "procurement-requirement",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "onboarding_equipment_required"
+      }
+    },
+    {
+      "edge_id": "prerequisite:52:procurement-delivery-acceptance->hr-onboarding",
+      "relation_type": "prerequisite",
+      "source": "procurement-delivery-acceptance",
+      "target": "hr-onboarding",
+      "attributes": {
+        "scope": "cross-domain",
+        "condition": "onboarding_equipment_delivered"
+      }
+    },
+    {
+      "edge_id": "conflict:0:finance-budget-check->procurement-purchase-order",
+      "relation_type": "conflict",
+      "source": "finance-budget-check",
+      "target": "procurement-purchase-order",
+      "attributes": {
+        "condition": "budget_not_approved"
+      }
+    },
+    {
+      "edge_id": "conflict:1:finance-budget-check->hr-recruitment-publish",
+      "relation_type": "conflict",
+      "source": "finance-budget-check",
+      "target": "hr-recruitment-publish",
+      "attributes": {
+        "condition": "recruitment_budget_not_approved"
+      }
+    },
+    {
+      "edge_id": "conflict:2:procurement-supplier-qualification->procurement-supplier-selection",
+      "relation_type": "conflict",
+      "source": "procurement-supplier-qualification",
+      "target": "procurement-supplier-selection",
+      "attributes": {
+        "condition": "supplier_not_qualified"
+      }
+    },
+    {
+      "edge_id": "conflict:3:procurement-supplier-qualification->procurement-contract-generation",
+      "relation_type": "conflict",
+      "source": "procurement-supplier-qualification",
+      "target": "procurement-contract-generation",
+      "attributes": {
+        "condition": "supplier_not_qualified"
+      }
+    },
+    {
+      "edge_id": "conflict:4:technology-feasibility-assessment->technology-development-implementation",
+      "relation_type": "conflict",
+      "source": "technology-feasibility-assessment",
+      "target": "technology-development-implementation",
+      "attributes": {
+        "condition": "technology_not_feasible"
+      }
+    },
+    {
+      "edge_id": "conflict:5:technology-test-acceptance->technology-system-release",
+      "relation_type": "conflict",
+      "source": "technology-test-acceptance",
+      "target": "technology-system-release",
+      "attributes": {
+        "condition": "test_not_passed"
+      }
+    },
+    {
+      "edge_id": "conflict:6:procurement-delivery-acceptance->finance-invoice-verification",
+      "relation_type": "conflict",
+      "source": "procurement-delivery-acceptance",
+      "target": "finance-invoice-verification",
+      "attributes": {
+        "condition": "delivery_not_accepted"
+      }
+    },
+    {
+      "edge_id": "conflict:7:finance-invoice-verification->finance-payment-approval",
+      "relation_type": "conflict",
+      "source": "finance-invoice-verification",
+      "target": "finance-payment-approval",
+      "attributes": {
+        "condition": "invoice_invalid_or_mismatched"
+      }
+    },
+    {
+      "edge_id": "conflict:8:hr-job-requirement->hr-jd-generator",
+      "relation_type": "conflict",
+      "source": "hr-job-requirement",
+      "target": "hr-jd-generator",
+      "attributes": {
+        "condition": "job_requirement_not_approved"
+      }
+    },
+    {
+      "edge_id": "conflict:9:hr-job-requirement->hr-resume-screening",
+      "relation_type": "conflict",
+      "source": "hr-job-requirement",
+      "target": "hr-resume-screening",
+      "attributes": {
+        "condition": "job_criteria_missing"
+      }
+    },
+    {
+      "edge_id": "conflict:10:hr-interview-scheduling->hr-offer-generator",
+      "relation_type": "conflict",
+      "source": "hr-interview-scheduling",
+      "target": "hr-offer-generator",
+      "attributes": {
+        "condition": "candidate_not_approved"
+      }
+    },
+    {
+      "edge_id": "conflict:11:hr-offer-generator->hr-onboarding",
+      "relation_type": "conflict",
+      "source": "hr-offer-generator",
+      "target": "hr-onboarding",
+      "attributes": {
+        "condition": "offer_not_accepted"
+      }
+    },
+    {
+      "edge_id": "conflict:12:business-acceptance->business-renewal",
+      "relation_type": "conflict",
+      "source": "business-acceptance",
+      "target": "business-renewal",
+      "attributes": {
+        "condition": "business_acceptance_failed"
+      }
+    },
+    {
+      "edge_id": "mutex:0:finance-expense-request->procurement-requirement",
+      "relation_type": "mutex",
+      "source": "finance-expense-request",
+      "target": "procurement-requirement",
+      "attributes": {
+        "context": "same_expense"
+      }
+    },
+    {
+      "edge_id": "mutex:1:technology-development-implementation->procurement-requirement",
+      "relation_type": "mutex",
+      "source": "technology-development-implementation",
+      "target": "procurement-requirement",
+      "attributes": {
+        "context": "same_technology_requirement"
+      }
+    },
+    {
+      "edge_id": "mutex:2:technology-test-acceptance->business-acceptance",
+      "relation_type": "mutex",
+      "source": "technology-test-acceptance",
+      "target": "business-acceptance",
+      "attributes": {
+        "context": "single_primary_acceptance_route"
+      }
+    },
+    {
+      "edge_id": "mutex:3:hr-job-requirement->procurement-requirement",
+      "relation_type": "mutex",
+      "source": "hr-job-requirement",
+      "target": "procurement-requirement",
+      "attributes": {
+        "context": "same_capability_gap"
+      }
+    },
+    {
+      "edge_id": "enhances:0:finance-reporting->finance-budget-planning",
+      "relation_type": "enhances",
+      "source": "finance-reporting",
+      "target": "finance-budget-planning",
+      "attributes": {
+        "context": "historical_finance_data"
+      }
+    },
+    {
+      "edge_id": "enhances:1:technology-specification-confirmation->procurement-rfq-generation",
+      "relation_type": "enhances",
+      "source": "technology-specification-confirmation",
+      "target": "procurement-rfq-generation",
+      "attributes": {
+        "context": "technical_specification_available"
+      }
+    },
+    {
+      "edge_id": "enhances:2:procurement-supplier-qualification->procurement-supplier-scoring",
+      "relation_type": "enhances",
+      "source": "procurement-supplier-qualification",
+      "target": "procurement-supplier-scoring",
+      "attributes": {
+        "context": "qualification_and_risk_evidence_available"
+      }
+    },
+    {
+      "edge_id": "enhances:3:procurement-quote-comparison->business-negotiation",
+      "relation_type": "enhances",
+      "source": "procurement-quote-comparison",
+      "target": "business-negotiation",
+      "attributes": {
+        "context": "quotation_differences_available"
+      }
+    },
+    {
+      "edge_id": "enhances:4:procurement-delivery-tracking->procurement-supplier-evaluation",
+      "relation_type": "enhances",
+      "source": "procurement-delivery-tracking",
+      "target": "procurement-supplier-evaluation",
+      "attributes": {
+        "context": "delivery_history_available"
+      }
+    },
+    {
+      "edge_id": "enhances:5:procurement-supplier-evaluation->procurement-supplier-search",
+      "relation_type": "enhances",
+      "source": "procurement-supplier-evaluation",
+      "target": "procurement-supplier-search",
+      "attributes": {
+        "context": "historical_supplier_performance_available"
+      }
+    },
+    {
+      "edge_id": "enhances:6:procurement-supplier-evaluation->procurement-supplier-scoring",
+      "relation_type": "enhances",
+      "source": "procurement-supplier-evaluation",
+      "target": "procurement-supplier-scoring",
+      "attributes": {
+        "context": "historical_supplier_performance_available"
+      }
+    },
+    {
+      "edge_id": "enhances:7:business-requirement-communication->technology-requirement",
+      "relation_type": "enhances",
+      "source": "business-requirement-communication",
+      "target": "technology-requirement",
+      "attributes": {
+        "context": "customer_requirements_available"
+      }
+    },
+    {
+      "edge_id": "enhances:8:technology-feasibility-assessment->procurement-requirement",
+      "relation_type": "enhances",
+      "source": "technology-feasibility-assessment",
+      "target": "procurement-requirement",
+      "attributes": {
+        "context": "build_or_buy_decision"
+      }
+    },
+    {
+      "edge_id": "enhances:9:hr-employee-database->hr-job-requirement",
+      "relation_type": "enhances",
+      "source": "hr-employee-database",
+      "target": "hr-job-requirement",
+      "attributes": {
+        "context": "internal_skill_coverage_available"
+      }
+    },
+    {
+      "edge_id": "enhances:10:hr-interview-scheduling->hr-employee-database",
+      "relation_type": "enhances",
+      "source": "hr-interview-scheduling",
+      "target": "hr-employee-database",
+      "attributes": {
+        "context": "authorized_interview_evidence_available"
+      }
+    },
+    {
+      "edge_id": "enhances:11:hr-employee-database->hr-onboarding",
+      "relation_type": "enhances",
+      "source": "hr-employee-database",
+      "target": "hr-onboarding",
+      "attributes": {
+        "context": "employee_and_training_data_available"
+      }
+    },
+    {
+      "edge_id": "enhances:12:hr-employee-database->technology-task-breakdown",
+      "relation_type": "enhances",
+      "source": "hr-employee-database",
+      "target": "technology-task-breakdown",
+      "attributes": {
+        "context": "employee_skill_and_project_history_available"
+      }
+    }
+  ],
+  "selected_route": {
+    "skill_sequence": [
+      "procurement-delivery-acceptance",
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-accounting"
+    ],
+    "selected_departments": [
+      "procurement-agent",
+      "finance-agent"
+    ],
+    "blocked_by": [
+      "procurement-delivery-acceptance"
+    ],
+    "route_choice": {
+      "delivery_gate": "procurement-delivery-acceptance",
+      "invoice_check": "finance-invoice-verification",
+      "payment": "finance-payment-approval",
+      "posting": "finance-accounting"
+    },
+    "route_edges": [
+      {
+        "source": "procurement-delivery-acceptance",
+        "target": "finance-invoice-verification",
+        "relation_types": [
+          "prerequisite",
+          "conflict"
+        ]
+      },
+      {
+        "source": "finance-invoice-verification",
+        "target": "finance-payment-approval",
+        "relation_types": [
+          "prerequisite",
+          "conflict"
+        ]
+      },
+      {
+        "source": "finance-payment-approval",
+        "target": "finance-accounting",
+        "relation_types": [
+          "prerequisite"
+        ]
+      }
+    ]
+  },
+  "sequence_positions": [
+    {
+      "skill_id": "procurement-delivery-acceptance",
+      "position": 1
+    },
+    {
+      "skill_id": "finance-invoice-verification",
+      "position": 2
+    },
+    {
+      "skill_id": "finance-payment-approval",
+      "position": 3
+    },
+    {
+      "skill_id": "finance-accounting",
+      "position": 4
+    }
+  ],
+  "gold_nodes": {
+    "required": [
+      "procurement-delivery-tracking",
+      "technology-test-acceptance",
+      "procurement-delivery-acceptance",
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-accounting"
+    ],
+    "missing": [
+      "procurement-delivery-tracking",
+      "technology-test-acceptance"
+    ],
+    "extra": [],
+    "forbidden": [
+      "business-acceptance"
+    ],
+    "blocked": [],
+    "blockers": []
+  },
+  "violated_edges": [
+    {
+      "relation_type": "hard_order",
+      "source": "procurement-delivery-tracking",
+      "target": "technology-test-acceptance",
+      "details": {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      }
+    },
+    {
+      "relation_type": "hard_order",
+      "source": "technology-test-acceptance",
+      "target": "procurement-delivery-acceptance",
+      "details": {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      }
+    }
+  ],
+  "relation_types": [
+    {
+      "relation_type": "prerequisite",
+      "edge_count": 53,
+      "semantics": {
+        "en": "When its stated scope and any stated condition apply, before must precede after.",
+        "zh": "仅当给定 scope 和可选 condition 适用时，before 才必须先于 after。"
+      }
+    },
+    {
+      "relation_type": "conflict",
+      "edge_count": 13,
+      "semantics": {
+        "en": "When gate_skill produces the stated failure condition, blocked_skill must not continue.",
+        "zh": "当 gate_skill 产生指定失败条件时，必须阻止 blocked_skill 继续。"
+      }
+    },
+    {
+      "relation_type": "mutex",
+      "edge_count": 4,
+      "semantics": {
+        "en": "Within the same business object and the same stated context, only one of skill_a and skill_b may be selected.",
+        "zh": "在同一业务对象和同一 context 内，skill_a 与 skill_b 只能选择一条路线。"
+      }
+    },
+    {
+      "relation_type": "enhances",
+      "edge_count": 13,
+      "semantics": {
+        "en": "source may optionally improve target in the stated context; it is not a mandatory prerequisite.",
+        "zh": "在给定 context 中，source 可选地增强 target；它不是强制前置。"
+      }
+    }
+  ],
+  "metadata": {
+    "experiment_id": "E4",
+    "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+    "configuration": "A",
+    "catalogue_size": 46,
+    "run_id": "run_02",
+    "runtime_repo_commit": "1861e51f6f0142c98bf4cd5d5b7fa4b7842876cd",
+    "run_catalogue_source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+    "overlay_catalogue_source_commit": "742e39d837484e5311e6663658bc7420c2a07a6b",
+    "overlay_catalogue_path": "skillnet_run_guide_v1_1/catalogues/size_46/C_graph_structured_catalogue.json",
+    "overlay_catalogue_sha256": "d5854e08107adfc8b396eeb29f2ed0dd9392da1b93d0c369ffd9b3a5714835ef",
+    "overlay_read_phase": "after_response_and_evaluator"
+  }
+}

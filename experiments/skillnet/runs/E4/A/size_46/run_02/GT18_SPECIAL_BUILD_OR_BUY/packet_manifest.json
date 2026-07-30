@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "experiments/skillnet/e4/prompts/GT18_SPECIAL_BUILD_OR_BUY.txt",
+      "source_sha256": "9143380a0bfac8c10ad8088def3768e3c7a51d993e916ec672fdde819ed6f6cf",
+      "text_zh": "这个已识别的技术需求已经决定由内部团队完成，不得改走外部服务采购；请推进到内部成果完成测试把关为止。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "source_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "embedded_json_sha256": "1aa0f3e9aca115209de6bff9b534ab8381f51d49fd7713935df16fa10cc5e264",
+      "snapshot_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "child_prompt": {
+      "sha256": "34f6499262ff415c12c3f4b00e5da8a045191ef4086d13ffcf566da3e8688e90",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "84339109f49795907078bf5e9c4a16a70e86f629f23b9f6bdf0b75dd41206ae3"
+    }
+  }
+}

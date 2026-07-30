@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E4",
+  "task_id": "GT13_CROSS_INTERNAL_DEV_STAFF_DATA",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "technology-feasibility-assessment",
+    "hr-employee-database",
+    "technology-task-breakdown"
+  ],
+  "skill_checks": {
+    "required": [
+      "technology-feasibility-assessment",
+      "technology-specification-confirmation",
+      "technology-solution-design",
+      "hr-employee-database",
+      "technology-task-breakdown"
+    ],
+    "optional": [],
+    "missing": [
+      "technology-solution-design",
+      "technology-specification-confirmation"
+    ],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "technology-agent",
+      "hr-agent"
+    ],
+    "required": [
+      "technology-agent",
+      "hr-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-employee-database",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order",
+        "basis": "task_explicit_requirement"
+      }
+    ],
+    "results": [
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      },
+      {
+        "before": "hr-employee-database",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [
+      {
+        "before": "technology-feasibility-assessment",
+        "after": "technology-specification-confirmation",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-specification-confirmation",
+        "after": "technology-solution-design",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-solution-design",
+        "after": "technology-task-breakdown",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      }
+    ],
+    "passed": false
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "technology-development-implementation",
+      "procurement-requirement"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [
+      {
+        "type": "mutex_route",
+        "decision_id": "build_or_buy",
+        "expected_choice": "internal_development",
+        "forbidden_route_skills": [
+          "procurement-requirement"
+        ]
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "feasibility": "technology-feasibility-assessment",
+      "staff_data": "hr-employee-database",
+      "assignment_plan": "technology-task-breakdown"
+    },
+    "expected": {
+      "build_or_buy": "internal_development"
+    },
+    "passed": false
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "WRONG_ROUTE_CHOICE",
+    "secondary": [
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION"
+    ],
+    "all": [
+      "WRONG_ROUTE_CHOICE",
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION"
+    ]
+  }
+}

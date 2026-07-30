@@ -1,0 +1,10 @@
+{
+  "task_id": "GT21_NO_TOOL_PROC",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "611d0e0191454db80d82e57e7eb0a839f7bc762805f5a98d4ecab641b96e2309",
+  "prediction_saved": true
+}

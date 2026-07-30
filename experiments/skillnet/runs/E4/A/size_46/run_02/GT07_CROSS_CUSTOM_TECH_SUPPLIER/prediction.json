@@ -1,0 +1,31 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "technology-agent",
+    "procurement-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "technology-solution-design",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "business_route": "先建档并澄清客户需求与预算边界",
+    "technology_route": "完成需求、可行性、规格及方案方向确认",
+    "procurement_route": "形成中立采购需求并找到通过准入检查的供应商",
+    "stop_boundary": "止于可用供应商，不进入客户或采购合同及下单"
+  },
+  "reason": "任务需要业务、技术、财务与采购串联，将单条线索推进为明确的定制方案方向和合格供货来源，并按要求在签约与下单前停止。"
+}

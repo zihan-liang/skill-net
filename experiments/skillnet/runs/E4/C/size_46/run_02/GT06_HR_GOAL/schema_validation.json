@@ -1,0 +1,10 @@
+{
+  "task_id": "GT06_HR_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "18f40d94480f3a381f09d39b5a78745f6ff923388da04bb8b8fd3b1ede8b62e8",
+  "prediction_saved": true
+}
