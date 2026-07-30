@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SkillNet Interactive Graph</title>
+  <style>
+    :root {
+      --ink: #f7f9fc;
+      --muted: #9ba9bf;
+      --panel: rgba(14, 24, 42, .92);
+      --border: rgba(255, 255, 255, .11);
+      --brand: #a6192e;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(166, 25, 46, .21), transparent 32%),
+        radial-gradient(circle at 88% 15%, rgba(47, 105, 191, .15), transparent 30%),
+        #07101e;
+      color: var(--ink);
+      font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    .shell { width: 100%; height: 100%; padding: 14px; }
+    .panel {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(20, 31, 52, .97), rgba(8, 16, 30, .96));
+      box-shadow: 0 26px 70px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .04);
+    }
+    .toolbar {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: minmax(190px, .8fr) minmax(470px, 1.65fr) 90px;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+    .kicker, .subtitle, .stat-label, .note, .tip p { margin: 0; }
+    .kicker, .stat-label {
+      color: #8392aa;
+      font: 700 10px/1.2 Consolas, monospace;
+      letter-spacing: .13em;
+    }
+    h1 { margin: 4px 0 0; font-size: clamp(17px, 2vw, 24px); letter-spacing: -.025em; }
+    .subtitle { margin-top: 3px; color: #8e9bb0; font-size: 11px; }
+    .tabs { display: grid; grid-template-columns: repeat(5, minmax(82px, 1fr)); gap: 7px; }
+    .tab {
+      min-height: 39px;
+      padding: 7px 8px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, .04);
+      color: #aeb9ca;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .tab:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.2); color: #fff; }
+    .tab.active { border-color: var(--relation); background: color-mix(in srgb, var(--relation) 17%, transparent); color: #fff; box-shadow: inset 0 -2px 0 var(--relation); }
+    .stat { text-align: right; }
+    .stat strong { display: block; color: var(--relation); font-size: 28px; line-height: 1; }
+    .stat-label { display: block; margin-top: 4px; font-size: 8px; }
+    .stage {
+      position: relative;
+      min-height: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+    canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+    canvas:active { cursor: grabbing; }
+    .legend {
+      position: absolute;
+      top: 15px;
+      left: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-width: calc(100% - 170px);
+      pointer-events: none;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      background: rgba(5, 12, 24, .72);
+      color: #cbd4e2;
+      font-size: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--department); box-shadow: 0 0 10px var(--department); }
+    .reset {
+      position: absolute;
+      top: 15px;
+      right: 16px;
+      min-height: 31px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 9px;
+      background: rgba(5, 12, 24, .74);
+      color: #cbd4e2;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+    .note {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      padding: 7px 9px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 9px;
+      background: rgba(5,12,24,.68);
+      color: #91a0b6;
+      font-size: 10px;
+      pointer-events: none;
+    }
+    .tip {
+      position: absolute;
+      display: none;
+      min-width: 140px;
+      padding: 9px 11px;
+      transform: translate(14px, -50%);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 11px;
+      background: rgba(5,12,23,.92);
+      box-shadow: 0 12px 30px rgba(0,0,0,.32);
+      pointer-events: none;
+    }
+    .tip .title { font-size: 11px; font-weight: 750; }
+    .tip .meta { margin-top: 3px; color: #8e9bb0; font-size: 9px; }
+    @media (max-width: 760px) {
+      .shell { padding: 6px; }
+      .panel { border-radius: 14px; }
+      .toolbar { grid-template-columns: 1fr auto; gap: 8px; padding: 10px; }
+      .tabs { grid-column: 1 / -1; grid-row: 2; }
+      .subtitle { display: none; }
+      .note { display: none; }
+    }
+  </style>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <section class="panel" id="panel">
+      <header class="toolbar">
+        <div>
+          <p class="kicker">ENTERPRISE SKILL GRAPH</p>
+          <h1 id="title">全部关系</h1>
+          <p class="subtitle" id="subtitle">46 个匿名 Skill 节点 · 83 条关系</p>
+        </div>
+        <nav class="tabs" id="tabs" aria-label="关系筛选"></nav>
+        <div class="stat">
+          <strong id="count">83</strong>
+          <span class="stat-label">VISIBLE LINKS</span>
+        </div>
+      </header>
+      <div class="stage" id="stage">
+        <canvas id="graph" aria-label="可拖动的 46 节点 Skill 关系图"></canvas>
+        <div class="legend" id="legend"></div>
+        <button class="reset" id="reset" type="button">重置布局</button>
+        <p class="note">拖动节点调整布局 · 双击空白处重置 · Skill 名称已隐藏</p>
+        <div class="tip" id="tip"><p class="title"></p><p class="meta"></p></div>
+      </div>
+    </section>
+  </main>
+  <script>
+  (() => {
+    const data = {"schema_version":"2.0","skills":[{"id":"finance-budget-planning","department":"finance"},{"id":"finance-budget-check","department":"finance"},{"id":"finance-expense-request","department":"finance"},{"id":"finance-expense-review","department":"finance"},{"id":"finance-invoice-verification","department":"finance"},{"id":"finance-payment-approval","department":"finance"},{"id":"finance-accounting","department":"finance"},{"id":"finance-reporting","department":"finance"},{"id":"procurement-requirement","department":"procurement"},{"id":"procurement-supplier-search","department":"procurement"},{"id":"procurement-supplier-qualification","department":"procurement"},{"id":"procurement-rfq-generation","department":"procurement"},{"id":"procurement-quote-comparison","department":"procurement"},{"id":"procurement-supplier-scoring","department":"procurement"},{"id":"procurement-supplier-selection","department":"procurement"},{"id":"procurement-contract-generation","department":"procurement"},{"id":"procurement-purchase-order","department":"procurement"},{"id":"procurement-delivery-tracking","department":"procurement"},{"id":"procurement-delivery-acceptance","department":"procurement"},{"id":"procurement-supplier-evaluation","department":"procurement"},{"id":"technology-requirement","department":"technology"},{"id":"technology-feasibility-assessment","department":"technology"},{"id":"technology-specification-confirmation","department":"technology"},{"id":"technology-solution-design","department":"technology"},{"id":"technology-task-breakdown","department":"technology"},{"id":"technology-development-implementation","department":"technology"},{"id":"technology-test-acceptance","department":"technology"},{"id":"technology-system-release","department":"technology"},{"id":"technology-operations-maintenance","department":"technology"},{"id":"business-customer-lead","department":"business"},{"id":"business-requirement-communication","department":"business"},{"id":"business-opportunity-assessment","department":"business"},{"id":"business-solution-quotation","department":"business"},{"id":"business-negotiation","department":"business"},{"id":"business-contract-signing","department":"business"},{"id":"business-project-delivery-tracking","department":"business"},{"id":"business-acceptance","department":"business"},{"id":"business-renewal","department":"business"},{"id":"hr-job-requirement","department":"hr"},{"id":"hr-jd-generator","department":"hr"},{"id":"hr-recruitment-publish","department":"hr"},{"id":"hr-resume-screening","department":"hr"},{"id":"hr-interview-scheduling","department":"hr"},{"id":"hr-offer-generator","department":"hr"},{"id":"hr-onboarding","department":"hr"},{"id":"hr-employee-database","department":"hr"}],"contains":[{"department":"finance","children":["finance-budget-planning","finance-budget-check","finance-expense-request","finance-expense-review","finance-invoice-verification","finance-payment-approval","finance-accounting","finance-reporting"]},{"department":"procurement","children":["procurement-requirement","procurement-supplier-search","procurement-supplier-qualification","procurement-rfq-generation","procurement-quote-comparison","procurement-supplier-scoring","procurement-supplier-selection","procurement-contract-generation","procurement-purchase-order","procurement-delivery-tracking","procurement-delivery-acceptance","procurement-supplier-evaluation"]},{"department":"technology","children":["technology-requirement","technology-feasibility-assessment","technology-specification-confirmation","technology-solution-design","technology-task-breakdown","technology-development-implementation","technology-test-acceptance","technology-system-release","technology-operations-maintenance"]},{"department":"business","children":["business-customer-lead","business-requirement-communication","business-opportunity-assessment","business-solution-quotation","business-negotiation","business-contract-signing","business-project-delivery-tracking","business-acceptance","business-renewal"]},{"department":"hr","children":["hr-job-requirement","hr-jd-generator","hr-recruitment-publish","hr-resume-screening","hr-interview-scheduling","hr-offer-generator","hr-onboarding","hr-employee-database"]}],"prerequisite":[{"before":"finance-budget-planning","after":"finance-budget-check","scope":"finance"},{"before":"finance-budget-check","after":"finance-expense-request","scope":"finance"},{"before":"finance-expense-request","after":"finance-expense-review","scope":"finance"},{"before":"finance-expense-review","after":"finance-invoice-verification","scope":"finance"},{"before":"finance-invoice-verification","after":"finance-payment-approval","scope":"finance"},{"before":"finance-payment-approval","after":"finance-accounting","scope":"finance"},{"before":"finance-accounting","after":"finance-reporting","scope":"finance"},{"before":"procurement-requirement","after":"finance-budget-check","scope":"procurement"},{"before":"finance-budget-check","after":"procurement-supplier-search","scope":"procurement"},{"before":"procurement-supplier-search","after":"procurement-supplier-qualification","scope":"procurement"},{"before":"procurement-supplier-qualification","after":"procurement-rfq-generation","scope":"procurement"},{"before":"procurement-rfq-generation","after":"procurement-quote-comparison","scope":"procurement"},{"before":"procurement-quote-comparison","after":"procurement-supplier-scoring","scope":"procurement"},{"before":"procurement-supplier-scoring","after":"procurement-supplier-selection","scope":"procurement"},{"before":"procurement-supplier-selection","after":"business-negotiation","scope":"procurement"},{"before":"business-negotiation","after":"procurement-contract-generation","scope":"procurement"},{"before":"procurement-contract-generation","after":"procurement-purchase-order","scope":"procurement"},{"before":"procurement-purchase-order","after":"procurement-delivery-tracking","scope":"procurement"},{"before":"technology-requirement","after":"technology-feasibility-assessment","scope":"technology"},{"before":"technology-feasibility-assessment","after":"technology-specification-confirmation","scope":"technology"},{"before":"technology-specification-confirmation","after":"technology-solution-design","scope":"technology"},{"before":"technology-solution-design","after":"technology-task-breakdown","scope":"technology"},{"before":"technology-task-breakdown","after":"technology-development-implementation","scope":"technology"},{"before":"technology-development-implementation","after":"technology-test-acceptance","scope":"technology"},{"before":"technology-test-acceptance","after":"technology-system-release","scope":"technology"},{"before":"technology-system-release","after":"technology-operations-maintenance","scope":"technology"},{"before":"business-customer-lead","after":"business-requirement-communication","scope":"business"},{"before":"business-requirement-communication","after":"business-opportunity-assessment","scope":"business"},{"before":"business-opportunity-assessment","after":"business-solution-quotation","scope":"business"},{"before":"business-solution-quotation","after":"business-negotiation","scope":"business"},{"before":"business-negotiation","after":"business-contract-signing","scope":"business"},{"before":"business-contract-signing","after":"business-project-delivery-tracking","scope":"business"},{"before":"business-project-delivery-tracking","after":"business-acceptance","scope":"business"},{"before":"business-acceptance","after":"business-renewal","scope":"business"},{"before":"hr-job-requirement","after":"hr-jd-generator","scope":"hr"},{"before":"hr-jd-generator","after":"hr-recruitment-publish","scope":"hr"},{"before":"hr-recruitment-publish","after":"hr-resume-screening","scope":"hr"},{"before":"hr-resume-screening","after":"hr-interview-scheduling","scope":"hr"},{"before":"hr-interview-scheduling","after":"hr-offer-generator","scope":"hr"},{"before":"hr-offer-generator","after":"hr-onboarding","scope":"hr"},{"before":"hr-onboarding","after":"hr-employee-database","scope":"hr"},{"before":"technology-specification-confirmation","after":"procurement-requirement","scope":"cross-domain","condition":"external_technology_procurement"},{"before":"business-solution-quotation","after":"procurement-requirement","scope":"cross-domain","condition":"external_procurement_required"},{"before":"procurement-delivery-tracking","after":"technology-test-acceptance","scope":"cross-domain","condition":"technology_purchase"},{"before":"procurement-delivery-tracking","after":"business-acceptance","scope":"cross-domain","condition":"business_service_purchase"},{"before":"technology-test-acceptance","after":"procurement-delivery-acceptance","scope":"cross-domain","condition":"technology_acceptance_route"},{"before":"business-acceptance","after":"procurement-delivery-acceptance","scope":"cross-domain","condition":"business_acceptance_route"},{"before":"procurement-delivery-acceptance","after":"finance-invoice-verification","scope":"cross-domain"},{"before":"finance-payment-approval","after":"procurement-supplier-evaluation","scope":"cross-domain"},{"before":"hr-job-requirement","after":"finance-budget-check","scope":"cross-domain","condition":"recruitment_budget_required"},{"before":"finance-budget-check","after":"hr-jd-generator","scope":"cross-domain","condition":"recruitment_budget_approved"},{"before":"hr-offer-generator","after":"procurement-requirement","scope":"cross-domain","condition":"onboarding_equipment_required"},{"before":"procurement-delivery-acceptance","after":"hr-onboarding","scope":"cross-domain","condition":"onboarding_equipment_delivered"}],"conflict":[{"skills":["finance-budget-check","procurement-purchase-order"],"condition":"budget_not_approved"},{"skills":["finance-budget-check","hr-recruitment-publish"],"condition":"recruitment_budget_not_approved"},{"skills":["procurement-supplier-qualification","procurement-supplier-selection"],"condition":"supplier_not_qualified"},{"skills":["procurement-supplier-qualification","procurement-contract-generation"],"condition":"supplier_not_qualified"},{"skills":["technology-feasibility-assessment","technology-development-implementation"],"condition":"technology_not_feasible"},{"skills":["technology-test-acceptance","technology-system-release"],"condition":"test_not_passed"},{"skills":["procurement-delivery-acceptance","finance-invoice-verification"],"condition":"delivery_not_accepted"},{"skills":["finance-invoice-verification","finance-payment-approval"],"condition":"invoice_invalid_or_mismatched"},{"skills":["hr-job-requirement","hr-jd-generator"],"condition":"job_requirement_not_approved"},{"skills":["hr-job-requirement","hr-resume-screening"],"condition":"job_criteria_missing"},{"skills":["hr-interview-scheduling","hr-offer-generator"],"condition":"candidate_not_approved"},{"skills":["hr-offer-generator","hr-onboarding"],"condition":"offer_not_accepted"},{"skills":["business-acceptance","business-renewal"],"condition":"business_acceptance_failed"}],"mutex":[{"skills":["finance-expense-request","procurement-requirement"],"context":"same_expense"},{"skills":["technology-development-implementation","procurement-requirement"],"context":"same_technology_requirement"},{"skills":["technology-test-acceptance","business-acceptance"],"context":"single_primary_acceptance_route"},{"skills":["hr-job-requirement","procurement-requirement"],"context":"same_capability_gap"}],"enhances":[{"source":"finance-reporting","target":"finance-budget-planning","context":"historical_finance_data"},{"source":"technology-specification-confirmation","target":"procurement-rfq-generation","context":"technical_specification_available"},{"source":"procurement-supplier-qualification","target":"procurement-supplier-scoring","context":"qualification_and_risk_evidence_available"},{"source":"procurement-quote-comparison","target":"business-negotiation","context":"quotation_differences_available"},{"source":"procurement-delivery-tracking","target":"procurement-supplier-evaluation","context":"delivery_history_available"},{"source":"procurement-supplier-evaluation","target":"procurement-supplier-search","context":"historical_supplier_performance_available"},{"source":"procurement-supplier-evaluation","target":"procurement-supplier-scoring","context":"historical_supplier_performance_available"},{"source":"business-requirement-communication","target":"technology-requirement","context":"customer_requirements_available"},{"source":"technology-feasibility-assessment","target":"procurement-requirement","context":"build_or_buy_decision"},{"source":"hr-employee-database","target":"hr-job-requirement","context":"internal_skill_coverage_available"},{"source":"hr-interview-scheduling","target":"hr-employee-database","context":"authorized_interview_evidence_available"},{"source":"hr-employee-database","target":"hr-onboarding","context":"employee_and_training_data_available"},{"source":"hr-employee-database","target":"technology-task-breakdown","context":"employee_skill_and_project_history_available"}]};
+    const departments = {
+      finance: { label: "财务 Finance", color: "#4C8DE5", center: [.25, .25] },
+      procurement: { label: "采购 Procurement", color: "#D12B4A", center: [.66, .25] },
+      technology: { label: "技术 Technology", color: "#09A7B5", center: [.76, .61] },
+      business: { label: "商务 Business", color: "#F59B22", center: [.47, .74] },
+      hr: { label: "人事 HR", color: "#8A68D1", center: [.20, .62] }
+    };
+    const departmentOrder = ["finance", "procurement", "technology", "business", "hr"];
+    const relations = {
+      all: { label: "全部", title: "全部关系", color: "#E7ECF5", description: "46 个匿名 Skill 节点 · 83 条关系" },
+      prerequisite: { label: "前置", title: "前置关系", color: "#7FA6D4", description: "执行顺序与必要依赖" },
+      conflict: { label: "冲突", title: "冲突关系", color: "#FF6681", description: "不可同时成立的组合" },
+      mutex: { label: "互斥", title: "互斥关系", color: "#B091FF", description: "必须二选一的路线" },
+      enhancement: { label: "增强", title: "增强关系", color: "#28C4D5", description: "提升后续效果的连接" }
+    };
+    const edges = [
+      ...data.prerequisite.map(e => ({ source: e.before, target: e.after, type: "prerequisite", directed: true })),
+      ...data.conflict.map(e => ({ source: e.skills[0], target: e.skills[1], type: "conflict", directed: false })),
+      ...data.mutex.map(e => ({ source: e.skills[0], target: e.skills[1], type: "mutex", directed: false })),
+      ...data.enhances.map(e => ({ source: e.source, target: e.target, type: "enhancement", directed: true }))
+    ];
+    const canvas = document.getElementById("graph");
+    const stage = document.getElementById("stage");
+    const panel = document.getElementById("panel");
+    const tabs = document.getElementById("tabs");
+    const legend = document.getElementById("legend");
+    const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
+    const count = document.getElementById("count");
+    const tip = document.getElementById("tip");
+    const tipTitle = tip.querySelector(".title");
+    const tipMeta = tip.querySelector(".meta");
+    let width = 1, height = 1, dpr = 1, nodes = [], active = "all", alpha = 1, dragged = null, hovered = null;
+    let filtered = edges;
+
+    const hashUnit = value => {
+      let hash = 2166136261;
+      for (let i = 0; i < value.length; i++) { hash ^= value.charCodeAt(i); hash = Math.imul(hash, 16777619); }
+      return (hash >>> 0) / 4294967295;
+    };
+    const buildNodes = () => {
+      const seen = {};
+      return data.skills.map(skill => {
+        const index = seen[skill.department] || 0;
+        seen[skill.department] = index + 1;
+        const center = departments[skill.department].center;
+        const angle = hashUnit(skill.id + ":angle") * Math.PI * 2;
+        const radial = 42 + hashUnit(skill.id + ":radius") * Math.min(width, height) * .14;
+        return { id: skill.id, department: skill.department, index, x: center[0] * width + Math.cos(angle) * radial, y: center[1] * height + Math.sin(angle) * radial, vx: 0, vy: 0, pinned: false };
+      });
+    };
+    const reset = () => { nodes = buildNodes(); dragged = null; hovered = null; alpha = 1; tip.style.display = "none"; };
+    const setActive = type => {
+      active = type;
+      filtered = type === "all" ? edges : edges.filter(edge => edge.type === type);
+      panel.style.setProperty("--relation", relations[type].color);
+      title.textContent = relations[type].title;
+      subtitle.textContent = relations[type].description;
+      count.textContent = filtered.length;
+      tabs.querySelectorAll("button").forEach(button => button.classList.toggle("active", button.dataset.type === type));
+      alpha = 1;
+    };
+    Object.entries(relations).forEach(([type, relation]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "tab";
+      button.dataset.type = type;
+      button.style.setProperty("--relation", relation.color);
+      button.textContent = relation.label;
+      button.addEventListener("click", () => setActive(type));
+      tabs.appendChild(button);
+    });
+    departmentOrder.forEach(department => {
+      const item = document.createElement("span");
+      item.innerHTML = '<i style="--department:' + departments[department].color + '"></i>' + departments[department].label;
+      legend.appendChild(item);
+    });
+    document.getElementById("reset").addEventListener("click", reset);
+    canvas.addEventListener("dblclick", reset);
+    const resize = () => {
+      const rect = stage.getBoundingClientRect();
+      const oldWidth = width, oldHeight = height;
+      width = Math.max(320, rect.width); height = Math.max(300, rect.height); dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+      if (!nodes.length) reset();
+      else { const sx = width / oldWidth, sy = height / oldHeight; nodes.forEach(n => { n.x *= sx; n.y *= sy; }); alpha = 1; }
+    };
+    new ResizeObserver(resize).observe(stage);
+    resize();
+    const point = event => { const rect = canvas.getBoundingClientRect(); return { x: event.clientX - rect.left, y: event.clientY - rect.top }; };
+    const findNode = p => {
+      let found = null, best = 18;
+      for (const node of nodes) { const distance = Math.hypot(node.x - p.x, node.y - p.y); if (distance < best) { found = node; best = distance; } }
+      return found;
+    };
+    canvas.addEventListener("pointerdown", event => {
+      const p = point(event), node = findNode(p); if (!node) return;
+      dragged = node; node.pinned = true; node.x = p.x; node.y = p.y; node.vx = 0; node.vy = 0; alpha = .9; canvas.setPointerCapture(event.pointerId);
+    });
+    canvas.addEventListener("pointermove", event => {
+      const p = point(event);
+      if (dragged) { dragged.x = p.x; dragged.y = p.y; dragged.vx = 0; dragged.vy = 0; return; }
+      hovered = findNode(p);
+      if (!hovered) { tip.style.display = "none"; return; }
+      const connected = filtered.filter(edge => edge.source === hovered.id || edge.target === hovered.id).length;
+      tipTitle.textContent = departments[hovered.department].label + " Skill";
+      tipMeta.textContent = "节点 " + (hovered.index + 1) + " · " + connected + " 条可见关系";
+      tip.style.left = p.x + "px"; tip.style.top = p.y + "px"; tip.style.display = "block";
+    });
+    const release = event => { if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId); dragged = null; };
+    canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", release);
+    canvas.addEventListener("pointerleave", () => { if (!dragged) { hovered = null; tip.style.display = "none"; } });
+
+    const arrow = (ctx, source, target, color, opacity) => {
+      const angle = Math.atan2(target.y - source.y, target.x - source.x), radius = 8;
+      const x = target.x - Math.cos(angle) * 10, y = target.y - Math.sin(angle) * 10;
+      ctx.save(); ctx.globalAlpha = opacity; ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(x, y);
+      ctx.lineTo(x - Math.cos(angle - Math.PI / 6) * radius, y - Math.sin(angle - Math.PI / 6) * radius);
+      ctx.lineTo(x - Math.cos(angle + Math.PI / 6) * radius, y - Math.sin(angle + Math.PI / 6) * radius);
+      ctx.closePath(); ctx.fill(); ctx.restore();
+    };
+    const animate = () => {
+      const ctx = canvas.getContext("2d"), lookup = new Map(nodes.map(node => [node.id, node]));
+      const localAlpha = Math.max(alpha, dragged ? .35 : .025);
+      if (localAlpha > .026) {
+        for (let left = 0; left < nodes.length; left++) for (let right = left + 1; right < nodes.length; right++) {
+          const a = nodes[left], b = nodes[right]; let dx = b.x - a.x, dy = b.y - a.y, d2 = dx * dx + dy * dy;
+          if (d2 < 1) { dx = 1; dy = 0; d2 = 1; } const distance = Math.sqrt(d2), force = 1050 * localAlpha / Math.max(d2, 90);
+          const fx = dx / distance * force, fy = dy / distance * force;
+          if (!a.pinned || a === dragged) { a.vx -= fx; a.vy -= fy; }
+          if (!b.pinned || b === dragged) { b.vx += fx; b.vy += fy; }
+        }
+        for (const edge of filtered) {
+          const source = lookup.get(edge.source), target = lookup.get(edge.target); if (!source || !target) continue;
+          const dx = target.x - source.x, dy = target.y - source.y, distance = Math.max(1, Math.hypot(dx, dy));
+          const desired = source.department === target.department ? 86 : 150, force = (distance - desired) * .0042 * localAlpha;
+          const fx = dx / distance * force, fy = dy / distance * force;
+          if (!source.pinned || source === dragged) { source.vx += fx; source.vy += fy; }
+          if (!target.pinned || target === dragged) { target.vx -= fx; target.vy -= fy; }
+        }
+        for (const node of nodes) {
+          if (node === dragged) continue;
+          const center = departments[node.department].center;
+          node.vx += (center[0] * width - node.x) * .00032 * localAlpha;
+          node.vy += (center[1] * height - node.y) * .00032 * localAlpha;
+          node.vx += (width / 2 - node.x) * .00008 * localAlpha;
+          node.vy += (height / 2 - node.y) * .00008 * localAlpha;
+          node.vx *= .88; node.vy *= .88;
+          if (!node.pinned) { node.x += node.vx; node.y += node.vy; }
+          node.x = Math.max(26, Math.min(width - 26, node.x)); node.y = Math.max(58, Math.min(height - 24, node.y));
+        }
+        alpha = Math.max(.025, alpha * .992);
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, width, height);
+      for (const department of departmentOrder) {
+        const center = departments[department].center;
+        const gradient = ctx.createRadialGradient(center[0] * width, center[1] * height, 0, center[0] * width, center[1] * height, Math.min(width, height) * .25);
+        gradient.addColorStop(0, departments[department].color + "18"); gradient.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = gradient; ctx.fillRect(0, 0, width, height);
+      }
+      const connectedIds = new Set();
+      if (hovered) { connectedIds.add(hovered.id); filtered.forEach(edge => { if (edge.source === hovered.id) connectedIds.add(edge.target); if (edge.target === hovered.id) connectedIds.add(edge.source); }); }
+      for (const edge of filtered) {
+        const source = lookup.get(edge.source), target = lookup.get(edge.target); if (!source || !target) continue;
+        const isConnected = !hovered || edge.source === hovered.id || edge.target === hovered.id;
+        const opacity = hovered ? (isConnected ? .95 : .07) : active === "all" ? .3 : .67;
+        ctx.save(); ctx.globalAlpha = opacity; ctx.strokeStyle = relations[edge.type].color; ctx.lineWidth = isConnected && hovered ? 2.1 : 1.1;
+        if (edge.type === "conflict") ctx.setLineDash([7, 5]); if (edge.type === "mutex") ctx.setLineDash([2, 6]);
+        ctx.beginPath(); ctx.moveTo(source.x, source.y); ctx.lineTo(target.x, target.y); ctx.stroke(); ctx.restore();
+        if (edge.directed) arrow(ctx, source, target, relations[edge.type].color, opacity);
+      }
+      for (const node of nodes) {
+        const selected = !hovered || node.id === hovered.id || connectedIds.has(node.id), radius = node.id === hovered?.id ? 10 : 7;
+        ctx.save(); ctx.globalAlpha = selected ? 1 : .2; ctx.shadowColor = departments[node.department].color; ctx.shadowBlur = node.id === hovered?.id ? 23 : 11;
+        ctx.fillStyle = departments[node.department].color; ctx.strokeStyle = "#F7FAFF"; ctx.lineWidth = node.pinned ? 2.4 : 1.3;
+        ctx.beginPath(); ctx.arc(node.x, node.y, radius, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0; ctx.stroke(); ctx.restore();
+      }
+      requestAnimationFrame(animate);
+    };
+    setActive("all"); requestAnimationFrame(animate);
+    if (window.Office && window.Office.onReady) window.Office.onReady(() => {});
+  })();
+  </script>
+</body>
+</html>
