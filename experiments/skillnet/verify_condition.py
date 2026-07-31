@@ -73,10 +73,10 @@ def expected_e1_subset(repo: Path) -> dict[str, Any]:
     subset["task_count"] = len(task_ids)
     subset["tasks"] = [copy.deepcopy(by_id[task_id]) for task_id in task_ids]
     subset["subset_provenance"] = {
-        "source_gold_path": str(source_path.relative_to(repo)),
+        "source_gold_path": source_path.relative_to(repo).as_posix(),
         "source_gold_sha256": runner.sha256_file(source_path),
         "source_gold_task_count": len(source_tasks),
-        "manifest_path": str(e1_manifest_path.relative_to(repo)),
+        "manifest_path": e1_manifest_path.relative_to(repo).as_posix(),
         "manifest_sha256": runner.sha256_file(e1_manifest_path),
         "task_ids": task_ids,
         "task_records_copied_without_modification": True,
