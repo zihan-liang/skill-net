@@ -1,0 +1,26 @@
+{
+  "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent",
+    "procurement-agent"
+  ],
+  "skill_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting",
+    "procurement-supplier-evaluation"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "route_choice": {
+    "invoice_check": "finance-invoice-verification",
+    "payment_route": "finance-payment-approval",
+    "accounting_route": "finance-accounting",
+    "performance_route": "procurement-supplier-evaluation"
+  },
+  "reason": "可完成发票核验、付款审批材料、记账草案和供应商履约评价，但目录中的付款技能不执行实际付款，账务技能仅准备入账，无法满足“完成付款和入账”。"
+}

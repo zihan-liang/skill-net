@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/.venv/bin/python",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/SkillNet_Gold_Tasks_V4/evaluation/evaluate_skillnet.py",
+    "validate-package",
+    "--gold",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/SkillNet_Gold_Tasks_V4/02_Gold_Standard_21_V4.json",
+    "--output",
+    "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/A/size_46/run_02/gold_validation.json"
+  ],
+  "stdout": "{\n  \"valid\": true,\n  \"task_count\": 21,\n  \"skill_count\": 46,\n  \"errors\": [],\n  \"warnings\": []\n}\n",
+  "stderr": "",
+  "exit_code": 0
+}

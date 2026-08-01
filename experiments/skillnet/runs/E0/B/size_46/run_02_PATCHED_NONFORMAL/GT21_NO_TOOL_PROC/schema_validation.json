@@ -1,0 +1,14 @@
+{
+  "task_id": "GT21_NO_TOOL_PROC",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "45124d2e7d144fb0e307e7d7cde1c8cae0816a6b1cde094ecc4329d1c4d0b80d",
+  "prediction_saved": true,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

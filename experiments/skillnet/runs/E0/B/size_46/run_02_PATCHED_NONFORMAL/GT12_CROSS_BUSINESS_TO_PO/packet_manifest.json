@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "SkillNet_Gold_Tasks_V4/prompts/GT12_CROSS_BUSINESS_TO_PO.txt",
+      "source_sha256": "26f1d15105dff4e104bcec929d28fe63210e6769c35287e1779d0955466d1085",
+      "text_zh": "一个潜在客户线索已经进入跟进名单，该项目的交付需要购买外部业务服务。目前客户需求尚未充分确认，也没有供应商和预算结论。公司的目标是在确认商机可行后，为所需外部服务选出供应商、完成谈判和供应合同，并生成采购订单。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "9637d9991b32b019a47dca3db5c89b2b85d48f98ba20a0dc70f204741ca54764",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "cd79be6f24503bdc8c31b6f57f84f495ea510a0c01dff8e35e6fb39e9f4f791c"
+    }
+  },
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

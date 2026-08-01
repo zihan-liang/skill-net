@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT02_FIN_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "SkillNet_Gold_Tasks_V4/prompts/GT02_FIN_GOAL.txt",
+      "source_sha256": "28d67d412ae4869dd5ccdd10b16ece3be7b66ba50372ebccbf613928b0d79eac",
+      "text_zh": "本月所有已批准款项都已经支付，但还没有进入账务系统。管理层下周一需要查看本月财务报表。请规划财务部门接下来需要完成的工作。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "bca377dbf1c7dc7dcc61ad9eee275b8ed6bdb076dbd784b4925eb1cfc8dd5e33",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "cd79be6f24503bdc8c31b6f57f84f495ea510a0c01dff8e35e6fb39e9f4f791c"
+    }
+  },
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

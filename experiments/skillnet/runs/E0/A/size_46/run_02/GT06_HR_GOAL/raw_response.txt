@@ -1,0 +1,1 @@
+{"task_id":"GT06_HR_GOAL","use_skills":true,"selected_departments":["hr-agent"],"skill_sequence":["hr-jd-generator","hr-recruitment-publish","hr-resume-screening"],"final_status":"completed","blocked_by":[],"route_choice":{"department":"hr-agent","scope":"生成JD、发布职位、收集并筛选申请","stop_before":"面试安排与Offer生成"},"reason":"岗位需求和预算均已批准，应先生成并发布JD，再按岗位标准筛选申请形成面试候选名单；不进入面试或Offer阶段。"}

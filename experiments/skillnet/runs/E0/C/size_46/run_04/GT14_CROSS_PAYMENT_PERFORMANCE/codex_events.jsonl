@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb202-c25a-73a2-8957-d4d1159d764a"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT14_CROSS_PAYMENT_PERFORMANCE\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\",\"procurement-agent\"],\"skill_sequence\":[\"finance-invoice-verification\",\"finance-payment-approval\",\"finance-accounting\",\"procurement-supplier-evaluation\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"payment_accounting\":\"finance-invoice-verification->finance-payment-approval->finance-accounting\",\"supplier_performance\":\"finance-payment-approval->procurement-supplier-evaluation\"},\"reason\":\"交付验收已完成，应先核验发票，再形成付款审批并入账；付款审批后将本次履约证据纳入供应商绩效评价。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23468,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":405,"reasoning_output_tokens":254}}

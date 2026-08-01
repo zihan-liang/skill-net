@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "finance-budget-check",
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening",
+    "hr-interview-scheduling",
+    "hr-offer-generator"
+  ],
+  "skill_checks": {
+    "required": [
+      "finance-budget-check",
+      "hr-jd-generator",
+      "hr-recruitment-publish",
+      "hr-resume-screening",
+      "hr-interview-scheduling",
+      "hr-offer-generator"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "finance-agent",
+      "hr-agent"
+    ],
+    "required": [
+      "hr-agent",
+      "finance-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "finance-budget-check",
+        "after": "hr-jd-generator",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-jd-generator",
+        "after": "hr-recruitment-publish",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-recruitment-publish",
+        "after": "hr-resume-screening",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-resume-screening",
+        "after": "hr-interview-scheduling",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-interview-scheduling",
+        "after": "hr-offer-generator",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "finance-budget-check",
+        "after": "hr-jd-generator",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-jd-generator",
+        "after": "hr-recruitment-publish",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-recruitment-publish",
+        "after": "hr-resume-screening",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-resume-screening",
+        "after": "hr-interview-scheduling",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-interview-scheduling",
+        "after": "hr-offer-generator",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "hr-onboarding"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "completed",
+    "passed": false
+  },
+  "route_choice_check": {
+    "predicted": {
+      "budget_gate": "finance-budget-check",
+      "budget_available_path": "hr-jd-generator -> hr-recruitment-publish -> hr-resume-screening -> hr-interview-scheduling -> hr-offer-generator",
+      "scope_exclusion": "hr-onboarding"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [
+      "finance-budget-check"
+    ],
+    "expected": [],
+    "missing": [],
+    "extra": [
+      "finance-budget-check"
+    ],
+    "passed": false
+  },
+  "failure_tags": {
+    "primary": "WRONG_FINAL_STATUS",
+    "secondary": [],
+    "all": [
+      "WRONG_FINAL_STATUS"
+    ]
+  }
+}

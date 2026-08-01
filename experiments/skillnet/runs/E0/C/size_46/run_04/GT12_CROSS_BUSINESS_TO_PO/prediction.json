@@ -1,0 +1,34 @@
+{
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "procurement-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "business-solution-quotation",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection",
+    "business-negotiation",
+    "procurement-contract-generation",
+    "procurement-purchase-order"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "business_entry": "business-requirement-communication",
+    "cross_domain_condition": "external_procurement_required",
+    "procurement_type": "business_service_purchase",
+    "target": "procurement-purchase-order"
+  },
+  "reason": "线索已建档，先确认客户需求并评估商机；可行后形成方案与采购需求，经预算检查、寻源询价、比价评分和选商，再完成谈判、供应合同及采购订单。"
+}

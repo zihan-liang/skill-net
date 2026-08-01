@@ -1,0 +1,26 @@
+{
+  "task_id": "GT11_CROSS_RECRUIT_BUDGET_OFFER",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent",
+    "hr-agent"
+  ],
+  "skill_sequence": [
+    "finance-budget-check",
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening",
+    "hr-interview-scheduling",
+    "hr-offer-generator"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "finance-budget-check"
+  ],
+  "route_choice": {
+    "budget_gate": "finance-budget-check",
+    "budget_available_path": "hr-jd-generator -> hr-recruitment-publish -> hr-resume-screening -> hr-interview-scheduling -> hr-offer-generator",
+    "scope_exclusion": "hr-onboarding"
+  },
+  "reason": "岗位需求已审批且标准明确，无需重复发起岗位需求；招聘须先确认预算，当前预算未确认，因此由预算检查阻塞，预算可用后依次完成JD、发布、筛选、面试和Offer，暂不入职。"
+}

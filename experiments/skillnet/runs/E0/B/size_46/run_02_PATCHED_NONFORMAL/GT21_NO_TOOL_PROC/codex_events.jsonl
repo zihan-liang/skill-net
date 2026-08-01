@@ -1,0 +1,10 @@
+{"type":"thread.started","thread_id":"019fb18b-2d11-7940-9641-ffb8345c7784"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: failed to lookup address information: nodename nor servname provided, or not known)"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: failed to lookup address information: nodename nor servname provided, or not known)"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: failed to lookup address information: nodename nor servname provided, or not known)"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: failed to lookup address information: nodename nor servname provided, or not known)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: failed to lookup address information: nodename nor servname provided, or not known"}}
+{"type":"error","message":"Reconnecting... 1/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT21_NO_TOOL_PROC\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{\"choice\":\"no_tool\"},\"reason\":\"任务仅要求讲一个采购部门笑话，且明确不执行采购流程，无需调用 Catalogue 中的任何 Skill。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19753,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":76,"reasoning_output_tokens":0}}

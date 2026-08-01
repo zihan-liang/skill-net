@@ -1,0 +1,17 @@
+{
+  "task_id": "GT03_PROC_GOAL",
+  "raw_response_path": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/runs/E0/C/size_46/run_04/GT03_PROC_GOAL/raw_response.txt",
+  "raw_response_sha256": "fe1782eabe2f43efe58918819fdf3b26ebf6649c2e2747fba0332239f7fd8a84",
+  "extraction": {
+    "method": "whole_response_json",
+    "candidate_count": 1,
+    "selected_start": 0,
+    "selected_end": 500,
+    "errors": []
+  },
+  "schema_path": "SkillNet_Gold_Tasks_V4/evaluation/prediction_schema.json",
+  "schema_sha256": "fa1c552f341f86ed50db40a707cf40da6b0e1ccee83cda4fd1ca9505fe6ee1ce",
+  "schema_valid": true,
+  "errors": [],
+  "included_in_predictions_directory": true
+}

@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb1fc-4f2a-7e52-b612-a6bcdaf2d536"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT01_SINGLE\",\"use_skills\":true,\"selected_departments\":[\"procurement-agent\"],\"skill_sequence\":[\"procurement-supplier-qualification\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"supplier_check\":\"procurement-supplier-qualification\"},\"reason\":\"候选供应商名单已具备，当前仅需进行资质、合规、风险、能力和准入检查，无需搜索、询价、评分或选商。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23460,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":102,"reasoning_output_tokens":0}}

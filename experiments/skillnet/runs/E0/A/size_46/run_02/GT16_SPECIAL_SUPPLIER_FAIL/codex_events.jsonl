@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb087-1574-7dc0-bf83-e5f737fc4647"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT16_SPECIAL_SUPPLIER_FAIL\",\"use_skills\":true,\"selected_departments\":[\"procurement-agent\"],\"skill_sequence\":[\"procurement-supplier-qualification\",\"procurement-supplier-selection\",\"procurement-contract-generation\"],\"final_status\":\"blocked\",\"blocked_by\":[\"procurement-supplier-qualification\"],\"route_choice\":{\"supplier_selection\":\"不得选择不合格供应商\",\"contract_generation\":\"不得生成合同\",\"required_action\":\"重新寻源或取得授权例外批准\"},\"reason\":\"唯一候选供应商资质不合格，未形成获批选商结果，系统必须阻断选商及合同生成，业务负责人的立即确定要求不能绕过准入门禁。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19906,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":668,"reasoning_output_tokens":516}}

@@ -1,0 +1,10 @@
+{
+  "task_id": "GT14_CROSS_PAYMENT_PERFORMANCE",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "5389919f30d774368a4929399993c087507821c55efc25f41be1cd3a696abebf",
+  "prediction_saved": true
+}

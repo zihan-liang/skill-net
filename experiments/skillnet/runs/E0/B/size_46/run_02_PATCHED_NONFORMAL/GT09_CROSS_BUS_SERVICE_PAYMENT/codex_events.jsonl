@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb152-9b7c-7591-8d96-e25ba81f6870"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT09_CROSS_BUS_SERVICE_PAYMENT\",\"use_skills\":true,\"selected_departments\":[\"business-agent\",\"finance-agent\"],\"skill_sequence\":[\"business-acceptance\",\"finance-invoice-verification\",\"finance-payment-approval\",\"finance-accounting\"],\"final_status\":\"blocked\",\"blocked_by\":[\"business-acceptance\"],\"route_choice\":{\"acceptance_route\":\"business-acceptance\"},\"reason\":\"任务明确采用业务验收路线；需先由业务团队按约定确认服务成果，再进行发票核验、付款审批和账务处理。当前尚未正式验收，因此阻塞在业务验收。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20132,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":517,"reasoning_output_tokens":381}}

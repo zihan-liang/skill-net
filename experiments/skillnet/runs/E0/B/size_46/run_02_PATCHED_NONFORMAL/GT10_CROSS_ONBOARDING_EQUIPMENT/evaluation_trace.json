@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "procurement-delivery-tracking",
+    "procurement-delivery-acceptance",
+    "hr-onboarding",
+    "hr-employee-database"
+  ],
+  "skill_checks": {
+    "required": [
+      "procurement-delivery-tracking",
+      "technology-test-acceptance",
+      "procurement-delivery-acceptance",
+      "hr-onboarding",
+      "hr-employee-database"
+    ],
+    "optional": [],
+    "missing": [
+      "technology-test-acceptance"
+    ],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "procurement-agent",
+      "hr-agent"
+    ],
+    "required": [
+      "procurement-agent",
+      "technology-agent",
+      "hr-agent"
+    ],
+    "missing": [
+      "technology-agent"
+    ],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "hr-onboarding",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-onboarding",
+        "after": "hr-employee-database",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "hr-onboarding",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-onboarding",
+        "after": "hr-employee-database",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_after"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": false,
+        "reason": "missing_before"
+      }
+    ],
+    "passed": false
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "business-acceptance"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [
+      {
+        "type": "mutex_route",
+        "decision_id": "acceptance_route",
+        "expected_choice": "technical_acceptance",
+        "forbidden_route_skills": [
+          "business-acceptance"
+        ]
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "completed",
+    "passed": false
+  },
+  "route_choice_check": {
+    "predicted": {
+      "equipment_followup": "procurement-delivery-tracking",
+      "equipment_acceptance": "procurement-delivery-acceptance",
+      "employee_onboarding": "hr-onboarding",
+      "employee_archive": "hr-employee-database"
+    },
+    "expected": {
+      "acceptance_route": "technical_acceptance"
+    },
+    "passed": false
+  },
+  "blocked_checks": {
+    "predicted": [
+      "procurement-delivery-acceptance"
+    ],
+    "expected": [],
+    "missing": [],
+    "extra": [
+      "procurement-delivery-acceptance"
+    ],
+    "passed": false
+  },
+  "failure_tags": {
+    "primary": "WRONG_FINAL_STATUS",
+    "secondary": [
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION",
+      "MISSING_DEPARTMENT",
+      "WRONG_ROUTE_CHOICE"
+    ],
+    "all": [
+      "WRONG_FINAL_STATUS",
+      "MISSING_REQUIRED_SKILL",
+      "ORDER_VIOLATION",
+      "MISSING_DEPARTMENT",
+      "WRONG_ROUTE_CHOICE"
+    ]
+  }
+}

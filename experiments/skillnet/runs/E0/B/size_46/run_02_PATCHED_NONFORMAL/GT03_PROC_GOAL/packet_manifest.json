@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT03_PROC_GOAL",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "SkillNet_Gold_Tasks_V4/prompts/GT03_PROC_GOAL.txt",
+      "source_sha256": "b8be2a9f24cc504a3b7e56f5bc4e3933e64a2578f3565ab6e00b1fd3893bf4f0",
+      "text_zh": "采购需求和预算已经确认。公司目前没有候选供应商，希望最终选出一家资质、价格和综合表现都合适的供应商；本任务暂时不需要谈判、签合同或生成采购订单。请规划采购部门需要调用的 Skills。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "0e6a031aaeab478d1e85ab5a53452ba54b4f713a155ab7716c96a389cba4b226",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "cd79be6f24503bdc8c31b6f57f84f495ea510a0c01dff8e35e6fb39e9f4f791c"
+    }
+  },
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

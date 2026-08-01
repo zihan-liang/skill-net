@@ -1,0 +1,20 @@
+{
+  "task_id": "GT05_BUS_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent"
+  ],
+  "skill_sequence": [
+    "business-requirement-communication",
+    "business-opportunity-assessment",
+    "business-solution-quotation"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "discovery": "business-requirement-communication",
+    "qualification": "business-opportunity-assessment",
+    "qualified_next_step": "business-solution-quotation"
+  },
+  "reason": "先澄清需求、预算与交付预期，再评估商机；仅在值得推进时形成初步方案和报价，不进入谈判或签约。"
+}

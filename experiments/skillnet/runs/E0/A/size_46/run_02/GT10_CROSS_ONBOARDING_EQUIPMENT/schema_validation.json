@@ -1,0 +1,10 @@
+{
+  "task_id": "GT10_CROSS_ONBOARDING_EQUIPMENT",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "2f1bb2a0e0ba0c05943fad100dc6445ee6a5c5d9752fb14f131f6e96a6aa36fa",
+  "prediction_saved": true
+}

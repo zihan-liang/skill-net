@@ -1,0 +1,18 @@
+{
+  "task_id": "GT02_FIN_GOAL",
+  "use_skills": true,
+  "selected_departments": [
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "finance-accounting",
+    "finance-reporting"
+  ],
+  "final_status": "completed",
+  "blocked_by": [],
+  "route_choice": {
+    "finance-accounting": "将本月已支付款项分类、生成并核验记账草案，准备入账",
+    "finance-reporting": "基于入账数据完成现金勾稽并生成本月管理财务报表"
+  },
+  "reason": "款项已完成审批和支付，无需重复付款流程；应先补录并核验账务，再基于已入账数据生成本月财务报表。"
+}

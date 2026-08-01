@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT09_CROSS_BUS_SERVICE_PAYMENT",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "SkillNet_Gold_Tasks_V4/prompts/GT09_CROSS_BUS_SERVICE_PAYMENT.txt",
+      "source_sha256": "34918a751c8ea4cdb778eba5ad009b991c6ec24071997651d900a0da26a15f31",
+      "text_zh": "公司采购的一项外部咨询服务已经完成交付，供应商也提交了发票。业务团队尚未正式确认交付成果。公司的目标是在服务符合约定的情况下完成付款和入账，本任务采用业务验收路线。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/A_flat_catalogue.json",
+      "source_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e",
+      "embedded_json_sha256": "1aa0f3e9aca115209de6bff9b534ab8381f51d49fd7713935df16fa10cc5e264",
+      "snapshot_sha256": "2b0ad47bd9cf8d21932db3c4589f944f8fbed877de470d3e6659529b78f51d0e"
+    },
+    "child_prompt": {
+      "sha256": "cc958d29bb024f657a51cd46790f168bbb956dadda4ca33869d2a0c6a212691c",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "cd79be6f24503bdc8c31b6f57f84f495ea510a0c01dff8e35e6fb39e9f4f791c"
+    }
+  }
+}

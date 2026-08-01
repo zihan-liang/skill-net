@@ -1,0 +1,10 @@
+{
+  "task_id": "GT05_BUS_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "89ce375e1ae6845be9372b55a6b7dc1896524dce9ab6728fbb180ad63996a17b",
+  "prediction_saved": true
+}

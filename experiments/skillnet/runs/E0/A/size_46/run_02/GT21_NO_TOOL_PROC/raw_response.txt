@@ -1,0 +1,1 @@
+{"task_id":"GT21_NO_TOOL_PROC","use_skills":false,"selected_departments":[],"skill_sequence":[],"final_status":"no_tool","blocked_by":[],"route_choice":{},"reason":"任务仅要求讲一个采购部门笑话，并明确无需执行采购流程，因此不需要调用 Catalogue 中的业务 Skill。"}

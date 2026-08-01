@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "finance-invoice-verification",
+    "finance-payment-approval"
+  ],
+  "skill_checks": {
+    "required": [],
+    "optional": [],
+    "missing": [],
+    "extra": [
+      "finance-invoice-verification",
+      "finance-payment-approval"
+    ]
+  },
+  "department_checks": {
+    "selected": [
+      "finance-agent"
+    ],
+    "required": [
+      "finance-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [],
+    "results": [],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "finance-payment-approval",
+      "finance-accounting"
+    ],
+    "hits": [
+      "finance-payment-approval"
+    ],
+    "passed": false
+  },
+  "conflict_checks": {
+    "constraints": [
+      {
+        "type": "conflict_block",
+        "trigger_skill": "finance-invoice-verification",
+        "trigger_results": [
+          "invalid",
+          "mismatch"
+        ],
+        "blocked_skills": [
+          "finance-payment-approval",
+          "finance-accounting"
+        ]
+      }
+    ],
+    "violations": [
+      {
+        "trigger_skill": "finance-invoice-verification",
+        "trigger_result": "invalid",
+        "blocked_skills_called": [
+          "finance-payment-approval"
+        ]
+      }
+    ],
+    "passed": false
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "blocked",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "verification": "finance-invoice-verification",
+      "payment_gate": "finance-payment-approval"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [
+      "finance-invoice-verification"
+    ],
+    "expected": [
+      "finance-invoice-verification"
+    ],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": "CONFLICT_VIOLATION",
+    "secondary": [
+      "FORBIDDEN_SKILL_VIOLATION",
+      "REPEATED_COMPLETED_SKILL",
+      "CONTINUE_AFTER_BLOCK",
+      "UNNECESSARY_SKILL"
+    ],
+    "all": [
+      "CONFLICT_VIOLATION",
+      "FORBIDDEN_SKILL_VIOLATION",
+      "REPEATED_COMPLETED_SKILL",
+      "CONTINUE_AFTER_BLOCK",
+      "UNNECESSARY_SKILL"
+    ]
+  }
+}

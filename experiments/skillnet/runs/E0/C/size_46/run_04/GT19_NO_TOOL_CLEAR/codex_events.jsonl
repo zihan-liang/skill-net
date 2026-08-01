@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb205-2f03-7990-b8e4-325ca5711be9"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 3/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 4/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"error","message":"Reconnecting... 5/5 (stream disconnected before completion: Connection reset by peer (os error 54))"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. stream disconnected before completion: Connection reset by peer (os error 54)"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT19_NO_TOOL_CLEAR\",\"use_skills\":false,\"selected_departments\":[],\"skill_sequence\":[],\"final_status\":\"no_tool\",\"blocked_by\":[],\"route_choice\":{},\"reason\":\"当前 Catalogue 中没有适用于讲轻松笑话的 Skill，因此无需路由到任何部门或 Skill。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23426,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":70,"reasoning_output_tokens":0}}

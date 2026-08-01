@@ -1,0 +1,173 @@
+{
+  "configuration": "B",
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": false,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 0.923077,
+  "skill_recall": 0.857143,
+  "skill_f1": 0.888889,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 0.769231,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 0.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 13,
+  "required_skill_count": 14,
+  "unnecessary_skill_count": 1,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "business-opportunity-assessment",
+    "business-solution-quotation"
+  ],
+  "extra_skills": [
+    "business-customer-lead"
+  ],
+  "hard_order_results": [
+    {
+      "before": "business-requirement-communication",
+      "after": "business-opportunity-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "technology-requirement",
+      "after": "technology-feasibility-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "technology-feasibility-assessment",
+      "after": "technology-specification-confirmation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "technology-specification-confirmation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-requirement",
+      "after": "finance-budget-check",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "procurement-supplier-search",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-search",
+      "after": "procurement-supplier-qualification",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-qualification",
+      "after": "procurement-rfq-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-rfq-generation",
+      "after": "procurement-quote-comparison",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-quote-comparison",
+      "after": "procurement-supplier-scoring",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-scoring",
+      "after": "procurement-supplier-selection",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "business-requirement-communication",
+      "after": "business-opportunity-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [
+    "business-customer-lead"
+  ],
+  "aliases_used": [],
+  "primary_failure": "WRONG_FINAL_STATUS",
+  "secondary_failures": [
+    "MISSING_REQUIRED_SKILL",
+    "ORDER_VIOLATION",
+    "REPEATED_COMPLETED_SKILL",
+    "UNNECESSARY_SKILL"
+  ],
+  "model_reason": "仅有客户线索，须先完成客户需求沟通；需求未确认使后续技术定向、预算核查及供应商选商链路暂时阻塞，且路线明确排除客户合同、供应合同和采购订单。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/B/size_46/run_02_PATCHED_NONFORMAL/predictions/GT07_CROSS_CUSTOM_TECH_SUPPLIER.json",
+  "source_line": ""
+}

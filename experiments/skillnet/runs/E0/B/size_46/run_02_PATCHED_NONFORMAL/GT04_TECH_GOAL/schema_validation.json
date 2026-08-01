@@ -1,0 +1,14 @@
+{
+  "task_id": "GT04_TECH_GOAL",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "8df900870ed7f69f1b266e994ece3338355e7c2ffc737844394d0a9fd5b93e39",
+  "prediction_saved": true,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

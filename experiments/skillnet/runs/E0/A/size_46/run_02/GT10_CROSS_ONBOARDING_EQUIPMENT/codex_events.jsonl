@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb07a-7d26-7051-a319-e5e626da7080"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT10_CROSS_ONBOARDING_EQUIPMENT\",\"use_skills\":true,\"selected_departments\":[\"procurement-agent\",\"hr-agent\"],\"skill_sequence\":[\"procurement-delivery-tracking\",\"procurement-delivery-acceptance\",\"hr-onboarding\",\"hr-employee-database\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"equipment_tracking\":\"procurement-delivery-tracking\",\"equipment_acceptance\":\"procurement-delivery-acceptance\",\"employee_onboarding\":\"hr-onboarding\",\"employee_archiving\":\"hr-employee-database\"},\"reason\":\"采购订单已生成，应先跟踪设备交付并完成验收；Offer已接受，可衔接入职准备，最后将员工信息归档。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19927,"cached_input_tokens":6912,"cache_write_input_tokens":0,"output_tokens":1103,"reasoning_output_tokens":945}}

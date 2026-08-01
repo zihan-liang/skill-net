@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT18_SPECIAL_BUILD_OR_BUY",
+  "configuration": "B",
+  "catalogue_size": 46,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "delivery": {
+    "child_prompt": "stdin",
+    "raw_response": "codex --output-last-message",
+    "cli_events": "codex --json stdout"
+  },
+  "child_working_directory": {
+    "temporary": true,
+    "contents_at_launch": [],
+    "symlinks": []
+  },
+  "child_visible_inputs": [
+    "current_chinese_task",
+    "selected_catalogue",
+    "fixed_prediction_json_contract",
+    "non_answer_metadata"
+  ],
+  "child_hidden_inputs": [
+    "Gold",
+    "deterministic_evaluator",
+    "canonical_Skills",
+    "other_tasks",
+    "other_catalogues",
+    "standalone_relations",
+    "prior_results"
+  ],
+  "inputs": {
+    "task_prompt": {
+      "source": "SkillNet_Gold_Tasks_V4/prompts/GT18_SPECIAL_BUILD_OR_BUY.txt",
+      "source_sha256": "7367532c77ffbf7779aaa4487e20d67db578bb8da159f8f62fa61e731031009b",
+      "text_zh": "公司已经决定对同一个技术需求采用内部开发，不能再采购外部技术服务。技术需求已经识别，目标是完成到技术测试验收为止的内部开发路线。请规划应调用的 Skills。"
+    },
+    "catalogue": {
+      "source": "skillnet_run_guide_v1_1/catalogues/size_46/B_department_grouped_catalogue.json",
+      "source_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c",
+      "embedded_json_sha256": "694c215018a436e1b05aa1104361a071df9442e6ff6578dc40e9d2e03b8367eb",
+      "snapshot_sha256": "077237c0ced54c4f51b7bd252838af7e282b70e1b8dd7207be1ab31f34adfc4c"
+    },
+    "child_prompt": {
+      "sha256": "d5112afc23a4396c7d1ef8b471e26530e4ea9e9e7a3f8a5d1eac39aa554afacd",
+      "assembled_by": "experiments/skillnet/run_condition.py",
+      "assembler_sha256": "cd79be6f24503bdc8c31b6f57f84f495ea510a0c01dff8e35e6fb39e9f4f791c"
+    }
+  },
+  "formal_eligible": false,
+  "patch_source_run_id": "run_02",
+  "patched_nonformal": true,
+  "source_run_id": "run_02_patch_gt17_gt20_NONFORMAL"
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "GT07_CROSS_CUSTOM_TECH_SUPPLIER",
+  "use_skills": true,
+  "selected_departments": [
+    "business-agent",
+    "technology-agent",
+    "procurement-agent",
+    "finance-agent"
+  ],
+  "skill_sequence": [
+    "business-customer-lead",
+    "business-requirement-communication",
+    "technology-requirement",
+    "technology-feasibility-assessment",
+    "technology-specification-confirmation",
+    "procurement-requirement",
+    "finance-budget-check",
+    "procurement-supplier-search",
+    "procurement-supplier-qualification",
+    "procurement-rfq-generation",
+    "procurement-quote-comparison",
+    "procurement-supplier-scoring",
+    "procurement-supplier-selection"
+  ],
+  "final_status": "blocked",
+  "blocked_by": [
+    "business-requirement-communication"
+  ],
+  "route_choice": {
+    "start": "business-customer-lead",
+    "current_gate": "business-requirement-communication",
+    "target": "procurement-supplier-selection",
+    "excluded": "business-contract-signing,procurement-contract-generation,procurement-purchase-order"
+  },
+  "reason": "仅有客户线索，须先完成客户需求沟通；需求未确认使后续技术定向、预算核查及供应商选商链路暂时阻塞，且路线明确排除客户合同、供应合同和采购订单。"
+}

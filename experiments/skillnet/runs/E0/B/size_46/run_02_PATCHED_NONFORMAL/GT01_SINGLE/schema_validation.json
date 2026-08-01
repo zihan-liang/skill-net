@@ -1,0 +1,14 @@
+{
+  "task_id": "GT01_SINGLE",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "3c84f0a9b7d2495ed7da26695a289459586e8c947ebab46d477f33c650a52feb",
+  "prediction_saved": true,
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "formal_eligible": false,
+  "patched_nonformal": true,
+  "source_run_id": "run_02"
+}

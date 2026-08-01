@@ -1,0 +1,173 @@
+{
+  "configuration": "B",
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "task_id": "GT12_CROSS_BUSINESS_TO_PO",
+  "category": "cross_department_goal",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": false,
+  "no_tool_correct": "",
+  "blocked_flow_correct": "",
+  "skill_precision": 1.0,
+  "skill_recall": 0.928571,
+  "skill_f1": 0.962963,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 0.785714,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 0.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 13,
+  "required_skill_count": 14,
+  "unnecessary_skill_count": 0,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [
+    "business-solution-quotation"
+  ],
+  "extra_skills": [],
+  "hard_order_results": [
+    {
+      "before": "business-requirement-communication",
+      "after": "business-opportunity-assessment",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "procurement-requirement",
+      "after": "finance-budget-check",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "finance-budget-check",
+      "after": "procurement-supplier-search",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-search",
+      "after": "procurement-supplier-qualification",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-qualification",
+      "after": "procurement-rfq-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-rfq-generation",
+      "after": "procurement-quote-comparison",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-quote-comparison",
+      "after": "procurement-supplier-scoring",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-supplier-scoring",
+      "after": "procurement-supplier-selection",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "business-negotiation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "procurement-supplier-selection",
+      "after": "business-negotiation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "business-negotiation",
+      "after": "procurement-contract-generation",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    },
+    {
+      "before": "procurement-contract-generation",
+      "after": "procurement-purchase-order",
+      "constraint_type": "mandatory_order",
+      "satisfied": true,
+      "reason": "correct_order"
+    }
+  ],
+  "unsatisfied_order_pairs": [
+    {
+      "before": "business-opportunity-assessment",
+      "after": "business-solution-quotation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_after"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "procurement-requirement",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    },
+    {
+      "before": "business-solution-quotation",
+      "after": "business-negotiation",
+      "constraint_type": "mandatory_order",
+      "satisfied": false,
+      "reason": "missing_before"
+    }
+  ],
+  "forbidden_hits": [],
+  "conflict_violations": [],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [],
+  "aliases_used": [],
+  "primary_failure": "WRONG_FINAL_STATUS",
+  "secondary_failures": [
+    "MISSING_REQUIRED_SKILL",
+    "ORDER_VIOLATION"
+  ],
+  "model_reason": "客户需求尚未确认，当前先阻塞于需求沟通；确认需求并通过商机评估后，再依次完成采购需求、预算检查、寻源选商、谈判、供应合同和采购订单。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/B/size_46/run_02_PATCHED_NONFORMAL/predictions/GT12_CROSS_BUSINESS_TO_PO.json",
+  "source_line": ""
+}

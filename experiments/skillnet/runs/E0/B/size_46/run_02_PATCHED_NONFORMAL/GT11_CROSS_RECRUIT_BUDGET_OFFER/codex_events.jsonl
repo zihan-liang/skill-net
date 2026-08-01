@@ -1,0 +1,10 @@
+{"type":"thread.started","thread_id":"019fb156-6ae7-78c1-96b2-ef42e816b8cd"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"error","message":"Reconnecting... 1/5 (stream disconnected before completion: Transport error: network error: error decoding response body)"}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT11_CROSS_RECRUIT_BUDGET_OFFER\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\",\"hr-agent\"],\"skill_sequence\":[\"finance-budget-check\",\"hr-jd-generator\",\"hr-recruitment-publish\",\"hr-resume-screening\",\"hr-interview-scheduling\",\"hr-offer-generator\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-budget-check\"],\"route_choice\":{\"budget_gate\":\"finance-budget-check\",\"budget_available_path\":\"hr-jd-generator -> hr-recruitment-publish -> hr-resume-screening -> hr-interview-scheduling -> hr-offer-generator\",\"scope_exclusion\":\"hr-onboarding\"},\"reason\":\"岗位需求已审批且标准明确，无需重复发起岗位需求；招聘须先确认预算，当前预算未确认，因此由预算检查阻塞，预算可用后依次完成JD、发布、筛选、面试和Offer，暂不入职。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20143,"cached_input_tokens":19200,"cache_write_input_tokens":0,"output_tokens":477,"reasoning_output_tokens":276}}

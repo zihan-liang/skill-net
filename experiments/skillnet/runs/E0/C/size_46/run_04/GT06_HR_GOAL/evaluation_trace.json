@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT06_HR_GOAL",
+  "configuration": "C",
+  "catalogue_size": 46,
+  "run_id": "run_04",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "hr-jd-generator",
+    "hr-recruitment-publish",
+    "hr-resume-screening"
+  ],
+  "skill_checks": {
+    "required": [
+      "hr-jd-generator",
+      "hr-recruitment-publish",
+      "hr-resume-screening"
+    ],
+    "optional": [],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "hr-agent"
+    ],
+    "required": [
+      "hr-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "hr-jd-generator",
+        "after": "hr-recruitment-publish",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "hr-recruitment-publish",
+        "after": "hr-resume-screening",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "hr-jd-generator",
+        "after": "hr-recruitment-publish",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "hr-recruitment-publish",
+        "after": "hr-resume-screening",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "hr-interview-scheduling",
+      "hr-offer-generator",
+      "hr-onboarding"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "completed",
+    "expected": "completed",
+    "passed": true
+  },
+  "route_choice_check": {
+    "predicted": {
+      "route": "approved-role-to-shortlist",
+      "stop_at": "hr-resume-screening"
+    },
+    "expected": {},
+    "passed": true
+  },
+  "blocked_checks": {
+    "predicted": [],
+    "expected": [],
+    "missing": [],
+    "extra": [],
+    "passed": true
+  },
+  "failure_tags": {
+    "primary": null,
+    "secondary": [],
+    "all": []
+  }
+}

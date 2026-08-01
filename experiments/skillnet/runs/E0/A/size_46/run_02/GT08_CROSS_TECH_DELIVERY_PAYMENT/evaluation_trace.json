@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "E0",
+  "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+  "configuration": "A",
+  "catalogue_size": 46,
+  "run_id": "run_02",
+  "prediction_available_to_evaluator": true,
+  "predicted_sequence": [
+    "procurement-delivery-tracking",
+    "technology-test-acceptance",
+    "procurement-delivery-acceptance",
+    "finance-invoice-verification",
+    "finance-payment-approval",
+    "finance-accounting"
+  ],
+  "skill_checks": {
+    "required": [
+      "procurement-delivery-tracking",
+      "technology-test-acceptance",
+      "procurement-delivery-acceptance",
+      "finance-invoice-verification",
+      "finance-payment-approval",
+      "finance-accounting"
+    ],
+    "optional": [
+      "procurement-supplier-evaluation"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "department_checks": {
+    "selected": [
+      "procurement-agent",
+      "technology-agent",
+      "finance-agent"
+    ],
+    "required": [
+      "procurement-agent",
+      "technology-agent",
+      "finance-agent"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  "hard_order_checks": {
+    "constraints": [
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "finance-invoice-verification",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "finance-invoice-verification",
+        "after": "finance-payment-approval",
+        "constraint_type": "mandatory_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "finance-accounting",
+        "constraint_type": "mandatory_order"
+      }
+    ],
+    "results": [
+      {
+        "before": "procurement-delivery-tracking",
+        "after": "technology-test-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "technology-test-acceptance",
+        "after": "procurement-delivery-acceptance",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "procurement-delivery-acceptance",
+        "after": "finance-invoice-verification",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "finance-invoice-verification",
+        "after": "finance-payment-approval",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      },
+      {
+        "before": "finance-payment-approval",
+        "after": "finance-accounting",
+        "constraint_type": "mandatory_order",
+        "satisfied": true,
+        "reason": "correct_order"
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "forbidden_checks": {
+    "forbid_all_skills": false,
+    "forbidden": [
+      "business-acceptance"
+    ],
+    "hits": [],
+    "passed": true
+  },
+  "conflict_checks": {
+    "constraints": [],
+    "violations": [],
+    "passed": true
+  },
+  "mutex_checks": {
+    "constraints": [
+      {
+        "type": "mutex_route",
+        "decision_id": "acceptance_route",
+        "expected_choice": "technical_acceptance",
+        "forbidden_route_skills": [
+          "business-acceptance"
+        ]
+      }
+    ],
+    "violations": [],
+    "passed": true
+  },
+  "final_status_check": {
+    "predicted": "blocked",
+    "expected": "completed",
+    "passed": false
+  },
+  "route_choice_check": {
+    "predicted": {
+      "delivery_tracking": "procurement-delivery-tracking",
+      "technical_acceptance": "technology-test-acceptance",
+      "goods_acceptance": "procurement-delivery-acceptance",
+      "invoice_check": "finance-invoice-verification",
+      "payment_control": "finance-payment-approval",
+      "posting": "finance-accounting"
+    },
+    "expected": {
+      "acceptance_route": "technical_acceptance"
+    },
+    "passed": false
+  },
+  "blocked_checks": {
+    "predicted": [
+      "technology-test-acceptance"
+    ],
+    "expected": [],
+    "missing": [],
+    "extra": [
+      "technology-test-acceptance"
+    ],
+    "passed": false
+  },
+  "failure_tags": {
+    "primary": "WRONG_FINAL_STATUS",
+    "secondary": [
+      "WRONG_ROUTE_CHOICE"
+    ],
+    "all": [
+      "WRONG_FINAL_STATUS",
+      "WRONG_ROUTE_CHOICE"
+    ]
+  }
+}

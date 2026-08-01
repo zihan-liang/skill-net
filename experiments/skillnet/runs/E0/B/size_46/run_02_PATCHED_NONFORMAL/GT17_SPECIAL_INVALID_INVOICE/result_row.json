@@ -1,0 +1,67 @@
+{
+  "configuration": "B",
+  "run_id": "run_02_PATCHED_NONFORMAL",
+  "task_id": "GT17_SPECIAL_INVALID_INVOICE",
+  "category": "special_constraint",
+  "difficulty": "hard",
+  "format_valid": true,
+  "functional_success": false,
+  "clean_success": false,
+  "use_skills_correct": true,
+  "final_status_correct": true,
+  "no_tool_correct": "",
+  "blocked_flow_correct": false,
+  "skill_precision": 0.0,
+  "skill_recall": 1.0,
+  "skill_f1": 0.0,
+  "department_precision": 1.0,
+  "department_recall": 1.0,
+  "department_f1": 1.0,
+  "required_order_accuracy": 1.0,
+  "gold_constraint_violated": true,
+  "blocked_reason_f1": 1.0,
+  "route_choice_correct": true,
+  "predicted_skill_count": 2,
+  "required_skill_count": 0,
+  "unnecessary_skill_count": 2,
+  "unknown_skills": [],
+  "unknown_blockers": [],
+  "unknown_departments": [],
+  "missing_required_skills": [],
+  "extra_skills": [
+    "finance-invoice-verification",
+    "finance-payment-approval"
+  ],
+  "hard_order_results": [],
+  "unsatisfied_order_pairs": [],
+  "forbidden_hits": [
+    "finance-payment-approval"
+  ],
+  "conflict_violations": [
+    {
+      "trigger_skill": "finance-invoice-verification",
+      "trigger_result": "invalid",
+      "blocked_skills_called": [
+        "finance-payment-approval"
+      ]
+    }
+  ],
+  "mutex_violations": [],
+  "missing_departments": [],
+  "extra_departments": [],
+  "duplicate_skills": [],
+  "repeated_initial_skills": [
+    "finance-invoice-verification"
+  ],
+  "aliases_used": [],
+  "primary_failure": "CONFLICT_VIOLATION",
+  "secondary_failures": [
+    "FORBIDDEN_SKILL_VIOLATION",
+    "REPEATED_COMPLETED_SKILL",
+    "CONTINUE_AFTER_BLOCK",
+    "UNNECESSARY_SKILL"
+  ],
+  "model_reason": "发票无效或与合同、订单不匹配，未满足付款审批所需的已核验发票前提；即使交付已验收，也应阻止付款并要求更正发票及匹配差异。",
+  "source_file": "/Users/liangzihan/Documents/Codex/SJTU_summer_school/skill-net/experiments/skillnet/results/E0/B/size_46/run_02_PATCHED_NONFORMAL/predictions/GT17_SPECIAL_INVALID_INVOICE.json",
+  "source_line": ""
+}

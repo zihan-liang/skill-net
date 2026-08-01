@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb14c-b041-73f3-9cdc-338ab5fb84fe"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT06_HR_GOAL\",\"use_skills\":true,\"selected_departments\":[\"hr-agent\"],\"skill_sequence\":[\"hr-jd-generator\",\"hr-recruitment-publish\",\"hr-resume-screening\"],\"final_status\":\"completed\",\"blocked_by\":[],\"route_choice\":{\"job_description\":\"hr-jd-generator\",\"job_publication\":\"hr-recruitment-publish\",\"candidate_shortlist\":\"hr-resume-screening\"},\"reason\":\"岗位需求与预算均已批准，应依次生成JD、发布职位并按岗位标准筛选申请形成候选人名单；不包含面试安排或Offer生成。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20125,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":316,"reasoning_output_tokens":181}}

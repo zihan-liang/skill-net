@@ -1,0 +1,9 @@
+{"type":"thread.started","thread_id":"019fb089-3389-7a10-a159-8fe1dfdfc524"}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 3/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 4/5 (request timed out)"}
+{"type":"error","message":"Reconnecting... 5/5 (request timed out)"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Falling back from WebSockets to HTTPS transport. request timed out"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"{\"task_id\":\"GT17_SPECIAL_INVALID_INVOICE\",\"use_skills\":true,\"selected_departments\":[\"finance-agent\"],\"skill_sequence\":[\"finance-invoice-verification\",\"finance-payment-approval\"],\"final_status\":\"blocked\",\"blocked_by\":[\"finance-invoice-verification\"],\"route_choice\":{\"invoice_disposition\":\"invalid_or_mismatched\",\"payment_disposition\":\"hold\"},\"reason\":\"发票无效或与合同、订单不匹配，未满足付款审批的已核验发票前置条件，系统应阻止付款并等待更正。\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":19905,"cached_input_tokens":9984,"cache_write_input_tokens":0,"output_tokens":316,"reasoning_output_tokens":195}}

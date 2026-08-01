@@ -1,0 +1,10 @@
+{
+  "task_id": "GT08_CROSS_TECH_DELIVERY_PAYMENT",
+  "raw_response_exists": true,
+  "direct_json_parse": true,
+  "schema_valid": true,
+  "task_id_match": true,
+  "errors": [],
+  "raw_response_sha256": "b60ee82786e4d9c8d44f08df0a5233a50ff39b1cc1336135d1d170ed075d122e",
+  "prediction_saved": true
+}
